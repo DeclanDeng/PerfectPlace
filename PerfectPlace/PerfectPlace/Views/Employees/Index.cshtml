@@ -1,0 +1,78 @@
+﻿@*@using System.Data.SqlClient
+@model IEnumerable<PerfectPlace.Models.Employee>*@
+
+@model PagedList.IPagedList<PerfectPlace.Models.Employee>
+@using System.Data.SqlClient
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
+
+@{
+    ViewBag.Title = "Employees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Employees</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    
+    @using (Html.BeginForm("Index","Employees", FormMethod.Get))
+    {
+        <p>Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new {@style="background-color: #ffffff; width:150px"})
+            <input style="width: 100px" type="submit" value="Search"></p>
+        
+    }
+
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                @Html.ActionLink("Name","Index", new{ sortOrder = ViewBag.NameSortParm, currentFilter=ViewBag.CurrentFilter})
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Age)*@
+                @Html.ActionLink("Age", "Index", new { sortOrder = ViewBag.AgeSortParm, currentFilter = ViewBag.CurrentFilter})
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Email)*@
+                Email
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ContactNo)*@
+                ContactNo
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNo)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    
+    @Html.PagedListPager(Model, page=>Url.Action("Index", new{page, SortOrder=ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter}))
+</div>
+<br /><br /><br /><br /><br /><br /><br />

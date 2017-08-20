@@ -1,0 +1,766 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Suburb.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="suburb_info">
+          <Key>
+            <PropertyRef Name="suburb_id" />
+          </Key>
+          <Property Name="community_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="50" />
+          <Property Name="map_reference" Type="int" />
+          <Property Name="grid_reference" Type="varchar" MaxLength="50" />
+          <Property Name="location" Type="varchar" MaxLength="50" />
+          <Property Name="population_density" Type="int" />
+          <Property Name="travel_time_gpo" Type="int" />
+          <Property Name="distance_to_gpo" Type="int" />
+          <Property Name="lga" Type="varchar" MaxLength="50" />
+          <Property Name="primary_care_partnership" Type="varchar" MaxLength="100" />
+          <Property Name="medicare_local" Type="varchar" MaxLength="100" />
+          <Property Name="area" Type="int" />
+          <Property Name="aria_min" Type="int" />
+          <Property Name="aria_max" Type="int" />
+          <Property Name="aria_avg" Type="int" />
+          <Property Name="abs_remoteness_category" Type="varchar" MaxLength="50" />
+          <Property Name="dhs_area" Type="varchar" MaxLength="50" />
+          <Property Name="commercial" Type="int" />
+          <Property Name="commercial_percent" Type="int" />
+          <Property Name="industrial" Type="int" />
+          <Property Name="industrial_percent" Type="int" />
+          <Property Name="residential" Type="int" />
+          <Property Name="residential_percent" Type="int" />
+          <Property Name="rural" Type="int" />
+          <Property Name="rural_percent" Type="int" />
+          <Property Name="other" Type="int" />
+          <Property Name="other_percent" Type="int" />
+          <Property Name="erp_age_0_4_2012" Type="int" />
+          <Property Name="erp_age_0_4_percent_2012" Type="int" />
+          <Property Name="erp_age_5_9_2012" Type="int" />
+          <Property Name="erp_age_5_9_percent_2012" Type="int" />
+          <Property Name="erp_age_10_14_2012" Type="int" />
+          <Property Name="erp_age_10_14_percent_2012" Type="int" />
+          <Property Name="erp_age_15_19_2012" Type="int" />
+          <Property Name="erp_age_15_19_percent_2012" Type="int" />
+          <Property Name="erp_age_20_24_2012" Type="int" />
+          <Property Name="erp_age_20_24_percent_2012" Type="int" />
+          <Property Name="erp_age_25_44_2012" Type="int" />
+          <Property Name="erp_age_25_44_percent_2012" Type="int" />
+          <Property Name="erp_age_45_64_2012" Type="int" />
+          <Property Name="erp_age_45_64_percent_2012" Type="int" />
+          <Property Name="erp_age_65_69_2012" Type="int" />
+          <Property Name="erp_age_65_69_percent_2012" Type="int" />
+          <Property Name="erp_age_70_74_2012" Type="int" />
+          <Property Name="erp_age_70_74_percent_2012" Type="int" />
+          <Property Name="erp_age_75_79_2012" Type="int" />
+          <Property Name="erp_age_75_79_percent_2012" Type="int" />
+          <Property Name="erp_age_80_84_2012" Type="int" />
+          <Property Name="erp_age_80_84_percent_2012" Type="int" />
+          <Property Name="erp_age_85_plus_2012" Type="int" />
+          <Property Name="erp_age_85_plus_percent_2012" Type="int" />
+          <Property Name="erp_total_2012" Type="int" />
+          <Property Name="erp_age_0_4_2007" Type="int" />
+          <Property Name="erp_age_0_4_percent_2007" Type="int" />
+          <Property Name="erp_age_5_9_2007" Type="int" />
+          <Property Name="erp_age_5_9_percent_2007" Type="int" />
+          <Property Name="erp_age_10_14_2007" Type="int" />
+          <Property Name="erp_age_10_14_percent_2007" Type="int" />
+          <Property Name="erp_age_15_19_2007" Type="int" />
+          <Property Name="erp_age_15_19_percent_2007" Type="int" />
+          <Property Name="erp_age_20_24_2007" Type="int" />
+          <Property Name="erp_age_20_24_percent_2007" Type="int" />
+          <Property Name="erp_age_25_44_2007" Type="int" />
+          <Property Name="erp_age_25_44_percent_2007" Type="int" />
+          <Property Name="erp_age_45_64_2007" Type="int" />
+          <Property Name="erp_age_45_64_percent_2007" Type="int" />
+          <Property Name="erp_age_65_69_2007" Type="int" />
+          <Property Name="erp_age_65_69_percent_2007" Type="int" />
+          <Property Name="erp_age_70_74_2007" Type="int" />
+          <Property Name="erp_age_70_74_percent_2007" Type="int" />
+          <Property Name="erp_age_75_79_2007" Type="int" />
+          <Property Name="erp_age_75_79_percent_2007" Type="int" />
+          <Property Name="erp_age_80_84_2007" Type="int" />
+          <Property Name="erp_age_80_84_percent_2007" Type="int" />
+          <Property Name="erp_age_85_plus_2007" Type="int" />
+          <Property Name="erp_age_85_plus_percent_2007" Type="int" />
+          <Property Name="erp_total_2007" Type="int" />
+          <Property Name="change_2007_2012_age_0_4" Type="int" />
+          <Property Name="change_2007_2012_age_5_9" Type="int" />
+          <Property Name="change_2007_2012_age_10_14" Type="int" />
+          <Property Name="change_2007_2012_age_15_19" Type="int" />
+          <Property Name="change_2007_2012_age_20_24" Type="int" />
+          <Property Name="change_2007_2012_age_25_44" Type="int" />
+          <Property Name="change_2007_2012_age_45_64" Type="int" />
+          <Property Name="change_2007_2012_age_65_69" Type="int" />
+          <Property Name="change_2007_2012_age_70_74" Type="int" />
+          <Property Name="change_2007_2012_age_75_79" Type="int" />
+          <Property Name="change_2007_2012_age_80_84" Type="int" />
+          <Property Name="change_2007_2012_age_85_plus" Type="int" />
+          <Property Name="change_2007_2012_total" Type="int" />
+          <Property Name="public_hospitals" Type="int" />
+          <Property Name="private_hospitals" Type="int" />
+          <Property Name="community_health_centres" Type="int" />
+          <Property Name="bush_nursing_centres" Type="int" />
+          <Property Name="allied_health" Type="int" />
+          <Property Name="alternative_health" Type="int" />
+          <Property Name="child_protection_and_family" Type="int" />
+          <Property Name="dental" Type="int" />
+          <Property Name="disability" Type="int" />
+          <Property Name="general_practice" Type="int" />
+          <Property Name="homelessness" Type="int" />
+          <Property Name="mental_health" Type="int" />
+          <Property Name="pharmacies" Type="int" />
+          <Property Name="aged_care_high_care" Type="int" />
+          <Property Name="aged_care_low_care" Type="int" />
+          <Property Name="aged_care_srs" Type="int" />
+          <Property Name="childcare" Type="int" />
+          <Property Name="primary_schools" Type="int" />
+          <Property Name="secondary_schools" Type="int" />
+          <Property Name="p12_schools" Type="int" />
+          <Property Name="other_schools" Type="int" />
+          <Property Name="centrelink_offices" Type="int" />
+          <Property Name="medicare_offices" Type="int" />
+          <Property Name="medicare_access_points" Type="int" />
+          <Property Name="number_of_households" Type="int" />
+          <Property Name="average_persons_per_household" Type="int" />
+          <Property Name="occupied_private_dwellings" Type="int" />
+          <Property Name="occupied_private_dwellings_percent" Type="int" />
+          <Property Name="population_non_private_dwellings" Type="int" />
+          <Property Name="public_housing_dwellings" Type="int" />
+          <Property Name="public_housing_dwellings_percent" Type="int" />
+          <Property Name="dwellings_no_motor_vehicle" Type="int" />
+          <Property Name="dwellings_no_motor_vehicle_percent" Type="int" />
+          <Property Name="dwellings_with_no_internet" Type="int" />
+          <Property Name="dwellings_with_no_internet_percent" Type="int" />
+          <Property Name="equivalent_household_income_lessthan_600" Type="int" />
+          <Property Name="equivalent_household_income_lessthan_600_percent" Type="int" />
+          <Property Name="personal_income_lessthan_400" Type="int" />
+          <Property Name="personal_income_lessthan_400_percent" Type="int" />
+          <Property Name="number_of_families" Type="int" />
+          <Property Name="female_headed_lone_parent_families" Type="int" />
+          <Property Name="female_headed_lone_parent_families_percent" Type="int" />
+          <Property Name="male_headed_lone_parent_families" Type="int" />
+          <Property Name="male_headed_lone_parent_families_percent" Type="int" />
+          <Property Name="residing_near_pt_percent" Type="int" />
+          <Property Name="irsd_min" Type="int" />
+          <Property Name="irsd_max" Type="int" />
+          <Property Name="irsd_avg" Type="int" />
+          <Property Name="primary_school_students" Type="int" />
+          <Property Name="secondary_school_students" Type="int" />
+          <Property Name="tafe_students" Type="int" />
+          <Property Name="university_students" Type="int" />
+          <Property Name="holds_degree_persons" Type="int" />
+          <Property Name="holds_degree_persons_percent" Type="int" />
+          <Property Name="did_not_complete_year_12" Type="int" />
+          <Property Name="did_not_complete_year_12_percent" Type="int" />
+          <Property Name="unemployed_persons" Type="int" />
+          <Property Name="unemployed_persons_percent" Type="int" />
+          <Property Name="volunteers_persons" Type="int" />
+          <Property Name="volunteers_persons_percent" Type="int" />
+          <Property Name="requires_assistance_core_activities_persons" Type="int" />
+          <Property Name="requires_assistance_core_activities_persons_percent" Type="int" />
+          <Property Name="aged_75_lives_alone_persons" Type="int" />
+          <Property Name="aged_75_lives_alone_persons_percent" Type="int" />
+          <Property Name="unpaid_carer_to_disability" Type="int" />
+          <Property Name="unpaid_carer_to_disability_percent" Type="int" />
+          <Property Name="unpaid_carer_children" Type="int" />
+          <Property Name="unpaid_carer_children_percent" Type="int" />
+          <Property Name="top_industry_1" Type="varchar" MaxLength="50" />
+          <Property Name="top_industry_percent_1" Type="int" />
+          <Property Name="top_industry_persons_2" Type="varchar" MaxLength="50" />
+          <Property Name="top_industry_percent_2" Type="int" />
+          <Property Name="top_industry_persons_3" Type="varchar" MaxLength="50" />
+          <Property Name="top_industry_percent_3" Type="int" />
+          <Property Name="top_occupation_1" Type="varchar" MaxLength="50" />
+          <Property Name="top_occupation_percent_1" Type="int" />
+          <Property Name="top_occupation_2" Type="varchar" MaxLength="50" />
+          <Property Name="top_occupation_percent_2" Type="int" />
+          <Property Name="top_occupation_3" Type="varchar" MaxLength="50" />
+          <Property Name="top_occupation_percent_3" Type="int" />
+          <Property Name="aboriginal_torres_strait_islander" Type="int" />
+          <Property Name="aboriginal_torres_strait_islander_percent" Type="int" />
+          <Property Name="born_overseas" Type="int" />
+          <Property Name="born_overseas_percent" Type="int" />
+          <Property Name="born_non_english_speaking_country" Type="int" />
+          <Property Name="born_non_english_speaking_country_percent" Type="int" />
+          <Property Name="speaks_lote_home" Type="int" />
+          <Property Name="speaks_lote_home_percent" Type="int" />
+          <Property Name="poor_english_proficiency" Type="int" />
+          <Property Name="poor_english_proficiency_percent" Type="int" />
+          <Property Name="top_country_of_birth_1" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_persons_1" Type="int" />
+          <Property Name="top_country_of_birth_percent_1" Type="int" />
+          <Property Name="top_country_of_birth_2" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_persons_2" Type="int" />
+          <Property Name="top_country_of_birth_percent_2" Type="int" />
+          <Property Name="top_country_of_birth_3" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_person_3" Type="int" />
+          <Property Name="top_country_of_birth_percent_3" Type="int" />
+          <Property Name="top_country_of_birth_4" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_person_4" Type="int" />
+          <Property Name="top_country_of_birth_percent_4" Type="int" />
+          <Property Name="top_country_of_birth_5" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_person_5" Type="int" />
+          <Property Name="top_country_of_birth_percent_5" Type="int" />
+          <Property Name="top_language_spoken_1" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_person_1" Type="int" />
+          <Property Name="top_language_spoken_percent_1" Type="int" />
+          <Property Name="top_language_spoken_2" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_persons_2" Type="int" />
+          <Property Name="top_language_spoken_percent_2" Type="int" />
+          <Property Name="top_language_spoken_3" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_persons_3" Type="int" />
+          <Property Name="top_language_spoken_percent_3" Type="int" />
+          <Property Name="top_language_spoken_4" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_persons_4" Type="int" />
+          <Property Name="top_language_spoken_pecent_4" Type="int" />
+          <Property Name="top_language_spoken_5" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_persons_5" Type="int" />
+          <Property Name="top_language_spoken_percent_5" Type="int" />
+          <Property Name="public_hospital_separations" Type="int" />
+          <Property Name="nearest_public_hospital" Type="varchar" MaxLength="50" />
+          <Property Name="travel_time_nearest_public_hospital" Type="int" />
+          <Property Name="distance_nearest_public_hospital" Type="int" />
+          <Property Name="obstetric_type_separations" Type="int" />
+          <Property Name="public_hospital_maternity_services" Type="varchar" MaxLength="50" />
+          <Property Name="public_hospital_maternity_services_time" Type="int" />
+          <Property Name="public_hospital_maternity_services_distance" Type="int" />
+          <Property Name="presentations_emergency_departments" Type="int" />
+          <Property Name="public_hospital_emergency_department" Type="varchar" MaxLength="50" />
+          <Property Name="public_hospital_emergency_department_time" Type="int" />
+          <Property Name="public_hospital_emergency_department_distance" Type="int" />
+          <Property Name="presentations_emergency_departments_injury" Type="int" />
+          <Property Name="presentations_emergency_departments_injury_percent" Type="int" />
+          <Property Name="emergency_department_presentations" Type="int" />
+          <Property Name="emergency_department_presentations_percent" Type="int" />
+          <Property Name="suburb_id" Type="int" Nullable="false" />
+          <Property Name="postcode" Type="int" />
+          <Property Name="suburb" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="dc" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="lat" Type="bigint" />
+          <Property Name="lon" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="SuburbStoreContainer">
+          <EntitySet Name="suburb_info" EntityType="Self.suburb_info" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Suburb" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="suburb_info">
+          <Key>
+            <PropertyRef Name="suburb_id" />
+          </Key>
+          <Property Name="community_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="map_reference" Type="Int32" />
+          <Property Name="grid_reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="population_density" Type="Int32" />
+          <Property Name="travel_time_gpo" Type="Int32" />
+          <Property Name="distance_to_gpo" Type="Int32" />
+          <Property Name="lga" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="primary_care_partnership" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="medicare_local" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="area" Type="Int32" />
+          <Property Name="aria_min" Type="Int32" />
+          <Property Name="aria_max" Type="Int32" />
+          <Property Name="aria_avg" Type="Int32" />
+          <Property Name="abs_remoteness_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dhs_area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="commercial" Type="Int32" />
+          <Property Name="commercial_percent" Type="Int32" />
+          <Property Name="industrial" Type="Int32" />
+          <Property Name="industrial_percent" Type="Int32" />
+          <Property Name="residential" Type="Int32" />
+          <Property Name="residential_percent" Type="Int32" />
+          <Property Name="rural" Type="Int32" />
+          <Property Name="rural_percent" Type="Int32" />
+          <Property Name="other" Type="Int32" />
+          <Property Name="other_percent" Type="Int32" />
+          <Property Name="erp_age_0_4_2012" Type="Int32" />
+          <Property Name="erp_age_0_4_percent_2012" Type="Int32" />
+          <Property Name="erp_age_5_9_2012" Type="Int32" />
+          <Property Name="erp_age_5_9_percent_2012" Type="Int32" />
+          <Property Name="erp_age_10_14_2012" Type="Int32" />
+          <Property Name="erp_age_10_14_percent_2012" Type="Int32" />
+          <Property Name="erp_age_15_19_2012" Type="Int32" />
+          <Property Name="erp_age_15_19_percent_2012" Type="Int32" />
+          <Property Name="erp_age_20_24_2012" Type="Int32" />
+          <Property Name="erp_age_20_24_percent_2012" Type="Int32" />
+          <Property Name="erp_age_25_44_2012" Type="Int32" />
+          <Property Name="erp_age_25_44_percent_2012" Type="Int32" />
+          <Property Name="erp_age_45_64_2012" Type="Int32" />
+          <Property Name="erp_age_45_64_percent_2012" Type="Int32" />
+          <Property Name="erp_age_65_69_2012" Type="Int32" />
+          <Property Name="erp_age_65_69_percent_2012" Type="Int32" />
+          <Property Name="erp_age_70_74_2012" Type="Int32" />
+          <Property Name="erp_age_70_74_percent_2012" Type="Int32" />
+          <Property Name="erp_age_75_79_2012" Type="Int32" />
+          <Property Name="erp_age_75_79_percent_2012" Type="Int32" />
+          <Property Name="erp_age_80_84_2012" Type="Int32" />
+          <Property Name="erp_age_80_84_percent_2012" Type="Int32" />
+          <Property Name="erp_age_85_plus_2012" Type="Int32" />
+          <Property Name="erp_age_85_plus_percent_2012" Type="Int32" />
+          <Property Name="erp_total_2012" Type="Int32" />
+          <Property Name="erp_age_0_4_2007" Type="Int32" />
+          <Property Name="erp_age_0_4_percent_2007" Type="Int32" />
+          <Property Name="erp_age_5_9_2007" Type="Int32" />
+          <Property Name="erp_age_5_9_percent_2007" Type="Int32" />
+          <Property Name="erp_age_10_14_2007" Type="Int32" />
+          <Property Name="erp_age_10_14_percent_2007" Type="Int32" />
+          <Property Name="erp_age_15_19_2007" Type="Int32" />
+          <Property Name="erp_age_15_19_percent_2007" Type="Int32" />
+          <Property Name="erp_age_20_24_2007" Type="Int32" />
+          <Property Name="erp_age_20_24_percent_2007" Type="Int32" />
+          <Property Name="erp_age_25_44_2007" Type="Int32" />
+          <Property Name="erp_age_25_44_percent_2007" Type="Int32" />
+          <Property Name="erp_age_45_64_2007" Type="Int32" />
+          <Property Name="erp_age_45_64_percent_2007" Type="Int32" />
+          <Property Name="erp_age_65_69_2007" Type="Int32" />
+          <Property Name="erp_age_65_69_percent_2007" Type="Int32" />
+          <Property Name="erp_age_70_74_2007" Type="Int32" />
+          <Property Name="erp_age_70_74_percent_2007" Type="Int32" />
+          <Property Name="erp_age_75_79_2007" Type="Int32" />
+          <Property Name="erp_age_75_79_percent_2007" Type="Int32" />
+          <Property Name="erp_age_80_84_2007" Type="Int32" />
+          <Property Name="erp_age_80_84_percent_2007" Type="Int32" />
+          <Property Name="erp_age_85_plus_2007" Type="Int32" />
+          <Property Name="erp_age_85_plus_percent_2007" Type="Int32" />
+          <Property Name="erp_total_2007" Type="Int32" />
+          <Property Name="change_2007_2012_age_0_4" Type="Int32" />
+          <Property Name="change_2007_2012_age_5_9" Type="Int32" />
+          <Property Name="change_2007_2012_age_10_14" Type="Int32" />
+          <Property Name="change_2007_2012_age_15_19" Type="Int32" />
+          <Property Name="change_2007_2012_age_20_24" Type="Int32" />
+          <Property Name="change_2007_2012_age_25_44" Type="Int32" />
+          <Property Name="change_2007_2012_age_45_64" Type="Int32" />
+          <Property Name="change_2007_2012_age_65_69" Type="Int32" />
+          <Property Name="change_2007_2012_age_70_74" Type="Int32" />
+          <Property Name="change_2007_2012_age_75_79" Type="Int32" />
+          <Property Name="change_2007_2012_age_80_84" Type="Int32" />
+          <Property Name="change_2007_2012_age_85_plus" Type="Int32" />
+          <Property Name="change_2007_2012_total" Type="Int32" />
+          <Property Name="public_hospitals" Type="Int32" />
+          <Property Name="private_hospitals" Type="Int32" />
+          <Property Name="community_health_centres" Type="Int32" />
+          <Property Name="bush_nursing_centres" Type="Int32" />
+          <Property Name="allied_health" Type="Int32" />
+          <Property Name="alternative_health" Type="Int32" />
+          <Property Name="child_protection_and_family" Type="Int32" />
+          <Property Name="dental" Type="Int32" />
+          <Property Name="disability" Type="Int32" />
+          <Property Name="general_practice" Type="Int32" />
+          <Property Name="homelessness" Type="Int32" />
+          <Property Name="mental_health" Type="Int32" />
+          <Property Name="pharmacies" Type="Int32" />
+          <Property Name="aged_care_high_care" Type="Int32" />
+          <Property Name="aged_care_low_care" Type="Int32" />
+          <Property Name="aged_care_srs" Type="Int32" />
+          <Property Name="childcare" Type="Int32" />
+          <Property Name="primary_schools" Type="Int32" />
+          <Property Name="secondary_schools" Type="Int32" />
+          <Property Name="p12_schools" Type="Int32" />
+          <Property Name="other_schools" Type="Int32" />
+          <Property Name="centrelink_offices" Type="Int32" />
+          <Property Name="medicare_offices" Type="Int32" />
+          <Property Name="medicare_access_points" Type="Int32" />
+          <Property Name="number_of_households" Type="Int32" />
+          <Property Name="average_persons_per_household" Type="Int32" />
+          <Property Name="occupied_private_dwellings" Type="Int32" />
+          <Property Name="occupied_private_dwellings_percent" Type="Int32" />
+          <Property Name="population_non_private_dwellings" Type="Int32" />
+          <Property Name="public_housing_dwellings" Type="Int32" />
+          <Property Name="public_housing_dwellings_percent" Type="Int32" />
+          <Property Name="dwellings_no_motor_vehicle" Type="Int32" />
+          <Property Name="dwellings_no_motor_vehicle_percent" Type="Int32" />
+          <Property Name="dwellings_with_no_internet" Type="Int32" />
+          <Property Name="dwellings_with_no_internet_percent" Type="Int32" />
+          <Property Name="equivalent_household_income_lessthan_600" Type="Int32" />
+          <Property Name="equivalent_household_income_lessthan_600_percent" Type="Int32" />
+          <Property Name="personal_income_lessthan_400" Type="Int32" />
+          <Property Name="personal_income_lessthan_400_percent" Type="Int32" />
+          <Property Name="number_of_families" Type="Int32" />
+          <Property Name="female_headed_lone_parent_families" Type="Int32" />
+          <Property Name="female_headed_lone_parent_families_percent" Type="Int32" />
+          <Property Name="male_headed_lone_parent_families" Type="Int32" />
+          <Property Name="male_headed_lone_parent_families_percent" Type="Int32" />
+          <Property Name="residing_near_pt_percent" Type="Int32" />
+          <Property Name="irsd_min" Type="Int32" />
+          <Property Name="irsd_max" Type="Int32" />
+          <Property Name="irsd_avg" Type="Int32" />
+          <Property Name="primary_school_students" Type="Int32" />
+          <Property Name="secondary_school_students" Type="Int32" />
+          <Property Name="tafe_students" Type="Int32" />
+          <Property Name="university_students" Type="Int32" />
+          <Property Name="holds_degree_persons" Type="Int32" />
+          <Property Name="holds_degree_persons_percent" Type="Int32" />
+          <Property Name="did_not_complete_year_12" Type="Int32" />
+          <Property Name="did_not_complete_year_12_percent" Type="Int32" />
+          <Property Name="unemployed_persons" Type="Int32" />
+          <Property Name="unemployed_persons_percent" Type="Int32" />
+          <Property Name="volunteers_persons" Type="Int32" />
+          <Property Name="volunteers_persons_percent" Type="Int32" />
+          <Property Name="requires_assistance_core_activities_persons" Type="Int32" />
+          <Property Name="requires_assistance_core_activities_persons_percent" Type="Int32" />
+          <Property Name="aged_75_lives_alone_persons" Type="Int32" />
+          <Property Name="aged_75_lives_alone_persons_percent" Type="Int32" />
+          <Property Name="unpaid_carer_to_disability" Type="Int32" />
+          <Property Name="unpaid_carer_to_disability_percent" Type="Int32" />
+          <Property Name="unpaid_carer_children" Type="Int32" />
+          <Property Name="unpaid_carer_children_percent" Type="Int32" />
+          <Property Name="top_industry_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_industry_percent_1" Type="Int32" />
+          <Property Name="top_industry_persons_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_industry_percent_2" Type="Int32" />
+          <Property Name="top_industry_persons_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_industry_percent_3" Type="Int32" />
+          <Property Name="top_occupation_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_occupation_percent_1" Type="Int32" />
+          <Property Name="top_occupation_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_occupation_percent_2" Type="Int32" />
+          <Property Name="top_occupation_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_occupation_percent_3" Type="Int32" />
+          <Property Name="aboriginal_torres_strait_islander" Type="Int32" />
+          <Property Name="aboriginal_torres_strait_islander_percent" Type="Int32" />
+          <Property Name="born_overseas" Type="Int32" />
+          <Property Name="born_overseas_percent" Type="Int32" />
+          <Property Name="born_non_english_speaking_country" Type="Int32" />
+          <Property Name="born_non_english_speaking_country_percent" Type="Int32" />
+          <Property Name="speaks_lote_home" Type="Int32" />
+          <Property Name="speaks_lote_home_percent" Type="Int32" />
+          <Property Name="poor_english_proficiency" Type="Int32" />
+          <Property Name="poor_english_proficiency_percent" Type="Int32" />
+          <Property Name="top_country_of_birth_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_persons_1" Type="Int32" />
+          <Property Name="top_country_of_birth_percent_1" Type="Int32" />
+          <Property Name="top_country_of_birth_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_persons_2" Type="Int32" />
+          <Property Name="top_country_of_birth_percent_2" Type="Int32" />
+          <Property Name="top_country_of_birth_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_person_3" Type="Int32" />
+          <Property Name="top_country_of_birth_percent_3" Type="Int32" />
+          <Property Name="top_country_of_birth_4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_person_4" Type="Int32" />
+          <Property Name="top_country_of_birth_percent_4" Type="Int32" />
+          <Property Name="top_country_of_birth_5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_person_5" Type="Int32" />
+          <Property Name="top_country_of_birth_percent_5" Type="Int32" />
+          <Property Name="top_language_spoken_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_person_1" Type="Int32" />
+          <Property Name="top_language_spoken_percent_1" Type="Int32" />
+          <Property Name="top_language_spoken_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_persons_2" Type="Int32" />
+          <Property Name="top_language_spoken_percent_2" Type="Int32" />
+          <Property Name="top_language_spoken_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_persons_3" Type="Int32" />
+          <Property Name="top_language_spoken_percent_3" Type="Int32" />
+          <Property Name="top_language_spoken_4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_persons_4" Type="Int32" />
+          <Property Name="top_language_spoken_pecent_4" Type="Int32" />
+          <Property Name="top_language_spoken_5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_persons_5" Type="Int32" />
+          <Property Name="top_language_spoken_percent_5" Type="Int32" />
+          <Property Name="public_hospital_separations" Type="Int32" />
+          <Property Name="nearest_public_hospital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="travel_time_nearest_public_hospital" Type="Int32" />
+          <Property Name="distance_nearest_public_hospital" Type="Int32" />
+          <Property Name="obstetric_type_separations" Type="Int32" />
+          <Property Name="public_hospital_maternity_services" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="public_hospital_maternity_services_time" Type="Int32" />
+          <Property Name="public_hospital_maternity_services_distance" Type="Int32" />
+          <Property Name="presentations_emergency_departments" Type="Int32" />
+          <Property Name="public_hospital_emergency_department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="public_hospital_emergency_department_time" Type="Int32" />
+          <Property Name="public_hospital_emergency_department_distance" Type="Int32" />
+          <Property Name="presentations_emergency_departments_injury" Type="Int32" />
+          <Property Name="presentations_emergency_departments_injury_percent" Type="Int32" />
+          <Property Name="emergency_department_presentations" Type="Int32" />
+          <Property Name="emergency_department_presentations_percent" Type="Int32" />
+          <Property Name="suburb_id" Type="Int32" Nullable="false" />
+          <Property Name="postcode" Type="Int32" />
+          <Property Name="suburb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Int64" />
+          <Property Name="lon" Type="Int64" />
+        </EntityType>
+        <EntityContainer Name="SuburbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="suburb_info" EntityType="Self.suburb_info" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SuburbStoreContainer" CdmEntityContainer="SuburbEntities">
+          <EntitySetMapping Name="suburb_info">
+            <EntityTypeMapping TypeName="Suburb.suburb_info">
+              <MappingFragment StoreEntitySet="suburb_info">
+                <ScalarProperty Name="community_name" ColumnName="community_name" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="map_reference" ColumnName="map_reference" />
+                <ScalarProperty Name="grid_reference" ColumnName="grid_reference" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="population_density" ColumnName="population_density" />
+                <ScalarProperty Name="travel_time_gpo" ColumnName="travel_time_gpo" />
+                <ScalarProperty Name="distance_to_gpo" ColumnName="distance_to_gpo" />
+                <ScalarProperty Name="lga" ColumnName="lga" />
+                <ScalarProperty Name="primary_care_partnership" ColumnName="primary_care_partnership" />
+                <ScalarProperty Name="medicare_local" ColumnName="medicare_local" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="aria_min" ColumnName="aria_min" />
+                <ScalarProperty Name="aria_max" ColumnName="aria_max" />
+                <ScalarProperty Name="aria_avg" ColumnName="aria_avg" />
+                <ScalarProperty Name="abs_remoteness_category" ColumnName="abs_remoteness_category" />
+                <ScalarProperty Name="dhs_area" ColumnName="dhs_area" />
+                <ScalarProperty Name="commercial" ColumnName="commercial" />
+                <ScalarProperty Name="commercial_percent" ColumnName="commercial_percent" />
+                <ScalarProperty Name="industrial" ColumnName="industrial" />
+                <ScalarProperty Name="industrial_percent" ColumnName="industrial_percent" />
+                <ScalarProperty Name="residential" ColumnName="residential" />
+                <ScalarProperty Name="residential_percent" ColumnName="residential_percent" />
+                <ScalarProperty Name="rural" ColumnName="rural" />
+                <ScalarProperty Name="rural_percent" ColumnName="rural_percent" />
+                <ScalarProperty Name="other" ColumnName="other" />
+                <ScalarProperty Name="other_percent" ColumnName="other_percent" />
+                <ScalarProperty Name="erp_age_0_4_2012" ColumnName="erp_age_0_4_2012" />
+                <ScalarProperty Name="erp_age_0_4_percent_2012" ColumnName="erp_age_0_4_percent_2012" />
+                <ScalarProperty Name="erp_age_5_9_2012" ColumnName="erp_age_5_9_2012" />
+                <ScalarProperty Name="erp_age_5_9_percent_2012" ColumnName="erp_age_5_9_percent_2012" />
+                <ScalarProperty Name="erp_age_10_14_2012" ColumnName="erp_age_10_14_2012" />
+                <ScalarProperty Name="erp_age_10_14_percent_2012" ColumnName="erp_age_10_14_percent_2012" />
+                <ScalarProperty Name="erp_age_15_19_2012" ColumnName="erp_age_15_19_2012" />
+                <ScalarProperty Name="erp_age_15_19_percent_2012" ColumnName="erp_age_15_19_percent_2012" />
+                <ScalarProperty Name="erp_age_20_24_2012" ColumnName="erp_age_20_24_2012" />
+                <ScalarProperty Name="erp_age_20_24_percent_2012" ColumnName="erp_age_20_24_percent_2012" />
+                <ScalarProperty Name="erp_age_25_44_2012" ColumnName="erp_age_25_44_2012" />
+                <ScalarProperty Name="erp_age_25_44_percent_2012" ColumnName="erp_age_25_44_percent_2012" />
+                <ScalarProperty Name="erp_age_45_64_2012" ColumnName="erp_age_45_64_2012" />
+                <ScalarProperty Name="erp_age_45_64_percent_2012" ColumnName="erp_age_45_64_percent_2012" />
+                <ScalarProperty Name="erp_age_65_69_2012" ColumnName="erp_age_65_69_2012" />
+                <ScalarProperty Name="erp_age_65_69_percent_2012" ColumnName="erp_age_65_69_percent_2012" />
+                <ScalarProperty Name="erp_age_70_74_2012" ColumnName="erp_age_70_74_2012" />
+                <ScalarProperty Name="erp_age_70_74_percent_2012" ColumnName="erp_age_70_74_percent_2012" />
+                <ScalarProperty Name="erp_age_75_79_2012" ColumnName="erp_age_75_79_2012" />
+                <ScalarProperty Name="erp_age_75_79_percent_2012" ColumnName="erp_age_75_79_percent_2012" />
+                <ScalarProperty Name="erp_age_80_84_2012" ColumnName="erp_age_80_84_2012" />
+                <ScalarProperty Name="erp_age_80_84_percent_2012" ColumnName="erp_age_80_84_percent_2012" />
+                <ScalarProperty Name="erp_age_85_plus_2012" ColumnName="erp_age_85_plus_2012" />
+                <ScalarProperty Name="erp_age_85_plus_percent_2012" ColumnName="erp_age_85_plus_percent_2012" />
+                <ScalarProperty Name="erp_total_2012" ColumnName="erp_total_2012" />
+                <ScalarProperty Name="erp_age_0_4_2007" ColumnName="erp_age_0_4_2007" />
+                <ScalarProperty Name="erp_age_0_4_percent_2007" ColumnName="erp_age_0_4_percent_2007" />
+                <ScalarProperty Name="erp_age_5_9_2007" ColumnName="erp_age_5_9_2007" />
+                <ScalarProperty Name="erp_age_5_9_percent_2007" ColumnName="erp_age_5_9_percent_2007" />
+                <ScalarProperty Name="erp_age_10_14_2007" ColumnName="erp_age_10_14_2007" />
+                <ScalarProperty Name="erp_age_10_14_percent_2007" ColumnName="erp_age_10_14_percent_2007" />
+                <ScalarProperty Name="erp_age_15_19_2007" ColumnName="erp_age_15_19_2007" />
+                <ScalarProperty Name="erp_age_15_19_percent_2007" ColumnName="erp_age_15_19_percent_2007" />
+                <ScalarProperty Name="erp_age_20_24_2007" ColumnName="erp_age_20_24_2007" />
+                <ScalarProperty Name="erp_age_20_24_percent_2007" ColumnName="erp_age_20_24_percent_2007" />
+                <ScalarProperty Name="erp_age_25_44_2007" ColumnName="erp_age_25_44_2007" />
+                <ScalarProperty Name="erp_age_25_44_percent_2007" ColumnName="erp_age_25_44_percent_2007" />
+                <ScalarProperty Name="erp_age_45_64_2007" ColumnName="erp_age_45_64_2007" />
+                <ScalarProperty Name="erp_age_45_64_percent_2007" ColumnName="erp_age_45_64_percent_2007" />
+                <ScalarProperty Name="erp_age_65_69_2007" ColumnName="erp_age_65_69_2007" />
+                <ScalarProperty Name="erp_age_65_69_percent_2007" ColumnName="erp_age_65_69_percent_2007" />
+                <ScalarProperty Name="erp_age_70_74_2007" ColumnName="erp_age_70_74_2007" />
+                <ScalarProperty Name="erp_age_70_74_percent_2007" ColumnName="erp_age_70_74_percent_2007" />
+                <ScalarProperty Name="erp_age_75_79_2007" ColumnName="erp_age_75_79_2007" />
+                <ScalarProperty Name="erp_age_75_79_percent_2007" ColumnName="erp_age_75_79_percent_2007" />
+                <ScalarProperty Name="erp_age_80_84_2007" ColumnName="erp_age_80_84_2007" />
+                <ScalarProperty Name="erp_age_80_84_percent_2007" ColumnName="erp_age_80_84_percent_2007" />
+                <ScalarProperty Name="erp_age_85_plus_2007" ColumnName="erp_age_85_plus_2007" />
+                <ScalarProperty Name="erp_age_85_plus_percent_2007" ColumnName="erp_age_85_plus_percent_2007" />
+                <ScalarProperty Name="erp_total_2007" ColumnName="erp_total_2007" />
+                <ScalarProperty Name="change_2007_2012_age_0_4" ColumnName="change_2007_2012_age_0_4" />
+                <ScalarProperty Name="change_2007_2012_age_5_9" ColumnName="change_2007_2012_age_5_9" />
+                <ScalarProperty Name="change_2007_2012_age_10_14" ColumnName="change_2007_2012_age_10_14" />
+                <ScalarProperty Name="change_2007_2012_age_15_19" ColumnName="change_2007_2012_age_15_19" />
+                <ScalarProperty Name="change_2007_2012_age_20_24" ColumnName="change_2007_2012_age_20_24" />
+                <ScalarProperty Name="change_2007_2012_age_25_44" ColumnName="change_2007_2012_age_25_44" />
+                <ScalarProperty Name="change_2007_2012_age_45_64" ColumnName="change_2007_2012_age_45_64" />
+                <ScalarProperty Name="change_2007_2012_age_65_69" ColumnName="change_2007_2012_age_65_69" />
+                <ScalarProperty Name="change_2007_2012_age_70_74" ColumnName="change_2007_2012_age_70_74" />
+                <ScalarProperty Name="change_2007_2012_age_75_79" ColumnName="change_2007_2012_age_75_79" />
+                <ScalarProperty Name="change_2007_2012_age_80_84" ColumnName="change_2007_2012_age_80_84" />
+                <ScalarProperty Name="change_2007_2012_age_85_plus" ColumnName="change_2007_2012_age_85_plus" />
+                <ScalarProperty Name="change_2007_2012_total" ColumnName="change_2007_2012_total" />
+                <ScalarProperty Name="public_hospitals" ColumnName="public_hospitals" />
+                <ScalarProperty Name="private_hospitals" ColumnName="private_hospitals" />
+                <ScalarProperty Name="community_health_centres" ColumnName="community_health_centres" />
+                <ScalarProperty Name="bush_nursing_centres" ColumnName="bush_nursing_centres" />
+                <ScalarProperty Name="allied_health" ColumnName="allied_health" />
+                <ScalarProperty Name="alternative_health" ColumnName="alternative_health" />
+                <ScalarProperty Name="child_protection_and_family" ColumnName="child_protection_and_family" />
+                <ScalarProperty Name="dental" ColumnName="dental" />
+                <ScalarProperty Name="disability" ColumnName="disability" />
+                <ScalarProperty Name="general_practice" ColumnName="general_practice" />
+                <ScalarProperty Name="homelessness" ColumnName="homelessness" />
+                <ScalarProperty Name="mental_health" ColumnName="mental_health" />
+                <ScalarProperty Name="pharmacies" ColumnName="pharmacies" />
+                <ScalarProperty Name="aged_care_high_care" ColumnName="aged_care_high_care" />
+                <ScalarProperty Name="aged_care_low_care" ColumnName="aged_care_low_care" />
+                <ScalarProperty Name="aged_care_srs" ColumnName="aged_care_srs" />
+                <ScalarProperty Name="childcare" ColumnName="childcare" />
+                <ScalarProperty Name="primary_schools" ColumnName="primary_schools" />
+                <ScalarProperty Name="secondary_schools" ColumnName="secondary_schools" />
+                <ScalarProperty Name="p12_schools" ColumnName="p12_schools" />
+                <ScalarProperty Name="other_schools" ColumnName="other_schools" />
+                <ScalarProperty Name="centrelink_offices" ColumnName="centrelink_offices" />
+                <ScalarProperty Name="medicare_offices" ColumnName="medicare_offices" />
+                <ScalarProperty Name="medicare_access_points" ColumnName="medicare_access_points" />
+                <ScalarProperty Name="number_of_households" ColumnName="number_of_households" />
+                <ScalarProperty Name="average_persons_per_household" ColumnName="average_persons_per_household" />
+                <ScalarProperty Name="occupied_private_dwellings" ColumnName="occupied_private_dwellings" />
+                <ScalarProperty Name="occupied_private_dwellings_percent" ColumnName="occupied_private_dwellings_percent" />
+                <ScalarProperty Name="population_non_private_dwellings" ColumnName="population_non_private_dwellings" />
+                <ScalarProperty Name="public_housing_dwellings" ColumnName="public_housing_dwellings" />
+                <ScalarProperty Name="public_housing_dwellings_percent" ColumnName="public_housing_dwellings_percent" />
+                <ScalarProperty Name="dwellings_no_motor_vehicle" ColumnName="dwellings_no_motor_vehicle" />
+                <ScalarProperty Name="dwellings_no_motor_vehicle_percent" ColumnName="dwellings_no_motor_vehicle_percent" />
+                <ScalarProperty Name="dwellings_with_no_internet" ColumnName="dwellings_with_no_internet" />
+                <ScalarProperty Name="dwellings_with_no_internet_percent" ColumnName="dwellings_with_no_internet_percent" />
+                <ScalarProperty Name="equivalent_household_income_lessthan_600" ColumnName="equivalent_household_income_lessthan_600" />
+                <ScalarProperty Name="equivalent_household_income_lessthan_600_percent" ColumnName="equivalent_household_income_lessthan_600_percent" />
+                <ScalarProperty Name="personal_income_lessthan_400" ColumnName="personal_income_lessthan_400" />
+                <ScalarProperty Name="personal_income_lessthan_400_percent" ColumnName="personal_income_lessthan_400_percent" />
+                <ScalarProperty Name="number_of_families" ColumnName="number_of_families" />
+                <ScalarProperty Name="female_headed_lone_parent_families" ColumnName="female_headed_lone_parent_families" />
+                <ScalarProperty Name="female_headed_lone_parent_families_percent" ColumnName="female_headed_lone_parent_families_percent" />
+                <ScalarProperty Name="male_headed_lone_parent_families" ColumnName="male_headed_lone_parent_families" />
+                <ScalarProperty Name="male_headed_lone_parent_families_percent" ColumnName="male_headed_lone_parent_families_percent" />
+                <ScalarProperty Name="residing_near_pt_percent" ColumnName="residing_near_pt_percent" />
+                <ScalarProperty Name="irsd_min" ColumnName="irsd_min" />
+                <ScalarProperty Name="irsd_max" ColumnName="irsd_max" />
+                <ScalarProperty Name="irsd_avg" ColumnName="irsd_avg" />
+                <ScalarProperty Name="primary_school_students" ColumnName="primary_school_students" />
+                <ScalarProperty Name="secondary_school_students" ColumnName="secondary_school_students" />
+                <ScalarProperty Name="tafe_students" ColumnName="tafe_students" />
+                <ScalarProperty Name="university_students" ColumnName="university_students" />
+                <ScalarProperty Name="holds_degree_persons" ColumnName="holds_degree_persons" />
+                <ScalarProperty Name="holds_degree_persons_percent" ColumnName="holds_degree_persons_percent" />
+                <ScalarProperty Name="did_not_complete_year_12" ColumnName="did_not_complete_year_12" />
+                <ScalarProperty Name="did_not_complete_year_12_percent" ColumnName="did_not_complete_year_12_percent" />
+                <ScalarProperty Name="unemployed_persons" ColumnName="unemployed_persons" />
+                <ScalarProperty Name="unemployed_persons_percent" ColumnName="unemployed_persons_percent" />
+                <ScalarProperty Name="volunteers_persons" ColumnName="volunteers_persons" />
+                <ScalarProperty Name="volunteers_persons_percent" ColumnName="volunteers_persons_percent" />
+                <ScalarProperty Name="requires_assistance_core_activities_persons" ColumnName="requires_assistance_core_activities_persons" />
+                <ScalarProperty Name="requires_assistance_core_activities_persons_percent" ColumnName="requires_assistance_core_activities_persons_percent" />
+                <ScalarProperty Name="aged_75_lives_alone_persons" ColumnName="aged_75_lives_alone_persons" />
+                <ScalarProperty Name="aged_75_lives_alone_persons_percent" ColumnName="aged_75_lives_alone_persons_percent" />
+                <ScalarProperty Name="unpaid_carer_to_disability" ColumnName="unpaid_carer_to_disability" />
+                <ScalarProperty Name="unpaid_carer_to_disability_percent" ColumnName="unpaid_carer_to_disability_percent" />
+                <ScalarProperty Name="unpaid_carer_children" ColumnName="unpaid_carer_children" />
+                <ScalarProperty Name="unpaid_carer_children_percent" ColumnName="unpaid_carer_children_percent" />
+                <ScalarProperty Name="top_industry_1" ColumnName="top_industry_1" />
+                <ScalarProperty Name="top_industry_percent_1" ColumnName="top_industry_percent_1" />
+                <ScalarProperty Name="top_industry_persons_2" ColumnName="top_industry_persons_2" />
+                <ScalarProperty Name="top_industry_percent_2" ColumnName="top_industry_percent_2" />
+                <ScalarProperty Name="top_industry_persons_3" ColumnName="top_industry_persons_3" />
+                <ScalarProperty Name="top_industry_percent_3" ColumnName="top_industry_percent_3" />
+                <ScalarProperty Name="top_occupation_1" ColumnName="top_occupation_1" />
+                <ScalarProperty Name="top_occupation_percent_1" ColumnName="top_occupation_percent_1" />
+                <ScalarProperty Name="top_occupation_2" ColumnName="top_occupation_2" />
+                <ScalarProperty Name="top_occupation_percent_2" ColumnName="top_occupation_percent_2" />
+                <ScalarProperty Name="top_occupation_3" ColumnName="top_occupation_3" />
+                <ScalarProperty Name="top_occupation_percent_3" ColumnName="top_occupation_percent_3" />
+                <ScalarProperty Name="aboriginal_torres_strait_islander" ColumnName="aboriginal_torres_strait_islander" />
+                <ScalarProperty Name="aboriginal_torres_strait_islander_percent" ColumnName="aboriginal_torres_strait_islander_percent" />
+                <ScalarProperty Name="born_overseas" ColumnName="born_overseas" />
+                <ScalarProperty Name="born_overseas_percent" ColumnName="born_overseas_percent" />
+                <ScalarProperty Name="born_non_english_speaking_country" ColumnName="born_non_english_speaking_country" />
+                <ScalarProperty Name="born_non_english_speaking_country_percent" ColumnName="born_non_english_speaking_country_percent" />
+                <ScalarProperty Name="speaks_lote_home" ColumnName="speaks_lote_home" />
+                <ScalarProperty Name="speaks_lote_home_percent" ColumnName="speaks_lote_home_percent" />
+                <ScalarProperty Name="poor_english_proficiency" ColumnName="poor_english_proficiency" />
+                <ScalarProperty Name="poor_english_proficiency_percent" ColumnName="poor_english_proficiency_percent" />
+                <ScalarProperty Name="top_country_of_birth_1" ColumnName="top_country_of_birth_1" />
+                <ScalarProperty Name="top_country_of_birth_persons_1" ColumnName="top_country_of_birth_persons_1" />
+                <ScalarProperty Name="top_country_of_birth_percent_1" ColumnName="top_country_of_birth_percent_1" />
+                <ScalarProperty Name="top_country_of_birth_2" ColumnName="top_country_of_birth_2" />
+                <ScalarProperty Name="top_country_of_birth_persons_2" ColumnName="top_country_of_birth_persons_2" />
+                <ScalarProperty Name="top_country_of_birth_percent_2" ColumnName="top_country_of_birth_percent_2" />
+                <ScalarProperty Name="top_country_of_birth_3" ColumnName="top_country_of_birth_3" />
+                <ScalarProperty Name="top_country_of_birth_person_3" ColumnName="top_country_of_birth_person_3" />
+                <ScalarProperty Name="top_country_of_birth_percent_3" ColumnName="top_country_of_birth_percent_3" />
+                <ScalarProperty Name="top_country_of_birth_4" ColumnName="top_country_of_birth_4" />
+                <ScalarProperty Name="top_country_of_birth_person_4" ColumnName="top_country_of_birth_person_4" />
+                <ScalarProperty Name="top_country_of_birth_percent_4" ColumnName="top_country_of_birth_percent_4" />
+                <ScalarProperty Name="top_country_of_birth_5" ColumnName="top_country_of_birth_5" />
+                <ScalarProperty Name="top_country_of_birth_person_5" ColumnName="top_country_of_birth_person_5" />
+                <ScalarProperty Name="top_country_of_birth_percent_5" ColumnName="top_country_of_birth_percent_5" />
+                <ScalarProperty Name="top_language_spoken_1" ColumnName="top_language_spoken_1" />
+                <ScalarProperty Name="top_language_spoken_person_1" ColumnName="top_language_spoken_person_1" />
+                <ScalarProperty Name="top_language_spoken_percent_1" ColumnName="top_language_spoken_percent_1" />
+                <ScalarProperty Name="top_language_spoken_2" ColumnName="top_language_spoken_2" />
+                <ScalarProperty Name="top_language_spoken_persons_2" ColumnName="top_language_spoken_persons_2" />
+                <ScalarProperty Name="top_language_spoken_percent_2" ColumnName="top_language_spoken_percent_2" />
+                <ScalarProperty Name="top_language_spoken_3" ColumnName="top_language_spoken_3" />
+                <ScalarProperty Name="top_language_spoken_persons_3" ColumnName="top_language_spoken_persons_3" />
+                <ScalarProperty Name="top_language_spoken_percent_3" ColumnName="top_language_spoken_percent_3" />
+                <ScalarProperty Name="top_language_spoken_4" ColumnName="top_language_spoken_4" />
+                <ScalarProperty Name="top_language_spoken_persons_4" ColumnName="top_language_spoken_persons_4" />
+                <ScalarProperty Name="top_language_spoken_pecent_4" ColumnName="top_language_spoken_pecent_4" />
+                <ScalarProperty Name="top_language_spoken_5" ColumnName="top_language_spoken_5" />
+                <ScalarProperty Name="top_language_spoken_persons_5" ColumnName="top_language_spoken_persons_5" />
+                <ScalarProperty Name="top_language_spoken_percent_5" ColumnName="top_language_spoken_percent_5" />
+                <ScalarProperty Name="public_hospital_separations" ColumnName="public_hospital_separations" />
+                <ScalarProperty Name="nearest_public_hospital" ColumnName="nearest_public_hospital" />
+                <ScalarProperty Name="travel_time_nearest_public_hospital" ColumnName="travel_time_nearest_public_hospital" />
+                <ScalarProperty Name="distance_nearest_public_hospital" ColumnName="distance_nearest_public_hospital" />
+                <ScalarProperty Name="obstetric_type_separations" ColumnName="obstetric_type_separations" />
+                <ScalarProperty Name="public_hospital_maternity_services" ColumnName="public_hospital_maternity_services" />
+                <ScalarProperty Name="public_hospital_maternity_services_time" ColumnName="public_hospital_maternity_services_time" />
+                <ScalarProperty Name="public_hospital_maternity_services_distance" ColumnName="public_hospital_maternity_services_distance" />
+                <ScalarProperty Name="presentations_emergency_departments" ColumnName="presentations_emergency_departments" />
+                <ScalarProperty Name="public_hospital_emergency_department" ColumnName="public_hospital_emergency_department" />
+                <ScalarProperty Name="public_hospital_emergency_department_time" ColumnName="public_hospital_emergency_department_time" />
+                <ScalarProperty Name="public_hospital_emergency_department_distance" ColumnName="public_hospital_emergency_department_distance" />
+                <ScalarProperty Name="presentations_emergency_departments_injury" ColumnName="presentations_emergency_departments_injury" />
+                <ScalarProperty Name="presentations_emergency_departments_injury_percent" ColumnName="presentations_emergency_departments_injury_percent" />
+                <ScalarProperty Name="emergency_department_presentations" ColumnName="emergency_department_presentations" />
+                <ScalarProperty Name="emergency_department_presentations_percent" ColumnName="emergency_department_presentations_percent" />
+                <ScalarProperty Name="suburb_id" ColumnName="suburb_id" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="suburb" ColumnName="suburb" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="dc" ColumnName="dc" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

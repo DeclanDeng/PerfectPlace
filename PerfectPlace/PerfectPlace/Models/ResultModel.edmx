@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Result.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="rating_it1">
+          <Key>
+            <PropertyRef Name="suburb_id" />
+          </Key>
+          <Property Name="suburb_id" Type="int" Nullable="false" />
+          <Property Name="community_name" Type="varchar" MaxLength="50" />
+          <Property Name="distance_to_city" Type="varchar" MaxLength="50" />
+          <Property Name="residential" Type="varchar" MaxLength="50" />
+          <Property Name="health_services" Type="varchar" MaxLength="50" />
+          <Property Name="disability_care" Type="varchar" MaxLength="50" />
+          <Property Name="aged_care" Type="varchar" MaxLength="50" />
+          <Property Name="time_to_hospital" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_1" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_2" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_3" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_4" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_5" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="sp_preference" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="distance_to_city" Type="nvarchar" Mode="In" />
+          <Parameter Name="residential" Type="nvarchar" Mode="In" />
+          <Parameter Name="top_country_of_birth" Type="nvarchar" Mode="In" />
+          <Parameter Name="health_services" Type="nvarchar" Mode="In" />
+          <Parameter Name="disability_care" Type="nvarchar" Mode="In" />
+          <Parameter Name="aged_care" Type="nvarchar" Mode="In" />
+          <Parameter Name="time_to_hospital" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ResultStoreContainer">
+          <EntitySet Name="rating_it1" EntityType="Self.rating_it1" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Result" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="rating_it1">
+          <Key>
+            <PropertyRef Name="suburb_id" />
+          </Key>
+          <Property Name="suburb_id" Type="Int32" Nullable="false" />
+          <Property Name="community_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="distance_to_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="residential" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="health_services" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="disability_care" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="aged_care" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="time_to_hospital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ResultEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="rating_it1" EntityType="Self.rating_it1" />
+          <FunctionImport Name="GetPreferenceResult" EntitySet="rating_it1" ReturnType="Collection(Result.rating_it1)">
+            <Parameter Name="distance_to_city" Mode="In" Type="String" />
+            <Parameter Name="residential" Mode="In" Type="String" />
+            <Parameter Name="top_country_of_birth" Mode="In" Type="String" />
+            <Parameter Name="health_services" Mode="In" Type="String" />
+            <Parameter Name="disability_care" Mode="In" Type="String" />
+            <Parameter Name="aged_care" Mode="In" Type="String" />
+            <Parameter Name="time_to_hospital" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ResultStoreContainer" CdmEntityContainer="ResultEntities">
+          <EntitySetMapping Name="rating_it1">
+            <EntityTypeMapping TypeName="Result.rating_it1">
+              <MappingFragment StoreEntitySet="rating_it1">
+                <ScalarProperty Name="suburb_id" ColumnName="suburb_id" />
+                <ScalarProperty Name="community_name" ColumnName="community_name" />
+                <ScalarProperty Name="distance_to_city" ColumnName="distance_to_city" />
+                <ScalarProperty Name="residential" ColumnName="residential" />
+                <ScalarProperty Name="health_services" ColumnName="health_services" />
+                <ScalarProperty Name="disability_care" ColumnName="disability_care" />
+                <ScalarProperty Name="aged_care" ColumnName="aged_care" />
+                <ScalarProperty Name="time_to_hospital" ColumnName="time_to_hospital" />
+                <ScalarProperty Name="top_country_of_birth_1" ColumnName="top_country_of_birth_1" />
+                <ScalarProperty Name="top_country_of_birth_2" ColumnName="top_country_of_birth_2" />
+                <ScalarProperty Name="top_country_of_birth_3" ColumnName="top_country_of_birth_3" />
+                <ScalarProperty Name="top_country_of_birth_4" ColumnName="top_country_of_birth_4" />
+                <ScalarProperty Name="top_country_of_birth_5" ColumnName="top_country_of_birth_5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetPreferenceResult" FunctionName="Result.Store.sp_preference" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

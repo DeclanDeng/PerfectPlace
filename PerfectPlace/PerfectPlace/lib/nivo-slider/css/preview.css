@@ -1,0 +1,61 @@
+/*
+Skin Name: Nivo Slider Default Theme
+Skin URI: http://nivo.dev7studios.com
+Description: The default skin for the Nivo Slider.
+Version: 1.3
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+Supports Thumbs: true
+*/
+/* -------------------------------------
+preview-2
+---------------------------------------- */
+.preview-2 .nivo-controlNav {
+	bottom: 12px;
+	display: inline-block;
+	left: 0;
+	position: absolute;
+	right: inherit;
+	text-align: center;
+	width: inherit;
+	z-index: 9;
+	right: 0;
+}
+.preview-2 .nivo-controlNav a {
+	background-color: #1F223E;
+	border: 0 none;
+	border-radius: 100%;
+	cursor: pointer;
+	display: inline-block;
+	height: 11px;
+	line-height: 10px;
+	margin: 0 15px;
+	position: relative;
+	text-indent: -9999px;
+	width: 11px;
+}
+.preview-2 .nivo-controlNav a::before {
+	background: rgba(255, 255, 255, 0.25);
+	content: "";
+	height: 17px;
+	left: 50%;
+	margin-left: -8.5px;
+	margin-top: -8.5px;
+	position: absolute;
+	top: 50%;
+	width: 17px;
+	z-index: -1;
+	border-radius: 50%;
+	transition: all 0.3s ease 0s
+}
+.nivo-controlNav a.active {
+	width: 17px;
+	height: 17px;
+	top: -3px
+}
+.nivo-controlNav a.active:before{
+	width: 25px;
+	height: 25px;
+	margin-left: -12.5px;
+	margin-top: -12.5px;
+}

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<PerfectPlace.Models.rating_it1>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model=>model.community_name)</th>
+        <th>name</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+               @Html.DisplayFor(model=>item.community_name)
+            </td>
+        </tr>
+    }
+</table>

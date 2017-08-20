@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800")
+    @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/core.css")
+    @Styles.Render("~/Content/style.css")
+    @Styles.Render("~/Content/responsive.css")
+    @Styles.Render("~/Content/style-customizer.css")
+    @Styles.Render("~/Content/shortcode/shortcodes.css")
+    @Scripts.Render("~/Scripts/vendor/modernizr-2.8.3.min.js")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+
+</head>
+<body>
+@*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Perfect Place", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" style="font-size: 18px;">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Employee", "Index", "Employees")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>*@
+<div class="wrapper bg-white fix">
+    <!--Bg White Start-->
+    <div class="bg-white">
+        <!--Header Area Start-->
+        <header class="header-area">
+            <div id="sticky-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-12">
+                            <div class="logo">
+                                <a href="@Url.Action("Index", "Home")"><img src="~/Image/logo.png" style="height: 100px; width: 100px" alt="DomInno"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 hidden-sm hidden-xs">
+                            <div class="pull_right">
+                                <nav id="primary-menu">
+                                    <ul class="main-menu text-right">
+                                        <li class="mega-parent @(ViewBag.Current == "Home"?"active":"")">
+                                            @*<a href="index.html">HOME</a>*@
+                                            @Html.ActionLink("Home", "Index", "Home")
+                                        </li>
+                                        @*<li>
+                                            <a href="search.html">Search</a>
+                                        </li>*@
+                                        @*<li>
+                                            <a href="feature.html">Suburb</a>
+                                            @Html.ActionLink("Employee", "Index", "Employees")
+                                        </li>*@
+                                        <li class="@(ViewBag.Current == "Suburb"?"active":"")">
+                                            @*<a href="feature.html">Suburb</a>*@
+                                            @Html.ActionLink("Suburb", "Index", "Suburb")
+                                        </li>
+                                        <li class="@(ViewBag.Current == "About"?"active":"")">
+                                            @*<a href="properties.html">About</a>*@
+                                            @Html.ActionLink("About", "About", "Home")
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Area start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Home")">HOME</a>
+                                        </li>
+                                        @*<li>
+                                            <a href="@Url.Action("Index","Home")">Search</a>
+                                        </li>*@
+                                        <li>
+                                            <a href="@Url.Action("Index", "Suburb")">Suburb</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About", "Home")">ABOUT</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Area end -->
+        </header>
+        <!-- End of Header Area -->
+
+        <div>
+            @RenderBody()
+        </div>
+
+
+        <!--Start of Footer Widget-area-->
+        <div class="footer-widget-area bg-violet black-bg pb-58">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-logo">
+                            <a href="@Url.Action("Index", "Home")"><img src="/Image/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="social-links mt-25 mb-80">
+                            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.google.com.au"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <div class="single-footer-widget">
+                            <h3 class="text-white text-uppercase mb-21">About Us</h3>
+                            <p class="pb-19">Perfect Place aims to help you to find your dream suburb.</p>
+                            @*<form action="#" id="mc-form" class="mc-form fix">
+                                <div class="subscribe-form">
+                                    <input id="mc-email" type="email" name="email" placeholder="Email for Newsletter">
+                                    <button id="mc-submit" type="submit"><i class="fa fa-send"></i></button>
+                                </div>
+                            </form>*@
+                            <!-- mailchimp-alerts Start -->
+                            @*<div class="mailchimp-alerts text-centre fix text-small">
+                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                            </div>*@
+                            <!-- mailchimp-alerts end -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-4 pl-80 col-xs-12">
+                        <div class="single-footer-widget">
+                            <h3 class="text-white text-uppercase mb-28">CHOOSE US</h3>
+                            <div class="footer-widget-content">
+                                <h5 class="mb-8">Good Algorithm Design</h5>
+                                <span class="mb-27 block">Perfect Place provides a good algorithm to help you to find your dream suburb. </span>
+                            </div>
+                            <div class="footer-widget-content">
+                                <h5 class="mb-8">Open Data</h5>
+                                <span>Perfect Place uses a lot of open data from the government to ensure the accuracy of the result. </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 hidden-md hidden-sm pl-80 col-xs-12">
+                        <div class="single-footer-widget">
+                            <h3 class="text-white text-uppercase mb-17">QUICK LINK</h3>
+                            <ul class="footer-list">
+                                <li><a href="http://www.monash.edu/">Monash University</a></li>
+                                @*<li><a href="#">Agent</a></li>
+                                <li><a href="#">Properties</a></li>
+                                <li><a href="#">Features</a></li>
+                                <li><a href="#">From Blog</a></li>
+                                <li><a href="#">Contact</a></li>*@
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <div class="single-footer-widget pull_right">
+                            <h3 class="text-white text-uppercase mb-21">CONTACT US</h3>
+                            <div class="footer-contact-info mb-24">
+                                <img src="/Image/icons/f-map.png" alt="">
+                                <span class="pl-40 block">
+                                    Monash University<br>
+                                    900 Dandenong Rd, Caulfield East, VIC
+                                </span>
+                            </div>
+                            <div class="footer-contact-info mb-24">
+                                <img src="/Image/icons/f-phone.png" alt="">
+                                <span class="pl-40 block">
+                                    Tel : + (61) 3 990 32000<br>
+                                    Fax : + (61) 3 990 32400
+                                </span>
+                            </div>
+                            <div class="footer-contact-info">
+                                <img src="/Image/icons/f-globe.png" alt="">
+                                <span class="pl-40 block">
+                                    Email : innovation@monash.edu<br>
+                                    Web : www.monash.edu
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of Footer Widget-area-->
+
+        <!-- Start of Footer area -->
+        <footer class="footer-area bg-violet text-center pt-27 pb-32 border-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-text">
+                            <span class="block">Copyright&copy; 2017 <a href="#">AlphAtom</a>. All rights reserved.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer area -->
+
+
+    </div>
+    <!--End of Bg White-->
+
+</div>
+<!--End of Main Wrapper Area-->
+
+
+
+@*<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+</div>*@
+
+
+@*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+<!-- jquery latest version
+========================================================= -->
+@Scripts.Render("~/Scripts/vendor/jquery-1.12.4.min.js")
+@Scripts.Render("~/Scripts/bootstrap.min.js")
+@Scripts.Render("~/Scripts/owl.carousel.min.js")
+
+@Scripts.Render("~/lib/nivo-slider/js/jquery.nivo.slider.js")
+@Scripts.Render("~/lib/nivo-slider/home.js")
+
+@Scripts.Render("~/Scripts/waypoints.min.js")
+@Scripts.Render("~/Scripts/jquery.mb.YTPlayer.js")
+@Scripts.Render("~/Scripts/ajax-mail.js")
+@Scripts.Render("~/Scripts/jquery.ajaxchimp.min.js")
+@Scripts.Render("~/Scripts/slick.min.js")
+
+@Scripts.Render("~/Scripts/style-customizer.js")
+@Scripts.Render("~/Scripts/plugins.js")
+@Scripts.Render("~/Scripts/main.js")
+@*@RenderSection("scripts", required: false)*@
+
+</body>
+</html>

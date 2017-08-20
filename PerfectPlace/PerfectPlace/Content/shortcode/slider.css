@@ -1,0 +1,130 @@
+/* -----------------------------------
+Template:  DomInno
+
+NOTE: This is Slider style file. All Slider related style included in this file.
+
+--------------------------------------*/
+.preview-2 .nivo-directionNav {display: none;}
+.slider-area, .background-area {position: relative}
+.background-area {overflow: hidden}
+.slider-area img, .background-area img {width: 100%}
+.bg-overlay:before, .bg-overlay-light:before, .bg-overlay-dark:before, .bg-overlay-dark-2:before, .bg-overlay-dark-3:before, .bg-overlay-pattern:before {
+    background: rgba(0, 0, 0, 0.68);
+    content: "";
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+.bg-overlay-dark:before {background: rgba(0, 0, 0, 0.75);}
+.bg-overlay-pattern:before{background: rgba(0, 0, 0, 0) url("../../images/bg/pattern.png") repeat scroll 0 0;}
+.bg-overlay-dark-2:before {background: rgba(31, 34, 62, 0.45);}
+.bg-overlay-dark-3:before {background: rgba(0, 0, 0, 0.45);}
+.nivo-caption {z-index: 9; padding: 0}
+.background-area, .banner-content, .banner-content .container, .banner-content .row, .banner-content .col-md-12, .banner-content .col-md-8, .banner-content .col-md-4.right, .banner-content .text-content-wrapper, .banner-content .text-content, .banner-content .display-table, .banner-content .display-table-cell {
+    height: 100%;
+    margin: auto;
+}
+.banner-content .text-content-wrapper, .banner-content .display-table {display: table;}
+.banner-content .text-content-wrapper.text-left {float: left}
+.banner-content .text-content, .banner-content .display-table-cell {display: table-cell; vertical-align: middle;}
+h3.title-small{font-size: 23px; font-weight: 600}
+h1.title1 {font-size: 50px; font-weight: 700;}
+p.sub-title {
+	font-size: 16px;
+	line-height: 28px;
+	padding: 0;
+	font-family: 'montserratlight'
+}
+.banner-readmore {clear: both; display: inline-block; line-height: 50px;}
+.button.slider-btn {
+	border: 1px solid #ffffff;
+	border-radius: 0;
+	font-family: "montserratregular";
+	font-size: 14px;
+	padding: 9px 20px;
+	color: #fff;
+	line-height: 28px;
+}
+.button.slider-btn:hover {color: #fff; border-color: #95c41f }
+.background-area .button.slider-btn {line-height: 20px;}
+.background-area .button-default {display: inline}
+.banner-content.static-text {
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 9;
+}
+.banner-content .text-content-wrapper.full-width {
+	float: none;
+	margin: auto;
+	position: relative;
+	z-index: 9;
+}
+.banner-content .form-box {
+	margin-left: 0;
+	padding: 0;
+	width: 50%;
+	margin-right: 0;
+	margin-bottom: 30px;
+}
+.banner-content .select {width: 100%;}
+.banner-form {
+	background: rgba(31, 34, 62, 0.7) none repeat scroll 0 0;
+	border-bottom: 4px solid #90ae10;
+	overflow: hidden;
+	padding: 0 25px;
+}
+.banner-form .section-title h2 span {display: block; font-size: 30px; font-weight: 700;}
+.banner-form .section-title h2 {font-weight: 600; line-height: 28px;}
+.banner-form .select select {
+	background: rgba(0, 0, 0, 0) url("../../images/icons/arrow2.png") no-repeat scroll 92% 50%;
+	color: #a8a8a8;
+	padding: 0 10px;
+}
+.banner-content .form-box:nth-child(2n+1) {padding-right: 9px;}
+.banner-content .form-box:nth-child(2n) {padding-left: 9px;}
+.banner-form option {color: #333333; font-size: 12px; background: #fff}
+.banner-form .price_filter {width: 100%;}
+.banner-form .form-box.large {height: auto; width: 78%;}
+.banner-form .slider-range {background: #606060 none repeat scroll 0 0;}
+.banner-form .price_filter span, .banner-form .price_filter input{color: #a8a8a8}
+.banner-form .button {width: 197px;}
+.banner-form .button:hover {background: #fff; color: #fff}
+.google-map-area {position: relative}
+.custom-container {
+	bottom: 0;
+	float: left;
+	left: 0;
+	margin: auto 6.7% 0;
+	position: absolute;
+	top: 0;
+	width: 370px;
+}
+.custom-container .banner-form {background: rgba(31, 34, 62, 0.9) none repeat scroll 0 0;}
+.animation-1 h3.title-small {
+  -webkit-animation: 500ms ease-in-out 0s normal none 1 running zoomIn;
+          animation: 500ms ease-in-out 0s normal none 1 running zoomIn;
+}
+.animation-1 h1.title1 {
+  -webkit-animation: 1000ms ease-in-out 0s normal none 1 running bounceInUp;
+          animation: 1000ms ease-in-out 0s normal none 1 running bounceInUp;
+}
+.animation-1 p.sub-title {
+  -webkit-animation: 2000ms ease-in-out 0s normal none 1 running bounceInUp;
+          animation: 2000ms ease-in-out 0s normal none 1 running bounceInUp;
+}
+.animation-1 .banner-readmore {
+  -webkit-animation: 2500ms ease-in-out 0s normal none 1 running bounceInDown;
+          animation: 2500ms ease-in-out 0s normal none 1 running bounceInDown;
+}
+.button.slider-btn:hover, #search-form > button, .banner-form .price_filter .ui-slider-handle.ui-state-default.ui-corner-all, .nivo-controlNav a.active, .nivo-controlNav a:hover {
+	background: #95c41f none repeat scroll 0 0
+}
+.banner-form .ui-slider-range.ui-widget-header.ui-corner-all {
+  background: #95c41f none repeat scroll 0 0 !important;
+}

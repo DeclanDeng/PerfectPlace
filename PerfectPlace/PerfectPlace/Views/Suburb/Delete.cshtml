@@ -1,0 +1,1889 @@
+﻿@model PerfectPlace.Models.suburb_info
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>suburb_info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.community_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.community_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.map_reference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.map_reference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grid_reference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grid_reference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.population_density)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.population_density)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.travel_time_gpo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.travel_time_gpo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distance_to_gpo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distance_to_gpo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.primary_care_partnership)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primary_care_partnership)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicare_local)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicare_local)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aria_min)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aria_min)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aria_max)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aria_max)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aria_avg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aria_avg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.abs_remoteness_category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.abs_remoteness_category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dhs_area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dhs_area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.commercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.commercial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.commercial_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.commercial_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.industrial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.industrial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.industrial_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.industrial_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.residential)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.residential)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.residential_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.residential_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rural)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rural)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rural_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rural_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.other)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.other_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.other_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_0_4_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_0_4_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_0_4_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_0_4_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_5_9_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_5_9_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_5_9_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_5_9_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_10_14_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_10_14_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_10_14_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_10_14_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_15_19_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_15_19_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_15_19_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_15_19_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_20_24_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_20_24_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_20_24_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_20_24_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_25_44_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_25_44_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_25_44_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_25_44_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_45_64_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_45_64_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_45_64_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_45_64_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_65_69_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_65_69_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_65_69_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_65_69_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_70_74_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_70_74_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_70_74_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_70_74_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_75_79_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_75_79_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_75_79_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_75_79_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_80_84_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_80_84_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_80_84_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_80_84_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_85_plus_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_85_plus_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_85_plus_percent_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_85_plus_percent_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_total_2012)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_total_2012)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_0_4_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_0_4_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_0_4_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_0_4_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_5_9_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_5_9_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_5_9_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_5_9_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_10_14_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_10_14_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_10_14_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_10_14_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_15_19_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_15_19_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_15_19_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_15_19_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_20_24_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_20_24_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_20_24_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_20_24_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_25_44_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_25_44_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_25_44_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_25_44_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_45_64_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_45_64_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_45_64_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_45_64_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_65_69_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_65_69_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_65_69_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_65_69_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_70_74_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_70_74_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_70_74_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_70_74_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_75_79_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_75_79_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_75_79_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_75_79_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_80_84_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_80_84_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_80_84_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_80_84_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_85_plus_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_85_plus_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_age_85_plus_percent_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_age_85_plus_percent_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erp_total_2007)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erp_total_2007)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_0_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_0_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_5_9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_5_9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_10_14)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_10_14)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_15_19)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_15_19)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_20_24)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_20_24)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_25_44)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_25_44)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_45_64)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_45_64)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_65_69)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_65_69)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_70_74)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_70_74)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_75_79)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_75_79)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_80_84)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_80_84)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_age_85_plus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_age_85_plus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_2007_2012_total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_2007_2012_total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_hospitals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_hospitals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.private_hospitals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.private_hospitals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.community_health_centres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.community_health_centres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bush_nursing_centres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bush_nursing_centres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.allied_health)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.allied_health)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.alternative_health)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alternative_health)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.child_protection_and_family)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.child_protection_and_family)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.disability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.general_practice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.general_practice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.homelessness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.homelessness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mental_health)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mental_health)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pharmacies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pharmacies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aged_care_high_care)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aged_care_high_care)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aged_care_low_care)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aged_care_low_care)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aged_care_srs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aged_care_srs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.childcare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.childcare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.primary_schools)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primary_schools)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.secondary_schools)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.secondary_schools)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p12_schools)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p12_schools)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.other_schools)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.other_schools)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.centrelink_offices)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.centrelink_offices)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicare_offices)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicare_offices)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicare_access_points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicare_access_points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.number_of_households)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number_of_households)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.average_persons_per_household)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.average_persons_per_household)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.occupied_private_dwellings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.occupied_private_dwellings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.occupied_private_dwellings_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.occupied_private_dwellings_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.population_non_private_dwellings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.population_non_private_dwellings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_housing_dwellings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_housing_dwellings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_housing_dwellings_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_housing_dwellings_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dwellings_no_motor_vehicle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dwellings_no_motor_vehicle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dwellings_no_motor_vehicle_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dwellings_no_motor_vehicle_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dwellings_with_no_internet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dwellings_with_no_internet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dwellings_with_no_internet_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dwellings_with_no_internet_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.equivalent_household_income_lessthan_600)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.equivalent_household_income_lessthan_600)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.equivalent_household_income_lessthan_600_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.equivalent_household_income_lessthan_600_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personal_income_lessthan_400)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personal_income_lessthan_400)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personal_income_lessthan_400_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personal_income_lessthan_400_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.number_of_families)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number_of_families)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.female_headed_lone_parent_families)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.female_headed_lone_parent_families)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.female_headed_lone_parent_families_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.female_headed_lone_parent_families_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.male_headed_lone_parent_families)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.male_headed_lone_parent_families)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.male_headed_lone_parent_families_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.male_headed_lone_parent_families_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.residing_near_pt_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.residing_near_pt_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.irsd_min)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.irsd_min)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.irsd_max)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.irsd_max)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.irsd_avg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.irsd_avg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.primary_school_students)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primary_school_students)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.secondary_school_students)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.secondary_school_students)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tafe_students)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tafe_students)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.university_students)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.university_students)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.holds_degree_persons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.holds_degree_persons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.holds_degree_persons_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.holds_degree_persons_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.did_not_complete_year_12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.did_not_complete_year_12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.did_not_complete_year_12_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.did_not_complete_year_12_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unemployed_persons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unemployed_persons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unemployed_persons_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unemployed_persons_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.volunteers_persons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.volunteers_persons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.volunteers_persons_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.volunteers_persons_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requires_assistance_core_activities_persons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requires_assistance_core_activities_persons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requires_assistance_core_activities_persons_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requires_assistance_core_activities_persons_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aged_75_lives_alone_persons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aged_75_lives_alone_persons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aged_75_lives_alone_persons_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aged_75_lives_alone_persons_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unpaid_carer_to_disability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unpaid_carer_to_disability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unpaid_carer_to_disability_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unpaid_carer_to_disability_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unpaid_carer_children)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unpaid_carer_children)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unpaid_carer_children_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unpaid_carer_children_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_industry_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_industry_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_industry_percent_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_industry_percent_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_industry_persons_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_industry_persons_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_industry_percent_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_industry_percent_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_industry_persons_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_industry_persons_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_industry_percent_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_industry_percent_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_occupation_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_occupation_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_occupation_percent_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_occupation_percent_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_occupation_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_occupation_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_occupation_percent_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_occupation_percent_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_occupation_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_occupation_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_occupation_percent_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_occupation_percent_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aboriginal_torres_strait_islander)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aboriginal_torres_strait_islander)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aboriginal_torres_strait_islander_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aboriginal_torres_strait_islander_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.born_overseas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.born_overseas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.born_overseas_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.born_overseas_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.born_non_english_speaking_country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.born_non_english_speaking_country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.born_non_english_speaking_country_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.born_non_english_speaking_country_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.speaks_lote_home)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.speaks_lote_home)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.speaks_lote_home_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.speaks_lote_home_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poor_english_proficiency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poor_english_proficiency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poor_english_proficiency_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poor_english_proficiency_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_persons_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_persons_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_percent_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_percent_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_persons_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_persons_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_percent_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_percent_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_person_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_person_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_percent_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_percent_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_person_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_person_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_percent_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_percent_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_person_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_person_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_country_of_birth_percent_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_country_of_birth_percent_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_person_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_person_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_percent_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_percent_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_persons_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_persons_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_percent_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_percent_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_persons_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_persons_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_percent_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_percent_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_persons_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_persons_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_pecent_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_pecent_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_persons_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_persons_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top_language_spoken_percent_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top_language_spoken_percent_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_hospital_separations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_hospital_separations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nearest_public_hospital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nearest_public_hospital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.travel_time_nearest_public_hospital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.travel_time_nearest_public_hospital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distance_nearest_public_hospital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distance_nearest_public_hospital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.obstetric_type_separations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.obstetric_type_separations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_hospital_maternity_services)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_hospital_maternity_services)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_hospital_maternity_services_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_hospital_maternity_services_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_hospital_maternity_services_distance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_hospital_maternity_services_distance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.presentations_emergency_departments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.presentations_emergency_departments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_hospital_emergency_department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_hospital_emergency_department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_hospital_emergency_department_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_hospital_emergency_department_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_hospital_emergency_department_distance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_hospital_emergency_department_distance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.presentations_emergency_departments_injury)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.presentations_emergency_departments_injury)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.presentations_emergency_departments_injury_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.presentations_emergency_departments_injury_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emergency_department_presentations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emergency_department_presentations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emergency_department_presentations_percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emergency_department_presentations_percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suburb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suburb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lon)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

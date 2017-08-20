@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PerfectPlace.Models.suburb_info>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Search Result</h2>
+    <br /><br /><br />
+    @if (@ViewBag.criteriaOne.Equals("Criteria 1") && @ViewBag.criteriaTwo.Equals("Criteria 2") && @ViewBag.nationality.Equals("Nationality"))
+    {
+        <h2>Sorry, you do not have selected a reference</h2><br />
+        <h3>Please select at least one</h3>
+        @*<p>@ViewBag.criteriaOne</p>
+            <p>@ViewBag.criteriaTwo</p>
+            <p>@ViewBag.nationality</p>*@
+    }
+
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    Suburb
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.community_name)
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", "Suburb", new { id = item.suburb_id }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    <br />
+    @*<p>@Html.ActionLink("Return", "Index", "Home")</p>*@
+    <a class="button slider-btn lemon" href="@Url.Action("Index","Home")">Return</a>
+</div>
+<br /><br /><br /><br /><br />

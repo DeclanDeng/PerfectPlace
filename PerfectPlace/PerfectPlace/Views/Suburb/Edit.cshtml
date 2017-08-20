@@ -1,0 +1,1894 @@
+﻿@model PerfectPlace.Models.suburb_info
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>suburb_info</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.community_name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.community_name)
+                @Html.ValidationMessageFor(model => model.community_name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.region, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.region)
+                @Html.ValidationMessageFor(model => model.region)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.map_reference, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.map_reference)
+                @Html.ValidationMessageFor(model => model.map_reference)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.grid_reference, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grid_reference)
+                @Html.ValidationMessageFor(model => model.grid_reference)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.location, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.location)
+                @Html.ValidationMessageFor(model => model.location)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.population_density, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.population_density)
+                @Html.ValidationMessageFor(model => model.population_density)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.travel_time_gpo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.travel_time_gpo)
+                @Html.ValidationMessageFor(model => model.travel_time_gpo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.distance_to_gpo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.distance_to_gpo)
+                @Html.ValidationMessageFor(model => model.distance_to_gpo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lga, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lga)
+                @Html.ValidationMessageFor(model => model.lga)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.primary_care_partnership, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.primary_care_partnership)
+                @Html.ValidationMessageFor(model => model.primary_care_partnership)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.medicare_local, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.medicare_local)
+                @Html.ValidationMessageFor(model => model.medicare_local)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.area, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.area)
+                @Html.ValidationMessageFor(model => model.area)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aria_min, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aria_min)
+                @Html.ValidationMessageFor(model => model.aria_min)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aria_max, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aria_max)
+                @Html.ValidationMessageFor(model => model.aria_max)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aria_avg, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aria_avg)
+                @Html.ValidationMessageFor(model => model.aria_avg)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.abs_remoteness_category, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.abs_remoteness_category)
+                @Html.ValidationMessageFor(model => model.abs_remoteness_category)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dhs_area, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dhs_area)
+                @Html.ValidationMessageFor(model => model.dhs_area)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.commercial, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.commercial)
+                @Html.ValidationMessageFor(model => model.commercial)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.commercial_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.commercial_percent)
+                @Html.ValidationMessageFor(model => model.commercial_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.industrial, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.industrial)
+                @Html.ValidationMessageFor(model => model.industrial)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.industrial_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.industrial_percent)
+                @Html.ValidationMessageFor(model => model.industrial_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.residential, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.residential)
+                @Html.ValidationMessageFor(model => model.residential)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.residential_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.residential_percent)
+                @Html.ValidationMessageFor(model => model.residential_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.rural, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.rural)
+                @Html.ValidationMessageFor(model => model.rural)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.rural_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.rural_percent)
+                @Html.ValidationMessageFor(model => model.rural_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.other, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.other)
+                @Html.ValidationMessageFor(model => model.other)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.other_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.other_percent)
+                @Html.ValidationMessageFor(model => model.other_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_0_4_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_0_4_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_0_4_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_0_4_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_0_4_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_0_4_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_5_9_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_5_9_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_5_9_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_5_9_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_5_9_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_5_9_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_10_14_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_10_14_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_10_14_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_10_14_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_10_14_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_10_14_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_15_19_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_15_19_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_15_19_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_15_19_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_15_19_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_15_19_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_20_24_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_20_24_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_20_24_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_20_24_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_20_24_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_20_24_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_25_44_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_25_44_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_25_44_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_25_44_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_25_44_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_25_44_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_45_64_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_45_64_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_45_64_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_45_64_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_45_64_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_45_64_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_65_69_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_65_69_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_65_69_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_65_69_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_65_69_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_65_69_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_70_74_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_70_74_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_70_74_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_70_74_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_70_74_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_70_74_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_75_79_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_75_79_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_75_79_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_75_79_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_75_79_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_75_79_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_80_84_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_80_84_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_80_84_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_80_84_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_80_84_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_80_84_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_85_plus_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_85_plus_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_85_plus_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_85_plus_percent_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_85_plus_percent_2012)
+                @Html.ValidationMessageFor(model => model.erp_age_85_plus_percent_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_total_2012, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_total_2012)
+                @Html.ValidationMessageFor(model => model.erp_total_2012)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_0_4_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_0_4_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_0_4_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_0_4_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_0_4_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_0_4_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_5_9_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_5_9_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_5_9_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_5_9_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_5_9_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_5_9_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_10_14_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_10_14_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_10_14_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_10_14_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_10_14_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_10_14_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_15_19_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_15_19_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_15_19_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_15_19_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_15_19_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_15_19_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_20_24_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_20_24_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_20_24_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_20_24_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_20_24_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_20_24_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_25_44_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_25_44_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_25_44_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_25_44_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_25_44_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_25_44_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_45_64_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_45_64_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_45_64_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_45_64_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_45_64_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_45_64_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_65_69_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_65_69_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_65_69_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_65_69_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_65_69_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_65_69_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_70_74_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_70_74_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_70_74_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_70_74_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_70_74_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_70_74_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_75_79_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_75_79_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_75_79_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_75_79_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_75_79_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_75_79_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_80_84_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_80_84_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_80_84_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_80_84_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_80_84_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_80_84_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_85_plus_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_85_plus_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_85_plus_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_age_85_plus_percent_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_age_85_plus_percent_2007)
+                @Html.ValidationMessageFor(model => model.erp_age_85_plus_percent_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.erp_total_2007, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.erp_total_2007)
+                @Html.ValidationMessageFor(model => model.erp_total_2007)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_0_4, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_0_4)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_0_4)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_5_9, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_5_9)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_5_9)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_10_14, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_10_14)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_10_14)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_15_19, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_15_19)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_15_19)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_20_24, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_20_24)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_20_24)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_25_44, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_25_44)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_25_44)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_45_64, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_45_64)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_45_64)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_65_69, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_65_69)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_65_69)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_70_74, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_70_74)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_70_74)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_75_79, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_75_79)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_75_79)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_80_84, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_80_84)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_80_84)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_age_85_plus, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_age_85_plus)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_age_85_plus)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.change_2007_2012_total, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.change_2007_2012_total)
+                @Html.ValidationMessageFor(model => model.change_2007_2012_total)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_hospitals, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_hospitals)
+                @Html.ValidationMessageFor(model => model.public_hospitals)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.private_hospitals, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.private_hospitals)
+                @Html.ValidationMessageFor(model => model.private_hospitals)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.community_health_centres, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.community_health_centres)
+                @Html.ValidationMessageFor(model => model.community_health_centres)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.bush_nursing_centres, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bush_nursing_centres)
+                @Html.ValidationMessageFor(model => model.bush_nursing_centres)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allied_health, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.allied_health)
+                @Html.ValidationMessageFor(model => model.allied_health)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.alternative_health, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.alternative_health)
+                @Html.ValidationMessageFor(model => model.alternative_health)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.child_protection_and_family, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.child_protection_and_family)
+                @Html.ValidationMessageFor(model => model.child_protection_and_family)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dental, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dental)
+                @Html.ValidationMessageFor(model => model.dental)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.disability, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.disability)
+                @Html.ValidationMessageFor(model => model.disability)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.general_practice, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.general_practice)
+                @Html.ValidationMessageFor(model => model.general_practice)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.homelessness, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.homelessness)
+                @Html.ValidationMessageFor(model => model.homelessness)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.mental_health, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mental_health)
+                @Html.ValidationMessageFor(model => model.mental_health)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.pharmacies, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pharmacies)
+                @Html.ValidationMessageFor(model => model.pharmacies)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aged_care_high_care, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aged_care_high_care)
+                @Html.ValidationMessageFor(model => model.aged_care_high_care)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aged_care_low_care, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aged_care_low_care)
+                @Html.ValidationMessageFor(model => model.aged_care_low_care)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aged_care_srs, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aged_care_srs)
+                @Html.ValidationMessageFor(model => model.aged_care_srs)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.childcare, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.childcare)
+                @Html.ValidationMessageFor(model => model.childcare)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.primary_schools, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.primary_schools)
+                @Html.ValidationMessageFor(model => model.primary_schools)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.secondary_schools, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.secondary_schools)
+                @Html.ValidationMessageFor(model => model.secondary_schools)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.p12_schools, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p12_schools)
+                @Html.ValidationMessageFor(model => model.p12_schools)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.other_schools, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.other_schools)
+                @Html.ValidationMessageFor(model => model.other_schools)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.centrelink_offices, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.centrelink_offices)
+                @Html.ValidationMessageFor(model => model.centrelink_offices)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.medicare_offices, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.medicare_offices)
+                @Html.ValidationMessageFor(model => model.medicare_offices)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.medicare_access_points, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.medicare_access_points)
+                @Html.ValidationMessageFor(model => model.medicare_access_points)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.number_of_households, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.number_of_households)
+                @Html.ValidationMessageFor(model => model.number_of_households)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.average_persons_per_household, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.average_persons_per_household)
+                @Html.ValidationMessageFor(model => model.average_persons_per_household)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.occupied_private_dwellings, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.occupied_private_dwellings)
+                @Html.ValidationMessageFor(model => model.occupied_private_dwellings)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.occupied_private_dwellings_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.occupied_private_dwellings_percent)
+                @Html.ValidationMessageFor(model => model.occupied_private_dwellings_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.population_non_private_dwellings, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.population_non_private_dwellings)
+                @Html.ValidationMessageFor(model => model.population_non_private_dwellings)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_housing_dwellings, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_housing_dwellings)
+                @Html.ValidationMessageFor(model => model.public_housing_dwellings)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_housing_dwellings_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_housing_dwellings_percent)
+                @Html.ValidationMessageFor(model => model.public_housing_dwellings_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dwellings_no_motor_vehicle, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dwellings_no_motor_vehicle)
+                @Html.ValidationMessageFor(model => model.dwellings_no_motor_vehicle)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dwellings_no_motor_vehicle_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dwellings_no_motor_vehicle_percent)
+                @Html.ValidationMessageFor(model => model.dwellings_no_motor_vehicle_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dwellings_with_no_internet, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dwellings_with_no_internet)
+                @Html.ValidationMessageFor(model => model.dwellings_with_no_internet)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dwellings_with_no_internet_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dwellings_with_no_internet_percent)
+                @Html.ValidationMessageFor(model => model.dwellings_with_no_internet_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.equivalent_household_income_lessthan_600, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.equivalent_household_income_lessthan_600)
+                @Html.ValidationMessageFor(model => model.equivalent_household_income_lessthan_600)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.equivalent_household_income_lessthan_600_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.equivalent_household_income_lessthan_600_percent)
+                @Html.ValidationMessageFor(model => model.equivalent_household_income_lessthan_600_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.personal_income_lessthan_400, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.personal_income_lessthan_400)
+                @Html.ValidationMessageFor(model => model.personal_income_lessthan_400)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.personal_income_lessthan_400_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.personal_income_lessthan_400_percent)
+                @Html.ValidationMessageFor(model => model.personal_income_lessthan_400_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.number_of_families, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.number_of_families)
+                @Html.ValidationMessageFor(model => model.number_of_families)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.female_headed_lone_parent_families, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.female_headed_lone_parent_families)
+                @Html.ValidationMessageFor(model => model.female_headed_lone_parent_families)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.female_headed_lone_parent_families_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.female_headed_lone_parent_families_percent)
+                @Html.ValidationMessageFor(model => model.female_headed_lone_parent_families_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.male_headed_lone_parent_families, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.male_headed_lone_parent_families)
+                @Html.ValidationMessageFor(model => model.male_headed_lone_parent_families)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.male_headed_lone_parent_families_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.male_headed_lone_parent_families_percent)
+                @Html.ValidationMessageFor(model => model.male_headed_lone_parent_families_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.residing_near_pt_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.residing_near_pt_percent)
+                @Html.ValidationMessageFor(model => model.residing_near_pt_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.irsd_min, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.irsd_min)
+                @Html.ValidationMessageFor(model => model.irsd_min)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.irsd_max, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.irsd_max)
+                @Html.ValidationMessageFor(model => model.irsd_max)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.irsd_avg, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.irsd_avg)
+                @Html.ValidationMessageFor(model => model.irsd_avg)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.primary_school_students, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.primary_school_students)
+                @Html.ValidationMessageFor(model => model.primary_school_students)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.secondary_school_students, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.secondary_school_students)
+                @Html.ValidationMessageFor(model => model.secondary_school_students)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tafe_students, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tafe_students)
+                @Html.ValidationMessageFor(model => model.tafe_students)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.university_students, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.university_students)
+                @Html.ValidationMessageFor(model => model.university_students)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.holds_degree_persons, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.holds_degree_persons)
+                @Html.ValidationMessageFor(model => model.holds_degree_persons)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.holds_degree_persons_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.holds_degree_persons_percent)
+                @Html.ValidationMessageFor(model => model.holds_degree_persons_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.did_not_complete_year_12, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.did_not_complete_year_12)
+                @Html.ValidationMessageFor(model => model.did_not_complete_year_12)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.did_not_complete_year_12_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.did_not_complete_year_12_percent)
+                @Html.ValidationMessageFor(model => model.did_not_complete_year_12_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.unemployed_persons, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.unemployed_persons)
+                @Html.ValidationMessageFor(model => model.unemployed_persons)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.unemployed_persons_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.unemployed_persons_percent)
+                @Html.ValidationMessageFor(model => model.unemployed_persons_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.volunteers_persons, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.volunteers_persons)
+                @Html.ValidationMessageFor(model => model.volunteers_persons)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.volunteers_persons_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.volunteers_persons_percent)
+                @Html.ValidationMessageFor(model => model.volunteers_persons_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.requires_assistance_core_activities_persons, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.requires_assistance_core_activities_persons)
+                @Html.ValidationMessageFor(model => model.requires_assistance_core_activities_persons)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.requires_assistance_core_activities_persons_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.requires_assistance_core_activities_persons_percent)
+                @Html.ValidationMessageFor(model => model.requires_assistance_core_activities_persons_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aged_75_lives_alone_persons, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aged_75_lives_alone_persons)
+                @Html.ValidationMessageFor(model => model.aged_75_lives_alone_persons)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aged_75_lives_alone_persons_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aged_75_lives_alone_persons_percent)
+                @Html.ValidationMessageFor(model => model.aged_75_lives_alone_persons_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.unpaid_carer_to_disability, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.unpaid_carer_to_disability)
+                @Html.ValidationMessageFor(model => model.unpaid_carer_to_disability)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.unpaid_carer_to_disability_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.unpaid_carer_to_disability_percent)
+                @Html.ValidationMessageFor(model => model.unpaid_carer_to_disability_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.unpaid_carer_children, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.unpaid_carer_children)
+                @Html.ValidationMessageFor(model => model.unpaid_carer_children)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.unpaid_carer_children_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.unpaid_carer_children_percent)
+                @Html.ValidationMessageFor(model => model.unpaid_carer_children_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_industry_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_industry_1)
+                @Html.ValidationMessageFor(model => model.top_industry_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_industry_percent_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_industry_percent_1)
+                @Html.ValidationMessageFor(model => model.top_industry_percent_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_industry_persons_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_industry_persons_2)
+                @Html.ValidationMessageFor(model => model.top_industry_persons_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_industry_percent_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_industry_percent_2)
+                @Html.ValidationMessageFor(model => model.top_industry_percent_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_industry_persons_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_industry_persons_3)
+                @Html.ValidationMessageFor(model => model.top_industry_persons_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_industry_percent_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_industry_percent_3)
+                @Html.ValidationMessageFor(model => model.top_industry_percent_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_occupation_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_occupation_1)
+                @Html.ValidationMessageFor(model => model.top_occupation_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_occupation_percent_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_occupation_percent_1)
+                @Html.ValidationMessageFor(model => model.top_occupation_percent_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_occupation_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_occupation_2)
+                @Html.ValidationMessageFor(model => model.top_occupation_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_occupation_percent_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_occupation_percent_2)
+                @Html.ValidationMessageFor(model => model.top_occupation_percent_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_occupation_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_occupation_3)
+                @Html.ValidationMessageFor(model => model.top_occupation_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_occupation_percent_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_occupation_percent_3)
+                @Html.ValidationMessageFor(model => model.top_occupation_percent_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aboriginal_torres_strait_islander, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aboriginal_torres_strait_islander)
+                @Html.ValidationMessageFor(model => model.aboriginal_torres_strait_islander)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aboriginal_torres_strait_islander_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aboriginal_torres_strait_islander_percent)
+                @Html.ValidationMessageFor(model => model.aboriginal_torres_strait_islander_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.born_overseas, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.born_overseas)
+                @Html.ValidationMessageFor(model => model.born_overseas)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.born_overseas_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.born_overseas_percent)
+                @Html.ValidationMessageFor(model => model.born_overseas_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.born_non_english_speaking_country, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.born_non_english_speaking_country)
+                @Html.ValidationMessageFor(model => model.born_non_english_speaking_country)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.born_non_english_speaking_country_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.born_non_english_speaking_country_percent)
+                @Html.ValidationMessageFor(model => model.born_non_english_speaking_country_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.speaks_lote_home, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.speaks_lote_home)
+                @Html.ValidationMessageFor(model => model.speaks_lote_home)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.speaks_lote_home_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.speaks_lote_home_percent)
+                @Html.ValidationMessageFor(model => model.speaks_lote_home_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.poor_english_proficiency, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.poor_english_proficiency)
+                @Html.ValidationMessageFor(model => model.poor_english_proficiency)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.poor_english_proficiency_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.poor_english_proficiency_percent)
+                @Html.ValidationMessageFor(model => model.poor_english_proficiency_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_1)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_persons_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_persons_1)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_persons_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_percent_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_percent_1)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_percent_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_2)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_persons_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_persons_2)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_persons_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_percent_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_percent_2)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_percent_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_3)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_person_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_person_3)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_person_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_percent_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_percent_3)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_percent_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_4, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_4)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_4)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_person_4, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_person_4)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_person_4)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_percent_4, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_percent_4)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_percent_4)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_5, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_5)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_5)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_person_5, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_person_5)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_person_5)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_country_of_birth_percent_5, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_country_of_birth_percent_5)
+                @Html.ValidationMessageFor(model => model.top_country_of_birth_percent_5)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_1)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_person_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_person_1)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_person_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_percent_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_percent_1)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_percent_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_2)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_persons_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_persons_2)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_persons_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_percent_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_percent_2)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_percent_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_3)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_persons_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_persons_3)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_persons_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_percent_3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_percent_3)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_percent_3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_4, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_4)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_4)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_persons_4, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_persons_4)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_persons_4)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_pecent_4, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_pecent_4)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_pecent_4)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_5, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_5)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_5)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_persons_5, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_persons_5)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_persons_5)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.top_language_spoken_percent_5, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.top_language_spoken_percent_5)
+                @Html.ValidationMessageFor(model => model.top_language_spoken_percent_5)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_hospital_separations, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_hospital_separations)
+                @Html.ValidationMessageFor(model => model.public_hospital_separations)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nearest_public_hospital, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nearest_public_hospital)
+                @Html.ValidationMessageFor(model => model.nearest_public_hospital)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.travel_time_nearest_public_hospital, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.travel_time_nearest_public_hospital)
+                @Html.ValidationMessageFor(model => model.travel_time_nearest_public_hospital)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.distance_nearest_public_hospital, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.distance_nearest_public_hospital)
+                @Html.ValidationMessageFor(model => model.distance_nearest_public_hospital)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.obstetric_type_separations, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.obstetric_type_separations)
+                @Html.ValidationMessageFor(model => model.obstetric_type_separations)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_hospital_maternity_services, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_hospital_maternity_services)
+                @Html.ValidationMessageFor(model => model.public_hospital_maternity_services)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_hospital_maternity_services_time, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_hospital_maternity_services_time)
+                @Html.ValidationMessageFor(model => model.public_hospital_maternity_services_time)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_hospital_maternity_services_distance, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_hospital_maternity_services_distance)
+                @Html.ValidationMessageFor(model => model.public_hospital_maternity_services_distance)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.presentations_emergency_departments, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.presentations_emergency_departments)
+                @Html.ValidationMessageFor(model => model.presentations_emergency_departments)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_hospital_emergency_department, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_hospital_emergency_department)
+                @Html.ValidationMessageFor(model => model.public_hospital_emergency_department)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_hospital_emergency_department_time, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_hospital_emergency_department_time)
+                @Html.ValidationMessageFor(model => model.public_hospital_emergency_department_time)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.public_hospital_emergency_department_distance, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.public_hospital_emergency_department_distance)
+                @Html.ValidationMessageFor(model => model.public_hospital_emergency_department_distance)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.presentations_emergency_departments_injury, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.presentations_emergency_departments_injury)
+                @Html.ValidationMessageFor(model => model.presentations_emergency_departments_injury)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.presentations_emergency_departments_injury_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.presentations_emergency_departments_injury_percent)
+                @Html.ValidationMessageFor(model => model.presentations_emergency_departments_injury_percent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.emergency_department_presentations, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emergency_department_presentations)
+                @Html.ValidationMessageFor(model => model.emergency_department_presentations)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.emergency_department_presentations_percent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emergency_department_presentations_percent)
+                @Html.ValidationMessageFor(model => model.emergency_department_presentations_percent)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.suburb_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.postcode, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.postcode)
+                @Html.ValidationMessageFor(model => model.postcode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.suburb, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.suburb)
+                @Html.ValidationMessageFor(model => model.suburb)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.state, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.state)
+                @Html.ValidationMessageFor(model => model.state)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dc, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dc)
+                @Html.ValidationMessageFor(model => model.dc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.type, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.type)
+                @Html.ValidationMessageFor(model => model.type)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lat, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lat)
+                @Html.ValidationMessageFor(model => model.lat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lon, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lon)
+                @Html.ValidationMessageFor(model => model.lon)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

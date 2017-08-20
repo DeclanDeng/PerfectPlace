@@ -1,0 +1,25 @@
+a:hover, .main-menu > li:hover > a, .main-menu > li.active > a, .dropdown li a:hover, .main-menu > li:hover > a, .dropdown > li:hover > a, .main-menu.text-white > li:hover > a, .fixed.sticky .main-menu.text-white > li > a, .mean-container .mean-nav ul li a:hover, .link > a, .property-title h3, .single-blog .single-blog-text h5:hover, .single-blog-text a.button:hover, .categories a:hover, .search-form-box > button:hover, .single-sidebar-widget p a, .tags-and-links .social-links-small a:hover, h4.sub-title, .subscribe-form > button:hover, .footer-text a:hover, .text-color .fixed, .text-color.main-menu > li > a, .footer-widget-list li a:hover, .footer-container .social-links-three > a:hover, .footer-container span a:hover {
+  color: #2395EC;
+}
+
+.button.slider-btn:hover, #search-form > button, .banner-form .price_filter .ui-slider-handle.ui-state-default.ui-corner-all, .add-property-btn.button, .mobile-menu-area, .mean-container .mean-nav, .link > a:before, .link > a:after, .owl-dot.active, .link-effect li:hover, .agent-link li:hover, .slick-dots li.slick-active button, .single-sidebar-widget .tags li a:hover, .single-package:hover button, h4.sub-title:after, .action, .error-text a, button.close, .social-links > a:hover, .nivo-controlNav a.active, .nivo-controlNav a:hover, button.lemon, .pagination-content .pagination li a:hover, .pagination-content .pagination li.active a, .bg-lemon, .button.lemon {
+	background: #2395EC none repeat scroll 0 0
+}
+
+
+.button.slider-btn:hover, .single-sidebar-widget .tags li a:hover, .social-links > a:hover, .footer-text a:hover, .button.lemon, .header-top-two, .footer-container span a:hover {
+	border-color: #2395EC
+}
+
+.bg-overlay-light:before {
+    background: rgba(35, 149, 236, 0.3);
+}
+
+.banner-form .ui-slider-range.ui-widget-header.ui-corner-all {
+  background: #2395EC none repeat scroll 0 0 !important;
+}
+
+.button.lemon:hover {
+    background: #1F223E;
+    border-color: #1F223E
+}

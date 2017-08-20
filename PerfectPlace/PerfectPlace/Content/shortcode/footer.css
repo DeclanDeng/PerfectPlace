@@ -1,0 +1,166 @@
+/* -----------------------------------
+Template:  DomInno
+
+NOTE: This is Footer style file. All footer related style included in this file.
+
+--------------------------------------*/
+.single-footer-widget {color: #c7c7c7}
+.single-footer-widget > h3 {
+	  font-family: "montserratsemi_bold";
+	  font-size: 16px;
+	  font-weight: 500;
+}
+.single-footer-widget p {font-size: 14px;}
+.single-footer-widget > span i {font-size: 18px; width: 30px;}
+.footer-list a:hover {color: #95c41f}
+.footer-list a {
+	color: #c7c7c7;
+	font-size: 12px;
+	line-height: 33px;
+}
+.footer-logo {margin-top: -52px; text-align: center;}
+.footer-logo > a {display: inline-block;}
+.social-links > a {
+    border: 1px solid #b9b9b9;
+    color: #c7c7c7;
+    display: inline-block;
+    height: 29px;
+    line-height: 28px;
+    margin: 0 8px;
+    text-align: center;
+    width: 29px;
+}
+.social-links {text-align: center;}
+.social-links > a:hover {color: #ffffff; background: #95c41f none repeat scroll 0 0}
+.subscribe-form > input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    font-size: 12px;
+    padding-left: 12px;
+}
+.subscribe-form {
+    border: 1px solid #b9b9b9;
+    height: 45px;
+    position: relative;
+}
+.subscribe-form > button {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	color: #b9b9b9;
+	font-size: 14px;
+	height: 100%;
+	padding: 0 17px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.footer-widget-content > h5 {
+    color: #dadada;
+    font-family: "montserratregular";
+    font-size: 14px;
+    font-weight: 400;
+}
+.footer-widget-content > span {font-size: 12px; line-height: 24px;}
+.footer-contact-info > span {display: block; line-height: 21px;}
+.footer-contact-info > img {position: absolute; top: 8px;}
+.footer-contact-info {position: relative; font-size: 12px;}
+.footer-text {
+	font-family: "montserratlight";
+	line-height: 14px;
+	color: #b9b9b9;
+	font-size: 13px;
+}
+.footer-text a{color: #b9b9b9;}
+.footer-text a:hover {border-bottom: 1px solid transparent;}
+.border-top{border-top: 1px solid #484848}
+.border-top-light{border-top: 1px solid #ebebeb}
+.footer-style-2 .single-footer-widget {color: #fff}
+.footer-style-2 .single-footer-widget > h3 {font-size: 18px;}
+.footer-style-2 .single-footer-widget p {font-size: 15px;}
+.footer-style-2 .subscribe-form {border-color: #fdfdfd}
+.footer-style-2 .subscribe-form > button, .footer-two .footer-text a{color: #fff}
+.footer-style-2 .subscribe-form > button:hover{color: #1F223E}
+.footer-style-2 .single-footer-widget .footer-list a:hover {color: #21243F}
+.footer-style-2 .footer-widget-content > h5 {color: #ffffff; font-size: 16px;}
+.footer-style-2 .footer-widget-content > span {font-size: 14px;}
+.footer-style-2 .footer-list a, .footer-two .footer-text, .footer-style-2 .subscribe-form > input {
+    color: #ffffff;
+    font-size: 14px;
+}
+.footer-two .footer-text a:hover {border-color: #20233D; color: #20233D}
+.footer-style-2 .footer-contact-info > span {font-size: 14px;}
+.footer-style-2 .social-links > a{color: #fff; border-color: #fff}
+.footer-style-2 .social-links > a:hover{border-color: #20233D; background: #20233D;}
+.footer-logo-three > a {display: inline-block; margin-bottom: 23px;}
+.footer-info-container {border-bottom: 1px solid #e1e1e1;}
+.single-footer-widget > h4 {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+.footer-widget-list li a {color: #ffffff; font-weight: 400; line-height: 36px;}
+.subscribe-container {
+    background: #ffffff none repeat scroll 0 0;
+    border-radius: 4px;
+    padding: 44px 40px 50px;
+}
+.subscribe-container > p {
+    color: #2d3e50;
+    font-weight: 400;
+    margin-bottom: 33px;
+    text-align: center;
+}
+.subscribe-container input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    color: #666;
+    font-weight: 400;
+    height: 100%;
+    opacity: 1;
+    padding-left: 14px;
+    width: 100%;
+}
+.subscribe-container button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    color: #666;
+    float: right;
+    font-size: 14px;
+    height: 100%;
+    padding-right: 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.subscribe-container button:hover::after {display: none;}
+.subscribe-form-three {
+    background: #d9d9d9 none repeat scroll 0 0;
+    display: block;
+    height: 48px;
+    line-height: 46px;
+    position: relative;
+}
+.footer-container {border-top: 1px solid #e1e1e1; padding: 25px 0 28px;}
+.footer-container .social-links-three {float: right; overflow: hidden;}
+.footer-container .social-links-three > a {
+    color: #ffffff;
+    line-height: 16px;
+    margin-left: 21px;
+    margin-right: 0;
+}
+.footer-container span {color: #ffffff; font-weight: 400;}
+.footer-container span a {color: #ffffff; position: relative;}
+.footer-container span a:hover {border-bottom: 1px solid transparent;}
+.footer-container span a:hover::after {opacity: 1;}
+.newsletter-area.newsletter-four::before, .newsletter-area.newsletter-four::after {display: none;}
+.footer-info > span {color: #f5f5f5; margin: 0 8px;}
+.footer-info > span i {margin-right: 7px;}
+.footer-info {margin-top: 30px;}
+.single-sidebar-widget p a, .tags-and-links .social-links-small a:hover, h4.sub-title, .subscribe-form > button:hover, .footer-text a:hover, .text-color .fixed, .text-color.main-menu > li > a, .footer-widget-list li a:hover, .footer-container .social-links-three > a:hover, .footer-container span a:hover {
+  color: #95c41f;
+}
+.single-sidebar-widget .tags li a:hover, .social-links > a:hover, .footer-text a:hover, .header-top-two, .footer-container span a:hover {
+	border-color: #95c41f
+}

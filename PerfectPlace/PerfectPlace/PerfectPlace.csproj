@@ -271,6 +271,7 @@
     <Content Include="Content\style.css" />
     <Content Include="Image\about_page_banner.jpg" />
     <Content Include="Image\about_page_left.jpg" />
+    <Content Include="Image\declan.png" />
     <Content Include="Image\home_about_us.jpg" />
     <Content Include="Image\home_old_people1.jpg" />
     <Content Include="favicon.ico" />
@@ -333,6 +334,9 @@
     <Content Include="Image\icons\twitter.png" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\logo2.png" />
+    <Content Include="Image\jasper.png" />
+    <Content Include="Image\dk.png" />
+    <Content Include="Image\sylvia.png" />
     <Content Include="Image\search_suburb.jpg" />
     <Content Include="Image\suburb_detail.png" />
     <Content Include="Image\suburb_development.jpg" />

@@ -8,7 +8,7 @@ namespace PerfectPlace.Controllers
 {
 	public class ErrorController : Controller
 	{
-		//
+		// Define different error case
 		// GET: /Error/
 		public ActionResult Error()
 		{

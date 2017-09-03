@@ -1,75 +1,111 @@
 ﻿@{
-	ViewBag.Title = "Home Pageeeeee";
+    ViewBag.Title = "Home Page";
 }
 
+<style>
+    .nav-tabs > li > a {
+        background-color: #fff;
+    }
+.banner-form .button:hover {background: #fff; color: #808080}
+</style>
 <!-- Start of Background Area -->
-<div class="background-area">
-    <img src="~/Image/home_old_people.jpg" alt="" title="#slider-1-caption1" />
-    <div class="banner-content static-text">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="text-content-wrapper">
-                        <div class="text-content text-center">
-                            <h3 class="title-small text-uppercase text-white mb-30"><span class="tlt" data-in-effect="fadeInLeftBig" data-out-effect="fadeOutRight">WANA FIND YOUR DREAM PLACE !</span></h3>
-                            <h1 class="title1 text-uppercase text-white mb-10"><span class="tlt" data-in-effect="rollIn" data-out-effect="fadeOutRight">Perfect Place ALWAYS WITH YOU</span></h1>
-                            <div class="banner-readmore mt-37">
-                                <a class="button slider-btn lemon" href="@Url.Action("About","Home")">Read more</a>
+@*<div class="background-area">
+        <img src="~/Image/home_old_people.jpg" alt="" title="#slider-1-caption1" />
+        <div class="banner-content static-text">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-content-wrapper">
+                                <div class="text-content text-center">
+                                    <h3 class="title-small text-uppercase text-white mb-30"><span class="tlt" data-in-effect="fadeInLeftBig" data-out-effect="fadeOutRight">WANA FIND YOUR DREAM PLACE !</span></h3>
+                                    <h1 class="title1 text-uppercase text-white mb-10"><span class="tlt" data-in-effect="rollIn" data-out-effect="fadeOutRight">Perfect Place ALWAYS WITH YOU</span></h1>
+                                    <div class="banner-readmore mt-37">
+                                        <a class="button slider-btn lemon" href="@Url.Action("About","Home")">About us</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+    </div>*@
 <!--End of Background Area-->
+<!--Start of Google Map Area-->
+<div class="google-map-area fix">
+<!--Google map start-->
+<div id="contacts" class="map-area">
+    <div id="googleMap" style="width:100%;height:600px;filter: grayscale(100%);-webkit-filter: grayscale(100%);background:url(/Image/slide_6_n.jpg)"></div>
+</div>
+<!--Google map end-->
+<div class="custom-container">
+    <div class="banner-content">
+        <div class="display-table pull_left">
+            <div class="display-table-cell">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab"  href="#preference">Preference</a></li>
+                    <li><a  data-toggle="tab" href="#suburbChange">Suburb change</a></li>
+                    <li><a data-toggle="tab" href="#suburb">Suburb</a></li>
+                    @* <li><a  data-toggle="tab" href="#menu3">Menu 3</a></li>*@
+                </ul>
+                <div class="tab-content">
+                    <div id="preference" class="tab-pane fade in active banner-form">
+                        <div class="section-title mb-45 mt-45">
+                            <h2 class="uppercase text-white">
+                                FIND YOUR <span>DREAM SUBURB</span>
+                            </h2>
+                        </div>
+                        @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+                        {
+                            <form action="#" class="col-10">
+                                <div class="form-box mb-40 pl-15 pr-15">
+                                    <div class="select" style="border: none;font-size: 16px;">
+                                        @Html.AntiForgeryToken()
+                                       <div style="    margin-bottom: 3px;">
+                                           <input class="suburb_check" type="checkbox" name="suburbSearch" value="1" style="height: 13px;display: inline-block;width: 13px;">
+                                        <span style="    color: #fff;">Near CBD</span>
+                                        </div>
+                                        <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="2" style="height: 13px;display: inline-block;width: 13px;">
+                                        <span style="    color: #fff;">More shops</span>
+                                        </div>
+                                        <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="3" style="height: 13px;display: inline-block;width: 13px;">
+                                        <span style="    color: #fff;">More health service</span>
+                                        </div>
+                                        <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="4" style="height: 13px;display: inline-block;width: 13px;">
+                                        <span style="    color: #fff;">Low Accident Rate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                             <div class="form-box mb-40 pl-15 pr-15" style="    padding-left: 0px;">
+                                     <div class="select" style="border: none;font-size: 16px;">
+                                       <div style="    margin-bottom: 3px;    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="5" style="height: 13px;display: inline-block;width: 13px;">
+                                    <span style="    color: #fff;">More aged care centre</span>
+                                            </div>
+                                        <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="6" style="height: 13px;display: inline-block;width: 13px;">
+                                    <span style="    color: #fff;">Near hospital</span>
+                                    </div>
+                                <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="7" style="height: 13px;display: inline-block;width: 13px;">
+                                <span style="    color: #fff;">Low Crime Rate</span>
+                                </div>
+                                    </div>
+                                </div>
+                                <div class="form-box mb-40 pl-15 pr-15" style="margin-top: 69px;">
+                                    <div class="select">
+                                          <select name="nationality" style="    color: #fff;">
+                                            <option>Nationality</option>
+                                            <option>England</option>
+                                            <option>China</option>
+                                            <option>India</option>
+                                            <option>Italy</option>
+                                            <option>Vietnam</option>
+                                            <option>Others</option>
+                                        </select><span class="caret"></span>
+                                    </div>
+                                </div>
 
-<!--Start of Find Area-->
-<div class="find-area pt-72 pb-72 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title text-center mb-55">
-                    <h2 class="uppercase">FIND YOUR DREAM SUBURB </h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                @using (Html.BeginForm("Index", "Search", FormMethod.Post))
-                {
-                <form action="#" class="col-10">
-                    <div class="form-box mb-40 pl-15 pr-15">
-                        <div class="select">
-                            @Html.AntiForgeryToken()
-                            <select name="criteriaOne" id="location">
-                                <option>Criteria 1</option>
-                                <option>Near CBD</option>
-                                <option>More shops</option>
-                                <option>More health service</option>
-                                <option>More aged care centre</option>
-                                <option>Near hospital</option>
-                                <option>Primary Schools</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-box mb-40 pl-15 pr-15">
-                        <div class="select">
-                            <select name="criteriaTwo">
-                                <option>Criteria 2</option>
-                                <option>Near CBD</option>
-                                <option>More shops</option>
-                                <option>More health service</option>
-                                <option>More aged care centre</option>
-                                <option>Near hospital</option>
-                                <option>Primary Schools</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-box mb-40 pl-15 pr-15">
-                        <div class="select">
-                            <select name="nationality">
+                            <!--    <div class="form-box mb-40 pl-15 pr-15">
+
+                                 <div class="select">
+                                <select name="repeated">
                                 <option>Nationality</option>
                                 <option>England</option>
                                 <option>China</option>
@@ -79,8 +115,168 @@
                                 <option>Others</option>
                             </select>
                         </div>
+                                </div>-->
+
+                                <div class="form-box pl-15 pr-15 large" style="    padding-left: 0px;">
+                                    <button name="search_price" style="margin-top:1px" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("Index", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
+                                </div>
+                            </form>
+                        }
                     </div>
-                    @*<div class="form-box mb-40 pl-15 pr-15">
+
+                <div id="suburbChange" class="tab-pane fade banner-form">
+                    <div class="section-title mb-45 mt-45">
+                        <h2 class="uppercase text-white">
+                            FIND YOUR <span>DREAM SUBURB</span>
+                        </h2>
+                    </div>
+                @using (Html.BeginForm("SearchBySuburbChange", "Search", FormMethod.Post))
+                {
+                    <form action="#" class="col-10">
+                        @*<div class="form-box mb-40 pl-15 pr-15">
+                    <div class="select">
+                        <select name="location">
+                            <option>Location</option>
+                            <option>Dhaka</option>
+                            <option>Shylet</option>
+                            <option>Khulna</option>
+                            <option>Barishal</option>
+                            <option>Chittagong</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-box mb-40 pl-15 pr-15">
+                    <div class="select">
+                        <select name="sub-location">
+                            <option>Sub - Location</option>
+                            <option>Dhaka</option>
+                            <option>Shylet</option>
+                            <option>Khulna</option>
+                            <option>Barishal</option>
+                            <option>Chittagong</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-box mb-40 pl-15 pr-15">
+                    <div class="select">
+                        <select name="min-sqft">
+                            <option>Min area (sqft)</option>
+                            <option>Dhaka</option>
+                            <option>Shylet</option>
+                            <option>Khulna</option>
+                            <option>Barishal</option>
+                            <option>Chittagong</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-box mb-40 pl-15 pr-15">
+                    <div class="select">
+                        <select name="max-sqft">
+                            <option>Max area (sqft)</option>
+                            <option>Dhaka</option>
+                            <option>Shylet</option>
+                            <option>Khulna</option>
+                            <option>Barishal</option>
+                            <option>Chittagong</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-box pl-15 pr-15">
+                    <div class="select">
+                        <select name="bedrooms">
+                            <option>No of Beadroom</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-box pl-15 pr-15">
+                    <div class="select">
+                        <select name="bedrooms">
+                            <option>No of Bathroom</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>*@
+                        @*<div class="form-box pl-15 pr-15 large">
+                    <div class="price_filter pt-5">
+                        <div class="price_slider_amount mb-20">
+                            <div class="slider-values">
+                                <span>Price Range</span>
+                                <input type="text" class="amount" name="price" placeholder="Add Your Price" />
+                            </div>
+                        </div>
+                        <div class="slider-range"></div>
+                    </div>
+                    <button name="search_price" type="button" class="button search_price lemon mt-55 mb-21"><span><span>SEA CHANGE</span></span></button>
+                </div>*@
+                        @*<div class="form-box pl-15 pr-15 large">
+                    <button name="search_price" type="button" class="button search_price lemon mt-55 mb-21"><span><span>TREE CHANGE</span></span></button>
+                </div>*@
+                        @*<button name="suburbChange" value="seaChange" type="button" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'"><span><span>SEA CHANGE</span></span></button>*@
+                        @*<button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>TREE CHANGE</span></span></button>
+
+                        <button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>CITY CHANGE</span></span></button>*@
+                        <input type="submit" name="suburbChange" value="SEA CHANGE" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
+                        <input type="submit" name="suburbChange" value="TREE CHANGE" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
+                        <input type="submit" name="suburbChange" value="CITY CHANGE" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
+
+                    </form>
+                }
+                </div>
+
+                <div id="suburb" class="tab-pane fade banner-form">
+                    <div class="section-title mb-45 mt-45">
+                        <h2 class="uppercase text-white">
+                            Search By <span>SUBURB</span>
+                        </h2>
+                    </div>
+                    @using (Html.BeginForm("SearchBySuburb", "Search", FormMethod.Post))
+                    {
+                        <form action="#" class="col-10">
+                            @*<div class="form-box mb-40 pl-15 pr-15">
+                        <div class="select">
+                            <select name="location">
+                                <option>Location</option>
+                                <option>Dhaka</option>
+                                <option>Shylet</option>
+                                <option>Khulna</option>
+                                <option>Barishal</option>
+                                <option>Chittagong</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-box mb-40 pl-15 pr-15">
+                        <div class="select">
+                            <select name="sub-location">
+                                <option>Sub - Location</option>
+                                <option>Dhaka</option>
+                                <option>Shylet</option>
+                                <option>Khulna</option>
+                                <option>Barishal</option>
+                                <option>Chittagong</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-box mb-40 pl-15 pr-15">
+                        <div class="select">
+                            <select name="min-sqft">
+                                <option>Min area (sqft)</option>
+                                <option>Dhaka</option>
+                                <option>Shylet</option>
+                                <option>Khulna</option>
+                                <option>Barishal</option>
+                                <option>Chittagong</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-box mb-40 pl-15 pr-15">
                         <div class="select">
                             <select name="max-sqft">
                                 <option>Max area (sqft)</option>
@@ -95,7 +291,7 @@
                     <div class="form-box pl-15 pr-15">
                         <div class="select">
                             <select name="bedrooms">
-                                <option>No. of Beadrooms</option>
+                                <option>No of Beadroom</option>
                                 <option>3</option>
                                 <option>4</option>
                                 <option>5</option>
@@ -106,7 +302,7 @@
                     <div class="form-box pl-15 pr-15">
                         <div class="select">
                             <select name="bedrooms">
-                                <option>No. of Bathrooms</option>
+                                <option>No of Bathroom</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -115,44 +311,147 @@
                             </select>
                         </div>
                     </div>*@
-                    <div class="form-box pl-15 pr-15">
+                            @*<div class="form-box pl-15 pr-15 large">
+                        <div class="price_filter pt-5">
+                            <div class="price_slider_amount mb-20">
+                                <div class="slider-values">
+                                    <span>Price Range</span>
+                                    <input type="text" class="amount" name="price" placeholder="Add Your Price" />
+                                </div>
+                            </div>
+                            <div class="slider-range"></div>
+                        </div>
+                        <button name="search_price" type="button" class="button search_price lemon mt-55 mb-21"><span><span>SEA CHANGE</span></span></button>
+                    </div>*@
+                            @*<div class="form-box pl-15 pr-15 large">
+                        <button name="search_price" type="button" class="button search_price lemon mt-55 mb-21"><span><span>TREE CHANGE</span></span></button>
+                    </div>*@
+                            @*<button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>SEA CHANGE</span></span></button>
 
-                        <button name="search_price" type="submit" class="button search_price lemon pull_left mr-6" onclick="location.href = '@Url.Action("Index", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
+                    <button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>TREE CHANGE</span></span></button>*@
 
+                            <div class="form-box mb-40 pl-15 pr-15" style="width: 100%">
+                                <input id="inputSuburb" class="mb-20" style="color: cadetblue" type="text" name="inputSuburb" placeholder="Enter the whole or partial name">
+                            </div>
+                            @*<button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>CITY CHANGE</span></span></button>*@
+                            <div class="form-box pl-15 pr-15 large" style="padding-left: 0px">
+                                <button name="search_by_suburb" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("SearchBySuburb", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
+                            </div>
+                        </form>
+                    }
+                </div>
+                    <div id="menu3" class="tab-pane fade">
+                        <h3>Menu 3</h3>
+                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                     </div>
-                </form>
-                }
+                </div>
             </div>
         </div>
     </div>
 </div>
+</div>
+<!--End of Google Map Area-->
+@*<form>
+        <div class="button-box">
+            <div class="fix">
+                <input type="checkbox" value=""><span>Option 1</span>
+            </div>
+        </div>
+    </form>*@
+<!--Start of Find Area-->
+@*<div class="find-area pt-72 pb-72 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center mb-55">
+                    <h2 class="uppercase">FIND YOUR DREAM SUBURB </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+                {
+                    <form action="#" class="col-10">
+                        <div class="form-box mb-40 pl-15 pr-15">
+                            <div class="select">
+                                @Html.AntiForgeryToken()
+                                <select name="criteriaOne" id="location">
+                                    <option>Criteria 1</option>
+                                    <option>Near CBD</option>
+                                    <option>More shops</option>
+                                    <option>More health service</option>
+                                    <option>More aged care centre</option>
+                                    <option>Near hospital</option>
+                                    <option>Primary Schools</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-box mb-40 pl-15 pr-15">
+                            <div class="select">
+                                <select name="criteriaTwo">
+                                    <option>Criteria 2</option>
+                                    <option>Near CBD</option>
+                                    <option>More shops</option>
+                                    <option>More health service</option>
+                                    <option>More aged care centre</option>
+                                    <option>Near hospital</option>
+                                    <option>Primary Schools</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-box mb-40 pl-15 pr-15">
+                            <div class="select">
+                                <select name="nationality">
+                                    <option>Nationality</option>
+                                    <option>England</option>
+                                    <option>China</option>
+                                    <option>India</option>
+                                    <option>Italy</option>
+                                    <option>Vietnam</option>
+                                    <option>Others</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-box pl-15 pr-15">
+
+                            <button name="search_price" type="submit" class="button search_price lemon pull_left mr-6" onclick="location.href = '@Url.Action("Index", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
+
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</div>*@
 
 @*<button class="btn btn-info" type="button" id="suburbSearch" onclick="location.href = '@Url.Action("About","Home")'">click</button>*@
 <!-- End of Find Area -->
 <!--Start of About Area-->
 <div class="about-area mt-120 pb-90 banner-1">
     <div class=" container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-6">
-            <div class="section-title mb-38 mt-31">
-                <span class="opacity-text text-uppercase">About</span>
-                <h2 class="uppercase">KNOW ABOUT <span class="text-color">Perfect Place</span></h2>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+                <div class="section-title mb-38 mt-31">
+                    <span class="opacity-text text-uppercase">About</span>
+                    <h2 class="uppercase">KNOW ABOUT <span class="text-color">Perfect Place</span></h2>
+                </div>
+                <p class="23">
+                    <span class="text-dark text-uppercase">Perfect Place</span> aims to develop a convenient solution for elder people who are planning to move to new suburb after their retirement. Each of us have their own preferences and interest towards our residential area based on the lifestyle but in most of the cases we are forced to compromise due to lack of information and time.
+                </p>
+                @*<p class="34">Here is the best theme for  elit, sed do eiusmod tempor dolor sit amet, conse ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et lorna aliquatd minim veniam, quis nostrud exercitation oris nisi ut aliquip ex ea commodo equat.</p>
+                    <div class="link mb-33">
+                        <a href="#">Download our apps</a><span class="text pl-12">and get notifications for new property</span>
+                    </div>*@
             </div>
-            <p class="23">
-                <span class="text-dark text-uppercase">Perfect Place</span> aims to develop a convenient solution for elder people who are planning to move to new suburb after their retirement. Each of us have their own preferences and interest towards our residential area based on the lifestyle but in most of the cases we are forced to compromise due to lack of information and time.
-            </p>
-            @*<p class="34">Here is the best theme for  elit, sed do eiusmod tempor dolor sit amet, conse ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et lorna aliquatd minim veniam, quis nostrud exercitation oris nisi ut aliquip ex ea commodo equat.</p>
-                <div class="link mb-33">
-                    <a href="#">Download our apps</a><span class="text pl-12">and get notifications for new property</span>
-                </div>*@
         </div>
     </div>
 </div>
-</div>
 <!-- End of About Area -->
-<br /><br /><br />
+
 <!--Start of Service Area-->
-<div class="service-area pb-120">
+<div class="service-area mt-120 pb-120">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -167,7 +466,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="single-service pull_left hover-effect-one">
                     <div class="single-service-image pull_left mr-20">
-                        <img style="width: 150px; height: 150px" src="/Image/search_suburb.jpg" alt="">
+                        <img style="width: 150px; height: 150px" src="/Image/search_suburb_1.jpg" alt="">
                     </div>
                     <div class="single-service-text fix">
                         <h4 class="mb-14"><a href="@Url.Action("Index","Home")">Search Suburb</a></h4>
@@ -178,7 +477,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="single-service hover-effect-one">
                     <div class="single-service-image pull_left mr-20">
-                        <img style="width: 150px; height: 150px" src="/Image/suburb_detail.png" alt="">
+                        <img style="width: 150px; height: 150px" src="/Image/suburb_detail_1.jpg" alt="">
                     </div>
                     <div class="single-service-text fix">
                         <h4 class="mb-14"><a href="@Url.Action("Index", "Suburb")">Suburb Detail</a></h4>
@@ -203,74 +502,74 @@
 <!--End of Service Area-->
 <!--Start of Fun Factor Area-->
 @*<div class="fun-factor-area bg-1 bg-overlay-1 ptb-90">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-3">
-                <div class="single-fun-factor">
-                    <div class="text-icon mb-8 block">
-                        <img src="images/icons/home.png" alt="" class="mr-15">
-                        <h2><span class="counter">999</span></h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3">
+                    <div class="single-fun-factor">
+                        <div class="text-icon mb-8 block">
+                            <img src="images/icons/home.png" alt="" class="mr-15">
+                            <h2><span class="counter">999</span></h2>
+                        </div>
+                        <h4>Complete Project</h4>
                     </div>
-                    <h4>Complete Project</h4>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="single-fun-factor">
-                    <div class="text-icon mb-8 block">
-                        <img src="images/icons/key.png" alt="" class="mr-15">
-                        <h2><span class="counter">720</span></h2>
+                <div class="col-md-3 col-sm-3">
+                    <div class="single-fun-factor">
+                        <div class="text-icon mb-8 block">
+                            <img src="images/icons/key.png" alt="" class="mr-15">
+                            <h2><span class="counter">720</span></h2>
+                        </div>
+                        <h4>Property Sold</h4>
                     </div>
-                    <h4>Property Sold</h4>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="single-fun-factor">
-                    <div class="text-icon mb-8 block">
-                        <img src="images/icons/face.png" alt="" class="mr-15">
-                        <h2><span class="counter">750</span></h2>
+                <div class="col-md-3 col-sm-3">
+                    <div class="single-fun-factor">
+                        <div class="text-icon mb-8 block">
+                            <img src="images/icons/face.png" alt="" class="mr-15">
+                            <h2><span class="counter">750</span></h2>
+                        </div>
+                        <h4>Happy Clients</h4>
                     </div>
-                    <h4>Happy Clients</h4>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="single-fun-factor">
-                    <div class="text-icon mb-8 block">
-                        <img src="images/icons/trophy.png" alt="" class="mr-15">
-                        <h2><span class="counter">120</span></h2>
+                <div class="col-md-3 col-sm-3">
+                    <div class="single-fun-factor">
+                        <div class="text-icon mb-8 block">
+                            <img src="images/icons/trophy.png" alt="" class="mr-15">
+                            <h2><span class="counter">120</span></h2>
+                        </div>
+                        <h4>Awards Win</h4>
                     </div>
-                    <h4>Awards Win</h4>
                 </div>
             </div>
         </div>
-    </div>
-</div>*@
+    </div>*@
 <!--End of Fun Factor Area-->
-
-
 @*<div class="jumbotron" style="background-image: url(/Image/home_old_people.jpg); background-repeat: no-repeat; background-size: cover; width: 100%">
-	<h1>Perfect Place</h1>
-	<p class="lead">Find a better place to live.</p>
-	<p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
+        <h1>Perfect Place</h1>
+        <p class="lead">Find a better place to live.</p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    </div>
 
-<div class="row">
-	<div class="col-md-4">
-		<h2>Getting started</h2>
-		<p>
-			ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-			enables a clean separation of concerns and gives you full control over markup
-			for enjoyable, agile development.
-		</p>
-		<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-	</div>
-	<div class="col-md-4">
-		<h2>Get more libraries</h2>
-		<p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-		<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-	</div>
-	<div class="col-md-4">
-		<h2>Web Hosting</h2>
-		<p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-		<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-	</div>
-</div>*@
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
+

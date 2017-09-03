@@ -15,7 +15,9 @@ namespace PerfectPlace.Controllers
     public class SuburbController : Controller
     {
         private SuburbEntities db = new SuburbEntities();
+        private PreferenceEntities suburb = new PreferenceEntities();
 
+        // This page will deal with the algorithm of searching function
         // GET: /Suburb/
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
@@ -36,16 +38,16 @@ namespace PerfectPlace.Controllers
             var suburbs = from s in db.suburb_info select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                suburbs = suburbs.Where(s => s.suburb.Contains(searchString));
+                suburbs = suburbs.Where(s => s.community_name.Contains(searchString));
             }
             
             switch (sortOrder)
             {
                 case "name_desc":
-                    suburbs = suburbs.OrderByDescending(s => s.suburb);
+                    suburbs = suburbs.OrderByDescending(s => s.community_name);
                     break;
                 default:
-                    suburbs = suburbs.OrderBy(s => s.suburb);
+                    suburbs = suburbs.OrderBy(s => s.community_name);
                     break;
             }
 
@@ -57,13 +59,28 @@ namespace PerfectPlace.Controllers
         }
 
         // GET: /Suburb/Details/5
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    suburb_info suburb_info = db.suburb_info.Find(id);
+        //    if (suburb_info == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(suburb_info);
+        //}
+
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            suburb_info suburb_info = db.suburb_info.Find(id);
+            rating_it2 suburb_info = suburb.rating_it2.Find(id);
+            //suburb_info suburb_info = db.suburb_info.Find(id);
             if (suburb_info == null)
             {
                 return HttpNotFound();
@@ -94,6 +111,15 @@ namespace PerfectPlace.Controllers
             return View(suburb_info);
         }
 
+        public ActionResult Test()
+        {
+            return View();
+        }
+
+        public ActionResult Test1(rating_it2 modelData)
+        {
+            return View(modelData);
+        }
         // GET: /Suburb/Edit/5
         public ActionResult Edit(int? id)
         {

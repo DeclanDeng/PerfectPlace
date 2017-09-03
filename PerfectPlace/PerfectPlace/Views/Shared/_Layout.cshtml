@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
 
@@ -9,10 +9,11 @@
     @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
     @Styles.Render("~/Content/bootstrap.min.css")
     @Styles.Render("~/Content/core.css")
+    @Styles.Render("~/Content/shortcode/shortcodes.css")
     @Styles.Render("~/Content/style.css")
     @Styles.Render("~/Content/responsive.css")
+
     @Styles.Render("~/Content/style-customizer.css")
-    @Styles.Render("~/Content/shortcode/shortcodes.css")
     @Scripts.Render("~/Scripts/vendor/modernizr-2.8.3.min.js")
     @*@Scripts.Render("~/bundles/modernizr")*@
 
@@ -39,6 +40,14 @@
                 </div>
             </div>
         </div>*@
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'ar,it,ja,vi,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <div class="wrapper bg-white fix">
     <!--Bg White Start-->
     <div class="bg-white">
@@ -61,12 +70,12 @@
                                             @Html.ActionLink("Home", "Index", "Home")
                                         </li>
                                         @*<li>
-                                            <a href="search.html">Search</a>
-                                        </li>*@
+                                                    <a href="search.html">Search</a>
+                                                </li>*@
                                         @*<li>
-                                            <a href="feature.html">Suburb</a>
-                                            @Html.ActionLink("Employee", "Index", "Employees")
-                                        </li>*@
+                                                    <a href="feature.html">Suburb</a>
+                                                    @Html.ActionLink("Employee", "Index", "Employees")
+                                                </li>*@
                                         <li class="@(ViewBag.Current == "Suburb"?"active":"")">
                                             @*<a href="feature.html">Suburb</a>*@
                                             @Html.ActionLink("Suburb", "Index", "Suburb")
@@ -96,8 +105,8 @@
                                             <a href="@Url.Action("Index", "Home")">HOME</a>
                                         </li>
                                         @*<li>
-                                            <a href="@Url.Action("Index","Home")">Search</a>
-                                        </li>*@
+                                                    <a href="@Url.Action("Index","Home")">Search</a>
+                                                </li>*@
                                         <li>
                                             <a href="@Url.Action("Index", "Suburb")">Suburb</a>
                                         </li>
@@ -124,18 +133,18 @@
         <div class="footer-widget-area bg-violet black-bg pb-58">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12" style="margin-bottom: 50px">
                         <div class="footer-logo">
                             <a href="@Url.Action("Index", "Home")"><img src="/Image/logo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="social-links mt-25 mb-80">
+                        @*<div class="social-links mt-25 mb-80">
                             <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
                             <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
                             <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
                             <a href="https://www.google.com.au"><i class="fa fa-google-plus"></i></a>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
                 <div class="row">
@@ -145,17 +154,17 @@
                             <h3 class="text-white text-uppercase mb-21">About Us</h3>
                             <p class="pb-19">Perfect Place aims to help you to find your dream suburb.</p>
                             @*<form action="#" id="mc-form" class="mc-form fix">
-                                <div class="subscribe-form">
-                                    <input id="mc-email" type="email" name="email" placeholder="Email for Newsletter">
-                                    <button id="mc-submit" type="submit"><i class="fa fa-send"></i></button>
-                                </div>
-                            </form>*@
+                                        <div class="subscribe-form">
+                                            <input id="mc-email" type="email" name="email" placeholder="Email for Newsletter">
+                                            <button id="mc-submit" type="submit"><i class="fa fa-send"></i></button>
+                                        </div>
+                                    </form>*@
                             <!-- mailchimp-alerts Start -->
                             @*<div class="mailchimp-alerts text-centre fix text-small">
-                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div>*@
+                                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                                    </div>*@
                             <!-- mailchimp-alerts end -->
                         </div>
                     </div>
@@ -178,10 +187,10 @@
                             <ul class="footer-list">
                                 <li><a href="http://www.monash.edu/">Monash University</a></li>
                                 @*<li><a href="#">Agent</a></li>
-                                <li><a href="#">Properties</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li><a href="#">From Blog</a></li>
-                                <li><a href="#">Contact</a></li>*@
+                                        <li><a href="#">Properties</a></li>
+                                        <li><a href="#">Features</a></li>
+                                        <li><a href="#">From Blog</a></li>
+                                        <li><a href="#">Contact</a></li>*@
                             </ul>
                         </div>
                     </div>
@@ -205,8 +214,8 @@
                             <div class="footer-contact-info">
                                 <img src="/Image/icons/f-globe.png" alt="">
                                 <span class="pl-40 block">
-                                    Email : innovation@monash.edu<br>
-                                    Web : www.monash.edu
+                                    Email : <a href="mailto:innovation@monash.edu">innovation@monash.edu</a><br>
+                                    Web : <a href="http://www.monash.edu">www.monash.edu</a>
                                 </span>
                             </div>
                         </div>
@@ -215,7 +224,6 @@
             </div>
         </div>
         <!--End of Footer Widget-area-->
-
         <!-- Start of Footer area -->
         <footer class="footer-area bg-violet text-center pt-27 pb-32 border-top">
             <div class="container">
@@ -236,16 +244,13 @@
 
 </div>
 <!--End of Main Wrapper Area-->
-
-
-
 @*<div class="container body-content">
-    @RenderBody()
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
-</div>*@
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>*@
 
 
 @*@Scripts.Render("~/bundles/jquery")
@@ -260,6 +265,35 @@
 @Scripts.Render("~/lib/nivo-slider/home.js")
 
 @Scripts.Render("~/Scripts/waypoints.min.js")
+
+<!-- Google Map js  (23.763494, 90.432226)
+============================================ -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSLSFRa0DyBj9VGzT7GM6SFbSMcG0YNBM "></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>
+    function initialize() {
+        var mapOptions = {
+            zoom: 15,
+            scrollwheel: false,
+            center: new google.maps.LatLng(-37.8770, 145.0443)
+        };
+
+        //var map = new google.maps.Map(document.getElementById('googleMap'),mapOptions);
+
+
+        var marker = new google.maps.Marker({
+            position: map.getCenter(),
+            animation: google.maps.Animation.BOUNCE,
+            icon: '/Image/map-marker.png',
+            map: map
+        });
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 @Scripts.Render("~/Scripts/jquery.mb.YTPlayer.js")
 @Scripts.Render("~/Scripts/ajax-mail.js")
 @Scripts.Render("~/Scripts/jquery.ajaxchimp.min.js")

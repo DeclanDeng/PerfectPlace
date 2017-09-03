@@ -199,8 +199,26 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Preference.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Preference.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Preference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Preference.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Preference.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Preference.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\rating_it1.cs">
       <DependentUpon>ResultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rating_it2.cs">
+      <DependentUpon>Preference.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResultModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -216,6 +234,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ResultModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_changes_Result.cs">
+      <DependentUpon>Preference.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_preference_Result.cs">
+      <DependentUpon>Preference.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SuburbModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -251,6 +275,17 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\core.css" />
+    <Content Include="Content\infographic\bigplay-2.html" />
+    <Content Include="Content\infographic\bigplay.html" />
+    <Content Include="Content\infographic\controls.html" />
+    <Content Include="Content\infographic\fontello\css\fontello.css" />
+    <Content Include="Content\infographic\fontello\font\fontellod338.svg" />
+    <Content Include="Content\infographic\loading.html" />
+    <Content Include="Content\infographic\mediaplayer.css" />
+    <Content Include="Content\infographic\prettyPhoto.css" />
+    <Content Include="Content\infographic\responsive.css" />
+    <Content Include="Content\infographic\responsiveslides.css" />
+    <Content Include="Content\infographic\style.css" />
     <Content Include="Content\material-design-iconic-font.css" />
     <Content Include="Content\material-design-iconic-font.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -269,13 +304,23 @@
     <Content Include="Content\shortcode\slider.css" />
     <Content Include="Content\style-customizer.css" />
     <Content Include="Content\style.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="fonts\montserrat-bold-webfont.svg" />
+    <Content Include="fonts\montserrat-extrabold-webfont.svg" />
+    <Content Include="fonts\montserrat-light-webfont.svg" />
+    <Content Include="fonts\montserrat-regular-webfont.svg" />
+    <Content Include="fonts\montserrat-semibold-webfont.svg" />
+    <Content Include="fonts\montserrat-ultralight.svg" />
+    <Content Include="fonts\slick.svg" />
     <Content Include="Image\about_page_banner.jpg" />
     <Content Include="Image\about_page_left.jpg" />
     <Content Include="Image\declan.png" />
     <Content Include="Image\home_about_us.jpg" />
+    <Content Include="Image\home_about_us_1.jpg" />
     <Content Include="Image\home_old_people1.jpg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Image\home_old_people.jpg" />
     <Content Include="Image\icons\arrow.png" />
@@ -332,10 +377,136 @@
     <Content Include="Image\icons\trophy.png" />
     <Content Include="Image\icons\twitter-hover.png" />
     <Content Include="Image\icons\twitter.png" />
+    <Content Include="Image\infographic\1.png" />
+    <Content Include="Image\infographic\2.png" />
+    <Content Include="Image\infographic\294.html" />
+    <Content Include="Image\infographic\3.png" />
+    <Content Include="Image\infographic\4.png" />
+    <Content Include="Image\infographic\5.png" />
+    <Content Include="Image\infographic\6.png" />
+    <Content Include="Image\infographic\7.png" />
+    <Content Include="Image\infographic\8.png" />
+    <Content Include="Image\infographic\9.png" />
+    <Content Include="Image\infographic\arrow.png" />
+    <Content Include="Image\infographic\arrow1.png" />
+    <Content Include="Image\infographic\btnNext.html" />
+    <Content Include="Image\infographic\btnPrevious.html" />
+    <Content Include="Image\infographic\buttons.html" />
+    <Content Include="Image\infographic\contentPatternBottom.html" />
+    <Content Include="Image\infographic\contentPatternLeft.html" />
+    <Content Include="Image\infographic\contentPatternRight.html" />
+    <Content Include="Image\infographic\contentPatternTop.html" />
+    <Content Include="Image\infographic\default_thumbnail.html" />
+    <Content Include="Image\infographic\eco\1.png" />
+    <Content Include="Image\infographic\eco\10.png" />
+    <Content Include="Image\infographic\eco\12.png" />
+    <Content Include="Image\infographic\eco\13.png" />
+    <Content Include="Image\infographic\eco\14.png" />
+    <Content Include="Image\infographic\eco\2.png" />
+    <Content Include="Image\infographic\eco\3.png" />
+    <Content Include="Image\infographic\eco\4.png" />
+    <Content Include="Image\infographic\eco\5.png" />
+    <Content Include="Image\infographic\eco\6.png" />
+    <Content Include="Image\infographic\eco\7.png" />
+    <Content Include="Image\infographic\eco\8.png" />
+    <Content Include="Image\infographic\eco\9.png" />
+    <Content Include="Image\infographic\icons\1.png" />
+    <Content Include="Image\infographic\icons\2.png" />
+    <Content Include="Image\infographic\icons\3.png" />
+    <Content Include="Image\infographic\icons\4.png" />
+    <Content Include="Image\infographic\icons\6.png" />
+    <Content Include="Image\infographic\icons\7.png" />
+    <Content Include="Image\infographic\icons\8.png" />
+    <Content Include="Image\infographic\icons\arrow.png" />
+    <Content Include="Image\infographic\icons\be.png" />
+    <Content Include="Image\infographic\icons\circle.png" />
+    <Content Include="Image\infographic\icons\close.png" />
+    <Content Include="Image\infographic\icons\dribbble.png" />
+    <Content Include="Image\infographic\icons\facebook.png" />
+    <Content Include="Image\infographic\icons\gmail.png" />
+    <Content Include="Image\infographic\icons\heart.png" />
+    <Content Include="Image\infographic\icons\ln_bg.png" />
+    <Content Include="Image\infographic\icons\pinterest.png" />
+    <Content Include="Image\infographic\icons\slider_controls-1.png" />
+    <Content Include="Image\infographic\icons\slider_controls-2.png" />
+    <Content Include="Image\infographic\icons\slider_controls_bg.png" />
+    <Content Include="Image\infographic\icons\star.png" />
+    <Content Include="Image\infographic\icons\twitter.png" />
+    <Content Include="Image\infographic\icons\vimeo.png" />
+    <Content Include="Image\infographic\icons\youtube.png" />
+    <Content Include="Image\infographic\popup_buttons.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_rounded\btnNext.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_rounded\btnPrevious.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_rounded\contentPattern.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_rounded\loader.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_rounded\sprite.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_square\btnNext.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_square\btnPrevious.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_square\loader.html" />
+    <Content Include="Image\infographic\prettyPhoto\dark_square\sprite.html" />
+    <Content Include="Image\infographic\prettyPhoto\default\default_thumb.html" />
+    <Content Include="Image\infographic\prettyPhoto\default\loader.html" />
+    <Content Include="Image\infographic\prettyPhoto\default\sprite.html" />
+    <Content Include="Image\infographic\prettyPhoto\default\sprite_next.html" />
+    <Content Include="Image\infographic\prettyPhoto\default\sprite_prev.html" />
+    <Content Include="Image\infographic\prettyPhoto\default\sprite_x.html" />
+    <Content Include="Image\infographic\prettyPhoto\default\sprite_y.html" />
+    <Content Include="Image\infographic\prettyPhoto\light_square\btnNext.html" />
+    <Content Include="Image\infographic\prettyPhoto\light_square\btnPrevious.html" />
+    <Content Include="Image\infographic\prettyPhoto\light_square\sprite.html" />
+    <Content Include="Image\infographic\scene\10.png" />
+    <Content Include="Image\infographic\scene\101.png" />
+    <Content Include="Image\infographic\scene\102.png" />
+    <Content Include="Image\infographic\scene\103.png" />
+    <Content Include="Image\infographic\scene\104.png" />
+    <Content Include="Image\infographic\scene\105.png" />
+    <Content Include="Image\infographic\scene\11.png" />
+    <Content Include="Image\infographic\scene\12.png" />
+    <Content Include="Image\infographic\scene\13.png" />
+    <Content Include="Image\infographic\scene\17.png" />
+    <Content Include="Image\infographic\scene\18.png" />
+    <Content Include="Image\infographic\scene\19.png" />
+    <Content Include="Image\infographic\scene\2.png" />
+    <Content Include="Image\infographic\scene\20.png" />
+    <Content Include="Image\infographic\scene\3.png" />
+    <Content Include="Image\infographic\scene\4.png" />
+    <Content Include="Image\infographic\scene\5.png" />
+    <Content Include="Image\infographic\scene\6.png" />
+    <Content Include="Image\infographic\scene\7.png" />
+    <Content Include="Image\infographic\scene\9.png" />
+    <Content Include="Image\infographic\scene\a1.png" />
+    <Content Include="Image\infographic\scene\a2.png" />
+    <Content Include="Image\infographic\scene\a3.png" />
+    <Content Include="Image\infographic\scene\a4.png" />
+    <Content Include="Image\infographic\scene\a5.png" />
+    <Content Include="Image\infographic\scene\s1.png" />
+    <Content Include="Image\infographic\sprite.html" />
+    <Content Include="Image\infographic\themes.gif" />
+    <Content Include="Image\infographic\travel\1.png" />
+    <Content Include="Image\infographic\travel\10.png" />
+    <Content Include="Image\infographic\travel\11.png" />
+    <Content Include="Image\infographic\travel\12.png" />
+    <Content Include="Image\infographic\travel\13.png" />
+    <Content Include="Image\infographic\travel\14.png" />
+    <Content Include="Image\infographic\travel\15.png" />
+    <Content Include="Image\infographic\travel\16.png" />
+    <Content Include="Image\infographic\travel\2.png" />
+    <Content Include="Image\infographic\travel\3.png" />
+    <Content Include="Image\infographic\travel\4.png" />
+    <Content Include="Image\infographic\travel\5.png" />
+    <Content Include="Image\infographic\travel\6.png" />
+    <Content Include="Image\infographic\travel\7.png" />
+    <Content Include="Image\infographic\travel\8.png" />
+    <Content Include="Image\infographic\travel\9.png" />
+    <Content Include="Image\infographic\travel\bg.png" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\logo2.png" />
     <Content Include="Image\jasper.png" />
     <Content Include="Image\dk.png" />
+    <Content Include="Image\map-marker.png" />
+    <Content Include="Image\search_suburb_1.jpg" />
+    <Content Include="Image\slide_6_n.jpg" />
+    <Content Include="Image\suburb_detail_1.jpg" />
     <Content Include="Image\sylvia.png" />
     <Content Include="Image\search_suburb.jpg" />
     <Content Include="Image\suburb_detail.png" />
@@ -375,8 +546,74 @@
       <DependentUpon>ResultModel.edmx</DependentUpon>
       <LastGenOutput>ResultModel.cs</LastGenOutput>
     </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\lato-bold-webfont.woff" />
+    <Content Include="fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="fonts\montserrat-bold-webfont.eot" />
+    <Content Include="fonts\montserrat-bold-webfont.ttf" />
+    <Content Include="fonts\montserrat-bold-webfont.woff" />
+    <Content Include="fonts\montserrat-bold-webfont.woff2" />
+    <Content Include="fonts\montserrat-extrabold-webfont.eot" />
+    <Content Include="fonts\montserrat-extrabold-webfont.ttf" />
+    <Content Include="fonts\montserrat-extrabold-webfont.woff" />
+    <Content Include="fonts\montserrat-extrabold-webfont.woff2" />
+    <Content Include="fonts\montserrat-light-webfont.eot" />
+    <Content Include="fonts\montserrat-light-webfont.ttf" />
+    <Content Include="fonts\montserrat-light-webfont.woff" />
+    <Content Include="fonts\montserrat-light-webfont.woff2" />
+    <Content Include="fonts\montserrat-regular-webfont.eot" />
+    <Content Include="fonts\montserrat-regular-webfont.ttf" />
+    <Content Include="fonts\montserrat-regular-webfont.woff" />
+    <Content Include="fonts\montserrat-regular-webfont.woff2" />
+    <Content Include="fonts\montserrat-semibold-webfont.eot" />
+    <Content Include="fonts\montserrat-semibold-webfont.ttf" />
+    <Content Include="fonts\montserrat-semibold-webfont.woff" />
+    <Content Include="fonts\montserrat-semibold-webfont.woff2" />
+    <Content Include="fonts\montserrat-ultralight.eot" />
+    <Content Include="fonts\montserrat-ultralight.ttf" />
+    <Content Include="fonts\montserrat-ultralight.woff" />
+    <Content Include="fonts\montserrat-ultralight.woff2" />
+    <Content Include="fonts\slick.eot" />
+    <Content Include="fonts\slick.ttf" />
+    <Content Include="fonts\slick.woff" />
+    <Content Include="Content\infographic\fontello\.DS_Store" />
+    <Content Include="Content\infographic\fontello\font\fontellod338.eot" />
+    <Content Include="Content\infographic\fontello\font\fontellod338.ttf" />
+    <Content Include="Content\infographic\fontello\font\fontellod338.woff" />
+    <EntityDeploy Include="Models\Preference.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Preference.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Preference.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Preference.edmx</DependentUpon>
+      <LastGenOutput>Preference.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Preference.edmx.diagram">
+      <DependentUpon>Preference.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Preference.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Preference.edmx</DependentUpon>
+      <LastGenOutput>Preference.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\perfectplace - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\perfectplace - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\perfectplace - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\perfectplace - FTP %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\perfectplace - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\perfectplace - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\perfectplace - Web Deploy.pubxml" />
     <Content Include="lib\nivo-slider\css\nivo-slider.css" />
     <Content Include="lib\nivo-slider\css\preview.css" />
@@ -391,6 +628,18 @@
     <Content Include="Scripts\ajax-mail.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\infographic\Chart.min.js" />
+    <Content Include="Scripts\infographic\jquery.cookie.js" />
+    <Content Include="Scripts\infographic\jquery.flexslider.min.js" />
+    <Content Include="Scripts\infographic\jquery.hoverdir.js" />
+    <Content Include="Scripts\infographic\jquery.isotope.min.js" />
+    <Content Include="Scripts\infographic\jquery.min.js" />
+    <Content Include="Scripts\infographic\jquery.prettyPhoto.js" />
+    <Content Include="Scripts\infographic\mediaelement.min.js" />
+    <Content Include="Scripts\infographic\responsiveslides.js" />
+    <Content Include="Scripts\infographic\SmoothScroll.js" />
+    <Content Include="Scripts\infographic\_front.js" />
+    <Content Include="Scripts\infographic\_gallery.js" />
     <Content Include="Scripts\jquery.ajaxchimp.min.js" />
     <Content Include="Scripts\jquery.mb.YTPlayer.js" />
     <Content Include="Scripts\main.js" />
@@ -440,18 +689,21 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Suburb\Create.cshtml" />
     <Content Include="Views\Suburb\Delete.cshtml" />
-    <Content Include="Views\Suburb\Details.cshtml" />
+    <Content Include="Views\Suburb\Details1.cshtml" />
     <Content Include="Views\Suburb\Edit.cshtml" />
     <Content Include="Views\Suburb\Index.cshtml" />
     <Content Include="Views\Result\Index.cshtml" />
+    <Content Include="Views\Search\SearchBySuburb.cshtml" />
+    <Content Include="Views\Suburb\Details.cshtml" />
+    <Content Include="Views\Suburb\Test.cshtml" />
+    <Content Include="Views\Suburb\Test1.cshtml" />
+    <Content Include="Views\Search\Test.cshtml" />
+    <Content Include="Views\Search\SearchBySuburbChange.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
@@ -493,6 +745,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

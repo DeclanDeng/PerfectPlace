@@ -9,8 +9,8 @@
 
 <table>
     <tr>
-        <th>@Html.DisplayNameFor(model=>model.community_name)</th>
-        <th>name</th>
+        <th>@Html.DisplayNameFor(model=>model.First().community_name)</th>
+        @*<th>name</th>*@
     </tr>
     @foreach (var item in Model)
     {

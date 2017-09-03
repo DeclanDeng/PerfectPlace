@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PerfectPlace.Models.rating_it2>
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>This is Test</h2>
+@if (@ViewBag.veryNearDistanceToCity == null && @ViewBag.veryHighMoreshops == null && @ViewBag.veryHighHealthServices == null 
+    && @ViewBag.lowAccidentRate == null && @ViewBag.veryHighMoreAgedcare == null && @ViewBag.veryLessTimeToHospital == null
+    && @ViewBag.lowCrimeRate == null && @ViewBag.topCountryOfBirth == null)
+{
+    <h2>Sorry, you do not have selected a reference</h2>
+    <br/>
+    <h3>Please select at least one</h3>
+    @*<p>@ViewBag.criteriaOne</p>
+        <p>@ViewBag.criteriaTwo</p>
+        <p>@ViewBag.nationality</p>*@
+}
+
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Suburb
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.suburb)
+
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Suburb", new {id = item.suburb_id}, null)
+                </td>
+            </tr>
+        }
+    </table>
+}

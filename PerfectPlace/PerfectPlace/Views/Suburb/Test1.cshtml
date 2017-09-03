@@ -1,0 +1,163 @@
+﻿@model PerfectPlace.Models.rating_it2
+@{
+    Layout = null;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Suburb</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Content/infographic/style.css">
+    <link rel="stylesheet" type="text/css" href="/Content/infographic/fontello/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="/Content/infographic/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="/Content/infographic/responsiveslides.css">
+    <link rel="stylesheet" type="text/css" href="/Content/infographic/responsive.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+</head>
+<body class="no-blog">
+<div class="body_background"></div>
+
+<div class="box">
+    <header id="header" class="container eco">
+        <div class="main">
+            <nav class="header">
+                <ul>
+
+                    <li class="logo">
+                        <a href="ecogroup.html">
+                            <h3>Suburb</h3>
+                            <h3>@Html.DisplayFor(model => model.suburb)</h3>
+
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <div id="scene_1">
+                <div id="eco_items">
+                    <div><img src="/Image/infographic/eco/1.png" alt=""></div>
+                    <div><img src="/Image/infographic/eco/2.png" alt=""></div>
+
+                    <div><img src="/Image/infographic/eco/13.png" alt=""></div>
+
+                    <div><img src="/Image/infographic/eco/2.png" alt=""></div>
+                    <div><img src="/Image/infographic/eco/3.png" alt=""></div>
+                    <div><img src="/Image/infographic/eco/4.png" alt=""></div>
+                    <div><img src="/Image/infographic/eco/6.png" alt=""></div>
+                    <div><img src="/Image/infographic/eco/4.png" alt=""></div>
+                    <div><img src="/Image/infographic/eco/6.png" alt=""></div>
+                    <div><img src="/Image/infographic/eco/5.png" alt=""></div>
+
+                    <div><img src="/Image/infographic/eco/7.png" alt=""></div>
+
+                </div>
+                <img id="airplane" src="/Image/infographic/scene/6.png" alt="">
+                <div class="clouds">
+                    <div id="cl_1" data-time="28" data-direction="right"></div>
+                    <div id="cl_2" data-time="36" data-direction="left"></div>
+                    <div id="cl_3" data-time="57" data-direction="left"></div>
+                    <div id="cl_4" data-time="49" data-direction="right"></div>
+                </div>
+                <div class="headline eco">
+                    <a href="#" id="ln_1" class="right"><span>Time to CBD</span><span class="numder">@Html.DisplayFor(model => model.distance_to_city)</span></a>
+                    <a href="#" id="ln_2" class="right"><span>Residential</span><span class="numder">@Html.DisplayFor(model => model.residential_percent)</span></a>
+                    <a href="#" id="ln_3" class="right"><span>Population</span><span class="numder">@Html.DisplayFor(model => model.population_density)</span></a>
+                </div>
+            </div>
+            <div id="widget_2" class="widget_skills">
+                <div class="widget_inner">
+                    <a href="#" id="lw_1" class="skills_row">
+                        <img src="/Image/infographic/scene/12.png" alt="">
+                        <div class="name">Road Accident Rate: </br>@Html.DisplayFor(model => model.accident_count_rate)</div>
+                    </a>
+
+                    <a href="#" id="lw_3" class="skills_row">
+
+                    </a>
+
+                    <a href="#" id="lw_5" class="skills_row">
+                        <img src="/Image/infographic/scene/13.png" alt="">
+                        <div class="name">Criminal Rate: @Html.DisplayFor(model => model.crime_rate)</div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <section class="container darkseagreen">
+        <div class="main white">
+
+            <div id="about" class="eco">
+                <a href="#" class="item"><img src="/Image/infographic/eco/8.png" alt=""><span>Aged care center:</br> @Html.DisplayFor(model => model.aged_care)</span></a>
+                <div class="arrow"></div>
+                <a href="#" class="item"><img src="/Image/infographic/eco/9.png" alt=""><span>Major Nationalities:</br> @Html.DisplayFor(model => model.top_country_of_birth_1), @Html.DisplayFor(model => model.top_country_of_birth_2), @Html.DisplayFor(model => model.top_country_of_birth_3), @Html.DisplayFor(model => model.top_country_of_birth_4), @Html.DisplayFor(model => model.top_country_of_birth_5)</span></a>
+                <div class="arrow"></div>
+                <a href="#" class="item"><img src="/Image/infographic/eco/10.png" alt=""><span>Major  Language Spoken:</br> @Html.DisplayFor(model => model.top_language_spoken_1), @Html.DisplayFor(model => model.top_language_spoken_2), @Html.DisplayFor(model => model.top_language_spoken_3), @Html.DisplayFor(model => model.top_language_spoken_4), @Html.DisplayFor(model => model.top_language_spoken_5)</span></a>
+            </div>
+            <div class="open_more" data-cont="tabs">
+                <div class="icon-down-open"></div>
+                <span><h5>Nearest Public Hospital</h5></span>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="container pad90-top">
+        <div class="main white">
+
+
+            <div id="scene_1">
+                <div id="travel_items">
+                    <div><img src="/Image/infographic/travel/6.png" alt=""></div>
+                    <div><img src="/Image/infographic/travel/7.png" alt=""></div>
+                    <div><img src="/Image/infographic/travel/8.png" alt=""></div>
+                    <div><img src="/Image/infographic/travel/9.png" alt=""></div>
+                    <div><img src="/Image/infographic/travel/10.png" alt=""></div>
+                    <div class="anim" data-time="60" data-direction="right"><img src="/Image/infographic/travel/11.png" alt=""></div>
+                    <div class="anim" data-time="90" data-direction="right"><img src="/Image/infographic/travel/12.png" alt=""></div>
+                    <div><img src="/Image/infographic/travel/13.png" alt=""></div>
+                    <div><img src="/Image/infographic/travel/14.png" alt=""></div>
+                    <div><img src="/Image/infographic/travel/15.png" alt=""></div>
+                </div>
+                <img id="airplane" src="/Image/infographic/travel/16.png" alt="">
+                <div class="headline">
+                    <a href="#" id="ln_1" class="right"></a>
+                    <a href="#" id="ln_2"><span class="numder">@Html.DisplayFor(model => model.median_price_c)</span>Median price(1 bed unit)</a>
+                    <a href="#" id="ln_3"><span class="numder">@Html.DisplayFor(model => model.nearest_public_hospital)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer container cadetblue">
+        <div class="main white">
+
+            <div class="social">
+                <ul>
+                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li><a href="#"><span class="icon-pinterest"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript" src="/Scripts/infographic/jquery.min.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/Chart.min.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/jquery.flexslider.min.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/SmoothScroll.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/responsiveslides.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/jquery.cookie.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/_front.js"></script>
+</body>
+</html>
+
+

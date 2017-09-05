@@ -33,6 +33,7 @@ namespace PerfectPlace.Models
         public string aged_care_rate { get; set; }
         public Nullable<int> aged_care { get; set; }
         public string time_to_hospital { get; set; }
+        public string life_style { get; set; }
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public Nullable<double> population_density { get; set; }
         public string top_country_of_birth_1 { get; set; }
@@ -55,8 +56,13 @@ namespace PerfectPlace.Models
         public string burglary_rate { get; set; }
         public Nullable<int> theft_offence_count { get; set; }
         public string theft_rate { get; set; }
-        public string median_price_c { get; set; }
-        public Nullable<double> median_price { get; set; }
-        public string life_style { get; set; }
+        public Nullable<double> house_low_quartile { get; set; }
+        public Nullable<double> house_median_quartile { get; set; }
+        public Nullable<double> house_high_quartile { get; set; }
+        public Nullable<double> unit_low_quartile { get; set; }
+        public Nullable<double> unit_median_quartile { get; set; }
+        public Nullable<double> unit_high_quartile { get; set; }
+        public string house_median_quartile_string { get; set; }
+        public string unit_median_quartile_string { get; set; }
     }
 }

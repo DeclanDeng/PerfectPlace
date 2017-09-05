@@ -1188,7 +1188,7 @@ textarea:focus {
 .bg-overlay-light:before {background: rgba(149, 196, 31, 0.3);}
 .banner-1 {
 	/*background: rgba(0, 0, 0, 0) url("../../images/banner/1.jpg") no-repeat scroll 7% top;*/
-    background: rgba(0, 0, 0, 0) url("/Image/home_about_us_1.jpg") no-repeat scroll 7% top;
+    background: rgba(0, 0, 0, 0) url("/Image/home_about_us_2.jpg") no-repeat scroll 7% top;
 	background-size: 42.5%;
 }
 .banner-2 {

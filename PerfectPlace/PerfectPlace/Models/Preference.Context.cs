@@ -29,6 +29,24 @@ namespace PerfectPlace.Models
     
         public virtual DbSet<rating_it2> rating_it2 { get; set; }
     
+        public virtual ObjectResult<rating_it2> SearchBySuburbChange(string lifestyle)
+        {
+            var lifestyleParameter = lifestyle != null ?
+                new ObjectParameter("lifestyle", lifestyle) :
+                new ObjectParameter("lifestyle", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<rating_it2>("SearchBySuburbChange", lifestyleParameter);
+        }
+    
+        public virtual ObjectResult<rating_it2> SearchBySuburbChange(string lifestyle, MergeOption mergeOption)
+        {
+            var lifestyleParameter = lifestyle != null ?
+                new ObjectParameter("lifestyle", lifestyle) :
+                new ObjectParameter("lifestyle", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<rating_it2>("SearchBySuburbChange", mergeOption, lifestyleParameter);
+        }
+    
         public virtual ObjectResult<rating_it2> SearchByPreference(string very_near_distance_to_city, string very_high_moreshops, string very_high_health_services, string low_accident_rate, string very_high_more_agedcare, string very_less_time_to_hospital, string low_crime_rate, string top_country_of_birth)
         {
             var very_near_distance_to_cityParameter = very_near_distance_to_city != null ?
@@ -101,24 +119,6 @@ namespace PerfectPlace.Models
                 new ObjectParameter("top_country_of_birth", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<rating_it2>("SearchByPreference", mergeOption, very_near_distance_to_cityParameter, very_high_moreshopsParameter, very_high_health_servicesParameter, low_accident_rateParameter, very_high_more_agedcareParameter, very_less_time_to_hospitalParameter, low_crime_rateParameter, top_country_of_birthParameter);
-        }
-    
-        public virtual ObjectResult<rating_it2> SearchBySuburbChange(string lifestyle)
-        {
-            var lifestyleParameter = lifestyle != null ?
-                new ObjectParameter("lifestyle", lifestyle) :
-                new ObjectParameter("lifestyle", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<rating_it2>("SearchBySuburbChange", lifestyleParameter);
-        }
-    
-        public virtual ObjectResult<rating_it2> SearchBySuburbChange(string lifestyle, MergeOption mergeOption)
-        {
-            var lifestyleParameter = lifestyle != null ?
-                new ObjectParameter("lifestyle", lifestyle) :
-                new ObjectParameter("lifestyle", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<rating_it2>("SearchBySuburbChange", mergeOption, lifestyleParameter);
         }
     }
 }

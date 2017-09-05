@@ -235,9 +235,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResultModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_changes_Result.cs">
-      <DependentUpon>Preference.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\sp_preference_Result.cs">
       <DependentUpon>Preference.tt</DependentUpon>
     </Compile>
@@ -317,8 +314,10 @@
     <Content Include="Image\about_page_banner.jpg" />
     <Content Include="Image\about_page_left.jpg" />
     <Content Include="Image\declan.png" />
+    <Content Include="Image\home.jpg" />
     <Content Include="Image\home_about_us.jpg" />
     <Content Include="Image\home_about_us_1.jpg" />
+    <Content Include="Image\home_about_us_2.jpg" />
     <Content Include="Image\home_old_people1.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -504,7 +503,9 @@
     <Content Include="Image\jasper.png" />
     <Content Include="Image\dk.png" />
     <Content Include="Image\map-marker.png" />
+    <Content Include="Image\questionmark.png" />
     <Content Include="Image\search_suburb_1.jpg" />
+    <Content Include="Image\search_suburb_2.jpg" />
     <Content Include="Image\slide_6_n.jpg" />
     <Content Include="Image\suburb_detail_1.jpg" />
     <Content Include="Image\sylvia.png" />

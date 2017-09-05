@@ -30,189 +30,209 @@
         color: #fff;
         border: 1px solid #616377;
     }
+    input#seaChangeBtn:hover {
+        color: gray;
+    }
+
+    input#treeChangeBtn:hover {
+        color: gray;
+    }
+
+    input#cityChangeBtn:hover {
+        color: gray;
+    }
+
+    #preferenceSearchBtn:hover {
+        color: gray;
+    }
+
+    #suburbSearchBtn:hover {
+        color: gray;
+    }
 </style>
 
 <div class="container" style="    margin: 0px;    padding: 0px;    width: 100%;">
-    <h2 style="    padding-top: 10px;    padding-left: 10px;    padding-bottom: 10px;    background-color: #2d80b1;    color: white;">Search Result</h2>
+    <h2 style=" padding-top: 10px; padding-left: 10px; padding-bottom: 10px; background-color: darkgrey; color: white;">Search Result</h2>
     <br /><br /><br />
     
-        <table style="width: 100%;">
-            <tbody>
-            <tr style="width: 100%;text-align: center;">
-                <td style="width: 34%;vertical-align: top;min-width: 320px;display: inline-block;text-align:left">
-                    <table class="table" style="">
-                        <tbody>
-                        <tr>
-                            <td style="   border-top: none;   ">
-                                <div class="banner-content">
-                                    <div class="display-table pull_left">
-                                        <div class="display-table-cell">
-                                            <ul class="nav nav-tabs">
-                                                <li><a data-toggle="tab" href="#preference">Preference</a></li>
-                                                <li><a data-toggle="tab" href="#suburbChange">Suburb change</a></li>
-                                                <li class="active"><a data-toggle="tab" href="#suburb">Suburb</a></li>
+    <table style="width: 100%;">
+        <tbody>
+        <tr style="width: 100%;text-align: center;">
+            <td style="width: 34%;vertical-align: top;min-width: 320px;display: inline-block;text-align:left">
+                <table class="table" style="">
+                    <tbody>
+                    <tr>
+                        <td style="   border-top: none;   ">
+                            <div class="banner-content">
+                                <div class="display-table pull_left">
+                                    <div class="display-table-cell">
+                                        <ul class="nav nav-tabs">
+                                            <li><a data-toggle="tab" href="#preference">Preference</a></li>
+                                            <li><a data-toggle="tab" href="#suburbChange">Life Style</a></li>
+                                            <li class="active"><a data-toggle="tab" href="#suburb">Suburb</a></li>
 
-                                            </ul>
-                                            <div class="tab-content">
-                                                <div id="preference" class="tab-pane fade banner-form">
-                                                    <div class="section-title mb-45 mt-45">
-                                                        <h2 class="uppercase text-white">
-                                                            FIND YOUR <span>DREAM SUBURB</span>
-                                                        </h2>
-                                                    </div>
-                                                    @using (Html.BeginForm("Index", "Search", FormMethod.Post))
-                                                    {
-                                                        <form action="#" class="col-10">
-                                                            <div class="form-box mb-40 pl-15 pr-15">
-                                                                <div class="select" style="border: none;font-size: 16px;">
-                                                                    @Html.AntiForgeryToken()
-                                                                    <div style="    margin-bottom: 3px;">
-                                                                        <input class="suburb_check" type="checkbox" name="suburb_search" value="1" style="height: 13px;display: inline-block;width: 13px;">
-                                                                        <span style="    color: #fff;">Near CBD</span>
-                                                                    </div>
-                                                                    <div style="    margin-bottom: 3px;">
-                                                                        <input class="suburb_check" name="suburb_search" type="checkbox" value="2" style="height: 13px;display: inline-block;width: 13px;">
-                                                                        <span style="    color: #fff;">More shops</span>
-                                                                    </div>
-                                                                    <div style="    margin-bottom: 3px;">
-                                                                        <input class="suburb_check" name="suburb_search" type="checkbox" value="3" style="height: 13px;display: inline-block;width: 13px;">
-                                                                        <span style="    color: #fff;">More health service</span>
-                                                                    </div>
-                                                                    <div style="    margin-bottom: 3px;">
-                                                                        <input class="suburb_check" name="suburb_search" type="checkbox" value="4" style="height: 13px;display: inline-block;width: 13px;">
-                                                                        <span style="    color: #fff;">Low Accident Rate</span>
-                                                                    </div>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div id="preference" class="tab-pane fade banner-form">
+                                                <div class="section-title mb-45 mt-45">
+                                                    <h2 class="uppercase text-white">
+                                                        FIND YOUR <span>DREAM SUBURB</span>
+                                                    </h2>
+                                                </div>
+                                                <span style="color: cornflowerblue">Tick maximum four major preferences</span>
+                                                @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+                                                {
+                                                    <form action="#" class="col-10">
+                                                        <div class="form-box mb-40 pl-15 pr-15">
+                                                            <div class="select" style="border: none;font-size: 16px;">
+                                                                @Html.AntiForgeryToken()
+                                                                <div style="    margin-bottom: 3px;">
+                                                                    <input class="suburb_check" type="checkbox" name="suburbSearch" value="1" style="height: 13px;display: inline-block;width: 13px;">
+                                                                    <span style="    color: #fff;">Near CBD</span>
+                                                                </div>
+                                                                <div style="    margin-bottom: 3px;">
+                                                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="2" style="height: 13px;display: inline-block;width: 13px;">
+                                                                    <span style="    color: #fff;">More shops</span>
+                                                                </div>
+                                                                <div style="    margin-bottom: 3px;">
+                                                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="3" style="height: 13px;display: inline-block;width: 13px;">
+                                                                    <span style="    color: #fff;">More health service</span>
+                                                                </div>
+                                                                <div style="    margin-bottom: 3px;">
+                                                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="4" style="height: 13px;display: inline-block;width: 13px;">
+                                                                    <span style="    color: #fff;">Low Accident Rate</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-box mb-40 pl-15 pr-15" style="    padding-left: 0px;">
-                                                                <div class="select" style="border: none;font-size: 16px;">
-                                                                    <div style="    margin-bottom: 3px;    margin-bottom: 3px;">
-                                                                        <input class="suburb_check" name="suburb_search" type="checkbox" value="5" style="height: 13px;display: inline-block;width: 13px;">
-                                                                        <span style="    color: #fff;">More aged care centre</span>
-                                                                    </div>
-                                                                    <div style="    margin-bottom: 3px;">
-                                                                        <input class="suburb_check" name="suburb_search" type="checkbox" value="6" style="height: 13px;display: inline-block;width: 13px;">
-                                                                        <span style="    color: #fff;">Near hospital</span>
-                                                                    </div>
-                                                                    <div style="    margin-bottom: 3px;">
-                                                                        <input class="suburb_check" name="suburb_search" type="checkbox" value="7" style="height: 13px;display: inline-block;width: 13px;">
-                                                                        <span style="    color: #fff;">Low Crime Rate</span>
-                                                                    </div>
+                                                        </div>
+                                                        <div class="form-box mb-40 pl-15 pr-15" style="    padding-left: 0px;">
+                                                            <div class="select" style="border: none;font-size: 16px;">
+                                                                <div style="    margin-bottom: 3px;    margin-bottom: 3px;">
+                                                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="5" style="height: 13px;display: inline-block;width: 13px;">
+                                                                    <span style="    color: #fff;">More aged care centre</span>
+                                                                </div>
+                                                                <div style="    margin-bottom: 3px;">
+                                                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="6" style="height: 13px;display: inline-block;width: 13px;">
+                                                                    <span style="    color: #fff;">Near hospital</span>
+                                                                </div>
+                                                                <div style="    margin-bottom: 3px;">
+                                                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="7" style="height: 13px;display: inline-block;width: 13px;">
+                                                                    <span style="    color: #fff;">Low Crime Rate</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-box mb-40 pl-15 pr-15" style="margin-top: 85px;">
-                                                                <div class="select">
-                                                                    <select name="nationality" style="    color: #fff;">
-                                                                        <option>Nationality</option>
-                                                                        <option>England</option>
-                                                                        <option>China</option>
-                                                                        <option>India</option>
-                                                                        <option>Italy</option>
-                                                                        <option>Vietnam</option>
-                                                                        <option>Others</option>
-                                                                    </select><span class="caret"></span>
-                                                                </div>
+                                                        </div>
+                                                        <div class="form-box mb-40 pl-15 pr-15" style="margin-top: 85px;">
+                                                            <div class="select">
+                                                                <select name="nationality" style="    color: #fff;">
+                                                                    <option>Prefered Nationality</option>
+                                                                    <option>England</option>
+                                                                    <option>China</option>
+                                                                    <option>India</option>
+                                                                    <option>Italy</option>
+                                                                    <option>Vietnam</option>
+                                                                    <option>Others</option>
+                                                                </select><span class="caret"></span>
                                                             </div>
+                                                        </div>
 
 
 
-                                                            <div class="form-box pl-15 pr-15 large" style="    padding-left: 0px;">
-                                                                <button name="search_price" style="margin-top:1px" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("Index", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
-                                                            </div>
-                                                        </form>
-                                                    }
+                                                        <div class="form-box pl-15 pr-15 large" style="    padding-left: 0px;">
+                                                            <button id="preferenceSearchBtn" name="search_price" style="margin-top:1px" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("Index", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
+                                                        </div>
+                                                    </form>
+                                                }
+                                            </div>
+
+                                            <div id="suburbChange" class="tab-pane fade banner-form">
+                                                <div class="section-title mb-45 mt-45">
+                                                    <h2 class="uppercase text-white">
+                                                        FIND YOUR <span>DREAM SUBURB</span>
+                                                    </h2>
                                                 </div>
+                                                @using (Html.BeginForm("SearchBySuburbChange", "Search", FormMethod.Post))
+                                                {
+                                                    <form action="#" class="col-10">
+                                                        <input type="submit" name="suburbChange" id="seaChangeBtn" value="SEA CHANGE" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
+                                                        <input type="submit" name="suburbChange" id="treeChangeBtn" value="TREE CHANGE" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
+                                                        <input type="submit" name="suburbChange" id="cityChangeBtn" value="CITY CHANGE" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
 
-                                                <div id="suburbChange" class="tab-pane fade banner-form">
-                                                    <div class="section-title mb-45 mt-45">
-                                                        <h2 class="uppercase text-white">
-                                                            FIND YOUR <span>DREAM SUBURB</span>
-                                                        </h2>
-                                                    </div>
-                                                    @using (Html.BeginForm("SearchBySuburbChange", "Search", FormMethod.Post))
-                                                    {
-                                                        <form action="#" class="col-10">
-                                                            <input type="submit" name="suburbChange" value="SEA CHANGE" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
-                                                            <input type="submit" name="suburbChange" value="TREE CHANGE" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
-                                                            <input type="submit" name="suburbChange" value="CITY CHANGE" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
+                                                    </form>
+                                                }
+                                            </div>
 
-                                                        </form>
-                                                    }
+                                            <div id="suburb" class="tab-pane fade in active banner-form">
+                                                <div class="section-title mb-45 mt-45">
+                                                    <h2 class="uppercase text-white">
+                                                        Search By <span>SUBURB</span>
+                                                    </h2>
                                                 </div>
-
-                                                <div id="suburb" class="tab-pane fade in active banner-form">
-                                                    <div class="section-title mb-45 mt-45">
-                                                        <h2 class="uppercase text-white">
-                                                            Search By <span>SUBURB</span>
-                                                        </h2>
-                                                    </div>
-                                                    @using (Html.BeginForm("SearchBySuburb", "Search", FormMethod.Post))
-                                                    {
-                                                        <form action="#" class="col-10">
+                                                @using (Html.BeginForm("SearchBySuburb", "Search", FormMethod.Post))
+                                                {
+                                                    <form action="#" class="col-10">
 
 
-                                                            <div class="form-box mb-40 pl-15 pr-15" style="width: 100%">
-                                                                <input id="inputSuburb" class="mb-20" style="color: cadetblue" type="text" name="inputSuburb" placeholder="Enter the whole or partial name">
-                                                            </div>
+                                                        <div class="form-box mb-40 pl-15 pr-15" style="width: 100%">
+                                                            <input id="inputSuburb" class="mb-20" style="color: cadetblue" type="text" name="inputSuburb" placeholder="Search by suburb name or postcode">
+                                                        </div>
 
-                                                            <div class="form-box pl-15 pr-15 large" style="padding-left: 0px">
-                                                                <button name="search_by_suburb" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("SearchBySuburb", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
-                                                            </div>
-                                                        </form>
-                                                    }
-                                                </div>
-                                                <div id="menu3" class="tab-pane fade">
-                                                    <h3>Menu 3</h3>
-                                                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                                </div>
+                                                        <div class="form-box pl-15 pr-15 large" style="padding-left: 0px">
+                                                            <button id="suburbSearchBtn" name="search_by_suburb" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("SearchBySuburb", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
+                                                        </div>
+                                                    </form>
+                                                }
+                                            </div>
+                                            <div id="menu3" class="tab-pane fade">
+                                                <h3>Menu 3</h3>
+                                                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </td>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+
+            <td style="width: 65%;vertical-align: top;min-width: 320px;display: inline-block;text-align:left;margin-right:8px">
+                <div style="padding-left:9px">
+                    <table style=" padding-left: 5px;   height: 50px;">
+                        <tbody>
+                        <tr style="padding-left: 5px;">
+                            <th style="    font-size: 25px;    border-top: none;">
+                                Suburb
+                            </th>
+                            <th style="    border-top: none;"></th>
                         </tr>
                         </tbody>
                     </table>
-                </td>
-
-                <td style="width: 65%;vertical-align: top;min-width: 320px;display: inline-block;text-align:left;margin-right:8px">
-                    <div style="padding-left:9px">
-                        <table style=" padding-left: 5px;   height: 50px;">
-                            <tbody>
-                            <tr style="padding-left: 5px;">
-                                <th style="    font-size: 25px;    border-top: none;">
-                                    Suburb
-                                </th>
-                                <th style="    border-top: none;"></th>
+                </div>
+                <div style="    overflow: auto;    max-height: 570px;">
+                    <table class="table" style="overflow: auto;margin-bottom: 0px;">
+                        <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
+                                    <div style="font-size: 25px;color: #2d80b1;font-weight: bold;">
+                                        @Html.DisplayFor(modelItem => item.suburb)
+                                    </div>
+                                    <div style="font-size: 16px;">@Html.DisplayFor(modelItem => item.distance_to_city) miles away (city)</div>
+                                    <div style="font-size: 16px;">Population: @Html.DisplayFor(modelItem => item.population_density) km^2</div>
+                                </td>
+                                <td style="vertical-align: bottom;border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
+                                    @Html.ActionLink("Details", "Details", "Suburb", new { id = item.suburb_id }, null)
+                                </td>
                             </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div style="    overflow: auto;    max-height: 570px;">
-                        <table class="table" style="overflow: auto;margin-bottom: 0px;">
-                            <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td style="border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
-                                        <div style="font-size: 25px;color: #2d80b1;font-weight: bold;">
-                                            @Html.DisplayFor(modelItem => item.suburb)
-                                        </div>
-                                        <div style="font-size: 16px;">@Html.DisplayFor(modelItem => item.distance_to_city) miles away (city)</div>
-                                        <div style="font-size: 16px;">Population: @Html.DisplayFor(modelItem => item.population_density)</div>
-                                    </td>
-                                    <td style="vertical-align: bottom;border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
-                                        @Html.ActionLink("Details", "Details", "Suburb", new { id = item.suburb_id }, null)
-                                    </td>
-                                </tr>
-                                <tr><td><hr style="margin-top: 0px;margin-bottom: 5px;border: 0;"></td></tr>
-                            }
-                        </table>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                            <tr><td><hr style="margin-top: 0px;margin-bottom: 5px;border: 0;"></td></tr>
+                        }
+                    </table>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
  
     <br />
     @*<p>@Html.ActionLink("Return", "Index", "Home")</p>*@

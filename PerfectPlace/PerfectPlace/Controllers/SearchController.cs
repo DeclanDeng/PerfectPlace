@@ -225,7 +225,7 @@ namespace PerfectPlace.Controllers
             string lowCrimeRate = null;
             string topCountryOfBirth = null;
 
-            if (suburbSearch == null && nationality.Equals("Nationality"))
+            if (suburbSearch == null && nationality.Equals("Prefered Nationality"))
             {
                 ViewBag.veryNearDistanceToCity = null;
                 ViewBag.veryHighMoreshops = null;
@@ -235,10 +235,11 @@ namespace PerfectPlace.Controllers
                 ViewBag.veryLessTimeToHospital = null;
                 ViewBag.lowCrimeRate = null;
                 ViewBag.topCountryOfBirth = null;
+                ViewBag.resultCount = 0;
                 return View();
             }
 
-            if (suburbSearch == null && !nationality.Equals("Nationality"))
+            if (suburbSearch == null && !nationality.Equals("Prefered Nationality"))
             {
                 ViewBag.veryNearDistanceToCity = null;
                 ViewBag.veryHighMoreshops = null;
@@ -248,6 +249,7 @@ namespace PerfectPlace.Controllers
                 ViewBag.veryLessTimeToHospital = null;
                 ViewBag.lowCrimeRate = null;
                 ViewBag.topCountryOfBirth = nationality;
+                ViewBag.resultCount = db.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth).Count();
                 return View(db.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth));
             }
 
@@ -290,7 +292,7 @@ namespace PerfectPlace.Controllers
                         break;
                 }
             }
-            if (!nationality.Equals("Nationality"))
+            if (!nationality.Equals("Prefered Nationality"))
             {
                 topCountryOfBirth = nationality;
             }
@@ -306,7 +308,7 @@ namespace PerfectPlace.Controllers
             ViewBag.veryLessTimeToHospital = veryLessTimeToHospital;
             ViewBag.lowCrimeRate = lowCrimeRate;
             ViewBag.topCountryOfBirth = topCountryOfBirth;
-
+            ViewBag.resultCount = db.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth).Count();
             return View(db.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth));
         }
 

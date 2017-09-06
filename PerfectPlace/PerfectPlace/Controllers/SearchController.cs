@@ -225,7 +225,7 @@ namespace PerfectPlace.Controllers
             string lowCrimeRate = null;
             string topCountryOfBirth = null;
 
-            if (suburbSearch == null && nationality.Equals("Prefered Nationality"))
+            if (suburbSearch == null && nationality.Equals("Preferred Nationality"))
             {
                 ViewBag.veryNearDistanceToCity = null;
                 ViewBag.veryHighMoreshops = null;
@@ -239,7 +239,7 @@ namespace PerfectPlace.Controllers
                 return View();
             }
 
-            if (suburbSearch == null && !nationality.Equals("Prefered Nationality"))
+            if (suburbSearch == null && !nationality.Equals("Preferred Nationality"))
             {
                 ViewBag.veryNearDistanceToCity = null;
                 ViewBag.veryHighMoreshops = null;
@@ -292,7 +292,7 @@ namespace PerfectPlace.Controllers
                         break;
                 }
             }
-            if (!nationality.Equals("Prefered Nationality"))
+            if (!nationality.Equals("Preferred Nationality"))
             {
                 topCountryOfBirth = nationality;
             }
@@ -312,15 +312,29 @@ namespace PerfectPlace.Controllers
             return View(db.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth));
         }
 
-        // POST: /Search/SearchBySuburb   string inputSuburb
+        // POST: /Search/SearchBySuburb
 
         public ActionResult SearchBySuburb(string inputSuburb)
         {
             ViewBag.inputSuburb = inputSuburb;
+            ViewBag.noResult = "false";
+            if (inputSuburb.Equals(""))
+            {
+                ViewBag.noResult = "true";
+                return View();
+            }
             //var userInput = inputSuburb;
             ////Debug.WriteLine(userInput);
             //var suburbs = from s in db.suburb_info where  s.community_name.Contains(inputSuburb) select s;
             var suburbs = from s in db.rating_it2 where s.suburb.Contains(inputSuburb) select s;
+            if (suburbs.Count() == 0)
+            {
+                suburbs = from s in db.rating_it2 where s.post_code.ToString().Equals(inputSuburb) select s;
+            }
+            if (suburbs.Count() == 0)
+            {
+                ViewBag.noResult = "true";
+            }
             return View(suburbs.ToList());
             //return View();
         }
@@ -344,6 +358,13 @@ namespace PerfectPlace.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public ActionResult ShowAllSuburbs()
+        {
+            var suburbs = from s in db.rating_it2 select s;
+            return View(suburbs.ToList());
         }
     }
 }

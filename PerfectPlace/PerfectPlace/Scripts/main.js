@@ -91,6 +91,11 @@ Design and Developed by: Devitems
         $(".suburb_check").not(":checked").attr("disabled", bol);
 
     });
+
+    $(document).ready(function() {
+        var bol = $(".suburb_check:checked").length >= 4;
+        $(".suburb_check").not(":checked").attr("disabled", bol);
+    });
     /*------------------------------------
         Blog Carousel
     ------------------------------------- */

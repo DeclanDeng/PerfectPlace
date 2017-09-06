@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PreferenceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PreferenceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="rating_it2">
           <Key>
             <PropertyRef Name="suburb_id" />
@@ -54,6 +54,7 @@
           <Property Name="unit_high_quartile" Type="float" />
           <Property Name="house_median_quartile_string" Type="varchar" MaxLength="50" />
           <Property Name="unit_median_quartile_string" Type="varchar" MaxLength="50" />
+          <Property Name="post_code" Type="int" />
         </EntityType>
         <Function Name="sp_changes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="lifestyle" Type="nvarchar" Mode="In" />
@@ -71,8 +72,7 @@
         <EntityContainer Name="PreferenceModelStoreContainer">
           <EntitySet Name="rating_it2" EntityType="Self.rating_it2" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PreferenceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -125,11 +125,12 @@
           <Property Name="unit_high_quartile" Type="Double" />
           <Property Name="house_median_quartile_string" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="unit_median_quartile_string" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="post_code" Type="Int32" />
         </EntityType>
         <EntityContainer Name="PreferenceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="rating_it2" EntityType="Self.rating_it2" />
           <FunctionImport Name="SearchBySuburbChange" EntitySet="rating_it2" ReturnType="Collection(PreferenceModel.rating_it2)">
-            <Parameter Name="lifestyle" Mode="In" Type="String" />
+          <Parameter Name="lifestyle" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SearchByPreference" EntitySet="rating_it2" ReturnType="Collection(PreferenceModel.rating_it2)">
             <Parameter Name="very_near_distance_to_city" Mode="In" Type="String" />
@@ -198,6 +199,7 @@
           <EntitySetMapping Name="rating_it2">
             <EntityTypeMapping TypeName="PreferenceModel.rating_it2">
               <MappingFragment StoreEntitySet="rating_it2">
+                <ScalarProperty Name="post_code" ColumnName="post_code" />
                 <ScalarProperty Name="suburb_id" ColumnName="suburb_id" />
                 <ScalarProperty Name="suburb" ColumnName="suburb" />
                 <ScalarProperty Name="distance_to_city_rate" ColumnName="distance_to_city_rate" />

@@ -123,7 +123,7 @@
                                                         <div class="form-box mb-40 pl-15 pr-15" style="margin-top: 85px;">
                                                             <div class="select">
                                                                 <select name="nationality" style="    color: #fff;">
-                                                                    <option>Prefered Nationality</option>
+                                                                    <option>Preferred Nationality</option>
                                                                     <option>England</option>
                                                                     <option>China</option>
                                                                     <option>India</option>
@@ -196,6 +196,14 @@
             </td>
 
             <td style="width: 65%;vertical-align: top;min-width: 320px;display: inline-block;text-align:left;margin-right:8px">
+                @if (@ViewBag.noResult.Equals("true"))
+                {
+                    <h2>Sorry, there is no result according to your input.</h2>
+                    <br />
+                    <h3>Please input another words.</h3>
+                }
+                else
+                {
                 <div style="padding-left:9px">
                     <table style=" padding-left: 5px;   height: 50px;">
                         <tbody>
@@ -208,27 +216,29 @@
                         </tbody>
                     </table>
                 </div>
-                <div style="    overflow: auto;    max-height: 570px;">
-                    <table class="table" style="overflow: auto;margin-bottom: 0px;">
-                        <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td style="border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
-                                    <div style="font-size: 25px;color: #2d80b1;font-weight: bold;">
-                                        @Html.DisplayFor(modelItem => item.suburb)
-                                    </div>
-                                    <div style="font-size: 16px;">@Html.DisplayFor(modelItem => item.distance_to_city) miles away (city)</div>
-                                    <div style="font-size: 16px;">Population: @Html.DisplayFor(modelItem => item.population_density) km^2</div>
-                                </td>
-                                <td style="vertical-align: bottom;border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
-                                    @Html.ActionLink("Details", "Details", "Suburb", new { id = item.suburb_id }, null)
-                                </td>
-                            </tr>
-                            <tr><td><hr style="margin-top: 0px;margin-bottom: 5px;border: 0;"></td></tr>
-                        }
-                    </table>
-                </div>
+                
+                    <div style="overflow: auto; max-height: 570px;">
+                        <table class="table" style="overflow: auto; margin-bottom: 0px;">
+                            <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="border-top: none; background-color: #f1f1f1; border-bottom: 1px solid #ddd;">
+                                        <div style="font-size: 25px; color: #2d80b1; font-weight: bold;">
+                                            @Html.DisplayFor(modelItem => item.suburb)
+                                        </div>
+                                        <div style="font-size: 16px;">@Html.DisplayFor(modelItem => item.distance_to_city) miles away (city)</div>
+                                        <div style="font-size: 16px;">Population: @Html.DisplayFor(modelItem => item.population_density) km^2</div>
+                                    </td>
+                                    <td style="vertical-align: bottom; border-top: none; background-color: #f1f1f1; border-bottom: 1px solid #ddd;">
+                                        @Html.ActionLink("Details", "Details", "Suburb", new {id = item.suburb_id}, null)
+                                    </td>
+                                </tr>
+                                <tr><td><hr style="margin-top: 0px; margin-bottom: 5px; border: 0;"></td></tr>
+                            }
+                        </table>
+                    </div>
+                }           
             </td>
         </tr>
         </tbody>

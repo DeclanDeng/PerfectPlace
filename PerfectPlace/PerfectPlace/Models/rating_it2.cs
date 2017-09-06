@@ -64,5 +64,6 @@ namespace PerfectPlace.Models
         public Nullable<double> unit_high_quartile { get; set; }
         public string house_median_quartile_string { get; set; }
         public string unit_median_quartile_string { get; set; }
+        public Nullable<int> post_code { get; set; }
     }
 }

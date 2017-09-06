@@ -700,6 +700,7 @@
     <Content Include="Views\Suburb\Test1.cshtml" />
     <Content Include="Views\Search\Test.cshtml" />
     <Content Include="Views\Search\SearchBySuburbChange.cshtml" />
+    <Content Include="Views\Search\ShowAllSuburbs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,972 @@
+﻿@*@model PerfectPlace.Models.rating_it3*@
+@model PerfectPlace.ViewModels.SuburbAndSuburbList
+@{
+    ViewBag.Title = "Test2";
+    Layout = null;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE HTML ">
+<html >
+<head>
+<meta http-equiv=" CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+<title></title>
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="/Content/infographic/style.css">
+<link rel="stylesheet" type="text/css" href="/Content/infographic/responsive.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+
+
+<script type="text/javascript" src="/Scripts/infographic/prototype.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/effects.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/side-bar.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $("#myModal").modal('show');
+    //});
+</script>
+
+<style>
+    #sideBar {
+        text-align: left;
+    }
+
+    #sideBar {
+        color: #FFFFFF;
+        font-size: 11px;
+        font-family: arial;
+        margin: 2px 10px 10px 0px;
+        padding-left: 0px;
+        opecity: 0.3;
+    }
+
+    #sideBar h2 {
+        font-size: 14px;
+        font-family: arial;
+        margin: 5px 5px 5px 5px;
+        font-weight: bold !important;
+    }
+
+    #sideBar h2 span {
+        font-size: 12px;
+        font-weight: normal !important;
+    }
+
+
+    #sideBar {
+        position: absolute;
+        width: auto;
+        height: auto;
+        top: 240px;
+        left: 0px;
+        background-color: #000000;
+        background-position: top right;
+        background-repeat: repeat-y;
+    }
+
+    #sideBarTab {
+        float: right;
+        height: 137px;
+        width: 28px;
+    }
+
+    #sideBarTab img {
+        border: 0px solid #FFFFFF;
+    }
+
+    #sideBarContents {
+        float: right;
+        overflow: hidden !important;
+        width: 400px;
+        height: auto;
+        padding-bottom: 5px;
+    }
+
+    #sideBarContentsInner {
+        width: 400px;
+    }
+
+
+    #tooltip {
+        font-family: Ubuntu, sans-serif;
+        font-size: 0.575em;
+        text-align: center;
+        text-shadow: 0 1px rgba( 0, 0, 0, .5 );
+        line-height: 1.5;
+        color: #ffffff;
+        background: #333;
+        background: -webkit-gradient( linear, left top, left bottom, from( rgba( 0, 0, 0, .6 ) ), to( rgba( 0, 0, 0, .8 ) ) );
+        background: -webkit-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -moz-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -ms-radial-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -o-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border-top: 1px solid #fff;
+        -webkit-box-shadow: 0 3px 5px rgba( 0, 0, 0, .3 );
+        -moz-box-shadow: 0 3px 5px rgba( 0, 0, 0, .3 );
+        box-shadow: 0 3px 5px rgba( 0, 0, 0, .3 );
+        position: absolute;
+        z-index: 100;
+        padding: 15px;
+    }
+
+    #tooltip:after {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top-color: #333;
+        border-top: 10px solid rgba( 0, 0, 0, .7 );
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        margin-left: -10px;
+    }
+
+    #tooltip.top:after {
+        border-top-color: transparent;
+        border-bottom-color: #333;
+        border-bottom: 10px solid rgba( 0, 0, 0, .6 );
+        top: -20px;
+        bottom: auto;
+    }
+
+    #tooltip.left:after {
+        left: 10px;
+        margin: 0;
+    }
+
+    #tooltip.right:after {
+        right: 10px;
+        left: auto;
+        margin: 0;
+    }
+
+    th, td {
+        border: 1px solid white;
+        cellpadding: 5px;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 5px;
+    }
+    /*
+            ---
+        */
+    a {
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    a:hover {
+        color: #2f9aac;
+        text-decoration: none;
+    }
+
+    /*.previous {
+        background-color: #4CAF50;
+        width: 35px;
+        height: 35px;
+        color: white;
+        margin: 5px;
+        font-size: 24px;
+        margin-left: 5px;
+        position: absolute;
+        left: 0px;
+        text-decoration: none;
+    }*/
+
+    .previous {
+        background-color: #4CAF50;
+        width: 35px;
+        height: 35px;
+        color: white;
+        margin: 5px;
+        margin-left: 5px;
+        left: 0px;
+        text-decoration: none;
+    }
+
+    /*.next {
+        background-color: #4CAF50;
+        width: 35px;
+        height: 35px;
+        color: white;
+        right: 0px;
+        position: absolute;
+        margin: 5px;
+        font-size: 24px;
+        margin-left: 5px;
+    }*/
+    .next {
+        background-color: #4CAF50;
+        width: 35px;
+        height: 35px;
+        color: white;
+        right: 0px;
+        margin: 5px;
+        margin-left: 5px;
+    }
+    .round {
+        border-radius: 50%;
+    }
+    .col-sm-7 {
+        width: -webkit-fill-available;
+    }
+    div#example_length {
+        position: absolute;
+    }
+    div#example_filter {
+        float: right;
+        width: max-content;
+    }
+</style>
+
+<script>
+
+
+    /*
+        TOOLTIP
+    */
+
+    $(document).ready(function () {
+        var targets = $('[rel~=tooltip]'),
+            target = false,
+            tooltip = false,
+            title = false;
+
+        targets.bind('mouseenter', function () {
+            target = $(this);
+            tip = target.attr('title');
+            tooltip = $('<div id="tooltip"></div>');
+
+            if (!tip || tip == '')
+                return false;
+
+            target.removeAttr('title');
+            tooltip.css('opacity', 0)
+
+                .html(tip)
+                .appendTo('body');
+
+            var init_tooltip = function () {
+                if ($(window).width() < tooltip.outerWidth() * 1.5)
+                    tooltip.css('max-width', $(window).width() / 2);
+                else
+                    tooltip.css('max-width', 340);
+
+                var pos_left = target.offset().left + (target.outerWidth() / 2) - (tooltip.outerWidth() / 2),
+                    pos_top = target.offset().top - tooltip.outerHeight() - 20;
+
+                if (pos_left < 0) {
+                    pos_left = target.offset().left + target.outerWidth() / 2 - 20;
+                    tooltip.addClass('left');
+                }
+                else
+                    tooltip.removeClass('left');
+
+                if (pos_left + tooltip.outerWidth() > $(window).width()) {
+                    pos_left = target.offset().left - tooltip.outerWidth() + target.outerWidth() / 2 + 20;
+                    tooltip.addClass('right');
+                }
+                else
+                    tooltip.removeClass('right');
+
+                if (pos_top < 0) {
+                    var pos_top = target.offset().top + target.outerHeight();
+                    tooltip.addClass('top');
+                }
+                else
+                    tooltip.removeClass('top');
+
+                tooltip.css({ left: pos_left, top: pos_top })
+                    .animate({ top: '+=10', opacity: 1 }, 50);
+            };
+
+            init_tooltip();
+            $(window).resize(init_tooltip);
+
+            var remove_tooltip = function () {
+                tooltip.animate({ top: '-=10', opacity: 0 }, 50, function () {
+                    $(this).remove();
+                });
+
+                target.attr('title', tip);
+            };
+
+            target.bind('mouseleave', remove_tooltip);
+            tooltip.bind('click', remove_tooltip);
+        });
+    });
+
+    /*
+        ---
+    */
+
+</script>
+<style>
+    /****************************************/
+
+
+
+    #sideBar {
+        text-align: left;
+    }
+
+    #sideBar {
+        color: #FFFFFF;
+        font-size: 14px;
+        font-family: arial;
+        margin: 2px 10px 10px 0px;
+        padding-left: 0px;
+        opecity: 0.3;
+    }
+
+
+    #sideBar {
+        position: absolute;
+        width: auto;
+        height: auto;
+        top: 240px;
+        left: 0px;
+        font-family: Ubuntu, sans-serif;
+        font-size: 0.875em;
+        background: #333;
+        background: -webkit-gradient( linear, left top, left bottom, from( rgba( 0, 0, 0, .6 ) ), to( rgba( 0, 0, 0, .8 ) ) );
+        background: -webkit-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -moz-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -ms-radial-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -o-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background-position: top right;
+        background-repeat: repeat-y;
+        opecity: 0.3;
+    }
+
+    #sideBarTab {
+        float: left;
+        height: 137px;
+        width: 28px;
+    }
+
+    #sideBarTab img {
+        border: 0px solid #FFFFFF;
+    }
+
+    #sideBarContents {
+        float: right;
+        overflow: hidden !important;
+        width: 400px;
+        height: auto;
+        padding-bottom: 5px;
+    }
+
+    #sideBarContentsInner {
+        width: 400px;
+    }
+
+    .modal.left .modal-dialog,
+    .modal.right .modal-dialog {
+        position: absolute;
+        margin: auto;
+        width: 420px;
+        height: auto;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
+
+    .modal.left .modal-content,
+    .modal.right .modal-content {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .modal.left .modal-body,
+    .modal.right .modal-body {
+        padding: 15px 15px 80px;
+    }
+
+    /*Left*/
+    .modal.left.fade .modal-dialog {
+        left: -320px;
+        -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+        transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
+
+    .modal.left.fade.in .modal-dialog {
+        left: 0;
+    }
+
+
+    /* ----- MODAL STYLE ----- */
+    .modal-content {
+        border-radius: 0;
+        border: none;
+        color: #FFFFFF;
+        font-family: Ubuntu, sans-serif;
+        font-size: 0.875em;
+        background: #333;
+        background: -webkit-gradient( linear, left top, left bottom, from( rgba( 0, 0, 0, .6 ) ), to( rgba( 0, 0, 0, .8 ) ) );
+        background: -webkit-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -moz-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -ms-radial-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -o-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background-position: top right;
+        background-repeat: repeat-y;
+        opecity: 0.3;
+    }
+
+    .modal-header {
+        font-size: 14px;
+        font-family: arial;
+        margin: 0px 0px 5px 0px;
+        font-weight: bold !important;
+        color: #FFFFFF;
+        background: #333;
+        background: -webkit-gradient( linear, left top, left bottom, from( rgba( 0, 0, 0, .6 ) ), to( rgba( 0, 0, 0, .8 ) ) );
+        background: -webkit-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -moz-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -ms-radial-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -o-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background-position: top right;
+        background-repeat: repeat-y;
+        opecity: 0.3;
+    }
+
+    .close {
+        color: #FFFFFF;
+    }
+</style>
+
+
+</head>
+
+<body class="no-blog">
+<!-- animation start-->
+
+
+
+    <div class="box">
+
+
+        <header id="header" class="container eco" style="padding-left:0px; ">
+            <div class="main">
+
+                <a href="#" class="previous round" style="display: none"><b><</b></a>
+                <a href="#" class="next round" style="display: none"><b>></b></a>
+                <h3 style="font-size:36px; margin-top:0px; padding:10px;">@Html.DisplayFor(model => model.SuburbData.suburb)</h3>
+
+                <div id="scene_1">
+                    <div id="eco_items">
+                        <div><img src="/Image/infographic/eco/1.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/2.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/13.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/hospital.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/3.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/4.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/6.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/4.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/6.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/5.png" alt=""></div>
+                        <div><img src="/Image/infographic/eco/7.png" alt=""></div>
+
+                        <div>
+                            <img src="/Image/infographic/eco/person1.png" alt="">
+                            <img src="/Image/infographic/eco/person2.png" alt="">
+                            <img src="/Image/infographic/eco/person3.png" alt="">
+                            <img src="/Image/infographic/eco/person2.png" alt="">
+                            <img src="/Image/infographic/eco/person3.png" alt="">
+                        </div>
+
+                    </div>
+
+                    <div class="clouds">
+                        <div id="cl_5" data-time="20" data-direction="left"><span style="color:#fd7a05; font-size: 16px;"><br /><br /><br /><br />Average Time to Airport<h4 style="margin-top:0px; font-size:18px;">@Html.DisplayFor(model=>model.SuburbData.time_to_airport_raw)mins(Tullamarine)</h4></span></div>
+                        <div id="cl_1" data-time="28" data-direction="right"></div>
+                        <div id="cl_2" data-time="36" data-direction="left"></div>
+                        <div id="cl_3" data-time="57" data-direction="left"></div>
+                        <div id="cl_4" data-time="49" data-direction="right"></div>
+                    </div>
+
+                </div>
+
+                <div id="scene_2">
+
+                    <div id="car1" class="element-animation2">
+                        <img src="/Image/infographic/scene/s1.png" alt=""><br/><a class="right" title="
+                            <table>
+                                <tr>
+                                    <td>Time to CBD (Min)</td>
+                                    <td>Distance to CBD (Km)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.DisplayFor(model => model.SuburbData.travel_time_to_city)</td>
+                                    <td>@Math.Round(@Model.SuburbData.distance_to_city.Value, 1)</td>
+                                </tr>
+                            </table>" rel="tooltip" style="white-space:nowrap; color:#ffffff;"><span>Time to CBD<br/></span> <h4>@Html.DisplayFor(model => model.SuburbData.travel_time_to_city)</h4>
+                        </a>
+                    </div>
+                    <div class="wave left"></div>
+
+                    <div id="car" class="element-animation">
+                        <img src="/Image/infographic/breakdown.png" alt=""><a class="right" title="
+                            <table>
+                                <tr>
+                                    <td>Fatal Accident (%)</td>
+                                    <td>Serious Accident (%)</td>
+                                    <td>Light Accident (%)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Math.Round(@Model.SuburbData.fatal_accident_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.serious_accident_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.other_accident_percent.Value, 1)</td>
+                                </tr>
+                            </table>" rel="tooltip" style="white-space: nowrap; color:#ffffff;"><span>Road Accident Rate<h4> @Html.DisplayFor(model => model.SuburbData.accident_count_rate)</h4></span>
+                        </a>
+                    </div>
+
+                    <div id="park"><img src="/Image/infographic/eco/14.png" alt=""></div>
+                    <div class="headline eco">
+                        <a href="#" id="ln_4" class="right" title="
+                            <table>
+                                <tr>
+                                    <td>Burglary (%)</td>
+                                    <td>Theft (%)</td>
+                                    <td>Crime Against Person (%)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Math.Round(@Model.SuburbData.burglary_offence_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.theft_offence_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.crime_offence_percent.Value, 1)</td>
+                                </tr>
+                            </table>" rel="tooltip" style="white-space: nowrap;"><span>Criminal<br/>Rate</span><span class="numder">@Html.DisplayFor(model => model.SuburbData.commercial_rate)</span>
+                        </a>
+                        <a href="#" id="ln_2" class="right" title="
+                            <table>
+                                <tr>
+                                    <td>Commercial Used (%)</td>
+                                    <td>Industrial Used (%)</td>
+                                    <td>Residential Used (%)</td>
+                                    <td>Rural Used (%)</td>
+                                    <td>Others (%)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Math.Round(@Model.SuburbData.commercial_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.industrial_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.residential_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.rural_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.other_percent.Value, 1)</td>
+                                </tr>
+                            </table>" rel="tooltip" style="white-space: nowrap;"><span>Residential</span><span class="numder">@Html.DisplayFor(model => model.SuburbData.residential_rate)</span>
+                        </a>
+
+                        <a href="#" id="ln_3" class="right" title="
+                            <table>
+                                <tr>
+                                    <td>House Price (3 bedrooms)</td>
+                                    <td>Average in Mel (House)</td>
+                                    <td>Apartment Price (2 bedrooms)</td>
+                                    <td>Average in Mel (Apartment)</td>
+                                </tr>
+                                <tr>
+                                    <td>$@Html.DisplayFor(model => model.SuburbData.buy_house_3br_string)</td>
+                                    <td>$@Html.DisplayFor(model => model.SuburbData.avg_house_price_3br)</td>
+                                    <td>$@Html.DisplayFor(model => model.SuburbData.buy_unit_2br_string)</td>
+                                    <td>$@Html.DisplayFor(model => model.SuburbData.avg_unit_price_2br)</td>
+                                </tr>
+                            </table>" rel="tooltip" style="white-space: nowrap;"><span>House price<br/>(3 bedrooms)</span><span class="numder">$@Html.DisplayFor(model => model.SuburbData.avg_house_price_3br)</span>
+                        </a>
+                        <a href="#" id="ln_5" class="right" title="
+                            <table>
+                                <tr>
+                                    <td>Age between 0-24 (%)</td>
+                                    <td>Age between 25-44 (%)</td>
+                                    <td>Age between 45-64 (%)</td>
+                                    <td>Age between 65-84 (%)</td>
+                                    <td>Age 85+ (%)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Math.Round(@Model.SuburbData.age_0_24.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.age_25_44.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.age_45_64.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.age_65_84.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.age_85.Value, 1)</td>
+                                </tr>
+                            </table>" rel="tooltip" style="white-space: nowrap;"><span>Population</span><span class="numder">@Html.DisplayFor(model => model.SuburbData.population_density_string)</span>
+                        </a>
+                        <a href="#" id="ln_6" class="right" title="
+                            <table>
+                                <tr>
+                                    <td>Distance to the Nearest Hospital (Km)</td>
+                                    <td>Time to the Nearest Hospital (Min)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Math.Round(@Model.SuburbData.distance_nearest_public_hospital.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.time_to_hospital.Value, 1)</td>
+                                </tr>
+                            </table>" rel="tooltip" style="white-space: nowrap;"><span>Hospital</span><span class="numder">@Html.DisplayFor(model => model.SuburbData.nearest_public_hospital)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="container darkseagreen" style="margin-left: 0px; margin-right: 0px; width: 100%;">
+            <div class="main white">
+
+                <div id="about" class="eco">
+                    <a href="#" class="item" class="right" title="
+                        <table>
+                            <tr>
+                                <td>Service Name</td>
+                                <td>Address</td>
+                                <td>Care Type</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </table>" rel="tooltip" style="white-space: nowrap;"><img src="/Image/infographic/eco/8.png" alt=""><span style="font-size: 18px">Aged care center<br/> <b>4</b></span>
+                    </a>
+                    <a href="#" style="margin-left: 80px; margin-right: 80px" class="item" class="right" title="
+                       <table>
+                        <tr>
+                           <td>1st Nationality</td>
+                           <td>2nd Nationality</td>
+                           <td>3rd Nationality</td>
+                           <td>4th Nationality</td>
+                           <td>5th Nationality</td>
+                           </tr>
+                        <tr>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_1)</td>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_2)</td>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_3)</td>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_4)</td>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_5)</td>
+                           </tr>
+                        </table>" rel="tooltip" style="white-space: nowrap;"><img src="/Image/infographic/eco/9.png" alt=""><span>Major Nationalities<br/><b> @Html.DisplayFor(model => model.SuburbData.top_country_of_birth_1)</b></span></a>
+                    <a href="#" class="item" class="right" title="
+                       <table>
+                        <tr>
+                           <td>1st Language Spoken</td>
+                           <td>2nd Language Spoken</td>
+                           <td>3rd Language Spoken</td>
+                           <td>4th Language Spoken</td>
+                           <td>5th Language Spoken</td>
+                           </tr>
+                        <tr>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_1)</td>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_2)</td>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_3)</td>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_4)</td>
+                           <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_5)</td>
+                           </tr>
+                        </table>" rel="tooltip" style="white-space: nowrap;"><img src="/Image/infographic/eco/10.png" alt=""><span>Major  Language Spoken<br/> <b>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_1)</b></span></a>
+                </div>
+
+            </div>
+        </section>
+        @if (@ViewBag.SearchResultPage == "SearchByLifeStyle")
+        {
+            @:@if (@ViewBag.LifeStyle == "SeaChange")
+             {
+                 
+                 <section class="container cadetblue" style="margin-left: 0px; margin-right: 0px; width: 100%; padding-top:30px; padding-bottom:40px;">
+                     <h3 style="font-size:36px; color:#ffffff">Sea Change</h3>
+                     <p style="font-size:20px; color:#ffffff">It describes the move to the coastal area. People can enjoy the beautiful sea view, <br/>also, they can have an open space to do exercise and walk their pets. But at the same time, it also means more windy and humid in the living</p>
+                     <div class="main white">
+
+                         <div class="row">
+                             <div class="col-sm-4">
+                                 <img src="/Image/infographic/bus.png" alt=""><br/><span style="font-size: 18px">Frequency of Public Transport: @Html.DisplayFor(model => model.SuburbData.Public_Transport_Freq) mins<br/> </span>
+                             </div>
+                             <div class="col-sm-4">
+                                 <img src="/Image/infographic/golf.png" alt=""><br/><span style="font-size: 18px">No. of Golf Court: @Html.DisplayFor(model => model.SuburbData.golf_count)<br/></span>
+                             </div>
+                             <div class="col-sm-4">
+                                 <img src="/Image/infographic/fishing.png" alt=""><br/><span style="font-size: 18px">Distance to the Fishing Spot: @Math.Round(@Model.SuburbData.distance_to_fishspot.Value, 1)Km to @Html.DisplayFor(model => model.SuburbData.nearest_fishspot)<br/> </span>
+                             </div>
+                         </div>
+
+                     </div>
+                 </section> 
+             }
+              else if (@ViewBag.LifeStyle == "TreeChange")
+              {
+                  <section class="container yellowgreen" style="margin-left: 0px; margin-right: 0px; width: 100%; padding-top:30px; padding-bottom:40px;">
+                      <h3 style="font-size:36px; color:#228B22">Tree Change</h3>
+                      <p style="font-size:20px; color:#228B22">It describes the move from city living to a more rural setting. Moving to the bush area can improve <br/>health because of that fresh air, clean water and lower stress levels. But at the same time, it also<br/> means poor connections with friends and limited public transport.</p>
+                      <div class="main white">
+
+                          <div class="row">
+                              <div class="col-sm-4">
+                                  <img src="/Image/infographic/hospital.png" alt=""><br/><span style="font-size: 18px">Distance to the Nearest Hospital: @Math.Round(@Model.SuburbData.distance_nearest_public_hospital.Value, 1)Km<br/> </span>
+                              </div>
+                              <div class="col-sm-4">
+                                  <img src="/Image/infographic/bus.png" alt=""><br/><span style="font-size: 18px">Frequency of Public Transport: @Html.DisplayFor(model => model.SuburbData.Public_Transport_Freq)mins<br/></span>
+                              </div>
+                              <div class="col-sm-4">
+                                  <img src="/Image/infographic/nursuries.png" alt=""><br/><span style="font-size: 18px">No. of Nurseries Shops: @Html.DisplayFor(model => model.SuburbData.nursery_shops)<br/> </span>
+                              </div>
+                          </div>
+
+                      </div>
+                  </section>
+              }
+              else if (@ViewBag.LifeStyle == "CityChange")
+              {
+                  <section class="container ivory" style="margin-left: 0px; margin-right: 0px; width: 100%;padding-top:30px; padding-bottom:40px;">
+                      <h3 style="font-size:36px; color:#4b5252">City Change</h3>
+                      <p style="font-size:20px; color:#4b5252">It describes the move from rural area to the city area.<br /> Moving to the citycan have a more convenient life, but at the same time,<br/> it also means higher noise level and crowded living environment</p>
+
+
+                      <div class="row">
+                          <div class="col-sm-3">
+                              <img src="/Image/infographic/building.png" alt=""><br/><span style="font-size: 18px">Apartment Price: $@Html.DisplayFor(model => model.SuburbData.buy_unit_2br_string)<br/> </span>
+                          </div>
+                          <div class="col-sm-3">
+                              <img src="/Image/infographic/cafe.png" alt=""><br/><span style="font-size: 18px">No. of  Cafe: @Html.DisplayFor(model => model.SuburbData.cafes_count)<br/></span>
+                          </div>
+                          <div class="col-sm-3">
+                              <img src="/Image/infographic/dining.png" alt=""><br/><span style="font-size: 18px">No. of Dining:@Html.DisplayFor(model => model.SuburbData.dining_count)<br/> </span>
+                          </div>
+                          <div class="col-sm-3">
+                              <img src="/Image/infographic/bar.png" alt=""><br/><span style="font-size: 18px">No. of bar & club: @Html.DisplayFor(model => model.SuburbData.bar_count)<br/> </span>
+                          </div>
+                      </div>
+
+
+                  </section>
+              }
+            
+            
+            
+            
+        }
+    
+    </div>
+
+
+
+</body>
+
+<!-- animation end-->
+<div id="sideBar">
+    <a href="#" id="sideBarTab" data-toggle="modal" data-target="#myModal2"><img src="/Image/infographic/slide-button.gif" alt="sideBar" title="sideBar" /></a>
+    <!-- Modal -->
+    <div class="modal left fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width:650px;">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Compare</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <form action="Compare">
+                        <table id="example" class="table table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                            @if (@ViewBag.SearchResultPage == "SearchByLifeStyle")
+                            {
+                                @:@if (@ViewBag.LifeStyle == "SeaChange")
+                                  {
+                                      <tr>
+                                          <th>&nbsp;&nbsp;&nbsp;</th>
+                                          <th>suburb</th>
+                                          <th>Frequency of Public Transportation (min)</th>
+                                          <th>Number of Golf Court</th>
+                                          <th>Distance to the Fishing Spots (Km)</th>
+                                      </tr>
+                                  }
+                                  else if (@ViewBag.LifeStyle == "TreeChange")
+                                  {
+                                      <tr>
+                                          <th>&nbsp;&nbsp;&nbsp;</th>
+                                          <th>suburb</th>
+                                          <th>Distance to the Nearest Hospital (Km)</th>
+                                          <th>Frequency of Public Transportation (min)</th>
+                                          <th>Number of Nursery Shops</th>
+                                      </tr>
+                                  }
+                                  else if (@ViewBag.LifeStyle == "CityChange")
+                                  {
+                                      <tr>
+                                          <th>&nbsp;&nbsp;&nbsp;</th>
+                                          <th>suburb</th>
+                                          <th>Apartment Price (2 bedrooms)</th>
+                                          <th>Number of Cafe</th>
+                                          <th>Number of Dining</th>
+                                          <th>Number of Bar & Club</th>
+                                      </tr>
+                                  }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th>&nbsp;&nbsp;&nbsp;</th>
+                                    <th>Suburb</th>
+                                    <th>Distance to CBD (Km)</th>
+                                    <th>Commercial Rate</th>
+                                    <th>Health Service</th>
+                                    <th>Accident Rate</th>
+                                    <th>Age Care Center</th>
+                                    <th>Time To Hospital (min)</th>
+                                    <th>criminal Rate</th>
+                                </tr>
+                            }
+                            
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model.SuburbListData)
+                            {
+                                @:@if (@ViewBag.SearchResultPage == "SearchByLifeStyle")
+                                 {
+                                     @:@if (@ViewBag.LifeStyle == "SeaChange")
+                                       {
+                                           @*<tr><td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;@item.suburb_id</td>*@ 
+                                           <tr><td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;</td> 
+                                               <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td> 
+                                     <td>@item.Public_Transport_Freq</td> 
+                                               <td>@item.golf_count</td> 
+                                     <td>@Math.Round(item.distance_to_fishspot.Value, 1)</td> </tr>
+                                       }
+                                       else if (@ViewBag.LifeStyle == "TreeChange")
+                                       {
+                                           <tr> <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;</td> 
+                                               <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td> 
+                                     <td>@Math.Round(item.distance_nearest_public_hospital.Value, 1)</td> 
+                                               <td>@item.Public_Transport_Freq</td> 
+                                     <td>@item.nursery_shops</td> </tr>
+                                       }
+                                       else if (@ViewBag.LifeStyle == "CityChange")
+                                       {
+                                           <tr> <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;</td> 
+                                               <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td>
+                                     <td>$@item.buy_unit_2br_string</td> 
+                                     <td>@item.cafes_count</td> 
+                                     <td>@item.dining_count</td> 
+                                     <td>@item.bar_count</td> </tr>
+                                       }
+                                 }
+                                 else
+                                 {
+                                     <tr>
+                                         <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;</td>
+                                         <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td>
+                                         <td>@Math.Round(item.distance_to_city.Value, 1)</td>
+                                         <td>@item.commercial_rate</td>
+                                         <td>@item.health_services</td>
+                                         <td>@item.accident_count_rate</td>
+                                         <td>@item.aged_care</td>
+                                         <td>@Math.Round(item.time_to_hospital.Value, 1)</td>
+                                         <td>@item.crime_rate</td>
+                                     </tr>
+                                 }
+                                
+                            }
+                            @*<tr>
+                                <td><input type="checkbox" name="suburb" value="1">&nbsp;1</td>
+                                <td>camegi </td>
+                                <td>Low</td>
+                                <td>High</td>
+                                <td>Moderate</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="suburb" value="1"> 2</td>
+                                <td>camegi </td>
+                                <td>Low</td>
+                                <td>High</td>
+                                <td>Moderate</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="suburb" value="1"> 3</td>
+                                <td>camegi </td>
+                                <td>Low</td>
+                                <td>High</td>
+                                <td>Moderate</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="suburb" value="1"> 4</td>
+                                <td>camegi </td>
+                                <td>Low</td>
+                                <td>High</td>
+                                <td>Moderate</td>
+                                <td>15</td>
+                            </tr>*@
+
+                            </tbody>
+
+                        </table>
+
+                        <input class="btn btn-primary" type="submit" value="Compare">
+                    </form>
+
+                </div>
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+</div>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Learn How you use this Infographics</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PauPbLGRlFs" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    (function ($) {
+        //$("#myModal").modal('show');
+        $('#example').DataTable({
+            "order":[]
+        });
+    })(jQuery);
+
+</script>
+<script>
+    $('.compareCheckBox').click(function() {
+        var bol = $(".compareCheckBox:checked").length >= 2;
+        $(".compareCheckBox").not(":checked").attr("disabled", bol);
+    });
+</script>
+<script type="text/javascript" src="/Scripts/infographic/jquery.cookie.js"></script>
+<script type="text/javascript" src="/Scripts/infographic/_front.js"></script>
+</html>

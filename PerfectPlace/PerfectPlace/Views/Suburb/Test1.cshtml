@@ -4,160 +4,202 @@
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Suburb</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/Content/infographic/style.css">
-    <link rel="stylesheet" type="text/css" href="/Content/infographic/fontello/css/fontello.css">
-    <link rel="stylesheet" type="text/css" href="/Content/infographic/prettyPhoto.css">
-    <link rel="stylesheet" type="text/css" href="/Content/infographic/responsiveslides.css">
-    <link rel="stylesheet" type="text/css" href="/Content/infographic/responsive.css">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/infographic/prototype.js"></script>
+    <script type="text/javascript" src="/Scripts/infographic/effects.js"></script>
+    <script type="text/javascript" src="/Scripts/infographic/side-bar.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/infographic/prototype.js"></script>
+    <script type="text/javascript" src="/Scripts/infographic/effects.js"></script>
+    <script type="text/javascript" src="/Scripts/infographic/side-bar.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <!-- <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myModal").modal('show');
+        });
+    </script> -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+    <style>
+        /****************************************/
+
+
+
+        #sideBar {
+            text-align: left;
+        }
+
+        #sideBar {
+            color: #FFFFFF;
+            font-size: 14px;
+            font-family: arial;
+            margin: 2px 10px 10px 0px;
+            padding-left: 10px;
+            opecity: 0.3;
+        }
+
+        #sideBar h2 {
+            font-size: 14px;
+            font-family: arial;
+            margin: 5px 5px 5px 5px;
+            font-weight: bold !important;
+        }
+
+        #sideBar h2 span {
+            font-size: 12px;
+            font-weight: normal !important;
+        }
+
+
+        #sideBar {
+            position: absolute;
+            width: auto;
+            height: auto;
+            top: 240px;
+            left: 0px;
+            font-family: Ubuntu, sans-serif;
+            font-size: 0.875em;
+            background: #333;
+            background: -webkit-gradient( linear, left top, left bottom, from( rgba( 0, 0, 0, .6 ) ), to( rgba( 0, 0, 0, .8 ) ) );
+            background: -webkit-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+            background: -moz-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+            background: -ms-radial-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+            background: -o-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+            background: linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+            background-position: top right;
+            background-repeat: repeat-y;
+            opecity: 0.3;
+        }
+
+        #sideBarTab {
+            float: right;
+            height: 137px;
+            width: 28px;
+        }
+
+        #sideBarTab img {
+            border: 0px solid #FFFFFF;
+        }
+
+        #sideBarContents {
+            float: right;
+            overflow: hidden !important;
+            width: 400px;
+            height: auto;
+            padding-bottom: 5px;
+        }
+
+        #sideBarContentsInner {
+            width: 400px;
+        }
+    </style>
+
+
 </head>
-<body class="no-blog">
-<div class="body_background"></div>
 
-<div class="box">
-    <header id="header" class="container eco">
-        <div class="main">
-            <nav class="header">
-                <ul>
+<body>
+    <iframe src="@Url.Action("Test2", Model)" frameborder="0" scrolling="no" width="100%" height="1120px"></iframe>
+@*<div id="sideBar">
 
-                    <li class="logo">
-                        <a href="ecogroup.html">
-                            <h3>Suburb</h3>
-                            <h3>@Html.DisplayFor(model => model.suburb)</h3>
+    <a href="#" id="sideBarTab"><img src="/Image/infographic/slide-button.gif" alt="sideBar" title="sideBar" /></a>
 
-                        </a>
-                    </li>
+    <div id="sideBarContents" style="display:none;">
+        <div id="sideBarContentsInner">
 
-                </ul>
-            </nav>
+            <form action="compair.html">
+                <table id="example" class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>no&nbsp;&nbsp;&nbsp;</th>
+                        <th>suburb</th>
+                        <th>criminal Rate</th>
+                        <th>Accident Rate</th>
+                        <th>Health Care</th>
+                        <th>To CBT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="suburb" value="1">&nbsp;1</td>
+                        <td>camegi  </td>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>Moderate</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="suburb" value="1"> 2</td>
+                        <td>camegi  </td>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>Moderate</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="suburb" value="1"> 3</td>
+                        <td>camegi  </td>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>Moderate</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="suburb" value="1"> 4</td>
+                        <td>camegi  </td>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>Moderate</td>
+                        <td>15</td>
+                    </tr>
 
-            <div id="scene_1">
-                <div id="eco_items">
-                    <div><img src="/Image/infographic/eco/1.png" alt=""></div>
-                    <div><img src="/Image/infographic/eco/2.png" alt=""></div>
+                    </tbody>
+                    <ul class="pagination pagination-sm">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                    </ul>
+                </table>
 
-                    <div><img src="/Image/infographic/eco/13.png" alt=""></div>
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
 
-                    <div><img src="/Image/infographic/eco/2.png" alt=""></div>
-                    <div><img src="/Image/infographic/eco/3.png" alt=""></div>
-                    <div><img src="/Image/infographic/eco/4.png" alt=""></div>
-                    <div><img src="/Image/infographic/eco/6.png" alt=""></div>
-                    <div><img src="/Image/infographic/eco/4.png" alt=""></div>
-                    <div><img src="/Image/infographic/eco/6.png" alt=""></div>
-                    <div><img src="/Image/infographic/eco/5.png" alt=""></div>
-
-                    <div><img src="/Image/infographic/eco/7.png" alt=""></div>
-
-                </div>
-                <img id="airplane" src="/Image/infographic/scene/6.png" alt="">
-                <div class="clouds">
-                    <div id="cl_1" data-time="28" data-direction="right"></div>
-                    <div id="cl_2" data-time="36" data-direction="left"></div>
-                    <div id="cl_3" data-time="57" data-direction="left"></div>
-                    <div id="cl_4" data-time="49" data-direction="right"></div>
-                </div>
-                <div class="headline eco">
-                    <a href="#" id="ln_1" class="right"><span>Time to CBD</span><span class="numder">@Html.DisplayFor(model => model.distance_to_city)</span></a>
-                    <a href="#" id="ln_2" class="right"><span>Residential</span><span class="numder">@Html.DisplayFor(model => model.residential_percent)</span></a>
-                    <a href="#" id="ln_3" class="right"><span>Population</span><span class="numder">@Html.DisplayFor(model => model.population_density)</span></a>
-                </div>
-            </div>
-            <div id="widget_2" class="widget_skills">
-                <div class="widget_inner">
-                    <a href="#" id="lw_1" class="skills_row">
-                        <img src="/Image/infographic/scene/12.png" alt="">
-                        <div class="name">Road Accident Rate: </br>@Html.DisplayFor(model => model.accident_count_rate)</div>
-                    </a>
-
-                    <a href="#" id="lw_3" class="skills_row">
-
-                    </a>
-
-                    <a href="#" id="lw_5" class="skills_row">
-                        <img src="/Image/infographic/scene/13.png" alt="">
-                        <div class="name">Criminal Rate: @Html.DisplayFor(model => model.crime_rate)</div>
-                    </a>
-                </div>
-            </div>
 
         </div>
-    </header>
-    <section class="container darkseagreen">
-        <div class="main white">
+    </div>
 
-            <div id="about" class="eco">
-                <a href="#" class="item"><img src="/Image/infographic/eco/8.png" alt=""><span>Aged care center:</br> @Html.DisplayFor(model => model.aged_care)</span></a>
-                <div class="arrow"></div>
-                <a href="#" class="item"><img src="/Image/infographic/eco/9.png" alt=""><span>Major Nationalities:</br> @Html.DisplayFor(model => model.top_country_of_birth_1), @Html.DisplayFor(model => model.top_country_of_birth_2), @Html.DisplayFor(model => model.top_country_of_birth_3), @Html.DisplayFor(model => model.top_country_of_birth_4), @Html.DisplayFor(model => model.top_country_of_birth_5)</span></a>
-                <div class="arrow"></div>
-                <a href="#" class="item"><img src="/Image/infographic/eco/10.png" alt=""><span>Major  Language Spoken:</br> @Html.DisplayFor(model => model.top_language_spoken_1), @Html.DisplayFor(model => model.top_language_spoken_2), @Html.DisplayFor(model => model.top_language_spoken_3), @Html.DisplayFor(model => model.top_language_spoken_4), @Html.DisplayFor(model => model.top_language_spoken_5)</span></a>
+</div>*@
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Learn How you use this Infographics</h4>
             </div>
-            <div class="open_more" data-cont="tabs">
-                <div class="icon-down-open"></div>
-                <span><h5>Nearest Public Hospital</h5></span>
+            <div class="modal-body">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PauPbLGRlFs" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-    </section>
-
-
-
-
-    <section class="container pad90-top">
-        <div class="main white">
-
-
-            <div id="scene_1">
-                <div id="travel_items">
-                    <div><img src="/Image/infographic/travel/6.png" alt=""></div>
-                    <div><img src="/Image/infographic/travel/7.png" alt=""></div>
-                    <div><img src="/Image/infographic/travel/8.png" alt=""></div>
-                    <div><img src="/Image/infographic/travel/9.png" alt=""></div>
-                    <div><img src="/Image/infographic/travel/10.png" alt=""></div>
-                    <div class="anim" data-time="60" data-direction="right"><img src="/Image/infographic/travel/11.png" alt=""></div>
-                    <div class="anim" data-time="90" data-direction="right"><img src="/Image/infographic/travel/12.png" alt=""></div>
-                    <div><img src="/Image/infographic/travel/13.png" alt=""></div>
-                    <div><img src="/Image/infographic/travel/14.png" alt=""></div>
-                    <div><img src="/Image/infographic/travel/15.png" alt=""></div>
-                </div>
-                <img id="airplane" src="/Image/infographic/travel/16.png" alt="">
-                <div class="headline">
-                    <a href="#" id="ln_1" class="right"></a>
-                    <a href="#" id="ln_2"><span class="numder">@Html.DisplayFor(model => model.house_median_quartile_string)</span>Median price(1 bed unit)</a>
-                    <a href="#" id="ln_3"><span class="numder">@Html.DisplayFor(model => model.nearest_public_hospital)</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer container cadetblue">
-        <div class="main white">
-
-            <div class="social">
-                <ul>
-                    <li><a href="#"><span class="icon-facebook"></span></a></li>
-                    <li><a href="#"><span class="icon-twitter"></span></a></li>
-                    <li><a href="#"><span class="icon-pinterest"></span></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    </div>
 </div>
-<script type="text/javascript" src="/Scripts/infographic/jquery.min.js"></script>
-<script type="text/javascript" src="/Scripts/infographic/Chart.min.js"></script>
-<script type="text/javascript" src="/Scripts/infographic/jquery.flexslider.min.js"></script>
-<script type="text/javascript" src="/Scripts/infographic/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="/Scripts/infographic/SmoothScroll.js"></script>
-<script type="text/javascript" src="/Scripts/infographic/responsiveslides.js"></script>
-<script type="text/javascript" src="/Scripts/infographic/jquery.cookie.js"></script>
-<script type="text/javascript" src="/Scripts/infographic/_front.js"></script>
 </body>
 </html>
-
-

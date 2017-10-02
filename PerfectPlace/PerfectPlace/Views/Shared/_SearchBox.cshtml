@@ -1,0 +1,297 @@
+﻿<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css"
+      rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<div class="banner-content">
+<div class="display-table pull_left">
+<div class="display-table-cell">
+<div class="tab-content">
+@{
+    var selectedTab = "";
+    var selectedBox = "";
+    if (@ViewBag.Current == "Home")
+    {
+        selectedTab = "active";
+        selectedBox = "tab-pane fade in active banner-form";
+    }
+    else
+    {
+        selectedTab = @ViewBag.SearchResultPage == "SearchByPreference" ? "active" : "";
+        selectedBox = @ViewBag.SearchResultPage == "SearchByPreference" ? "tab-pane fade in active banner-form" : "tab-pane fade banner-form";
+    }
+
+}
+        <ul class="nav nav-tabs">
+            <li class="@selectedTab"><a data-toggle="tab" href="#preference">Preference</a></li>
+            <li class="@(ViewBag.SearchResultPage == "SearchByLifeStyle" ? "active" : "")"><a data-toggle="tab" href="#suburbChange">Life Style</a></li>
+            <li class="@(ViewBag.SearchResultPage == "SearchBySuburb" ? "active" : "")"><a data-toggle="tab" href="#suburb">Suburb</a></li>
+
+        </ul>
+
+        <div id="preference" class="@selectedBox">
+            <div class="section-title mb-45 mt-45">
+                <h2 class="uppercase text-white">
+                    FIND YOUR <span>DREAM SUBURB</span>
+                </h2>
+            </div>
+            <span style="color: greenyellow">Tick maximum four major preferences</span>
+            @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+            {
+                <form action="#" class="col-10">
+                    <div class="form-box mb-40 pl-15 pr-15">
+                        <div class="select" style="border: none; font-size: 16px;">
+                            @Html.AntiForgeryToken()
+                            <div style="margin-bottom: 3px;">
+                                @if (@ViewBag.veryNearDistanceToCity == null)
+                                {
+                                    <input class="suburb_check" type="checkbox" name="suburbSearch" value="1" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">Near CBD</span>
+                                }
+                                else
+                                {
+                                    <input class="suburb_check" checked="checked" type="checkbox" name="suburbSearch" value="1" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">Near CBD</span>
+                                }
+                            </div>
+                            <div style="margin-bottom: 3px;">
+                                @if (@ViewBag.veryHighMoreshops == null)
+                                {
+                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="2" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">More Shops</span>
+                                }
+                                else
+                                {
+                                    <input class="suburb_check" checked="checked" name="suburbSearch" type="checkbox" value="2" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">More Shops</span>
+                                }
+                            </div>
+                            <div style="margin-bottom: 3px;">
+                                @if (@ViewBag.veryHighHealthServices == null)
+                                {
+                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="3" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">More Health Services</span>
+                                }
+                                else
+                                {
+                                    <input class="suburb_check" checked="checked" name="suburbSearch" type="checkbox" value="3" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">More Health Services</span>
+                                }
+                            </div>
+                            <div style="margin-bottom: 3px;">
+                                @if (@ViewBag.lowAccidentRate == null)
+                                {
+                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="4" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">Low Accident Rate</span>
+                                }
+                                else
+                                {
+                                    <input class="suburb_check" checked="checked" name="suburbSearch" type="checkbox" value="4" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">Low Accident Rate</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-box mb-40 pl-15 pr-15" style="padding-left: 0px;">
+                        <div class="select" style="border: none; font-size: 16px;">
+                            <div style="margin-bottom: 3px; margin-bottom: 3px;">
+                                @if (@ViewBag.veryHighMoreAgedcare == null)
+                                {
+                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="5" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">More Aged Care Center</span>
+                                }
+                                else
+                                {
+                                    <input class="suburb_check" checked="checked" name="suburbSearch" type="checkbox" value="5" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">More Aged Care Center</span>
+                                }
+                            </div>
+                            <div style="margin-bottom: 3px;">
+                                @if (@ViewBag.veryLessTimeToHospital == null)
+                                {
+                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="6" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">Near Hospitals</span>
+                                }
+                                else
+                                {
+                                    <input class="suburb_check" checked="checked" name="suburbSearch" type="checkbox" value="6" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">Near Hospitals</span>
+                                }
+                            </div>
+                            <div style="margin-bottom: 3px;">
+                                @if (@ViewBag.lowCrimeRate == null)
+                                {
+                                    <input class="suburb_check" name="suburbSearch" type="checkbox" value="7" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">Low Crime Rate</span>
+                                }
+                                else
+                                {
+                                    <input class="suburb_check" checked="checked" name="suburbSearch" type="checkbox" value="7" style="height: 13px; display: inline-block; width: 13px;">
+                                    <span style="color: #fff;">Low Crime Rate</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-box mb-40 pl-15 pr-15" style="margin-top: 85px;">
+                        <div class="select" style="width: 170px">
+                            <select name="nationality" style="color: #fff;">
+                                @if (@ViewBag.topCountryOfBirth == null)
+                                {
+                                    <option selected="selected">Preferred Nationality</option>
+                                    <option>England</option>
+                                    <option>China</option>
+                                    <option>India</option>
+                                    <option>Italy</option>
+                                    <option>Vietnam</option>
+                                    <option>Others</option>
+                                }
+                                else
+                                {
+                                    <option>Preferred Nationality</option>
+
+                                    if (@ViewBag.topCountryOfBirth.Equals("England"))
+                                    {
+                                        <option selected="selected">England</option>
+                                    }
+                                    else
+                                    {
+                                        <option>England</option>
+                                    }
+                                    if (@ViewBag.topCountryOfBirth.Equals("China"))
+                                    {
+                                        <option selected="selected">China</option>
+                                    }
+                                    else
+                                    {
+                                        <option>China</option>
+                                    }
+                                    if (@ViewBag.topCountryOfBirth.Equals("India"))
+                                    {
+                                        <option selected="selected">India</option>
+                                    }
+                                    else
+                                    {
+                                        <option>India</option>
+                                    }
+                                    if (@ViewBag.topCountryOfBirth.Equals("Italy"))
+                                    {
+                                        <option selected="selected">Italy</option>
+                                    }
+                                    else
+                                    {
+                                        <option>Italy</option>
+                                    }
+                                    if (@ViewBag.topCountryOfBirth.Equals("Vietnam"))
+                                    {
+                                        <option selected="selected">Vietnam</option>
+                                    }
+                                    else
+                                    {
+                                        <option>Vietnam</option>
+                                    }
+                                    if (@ViewBag.topCountryOfBirth.Equals("Others"))
+                                    {
+                                        <option selected="selected">Others</option>
+                                    }
+                                    else
+                                    {
+                                        <option>Others</option>
+                                    }
+
+                                }
+                            </select><span class="caret"></span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-box pl-15 pr-15 large" style="padding-left: 0px;">
+                        @*<button id="preferenceSearchBtn" name="search_price" style="margin-top:1px" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("Index", "Search")'"><span><span>SEARCH SUBURB</span></span></button>*@
+                        <input type="submit" name="searchBtn" value="SEARCH SUBURB" class="button search_price lemon mb-21" style="font-weight: bold; font-size: 16px" onclick="location.href = '@Url.Action("Index", "Search")'" />
+                    </div>
+                </form>
+            }
+        </div>
+
+        <div id="suburbChange" class="@(ViewBag.SearchResultPage == "SearchByLifeStyle" ? "tab-pane fade in active banner-form" : "tab-pane fade banner-form")">
+            <div class="section-title mb-45 mt-45">
+                <h2 class="uppercase text-white">
+                    FIND YOUR <span>DREAM SUBURB</span>
+                </h2>
+            </div>
+            @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+            {
+                <form action="#" class="col-10">
+                    <input type="submit" name="suburbChange" id="seaChangeBtn" value="I Want to Live Near by The Sea" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("Index", "Search")'" />
+                    <input type="submit" name="suburbChange" id="treeChangeBtn" value="I Want to Live Near by The Green" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("Index", "Search")'" />
+                    <input type="submit" name="suburbChange" id="cityChangeBtn" value="I Want to Live Near by The City" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("Index", "Search")'" />
+
+                </form>
+            }
+            <div style="text-align: center; width: 85%; margin-top: 5px; margin-bottom: 15px">
+                @*<input type="submit" style="width: 85%" name="quiz" value="QUIZ" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("Quiz", "Search")'" />*@
+                <a id="quiz" href="@Url.Action("Quiz", "Search")">Not sure your life style? Take a quiz</a>
+            </div>
+        </div>
+
+        <div id="suburb" class="@(ViewBag.SearchResultPage == "SearchBySuburb" ? "tab-pane fade in active banner-form" : "tab-pane fade banner-form")">
+            <div class="section-title mb-45 mt-45">
+                <h2 class="uppercase text-white">
+                    Search By <span>SUBURB</span>
+                </h2>
+            </div>
+            @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+            {
+                <form action="#" class="col-10">
+
+
+                    <div class="form-box mb-40 pl-15 pr-15" style="width: 100%">
+                        <input id="inputSuburb" class="mb-20" style="color: cadetblue; background-color: white" type="text" name="inputSuburb" placeholder="Search by suburb name or postcode">
+                    </div>
+
+                    <div class="form-box pl-15 pr-15 large" style="padding-left: 0px">
+                        @*<button id="suburbSearchBtn" name="search_by_suburb" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("SearchBySuburb", "Search")'"><span><span>SEARCH SUBURB</span></span></button>*@
+                        <input type="submit" name="searchBySuburbBtn" value="SEARCH SUBURB" class="button search_price lemon mb-21" style="font-weight: bold; font-size: 16px" onclick="location.href = '@Url.Action("Index", "Search")'" />
+                    </div>
+                </form>
+            }
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <h3>Menu 3</h3>
+            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<script>
+    $(function () {
+        KeywordPredict();
+    });
+
+    var availableTags = [];
+
+    function KeywordPredict() {
+        $.ajax({
+            url: "Home/KeywordPredict",
+            success: function (data) {
+                $.each(data,
+                    function (k, v) {
+                        availableTags.push(v.suburb);
+                    });
+                $.each(data,
+                    function (k, v) {
+                        availableTags.push(v.post_code);
+                    });
+
+                $("#inputSuburb").autocomplete({
+                    source: availableTags
+                });
+            },
+            error: function (e) {
+                //alert("Error: " + e);
+            }
+        });
+    }
+</script>
+

@@ -220,6 +220,9 @@
     <Compile Include="Models\rating_it2.cs">
       <DependentUpon>Preference.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\rating_it3.cs">
+      <DependentUpon>SuburbDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ResultModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,8 +238,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResultModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_changes_Result.cs">
+      <DependentUpon>SuburbDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_preference_it3_Result.cs">
+      <DependentUpon>SuburbDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_preference_Result.cs">
       <DependentUpon>Preference.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SuburbDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuburbDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SuburbDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuburbDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SuburbDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuburbDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SuburbModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -259,6 +283,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
+    <Compile Include="ViewModels\SuburbAndSuburbList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\color\color-1.css" />
@@ -315,6 +340,7 @@
     <Content Include="Image\about_page_left.jpg" />
     <Content Include="Image\declan.png" />
     <Content Include="Image\home.jpg" />
+    <Content Include="Image\home1.jpg" />
     <Content Include="Image\home_about_us.jpg" />
     <Content Include="Image\home_about_us_1.jpg" />
     <Content Include="Image\home_about_us_2.jpg" />
@@ -376,29 +402,19 @@
     <Content Include="Image\icons\trophy.png" />
     <Content Include="Image\icons\twitter-hover.png" />
     <Content Include="Image\icons\twitter.png" />
-    <Content Include="Image\infographic\1.png" />
-    <Content Include="Image\infographic\2.png" />
-    <Content Include="Image\infographic\294.html" />
-    <Content Include="Image\infographic\3.png" />
-    <Content Include="Image\infographic\4.png" />
-    <Content Include="Image\infographic\5.png" />
-    <Content Include="Image\infographic\6.png" />
-    <Content Include="Image\infographic\7.png" />
     <Content Include="Image\infographic\8.png" />
     <Content Include="Image\infographic\9.png" />
     <Content Include="Image\infographic\arrow.png" />
     <Content Include="Image\infographic\arrow1.png" />
-    <Content Include="Image\infographic\btnNext.html" />
-    <Content Include="Image\infographic\btnPrevious.html" />
-    <Content Include="Image\infographic\buttons.html" />
-    <Content Include="Image\infographic\contentPatternBottom.html" />
-    <Content Include="Image\infographic\contentPatternLeft.html" />
-    <Content Include="Image\infographic\contentPatternRight.html" />
-    <Content Include="Image\infographic\contentPatternTop.html" />
-    <Content Include="Image\infographic\default_thumbnail.html" />
+    <Content Include="Image\infographic\background.gif" />
+    <Content Include="Image\infographic\bar.png" />
+    <Content Include="Image\infographic\breakdown.png" />
+    <Content Include="Image\infographic\building.png" />
+    <Content Include="Image\infographic\bus.png" />
+    <Content Include="Image\infographic\cafe.png" />
+    <Content Include="Image\infographic\dining.png" />
     <Content Include="Image\infographic\eco\1.png" />
     <Content Include="Image\infographic\eco\10.png" />
-    <Content Include="Image\infographic\eco\12.png" />
     <Content Include="Image\infographic\eco\13.png" />
     <Content Include="Image\infographic\eco\14.png" />
     <Content Include="Image\infographic\eco\2.png" />
@@ -409,6 +425,15 @@
     <Content Include="Image\infographic\eco\7.png" />
     <Content Include="Image\infographic\eco\8.png" />
     <Content Include="Image\infographic\eco\9.png" />
+    <Content Include="Image\infographic\eco\hospital.png" />
+    <Content Include="Image\infographic\eco\person1.png" />
+    <Content Include="Image\infographic\eco\person2.png" />
+    <Content Include="Image\infographic\eco\person3.png" />
+    <Content Include="Image\infographic\fishing.png" />
+    <Content Include="Image\infographic\Glen-Huntly-Road.jpg" />
+    <Content Include="Image\infographic\Glen-Huntly-Road2.jpg" />
+    <Content Include="Image\infographic\golf.png" />
+    <Content Include="Image\infographic\hospital.png" />
     <Content Include="Image\infographic\icons\1.png" />
     <Content Include="Image\infographic\icons\2.png" />
     <Content Include="Image\infographic\icons\3.png" />
@@ -433,71 +458,21 @@
     <Content Include="Image\infographic\icons\twitter.png" />
     <Content Include="Image\infographic\icons\vimeo.png" />
     <Content Include="Image\infographic\icons\youtube.png" />
-    <Content Include="Image\infographic\popup_buttons.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_rounded\btnNext.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_rounded\btnPrevious.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_rounded\contentPattern.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_rounded\loader.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_rounded\sprite.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_square\btnNext.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_square\btnPrevious.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_square\loader.html" />
-    <Content Include="Image\infographic\prettyPhoto\dark_square\sprite.html" />
-    <Content Include="Image\infographic\prettyPhoto\default\default_thumb.html" />
-    <Content Include="Image\infographic\prettyPhoto\default\loader.html" />
-    <Content Include="Image\infographic\prettyPhoto\default\sprite.html" />
-    <Content Include="Image\infographic\prettyPhoto\default\sprite_next.html" />
-    <Content Include="Image\infographic\prettyPhoto\default\sprite_prev.html" />
-    <Content Include="Image\infographic\prettyPhoto\default\sprite_x.html" />
-    <Content Include="Image\infographic\prettyPhoto\default\sprite_y.html" />
-    <Content Include="Image\infographic\prettyPhoto\light_square\btnNext.html" />
-    <Content Include="Image\infographic\prettyPhoto\light_square\btnPrevious.html" />
-    <Content Include="Image\infographic\prettyPhoto\light_square\sprite.html" />
-    <Content Include="Image\infographic\scene\10.png" />
-    <Content Include="Image\infographic\scene\101.png" />
-    <Content Include="Image\infographic\scene\102.png" />
-    <Content Include="Image\infographic\scene\103.png" />
-    <Content Include="Image\infographic\scene\104.png" />
-    <Content Include="Image\infographic\scene\105.png" />
-    <Content Include="Image\infographic\scene\11.png" />
+    <Content Include="Image\infographic\nursuries.png" />
+    <Content Include="Image\infographic\road.png" />
     <Content Include="Image\infographic\scene\12.png" />
-    <Content Include="Image\infographic\scene\13.png" />
-    <Content Include="Image\infographic\scene\17.png" />
-    <Content Include="Image\infographic\scene\18.png" />
-    <Content Include="Image\infographic\scene\19.png" />
     <Content Include="Image\infographic\scene\2.png" />
-    <Content Include="Image\infographic\scene\20.png" />
     <Content Include="Image\infographic\scene\3.png" />
     <Content Include="Image\infographic\scene\4.png" />
     <Content Include="Image\infographic\scene\5.png" />
     <Content Include="Image\infographic\scene\6.png" />
     <Content Include="Image\infographic\scene\7.png" />
-    <Content Include="Image\infographic\scene\9.png" />
     <Content Include="Image\infographic\scene\a1.png" />
-    <Content Include="Image\infographic\scene\a2.png" />
-    <Content Include="Image\infographic\scene\a3.png" />
-    <Content Include="Image\infographic\scene\a4.png" />
     <Content Include="Image\infographic\scene\a5.png" />
     <Content Include="Image\infographic\scene\s1.png" />
-    <Content Include="Image\infographic\sprite.html" />
+    <Content Include="Image\infographic\slide-button-active.gif" />
+    <Content Include="Image\infographic\slide-button.gif" />
     <Content Include="Image\infographic\themes.gif" />
-    <Content Include="Image\infographic\travel\1.png" />
-    <Content Include="Image\infographic\travel\10.png" />
-    <Content Include="Image\infographic\travel\11.png" />
-    <Content Include="Image\infographic\travel\12.png" />
-    <Content Include="Image\infographic\travel\13.png" />
-    <Content Include="Image\infographic\travel\14.png" />
-    <Content Include="Image\infographic\travel\15.png" />
-    <Content Include="Image\infographic\travel\16.png" />
-    <Content Include="Image\infographic\travel\2.png" />
-    <Content Include="Image\infographic\travel\3.png" />
-    <Content Include="Image\infographic\travel\4.png" />
-    <Content Include="Image\infographic\travel\5.png" />
-    <Content Include="Image\infographic\travel\6.png" />
-    <Content Include="Image\infographic\travel\7.png" />
-    <Content Include="Image\infographic\travel\8.png" />
-    <Content Include="Image\infographic\travel\9.png" />
-    <Content Include="Image\infographic\travel\bg.png" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\logo2.png" />
     <Content Include="Image\jasper.png" />
@@ -588,10 +563,6 @@
     <Content Include="fonts\slick.eot" />
     <Content Include="fonts\slick.ttf" />
     <Content Include="fonts\slick.woff" />
-    <Content Include="Content\infographic\fontello\.DS_Store" />
-    <Content Include="Content\infographic\fontello\font\fontellod338.eot" />
-    <Content Include="Content\infographic\fontello\font\fontellod338.ttf" />
-    <Content Include="Content\infographic\fontello\font\fontellod338.woff" />
     <EntityDeploy Include="Models\Preference.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Preference.Designer.cs</LastGenOutput>
@@ -608,6 +579,26 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Preference.edmx</DependentUpon>
       <LastGenOutput>Preference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\infographic\fontello\font\fontellod338.eot" />
+    <Content Include="Content\infographic\fontello\font\fontellod338.ttf" />
+    <Content Include="Content\infographic\fontello\font\fontellod338.woff" />
+    <EntityDeploy Include="Models\SuburbDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SuburbDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SuburbDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SuburbDataModel.edmx</DependentUpon>
+      <LastGenOutput>SuburbDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SuburbDataModel.edmx.diagram">
+      <DependentUpon>SuburbDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\SuburbDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SuburbDataModel.edmx</DependentUpon>
+      <LastGenOutput>SuburbDataModel.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\perfectplace - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\perfectplace - FTP %283%29.pubxml" />
@@ -630,6 +621,7 @@
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\infographic\Chart.min.js" />
+    <Content Include="Scripts\infographic\effects.js" />
     <Content Include="Scripts\infographic\jquery.cookie.js" />
     <Content Include="Scripts\infographic\jquery.flexslider.min.js" />
     <Content Include="Scripts\infographic\jquery.hoverdir.js" />
@@ -637,7 +629,9 @@
     <Content Include="Scripts\infographic\jquery.min.js" />
     <Content Include="Scripts\infographic\jquery.prettyPhoto.js" />
     <Content Include="Scripts\infographic\mediaelement.min.js" />
+    <Content Include="Scripts\infographic\prototype.js" />
     <Content Include="Scripts\infographic\responsiveslides.js" />
+    <Content Include="Scripts\infographic\side-bar.js" />
     <Content Include="Scripts\infographic\SmoothScroll.js" />
     <Content Include="Scripts\infographic\_front.js" />
     <Content Include="Scripts\infographic\_gallery.js" />
@@ -701,6 +695,14 @@
     <Content Include="Views\Search\Test.cshtml" />
     <Content Include="Views\Search\SearchBySuburbChange.cshtml" />
     <Content Include="Views\Search\ShowAllSuburbs.cshtml" />
+    <Content Include="Views\Search\SearchByTreeChange.cshtml" />
+    <Content Include="Views\Search\SearchByCityChange.cshtml" />
+    <Content Include="Views\Suburb\Test2.cshtml" />
+    <Content Include="Views\Search\Quiz.cshtml" />
+    <Content Include="Views\Search\QuizResult.cshtml" />
+    <Content Include="Views\Suburb\Compare.cshtml" />
+    <Content Include="Views\Shared\_SearchBox.cshtml" />
+    <Content Include="Views\Search\_SortSuburb.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -9,13 +11,15 @@ using System.Web.Mvc;
 using PerfectPlace.Models;
 
 using PagedList;
+using PerfectPlace.ViewModels;
 
 namespace PerfectPlace.Controllers
 {
     public class SuburbController : Controller
     {
         private SuburbEntities db = new SuburbEntities();
-        private PreferenceEntities suburb = new PreferenceEntities();
+        //private PreferenceEntities suburb = new PreferenceEntities();
+        private SuburbDataEntities suburbData = new SuburbDataEntities();
 
         // This page will deal with the algorithm of searching function
         // GET: /Suburb/
@@ -73,19 +77,39 @@ namespace PerfectPlace.Controllers
         //    return View(suburb_info);
         //}
 
-        public ActionResult Details(int? id)
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    rating_it2 suburb_info = suburb.rating_it2.Find(id);
+        //    //suburb_info suburb_info = db.suburb_info.Find(id);
+        //    if (suburb_info == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(suburb_info);
+        //}
+
+        public ActionResult Details(int? id, int lay = 0)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            rating_it2 suburb_info = suburb.rating_it2.Find(id);
+            rating_it3 suburbInfo = suburbData.rating_it3.Find(id);
+            //myModel.SuburbInfo = suburbInfo;
+            //myModel.SuburbListData = suburbList;
+            //myModel.SuburbListData = suburbList;
             //suburb_info suburb_info = db.suburb_info.Find(id);
-            if (suburb_info == null)
+
+            if (suburbInfo == null)
             {
                 return HttpNotFound();
             }
-            return View(suburb_info);
+            ViewBag.lay = lay;
+            return View(suburbInfo);
         }
 
         // GET: /Suburb/Create
@@ -120,6 +144,393 @@ namespace PerfectPlace.Controllers
         {
             return View(modelData);
         }
+
+        public ActionResult Test2(rating_it3 modelData)
+        {
+            SuburbAndSuburbList model = new SuburbAndSuburbList();
+
+            object suburbSearch = null;
+            string nationality = "";
+            string suburbChange = "";
+            string inputSuburb = "";
+
+            if (Session["searchMethod"] == "Index")
+            {
+                suburbSearch = Session["suburbSearch"] == null ? null : Session["suburbSearch"];
+                nationality = Session["nationality"] == null ? null : Session["nationality"].ToString();
+                model.SuburbListData = Search_Index_((suburbSearch as int[]), nationality);
+            }
+            else if (Session["searchMethod"] == "SearchBySuburb")
+            {
+                inputSuburb = Session["inputSuburb"] == null ? null : Session["inputSuburb"].ToString();
+                model.SuburbListData = Search_SearchBySuburb_(inputSuburb);
+            }
+            else if (Session["searchMethod"] == "SearchBySuburbChange")
+            {
+                ViewBag.SearchResultPage = "SearchByLifeStyle";
+                suburbChange = Session["suburbChange"] == null ? null : Session["suburbChange"].ToString();
+                if (suburbChange != null && suburbChange.Equals("I Want to Live Near by The Sea"))
+                {
+                    ViewBag.LifeStyle = "SeaChange";
+                }
+                else if (suburbChange != null && suburbChange.Equals("I Want to Live Near by The Green"))
+                {
+                    ViewBag.LifeStyle = "TreeChange";
+                }
+                else if (suburbChange != null && suburbChange.Equals("I Want to Live Near by The City"))
+                {
+                    ViewBag.LifeStyle = "CityChange";
+                }
+                model.SuburbListData = Search_SearchBySuburbChange_(suburbChange);
+            }
+
+            model.SuburbData = modelData;
+
+            return View(model);
+        }
+
+
+
+        #region these are same functions from search controller ,if criteria changes there it should also change
+        public List<rating_it3> Search_Index_(int[] suburbSearch, string nationality)//this is same method from search controller
+        {
+            List<rating_it3> listData = new List<rating_it3>();
+            rating_it3 data = new rating_it3();
+            SuburbDataEntities db1 = new SuburbDataEntities();
+
+
+
+            string veryNearDistanceToCity = null;
+            string veryHighMoreshops = null;
+            string veryHighHealthServices = null;
+            string lowAccidentRate = null;
+            string veryHighMoreAgedcare = null;
+            string veryLessTimeToHospital = null;
+            string lowCrimeRate = null;
+            string topCountryOfBirth = null;
+
+            #region codnition1
+            if (suburbSearch == null && nationality.Equals("Preferred Nationality"))
+            {
+                ViewBag.veryNearDistanceToCity = null;
+                ViewBag.veryHighMoreshops = null;
+                ViewBag.veryHighHealthServices = null;
+                ViewBag.lowAccidentRate = null;
+                ViewBag.veryHighMoreAgedcare = null;
+                ViewBag.veryLessTimeToHospital = null;
+                ViewBag.lowCrimeRate = null;
+                ViewBag.topCountryOfBirth = null;
+                ViewBag.resultCount = 0;
+                return null;
+            }
+            #endregion
+
+
+            #region condition2
+            if (suburbSearch == null && !nationality.Equals("Preferred Nationality"))
+            {
+                ViewBag.veryNearDistanceToCity = null;
+                ViewBag.veryHighMoreshops = null;
+                ViewBag.veryHighHealthServices = null;
+                ViewBag.lowAccidentRate = null;
+                ViewBag.veryHighMoreAgedcare = null;
+                ViewBag.veryLessTimeToHospital = null;
+                ViewBag.lowCrimeRate = null;
+                ViewBag.topCountryOfBirth = nationality;
+                ViewBag.resultCount = db1.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth, null).Count();
+
+
+                IEnumerable<rating_it3> reslt1 = db1.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth, null);
+
+                foreach (var item in reslt1)
+                {
+                    data.suburb_id = item.suburb_id;
+                    data.suburb = item.suburb;
+                    data.distance_to_city_rate = item.distance_to_city_rate;
+                    data.population_density = item.population_density;
+
+                    data.distance_to_city = item.distance_to_city;
+                    data.commercial_rate = item.commercial_rate;
+                    data.health_services = item.health_services;
+                    data.accident_count_rate = item.accident_count_rate;
+                    data.aged_care = item.aged_care;
+                    data.time_to_hospital = item.time_to_hospital;
+                    data.crime_rate = item.crime_rate;
+
+                    listData.Add(data);
+                    data = new rating_it3();
+
+                }
+                return listData;
+            }
+
+            #endregion
+
+
+            #region conditin3
+            //Debug.WriteLine("Display:");
+            //Debug.WriteLine(suburb_search.Length);
+            for (int i = 0; i < suburbSearch.Length; i++)
+            {
+                switch (suburbSearch[i])
+                {
+                    case 1:
+                        Debug.WriteLine("Near CBD");
+                        veryNearDistanceToCity = "Very Near";
+                        break;
+                    case 2:
+                        Debug.WriteLine("More shops");
+                        veryHighMoreshops = "Very High";
+                        break;
+                    case 3:
+                        Debug.WriteLine("More health service");
+                        veryHighHealthServices = "Very High";
+                        break;
+                    case 4:
+                        Debug.WriteLine("Low Accident Rate");
+                        lowAccidentRate = "Low";
+                        break;
+                    case 5:
+                        Debug.WriteLine("More aged care centre");
+                        veryHighMoreAgedcare = "Very High";
+                        break;
+                    case 6:
+                        Debug.WriteLine("Near hospital");
+                        veryLessTimeToHospital = "Very Less";
+                        break;
+                    case 7:
+                        Debug.WriteLine("Low Crime Rate");
+                        lowCrimeRate = "Low";
+                        break;
+                    default:
+                        Debug.WriteLine("Null");
+                        break;
+                }
+            }
+            if (!nationality.Equals("Preferred Nationality"))
+            {
+                topCountryOfBirth = nationality;
+            }
+            else
+            {
+                topCountryOfBirth = null;
+            }
+            ViewBag.veryNearDistanceToCity = veryNearDistanceToCity;
+            ViewBag.veryHighMoreshops = veryHighMoreshops;
+            ViewBag.veryHighHealthServices = veryHighHealthServices;
+            ViewBag.lowAccidentRate = lowAccidentRate;
+            ViewBag.veryHighMoreAgedcare = veryHighMoreAgedcare;
+            ViewBag.veryLessTimeToHospital = veryLessTimeToHospital;
+            ViewBag.lowCrimeRate = lowCrimeRate;
+            ViewBag.topCountryOfBirth = topCountryOfBirth;
+            ViewBag.resultCount = db1.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth, null).Count();
+
+
+            //Session["nationality"] = nationality;
+            //Session["suburbSearch"] = suburbSearch;
+
+            /////
+            IEnumerable<rating_it3> reslt = db1.SearchByPreference(veryNearDistanceToCity, veryHighMoreshops, veryHighHealthServices, lowAccidentRate, veryHighMoreAgedcare, veryLessTimeToHospital, lowCrimeRate, topCountryOfBirth, null);
+
+            foreach (var item in reslt)
+            {
+                data.suburb_id = item.suburb_id;
+                data.suburb = item.suburb;
+                data.distance_to_city_rate = item.distance_to_city_rate;
+                data.population_density = item.population_density;
+
+                data.distance_to_city = item.distance_to_city;
+                data.commercial_rate = item.commercial_rate;
+                data.health_services = item.health_services;
+                data.accident_count_rate = item.accident_count_rate;
+                data.aged_care = item.aged_care;
+                data.time_to_hospital = item.time_to_hospital;
+                data.crime_rate = item.crime_rate;
+
+                listData.Add(data);
+                data = new rating_it3();
+
+            }
+            return listData;
+            /////
+            #endregion
+        }
+
+        public List<rating_it3> Search_SearchBySuburb_(string inputSuburb)
+        {
+            Session["inputSuburb"] = inputSuburb;
+            List<rating_it3> listData = new List<rating_it3>();
+            rating_it3 data = new rating_it3();
+            SuburbDataEntities db1 = new SuburbDataEntities();
+
+            ViewBag.inputSuburb = inputSuburb;
+            ViewBag.noResult = "false";
+            if (inputSuburb.Equals(""))
+            {
+                ViewBag.noResult = "true";
+                return null;
+            }
+            //var userInput = inputSuburb;
+            ////Debug.WriteLine(userInput);
+            //var suburbs = from s in db.suburb_info where  s.community_name.Contains(inputSuburb) select s;
+            var suburbs = from s in db1.rating_it3 where s.suburb.Contains(inputSuburb) select s;
+            if (suburbs.Count() == 0)
+            {
+                //suburbs = from s in db1.rating_it3 where s.post_code.ToString().Equals(inputSuburb) select s;
+            }
+            if (suburbs.Count() == 0)
+            {
+                ViewBag.noResult = "true";
+            }
+
+
+            return suburbs.ToList();
+            //return View();
+        }
+
+
+        public List<rating_it3> Search_SearchBySuburbChange_(string suburbChange)
+        {
+            List<rating_it3> listData = new List<rating_it3>();
+            rating_it3 data = new rating_it3();
+            Session["suburbChange"] = suburbChange;
+            SuburbDataEntities db1 = new SuburbDataEntities();
+
+            if (suburbChange.Equals("I Want to Live Near by The Sea"))
+            {
+                var res1 = db1.SearchBySuburbChange("sea change");
+
+                foreach (var item in res1)
+                {
+                    data.suburb_id = item.suburb_id;
+                    data.suburb = item.suburb;
+                    data.crime_rate = item.crime_rate;
+                    data.accident_count_rate = item.accident_count_rate;
+                    data.health_services = item.health_services;
+                    data.distance_to_city_rate = item.distance_to_city_rate;
+
+                    data.Public_Transport_Freq = item.Public_Transport_Freq;
+                    data.golf_count = item.golf_count;
+                    data.distance_to_fishspot = item.distance_to_fishspot;
+                    listData.Add(data);
+                    data = new rating_it3();
+
+                }
+
+                return listData;
+            }
+            else if (suburbChange.Equals("I Want to Live Near by The Green"))
+            {
+                var res2 = db1.SearchBySuburbChange("tree change");
+                foreach (var item in res2)
+                {
+                    data.suburb_id = item.suburb_id;
+                    data.suburb = item.suburb;
+                    data.crime_rate = item.crime_rate;
+                    data.accident_count_rate = item.accident_count_rate;
+                    data.health_services = item.health_services;
+                    data.distance_to_city_rate = item.distance_to_city_rate;
+
+                    data.distance_nearest_public_hospital = item.distance_nearest_public_hospital;
+                    data.Public_Transport_Freq = item.Public_Transport_Freq;
+                    data.nursery_shops = item.nursery_shops;
+                    listData.Add(data);
+                    data = new rating_it3();
+
+                }
+                return listData;
+            }
+            else if (suburbChange.Equals("I Want to Live Near by The City"))
+            {
+                var res3 = db1.SearchBySuburbChange("city change");
+                foreach (var item in res3)
+                {
+                    data.suburb_id = item.suburb_id;
+                    data.suburb = item.suburb;
+                    data.crime_rate = item.crime_rate;
+                    data.accident_count_rate = item.accident_count_rate;
+                    data.health_services = item.health_services;
+                    data.distance_to_city_rate = item.distance_to_city_rate;
+
+                    data.buy_unit_2br_string = item.buy_unit_2br_string;
+                    data.cafes_count = item.cafes_count;
+                    data.dining_count = item.dining_count;
+                    data.bar_count = item.bar_count;
+                    listData.Add(data);
+                    data = new rating_it3();
+
+                }
+                return listData;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
+        public ActionResult Compare(int[] suburbb)
+        {
+            if (suburbb == null || (suburbb.Count() > 2 || suburbb.Count() < 1))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            SuburbAndSuburbList model = new SuburbAndSuburbList();
+
+            object suburbSearch = null;
+            string nationality = "";
+            string suburbChange = "";
+            string inputSuburb = "";
+
+            if (Session["searchMethod"] == "Index")
+            {
+                ViewBag.SearchResultPage = "SearchByPreference";
+                suburbSearch = Session["suburbSearch"] == null ? null : Session["suburbSearch"];
+                nationality = Session["nationality"] == null ? null : Session["nationality"].ToString();
+                model.SuburbListData = Search_Index_((suburbSearch as int[]), nationality);
+                ViewBag.suburbList = model.SuburbListData;
+            }
+            else if (Session["searchMethod"] == "SearchBySuburb")
+            {
+                inputSuburb = Session["inputSuburb"] == null ? null : Session["inputSuburb"].ToString();
+                model.SuburbListData = Search_SearchBySuburb_(inputSuburb);
+            }
+            else if (Session["searchMethod"] == "SearchBySuburbChange")
+            {
+                ViewBag.SearchResultPage = "SearchByLifeStyle";
+                suburbChange = Session["suburbChange"] == null ? null : Session["suburbChange"].ToString();
+                if (suburbChange.Equals("I Want to Live Near by The Sea"))
+                {
+                    ViewBag.LifeStyle = "SeaChange";
+                }else if (suburbChange.Equals("I Want to Live Near by The Green"))
+                {
+                    ViewBag.LifeStyle = "TreeChange";
+                }else if (suburbChange.Equals("I Want to Live Near by The City"))
+                {
+                    ViewBag.LifeStyle = "CityChange";
+                }
+                model.SuburbListData = Search_SearchBySuburbChange_(suburbChange);
+            }
+
+            List<rating_it3> listRatingit2Compare = suburbData.rating_it3.Where(w => suburbb.Contains(w.suburb_id)).ToList();
+            model.SuburbListDataCompare = listRatingit2Compare;
+
+            return View(model);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         // GET: /Suburb/Edit/5
         public ActionResult Edit(int? id)
         {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Perfect Place</title>
 
     @Styles.Render("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800")
     @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
@@ -13,10 +13,18 @@
     @Styles.Render("~/Content/style.css")
     @Styles.Render("~/Content/responsive.css")
 
+    @Scripts.Render("~/Scripts/vendor/jquery-1.12.4.min.js")
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+
     @Styles.Render("~/Content/style-customizer.css")
     @Scripts.Render("~/Scripts/vendor/modernizr-2.8.3.min.js")
     @*@Scripts.Render("~/bundles/modernizr")*@
-
+    
+    <style>
+        #sticky-header {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
 @*<div class="navbar navbar-inverse navbar-fixed-top">
@@ -43,12 +51,20 @@
 <div style="overflow: hidden">
     <div id="google_translate_element" style="float: right"></div>
 </div>
-
 <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'ar,de,it,ja,vi' }, 'google_translate_element');
+        if (typeof (document.querySelector) == 'function') {
+            document.querySelector('.goog-logo-link').setAttribute('style', 'display: none');
+            document.querySelector('.goog-te-gadget').setAttribute('style', 'font-size: 0');
+        }
+    }
+</script>
+@*<script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'ar,de,it,ja,vi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
     }
-</script>
+</script>*@
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <div class="wrapper bg-white fix">
@@ -87,7 +103,6 @@
                                             @*<a href="properties.html">About</a>*@
                                             @Html.ActionLink("About", "About", "Home")
                                         </li>
-
                                     </ul>
                                 </nav>
                             </div>
@@ -260,8 +275,8 @@
         @Scripts.Render("~/bundles/bootstrap")*@
 <!-- jquery latest version
 ========================================================= -->
-@Scripts.Render("~/Scripts/vendor/jquery-1.12.4.min.js")
-@Scripts.Render("~/Scripts/bootstrap.min.js")
+@*@Scripts.Render("~/Scripts/vendor/jquery-1.12.4.min.js")
+@Scripts.Render("~/Scripts/bootstrap.min.js")*@
 @Scripts.Render("~/Scripts/owl.carousel.min.js")
 
 @Scripts.Render("~/lib/nivo-slider/js/jquery.nivo.slider.js")

@@ -6,8 +6,25 @@
     .nav-tabs > li > a {
         background-color: #fff;
     }
-.banner-form .button:hover {background: #fff; color: #808080}
+    .banner-form .button:hover {background: #fff; color: #808080}
+
+    input.button.search_price.lemon.mb-21 {
+        color: white;
+    }
+    input.button.search_price.lemon.mb-21:hover {
+        color: gray;
+    }
+    #quiz {
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: underline;
+        color: white;
+    }
+    #quiz:hover {
+        color: cornflowerblue;
+    }
 </style>
+
 <!-- Start of Background Area -->
 @*<div class="background-area">
         <img src="~/Image/home_old_people.jpg" alt="" title="#slider-1-caption1" />
@@ -38,325 +55,8 @@
 </div>
 <!--Google map end-->
 <div class="custom-container">
-    <div class="banner-content">
-        <div class="display-table pull_left" style="margin-left: -50px">
-            <div class="display-table-cell">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab"  href="#preference">Preference</a></li>
-                    <li><a  data-toggle="tab" href="#suburbChange">Life Style</a></li>
-                    <li><a data-toggle="tab" href="#suburb">Suburb</a></li>
-                    @* <li><a  data-toggle="tab" href="#menu3">Menu 3</a></li>*@
-                </ul>
-                <div class="tab-content" style="width: 440px">
-                    <div id="preference" class="tab-pane fade in active banner-form">
-                        <div class="section-title mb-45 mt-45">
-                            <h2 class="uppercase text-white">
-                                FIND YOUR <span>DREAM SUBURB</span>
-                            </h2>
-                        </div>
-                        <span style="color: cornflowerblue">Tick maximum four major preferences</span>
-                        @using (Html.BeginForm("Index", "Search", FormMethod.Post))
-                        {
-                            <form action="#" class="col-10">
-                                <div class="form-box mb-40 pl-15 pr-15">
-                                    <div class="select" style="border: none;font-size: 16px;">
-                                        @Html.AntiForgeryToken()
-                                       <div style="    margin-bottom: 3px;">
-                                           <input class="suburb_check" type="checkbox" name="suburbSearch" value="1" style="height: 13px;display: inline-block;width: 13px;">
-                                        <span style="    color: #fff;">Near CBD</span>
-                                        </div>
-                                        <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="2" style="height: 13px;display: inline-block;width: 13px;">
-                                        <span style="    color: #fff;">More shops</span>
-                                        </div>
-                                        <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="3" style="height: 13px;display: inline-block;width: 13px;">
-                                        <span style="    color: #fff;">More health service</span>
-                                        </div>
-                                        <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="4" style="height: 13px;display: inline-block;width: 13px;">
-                                        <span style="    color: #fff;">Low Accident Rate</span>
-                                        </div>
-                                    </div>
-                                </div>
-                             <div class="form-box mb-40 pl-15 pr-15" style="    padding-left: 0px;">
-                                     <div class="select" style="border: none;font-size: 16px;">
-                                       <div style="    margin-bottom: 3px;    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="5" style="height: 13px;display: inline-block;width: 13px;">
-                                    <span style="    color: #fff;">More aged care centre</span>
-                                            </div>
-                                        <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="6" style="height: 13px;display: inline-block;width: 13px;">
-                                    <span style="    color: #fff;">Near hospital</span>
-                                    </div>
-                                <div style="    margin-bottom: 3px;"><input class="suburb_check" name="suburbSearch" type="checkbox" value="7" style="height: 13px;display: inline-block;width: 13px;">
-                                <span style="    color: #fff;">Low Crime Rate</span>
-                                </div>
-                                    </div>
-                                </div>
-                                <div class="form-box mb-40 pl-15 pr-15" style="margin-top: 69px;">
-                                    <div class="select">
-                                          <select name="nationality" style="    color: #fff;">
-                                            <option>Preferred Nationality</option>
-                                            <option>England</option>
-                                            <option>China</option>
-                                            <option>India</option>
-                                            <option>Italy</option>
-                                            <option>Vietnam</option>
-                                            <option>Others</option>
-                                        </select><span class="caret"></span>
-                                    </div>
-                                </div>
+    @Html.Partial("_SearchBox")
 
-                            <!--    <div class="form-box mb-40 pl-15 pr-15">
-
-                                 <div class="select">
-                                <select name="repeated">
-                                <option>Nationality</option>
-                                <option>England</option>
-                                <option>China</option>
-                                <option>India</option>
-                                <option>Italy</option>
-                                <option>Vietnam</option>
-                                <option>Others</option>
-                            </select>
-                        </div>
-                                </div>-->
-
-                                <div class="form-box pl-15 pr-15 large" style="    padding-left: 0px;">
-                                    <button name="search_price" style="margin-top:1px" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("Index", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
-                                </div>
-                            </form>
-                        }
-                    </div>
-
-                <div id="suburbChange" class="tab-pane fade banner-form">
-                    <div class="section-title mb-45 mt-45">
-                        <h2 class="uppercase text-white">
-                            FIND YOUR <span>DREAM SUBURB</span>
-                        </h2>
-                    </div>
-                @using (Html.BeginForm("SearchBySuburbChange", "Search", FormMethod.Post))
-                {
-                    <form action="#" class="col-10">
-                        @*<div class="form-box mb-40 pl-15 pr-15">
-                    <div class="select">
-                        <select name="location">
-                            <option>Location</option>
-                            <option>Dhaka</option>
-                            <option>Shylet</option>
-                            <option>Khulna</option>
-                            <option>Barishal</option>
-                            <option>Chittagong</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-box mb-40 pl-15 pr-15">
-                    <div class="select">
-                        <select name="sub-location">
-                            <option>Sub - Location</option>
-                            <option>Dhaka</option>
-                            <option>Shylet</option>
-                            <option>Khulna</option>
-                            <option>Barishal</option>
-                            <option>Chittagong</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-box mb-40 pl-15 pr-15">
-                    <div class="select">
-                        <select name="min-sqft">
-                            <option>Min area (sqft)</option>
-                            <option>Dhaka</option>
-                            <option>Shylet</option>
-                            <option>Khulna</option>
-                            <option>Barishal</option>
-                            <option>Chittagong</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-box mb-40 pl-15 pr-15">
-                    <div class="select">
-                        <select name="max-sqft">
-                            <option>Max area (sqft)</option>
-                            <option>Dhaka</option>
-                            <option>Shylet</option>
-                            <option>Khulna</option>
-                            <option>Barishal</option>
-                            <option>Chittagong</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-box pl-15 pr-15">
-                    <div class="select">
-                        <select name="bedrooms">
-                            <option>No of Beadroom</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-box pl-15 pr-15">
-                    <div class="select">
-                        <select name="bedrooms">
-                            <option>No of Bathroom</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>*@
-                        @*<div class="form-box pl-15 pr-15 large">
-                    <div class="price_filter pt-5">
-                        <div class="price_slider_amount mb-20">
-                            <div class="slider-values">
-                                <span>Price Range</span>
-                                <input type="text" class="amount" name="price" placeholder="Add Your Price" />
-                            </div>
-                        </div>
-                        <div class="slider-range"></div>
-                    </div>
-                    <button name="search_price" type="button" class="button search_price lemon mt-55 mb-21"><span><span>SEA CHANGE</span></span></button>
-                </div>*@
-                        @*<div class="form-box pl-15 pr-15 large">
-                    <button name="search_price" type="button" class="button search_price lemon mt-55 mb-21"><span><span>TREE CHANGE</span></span></button>
-                </div>*@
-                        @*<button name="suburbChange" value="seaChange" type="button" class="button search_price lemon mb-21" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'"><span><span>SEA CHANGE</span></span></button>*@
-                        @*<button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>TREE CHANGE</span></span></button>
-
-                        <button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>CITY CHANGE</span></span></button>*@
-                        <div>
-                            <input type="submit" name="suburbChange" value="SEA CHANGE" class="button search_price lemon mb-21" style="width: 85%" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
-                            <img src="~/Image/questionmark.png" style="width: 12%; padding-left: 3%" title="Every year more and more Australians are opting for a slower pace of life and moving from capital cities to settle down in coastal towns, a move commonly referred to as a sea change." />
-                        </div>
-                        <div>
-                            <input type="submit" name="suburbChange" value="TREE CHANGE" class="button search_price lemon mb-21" style="width: 85%" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
-                            <img src="~/Image/questionmark.png" style="width: 12%; padding-left: 3%" title="Tree change doesn’t have to mean a move to the middle of nowhere. It can a smaller move, just 30-40 km away depending on what you’re looking for." />
-                        </div>
-                        <div>
-                            <input type="submit" name="suburbChange" value="CITY CHANGE" class="button search_price lemon mb-21" style="width: 85%" onclick="location.href = '@Url.Action("SearchBySuburbChange", "Search")'" />
-                            <img src="~/Image/questionmark.png" style="width: 12%; padding-left: 3%" title="City Change refers to move from rural area to the city central or any other urban area. People usually think living in the city is more convenient." />
-                        </div>
-</form>
-                }
-                </div>
-
-                <div id="suburb" class="tab-pane fade banner-form">
-                    <div class="section-title mb-45 mt-45">
-                        <h2 class="uppercase text-white">
-                            Search By <span>SUBURB</span>
-                        </h2>
-                    </div>
-                    @using (Html.BeginForm("SearchBySuburb", "Search", FormMethod.Post))
-                    {
-                        <form action="#" class="col-10">
-                            @*<div class="form-box mb-40 pl-15 pr-15">
-                        <div class="select">
-                            <select name="location">
-                                <option>Location</option>
-                                <option>Dhaka</option>
-                                <option>Shylet</option>
-                                <option>Khulna</option>
-                                <option>Barishal</option>
-                                <option>Chittagong</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-box mb-40 pl-15 pr-15">
-                        <div class="select">
-                            <select name="sub-location">
-                                <option>Sub - Location</option>
-                                <option>Dhaka</option>
-                                <option>Shylet</option>
-                                <option>Khulna</option>
-                                <option>Barishal</option>
-                                <option>Chittagong</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-box mb-40 pl-15 pr-15">
-                        <div class="select">
-                            <select name="min-sqft">
-                                <option>Min area (sqft)</option>
-                                <option>Dhaka</option>
-                                <option>Shylet</option>
-                                <option>Khulna</option>
-                                <option>Barishal</option>
-                                <option>Chittagong</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-box mb-40 pl-15 pr-15">
-                        <div class="select">
-                            <select name="max-sqft">
-                                <option>Max area (sqft)</option>
-                                <option>Dhaka</option>
-                                <option>Shylet</option>
-                                <option>Khulna</option>
-                                <option>Barishal</option>
-                                <option>Chittagong</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-box pl-15 pr-15">
-                        <div class="select">
-                            <select name="bedrooms">
-                                <option>No of Beadroom</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-box pl-15 pr-15">
-                        <div class="select">
-                            <select name="bedrooms">
-                                <option>No of Bathroom</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>*@
-                            @*<div class="form-box pl-15 pr-15 large">
-                        <div class="price_filter pt-5">
-                            <div class="price_slider_amount mb-20">
-                                <div class="slider-values">
-                                    <span>Price Range</span>
-                                    <input type="text" class="amount" name="price" placeholder="Add Your Price" />
-                                </div>
-                            </div>
-                            <div class="slider-range"></div>
-                        </div>
-                        <button name="search_price" type="button" class="button search_price lemon mt-55 mb-21"><span><span>SEA CHANGE</span></span></button>
-                    </div>*@
-                            @*<div class="form-box pl-15 pr-15 large">
-                        <button name="search_price" type="button" class="button search_price lemon mt-55 mb-21"><span><span>TREE CHANGE</span></span></button>
-                    </div>*@
-                            @*<button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>SEA CHANGE</span></span></button>
-
-                    <button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>TREE CHANGE</span></span></button>*@
-
-                            <div class="form-box mb-40 pl-15 pr-15" style="width: 100%">
-                                <input id="inputSuburb" class="mb-20" style="color: cadetblue" type="text" name="inputSuburb" placeholder="Search by suburb name or postcode">
-                            </div>
-                            @*<button name="search_price" type="button" class="button search_price lemon mb-21"><span><span>CITY CHANGE</span></span></button>*@
-                            <div class="form-box pl-15 pr-15 large" style="padding-left: 0px">
-                                <button name="search_by_suburb" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("SearchBySuburb", "Search")'"><span><span>SEARCH SUBURB</span></span></button>
-                            </div>
-                        </form>
-                    }
-                </div>
-                    <div id="menu3" class="tab-pane fade">
-                        <h3>Menu 3</h3>
-                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 </div>
 <!--End of Google Map Area-->
@@ -489,7 +189,7 @@
                         <img style="width: 150px; height: 150px" src="/Image/suburb_detail_1.jpg" alt="">
                     </div>
                     <div class="single-service-text fix">
-                        <h4 class="mb-14"><a href="@Url.Action("Index", "Suburb")">Suburb Detail</a></h4>
+                        <h4 class="mb-14"><a href="@Url.Action("ShowAllSuburbs", "Search")">Suburb Detail</a></h4>
                         <p class="mr-10">Perfect Place can show you the suburb detail </p>
                     </div>
                 </div>
@@ -500,8 +200,8 @@
                         <img style="width: 150px; height: 150px" src="/Image/suburb_development.jpg" alt="">
                     </div>
                     <div class="single-service-text fix">
-                        <h4 class="mb-14"><a href="@Url.Action("Index", "Home")">Know Suburb Development</a></h4>
-                        <p class="mr-10">Perfect Place can show you the development of the suburb </p>
+                        <h4 class="mb-14"><a href="@Url.Action("Index", "Home")">Search Suburb by Life Style</a></h4>
+                        <p class="mr-10">Perfect Place can help you to search your dream suburb according to your life style</p>
                     </div>
                 </div>
             </div>
@@ -509,6 +209,7 @@
     </div>
 </div>
 <!--End of Service Area-->
+
 <!--Start of Fun Factor Area-->
 @*<div class="fun-factor-area bg-1 bg-overlay-1 ptb-90">
         <div class="container">

@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SuburbDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="rating_it3">
+          <Key>
+            <PropertyRef Name="suburb_id" />
+          </Key>
+          <Property Name="suburb_id" Type="int" Nullable="false" />
+          <Property Name="suburb" Type="varchar" MaxLength="100" />
+          <Property Name="distance_to_city_rate" Type="varchar" MaxLength="50" />
+          <Property Name="distance_to_city" Type="float" />
+          <Property Name="travel_time_to_city" Type="varchar" MaxLength="50" />
+          <Property Name="residential_rate" Type="varchar" MaxLength="50" />
+          <Property Name="residential_percent" Type="float" />
+          <Property Name="commercial_rate" Type="varchar" MaxLength="50" />
+          <Property Name="commercial_percent" Type="float" />
+          <Property Name="rural_percent" Type="float" />
+          <Property Name="industrial_percent" Type="float" />
+          <Property Name="other_percent" Type="float" />
+          <Property Name="health_services" Type="varchar" MaxLength="50" />
+          <Property Name="time_to_hospital_rate" Type="varchar" MaxLength="50" />
+          <Property Name="nearest_public_hospital" Type="varchar" MaxLength="50" />
+          <Property Name="time_to_hospital" Type="float" />
+          <Property Name="distance_nearest_public_hospital" Type="float" />
+          <Property Name="disability_care_rate" Type="varchar" MaxLength="50" />
+          <Property Name="disability_care" Type="int" />
+          <Property Name="aged_care_rate" Type="varchar" MaxLength="50" />
+          <Property Name="aged_care" Type="int" />
+          <Property Name="life_style" Type="varchar" MaxLength="50" />
+          <Property Name="population_density" Type="float" />
+          <Property Name="population_density_string" Type="varchar" MaxLength="50" />
+          <Property Name="age_0_24" Type="float" />
+          <Property Name="age_25_44" Type="float" />
+          <Property Name="age_45_64" Type="float" />
+          <Property Name="age_65_84" Type="float" />
+          <Property Name="age_85" Type="float" />
+          <Property Name="time_to_airport_raw" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_1" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_2" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_3" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_4" Type="varchar" MaxLength="50" />
+          <Property Name="top_country_of_birth_5" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_1" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_2" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_3" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_4" Type="varchar" MaxLength="50" />
+          <Property Name="top_language_spoken_5" Type="varchar" MaxLength="50" />
+          <Property Name="accident_count" Type="float" />
+          <Property Name="accident_count_rate" Type="varchar" MaxLength="50" />
+          <Property Name="fatal_accident_percent" Type="float" />
+          <Property Name="serious_accident_percent" Type="float" />
+          <Property Name="other_accident_percent" Type="float" />
+          <Property Name="offence_count" Type="float" />
+          <Property Name="crime_rate" Type="varchar" MaxLength="50" />
+          <Property Name="crime_offence_count" Type="float" />
+          <Property Name="crime_offence_percent" Type="float" />
+          <Property Name="crime_against_person_rate" Type="varchar" MaxLength="50" />
+          <Property Name="burglary_offence_count" Type="float" />
+          <Property Name="burglary_offence_percent" Type="float" />
+          <Property Name="burglary_rate" Type="varchar" MaxLength="50" />
+          <Property Name="theft_offence_count" Type="float" />
+          <Property Name="theft_offence_percent" Type="float" />
+          <Property Name="theft_rate" Type="varchar" MaxLength="50" />
+          <Property Name="expensive_ranking" Type="int" />
+          <Property Name="buy_house_3br_string" Type="varchar" MaxLength="50" />
+          <Property Name="buy_unit_2br_string" Type="varchar" MaxLength="50" />
+          <Property Name="avg_house_price_3br" Type="varchar" MaxLength="50" />
+          <Property Name="avg_unit_price_2br" Type="varchar" MaxLength="50" />
+          <Property Name="Public_Transport_Freq" Type="int" />
+          <Property Name="nursery_shops" Type="int" />
+          <Property Name="cafes_count" Type="int" />
+          <Property Name="dining_count" Type="int" />
+          <Property Name="bar_count" Type="int" />
+          <Property Name="golf_count" Type="int" />
+          <Property Name="nearest_fishspot" Type="varchar" MaxLength="50" />
+          <Property Name="distance_to_fishspot" Type="float" />
+          <Property Name="post_code" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Function Name="sp_changes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lifestyle" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_preference_it3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="very_near_distance_to_city" Type="nvarchar" Mode="In" />
+          <Parameter Name="very_high_moreshops" Type="nvarchar" Mode="In" />
+          <Parameter Name="very_high_health_services" Type="nvarchar" Mode="In" />
+          <Parameter Name="low_accident_rate" Type="nvarchar" Mode="In" />
+          <Parameter Name="very_high_more_agedcare" Type="nvarchar" Mode="In" />
+          <Parameter Name="very_less_time_to_hospital" Type="nvarchar" Mode="In" />
+          <Parameter Name="low_crime_rate" Type="nvarchar" Mode="In" />
+          <Parameter Name="top_country_of_birth" Type="nvarchar" Mode="In" />
+          <Parameter Name="sort_value" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="SuburbDataModelStoreContainer">
+          <EntitySet Name="rating_it3" EntityType="Self.rating_it3" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SuburbDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SuburbDataEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="SearchByPreference" EntitySet="rating_it3" ReturnType="Collection(SuburbDataModel.rating_it3)">
+            <Parameter Name="very_near_distance_to_city" Mode="In" Type="String" />
+            <Parameter Name="very_high_moreshops" Mode="In" Type="String" />
+            <Parameter Name="very_high_health_services" Mode="In" Type="String" />
+            <Parameter Name="low_accident_rate" Mode="In" Type="String" />
+            <Parameter Name="very_high_more_agedcare" Mode="In" Type="String" />
+            <Parameter Name="very_less_time_to_hospital" Mode="In" Type="String" />
+            <Parameter Name="low_crime_rate" Mode="In" Type="String" />
+            <Parameter Name="top_country_of_birth" Mode="In" Type="String" />
+            <Parameter Name="sort_value" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchBySuburbChange" EntitySet="rating_it3" ReturnType="Collection(SuburbDataModel.rating_it3)">
+          <Parameter Name="lifestyle" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="rating_it3" EntityType="SuburbDataModel.rating_it3" />
+        </EntityContainer>
+        <ComplexType Name="sp_preference_it3_Result">
+          <Property Type="Int32" Name="suburb_id" Nullable="false" />
+          <Property Type="String" Name="suburb" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="distance_to_city_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="distance_to_city" Nullable="true" />
+          <Property Type="String" Name="travel_time_to_city" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="residential_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="residential_percent" Nullable="true" />
+          <Property Type="String" Name="commercial_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="commercial_percent" Nullable="true" />
+          <Property Type="Double" Name="rural_percent" Nullable="true" />
+          <Property Type="Double" Name="industrial_percent" Nullable="true" />
+          <Property Type="Double" Name="other_percent" Nullable="true" />
+          <Property Type="String" Name="health_services" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="time_to_hospital_rate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nearest_public_hospital" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="time_to_hospital" Nullable="true" />
+          <Property Type="Double" Name="distance_nearest_public_hospital" Nullable="true" />
+          <Property Type="String" Name="disability_care_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="disability_care" Nullable="true" />
+          <Property Type="String" Name="aged_care_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="aged_care" Nullable="true" />
+          <Property Type="String" Name="life_style" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="population_density" Nullable="true" />
+          <Property Type="String" Name="population_density_string" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="erp_age_20_24_percent_2012" Nullable="true" />
+          <Property Type="Double" Name="erp_age_25_44_percent_2012" Nullable="true" />
+          <Property Type="Double" Name="erp_age_45_64_percent_2012" Nullable="true" />
+          <Property Type="Double" Name="erp_age_65_69_percent_2012" Nullable="true" />
+          <Property Type="Double" Name="erp_age_70_74_percent_2012" Nullable="true" />
+          <Property Type="Double" Name="erp_age_85_plus_percent_2012" Nullable="true" />
+          <Property Type="String" Name="time_to_airport_raw" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_country_of_birth_1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_country_of_birth_2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_country_of_birth_3" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_country_of_birth_4" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_country_of_birth_5" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_language_spoken_1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_language_spoken_2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_language_spoken_3" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_language_spoken_4" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="top_language_spoken_5" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="accident_count" Nullable="true" />
+          <Property Type="String" Name="accident_count_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="fatal_accident_percent" Nullable="true" />
+          <Property Type="Double" Name="serious_accident_percent" Nullable="true" />
+          <Property Type="Double" Name="other_accident_percent" Nullable="true" />
+          <Property Type="Double" Name="offence_count" Nullable="true" />
+          <Property Type="String" Name="crime_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="crime_offence_count" Nullable="true" />
+          <Property Type="Double" Name="crime_offence_percent" Nullable="true" />
+          <Property Type="String" Name="crime_against_person_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="burglary_offence_count" Nullable="true" />
+          <Property Type="Double" Name="burglary_offence_percent" Nullable="true" />
+          <Property Type="String" Name="burglary_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="theft_offence_count" Nullable="true" />
+          <Property Type="Double" Name="theft_offence_percent" Nullable="true" />
+          <Property Type="String" Name="theft_rate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="expensive_ranking" Nullable="true" />
+          <Property Type="String" Name="buy_house_3br_string" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="buy_unit_2br_string" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="avg_house_price_3br" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="avg_unit_price_2br" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_changes_Result">
+          <Property Type="Int32" Name="suburb_id" Nullable="false" />
+          <Property Type="String" Name="suburb" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="distance_to_city_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="distance_to_city" Nullable="true" />
+          <Property Type="String" Name="residential_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="residential_percent" Nullable="true" />
+          <Property Type="String" Name="commercial_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="commercial_percent" Nullable="true" />
+          <Property Type="String" Name="health_services" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="nearest_public_hospital" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="disability_care_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="disability_care" Nullable="true" />
+          <Property Type="String" Name="aged_care_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="aged_care" Nullable="true" />
+          <Property Type="String" Name="time_to_hospital" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="life_style" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="population_density" Nullable="true" />
+          <Property Type="String" Name="top_country_of_birth_1" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_country_of_birth_2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_country_of_birth_3" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_country_of_birth_4" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_country_of_birth_5" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_language_spoken_1" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_language_spoken_2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_language_spoken_3" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_language_spoken_4" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="top_language_spoken_5" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="accident_count" Nullable="true" />
+          <Property Type="String" Name="accident_count_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="offence_count" Nullable="true" />
+          <Property Type="String" Name="crime_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="crime_offence_count" Nullable="true" />
+          <Property Type="String" Name="crime_against_person_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="burglary_offence_count" Nullable="true" />
+          <Property Type="String" Name="burglary_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="theft_offence_count" Nullable="true" />
+          <Property Type="String" Name="theft_rate" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="house_low_quartile" Nullable="true" />
+          <Property Type="Double" Name="house_high_quartile" Nullable="true" />
+          <Property Type="Double" Name="unit_low_quartile" Nullable="true" />
+          <Property Type="Double" Name="unit_high_quartile" Nullable="true" />
+          <Property Type="Double" Name="house_median_quartile" Nullable="true" />
+          <Property Type="String" Name="house_median_quartile_string" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="unit_median_quartile" Nullable="true" />
+          <Property Type="String" Name="unit_median_quartile_string" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="post_code" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="rating_it3">
+          <Key>
+            <PropertyRef Name="suburb_id" />
+          </Key>
+          <Property Name="suburb_id" Type="Int32" Nullable="false" />
+          <Property Name="suburb" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="distance_to_city_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="distance_to_city" Type="Double" />
+          <Property Name="travel_time_to_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="residential_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="residential_percent" Type="Double" />
+          <Property Name="commercial_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="commercial_percent" Type="Double" />
+          <Property Name="rural_percent" Type="Double" />
+          <Property Name="industrial_percent" Type="Double" />
+          <Property Name="other_percent" Type="Double" />
+          <Property Name="health_services" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="time_to_hospital_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nearest_public_hospital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="time_to_hospital" Type="Double" />
+          <Property Name="distance_nearest_public_hospital" Type="Double" />
+          <Property Name="disability_care_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="disability_care" Type="Int32" />
+          <Property Name="aged_care_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="aged_care" Type="Int32" />
+          <Property Name="life_style" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="population_density" Type="Double" />
+          <Property Name="population_density_string" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="age_0_24" Type="Double" />
+          <Property Name="age_25_44" Type="Double" />
+          <Property Name="age_45_64" Type="Double" />
+          <Property Name="age_65_84" Type="Double" />
+          <Property Name="age_85" Type="Double" />
+          <Property Name="time_to_airport_raw" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_country_of_birth_5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="top_language_spoken_5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="accident_count" Type="Double" />
+          <Property Name="accident_count_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fatal_accident_percent" Type="Double" />
+          <Property Name="serious_accident_percent" Type="Double" />
+          <Property Name="other_accident_percent" Type="Double" />
+          <Property Name="offence_count" Type="Double" />
+          <Property Name="crime_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="crime_offence_count" Type="Double" />
+          <Property Name="crime_offence_percent" Type="Double" />
+          <Property Name="crime_against_person_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="burglary_offence_count" Type="Double" />
+          <Property Name="burglary_offence_percent" Type="Double" />
+          <Property Name="burglary_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="theft_offence_count" Type="Double" />
+          <Property Name="theft_offence_percent" Type="Double" />
+          <Property Name="theft_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="expensive_ranking" Type="Int32" />
+          <Property Name="buy_house_3br_string" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="buy_unit_2br_string" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="avg_house_price_3br" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="avg_unit_price_2br" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Public_Transport_Freq" Type="Int32" />
+          <Property Name="nursery_shops" Type="Int32" />
+          <Property Name="cafes_count" Type="Int32" />
+          <Property Name="dining_count" Type="Int32" />
+          <Property Name="bar_count" Type="Int32" />
+          <Property Name="golf_count" Type="Int32" />
+          <Property Name="nearest_fishspot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="distance_to_fishspot" Type="Double" />
+          <Property Name="post_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SuburbDataModelStoreContainer" CdmEntityContainer="SuburbDataEntities">
+          <FunctionImportMapping FunctionImportName="SearchByPreference" FunctionName="SuburbDataModel.Store.sp_preference_it3">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchBySuburbChange" FunctionName="SuburbDataModel.Store.sp_changes">
+          </FunctionImportMapping>
+          <EntitySetMapping Name="rating_it3">
+            <EntityTypeMapping TypeName="SuburbDataModel.rating_it3">
+              <MappingFragment StoreEntitySet="rating_it3">
+                <ScalarProperty Name="post_code" ColumnName="post_code" />
+                <ScalarProperty Name="distance_to_fishspot" ColumnName="distance_to_fishspot" />
+                <ScalarProperty Name="nearest_fishspot" ColumnName="nearest_fishspot" />
+                <ScalarProperty Name="golf_count" ColumnName="golf_count" />
+                <ScalarProperty Name="bar_count" ColumnName="bar_count" />
+                <ScalarProperty Name="dining_count" ColumnName="dining_count" />
+                <ScalarProperty Name="cafes_count" ColumnName="cafes_count" />
+                <ScalarProperty Name="nursery_shops" ColumnName="nursery_shops" />
+                <ScalarProperty Name="Public_Transport_Freq" ColumnName="Public_Transport_Freq" />
+                <ScalarProperty Name="avg_unit_price_2br" ColumnName="avg_unit_price_2br" />
+                <ScalarProperty Name="avg_house_price_3br" ColumnName="avg_house_price_3br" />
+                <ScalarProperty Name="buy_unit_2br_string" ColumnName="buy_unit_2br_string" />
+                <ScalarProperty Name="buy_house_3br_string" ColumnName="buy_house_3br_string" />
+                <ScalarProperty Name="expensive_ranking" ColumnName="expensive_ranking" />
+                <ScalarProperty Name="theft_rate" ColumnName="theft_rate" />
+                <ScalarProperty Name="theft_offence_percent" ColumnName="theft_offence_percent" />
+                <ScalarProperty Name="theft_offence_count" ColumnName="theft_offence_count" />
+                <ScalarProperty Name="burglary_rate" ColumnName="burglary_rate" />
+                <ScalarProperty Name="burglary_offence_percent" ColumnName="burglary_offence_percent" />
+                <ScalarProperty Name="burglary_offence_count" ColumnName="burglary_offence_count" />
+                <ScalarProperty Name="crime_against_person_rate" ColumnName="crime_against_person_rate" />
+                <ScalarProperty Name="crime_offence_percent" ColumnName="crime_offence_percent" />
+                <ScalarProperty Name="crime_offence_count" ColumnName="crime_offence_count" />
+                <ScalarProperty Name="crime_rate" ColumnName="crime_rate" />
+                <ScalarProperty Name="offence_count" ColumnName="offence_count" />
+                <ScalarProperty Name="other_accident_percent" ColumnName="other_accident_percent" />
+                <ScalarProperty Name="serious_accident_percent" ColumnName="serious_accident_percent" />
+                <ScalarProperty Name="fatal_accident_percent" ColumnName="fatal_accident_percent" />
+                <ScalarProperty Name="accident_count_rate" ColumnName="accident_count_rate" />
+                <ScalarProperty Name="accident_count" ColumnName="accident_count" />
+                <ScalarProperty Name="top_language_spoken_5" ColumnName="top_language_spoken_5" />
+                <ScalarProperty Name="top_language_spoken_4" ColumnName="top_language_spoken_4" />
+                <ScalarProperty Name="top_language_spoken_3" ColumnName="top_language_spoken_3" />
+                <ScalarProperty Name="top_language_spoken_2" ColumnName="top_language_spoken_2" />
+                <ScalarProperty Name="top_language_spoken_1" ColumnName="top_language_spoken_1" />
+                <ScalarProperty Name="top_country_of_birth_5" ColumnName="top_country_of_birth_5" />
+                <ScalarProperty Name="top_country_of_birth_4" ColumnName="top_country_of_birth_4" />
+                <ScalarProperty Name="top_country_of_birth_3" ColumnName="top_country_of_birth_3" />
+                <ScalarProperty Name="top_country_of_birth_2" ColumnName="top_country_of_birth_2" />
+                <ScalarProperty Name="top_country_of_birth_1" ColumnName="top_country_of_birth_1" />
+                <ScalarProperty Name="time_to_airport_raw" ColumnName="time_to_airport_raw" />
+                <ScalarProperty Name="age_85" ColumnName="age_85" />
+                <ScalarProperty Name="age_65_84" ColumnName="age_65_84" />
+                <ScalarProperty Name="age_45_64" ColumnName="age_45_64" />
+                <ScalarProperty Name="age_25_44" ColumnName="age_25_44" />
+                <ScalarProperty Name="age_0_24" ColumnName="age_0_24" />
+                <ScalarProperty Name="population_density_string" ColumnName="population_density_string" />
+                <ScalarProperty Name="population_density" ColumnName="population_density" />
+                <ScalarProperty Name="life_style" ColumnName="life_style" />
+                <ScalarProperty Name="aged_care" ColumnName="aged_care" />
+                <ScalarProperty Name="aged_care_rate" ColumnName="aged_care_rate" />
+                <ScalarProperty Name="disability_care" ColumnName="disability_care" />
+                <ScalarProperty Name="disability_care_rate" ColumnName="disability_care_rate" />
+                <ScalarProperty Name="distance_nearest_public_hospital" ColumnName="distance_nearest_public_hospital" />
+                <ScalarProperty Name="time_to_hospital" ColumnName="time_to_hospital" />
+                <ScalarProperty Name="nearest_public_hospital" ColumnName="nearest_public_hospital" />
+                <ScalarProperty Name="time_to_hospital_rate" ColumnName="time_to_hospital_rate" />
+                <ScalarProperty Name="health_services" ColumnName="health_services" />
+                <ScalarProperty Name="other_percent" ColumnName="other_percent" />
+                <ScalarProperty Name="industrial_percent" ColumnName="industrial_percent" />
+                <ScalarProperty Name="rural_percent" ColumnName="rural_percent" />
+                <ScalarProperty Name="commercial_percent" ColumnName="commercial_percent" />
+                <ScalarProperty Name="commercial_rate" ColumnName="commercial_rate" />
+                <ScalarProperty Name="residential_percent" ColumnName="residential_percent" />
+                <ScalarProperty Name="residential_rate" ColumnName="residential_rate" />
+                <ScalarProperty Name="travel_time_to_city" ColumnName="travel_time_to_city" />
+                <ScalarProperty Name="distance_to_city" ColumnName="distance_to_city" />
+                <ScalarProperty Name="distance_to_city_rate" ColumnName="distance_to_city_rate" />
+                <ScalarProperty Name="suburb" ColumnName="suburb" />
+                <ScalarProperty Name="suburb_id" ColumnName="suburb_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

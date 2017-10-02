@@ -1,0 +1,766 @@
+﻿@model PerfectPlace.ViewModels.SuburbAndSuburbList
+
+@{
+    ViewBag.Title = "Compare";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/infographic/prototype.js"></script>
+    <script type="text/javascript" src="/Scripts/infographic/effects.js"></script>
+    <script type="text/javascript" src="/Scripts/infographic/side-bar.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
+
+<style>
+        /****************************************/
+
+    a {
+        outline: none;
+    }
+
+    a:active {
+        outline: none;
+    }
+
+    #sideBar {
+        text-align: left;
+    }
+
+    #sideBar {
+        color: #FFFFFF;
+        font-size: 11px;
+        font-family: arial;
+        margin: 2px 10px 10px 0px;
+        padding-left: 0px;
+        opecity: 0.3;
+    }
+
+    #sideBar h2 {
+        font-size: 14px;
+        font-family: arial;
+        margin: 5px 5px 5px 5px;
+        font-weight: bold !important;
+    }
+
+    #sideBar h2 span {
+        font-size: 12px;
+        font-weight: normal !important;
+    }
+
+
+    #sideBar {
+        position: absolute;
+        width: auto;
+        height: auto;
+        top: 240px;
+        left: 0px;
+        font-family: Ubuntu, sans-serif;
+        font-size: 0.875em;
+        background: #333;
+        background: -webkit-gradient( linear, left top, left bottom, from( rgba( 0, 0, 0, .6 ) ), to( rgba( 0, 0, 0, .8 ) ) );
+        background: -webkit-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -moz-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -ms-radial-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -o-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background-position: top right;
+        background-repeat: repeat-y;
+        opecity: 0.3;
+    }
+
+    #sideBarTab {
+        float: right;
+        height: 137px;
+        width: 28px;
+    }
+
+    #sideBarTab img {
+        border: 0px solid #FFFFFF;
+    }
+
+    #sideBarContents {
+        float: right;
+        overflow: hidden !important;
+        width: 400px;
+        height: auto;
+        padding-bottom: 5px;
+    }
+
+    #sideBarContentsInner {
+        width: 400px;
+    }
+
+
+    .modal.left .modal-dialog,
+    .modal.right .modal-dialog {
+        position: absolute;
+        margin: auto;
+        width: 420px;
+        height: auto;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
+
+    .modal.left .modal-content,
+    .modal.right .modal-content {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .modal.left .modal-body,
+    .modal.right .modal-body {
+        padding: 15px 15px 80px;
+    }
+
+    /*Left*/
+    .modal.left.fade .modal-dialog {
+        left: -320px;
+        -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+        transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
+
+    .modal.left.fade.in .modal-dialog {
+        left: 0;
+    }
+
+
+    /* ----- MODAL STYLE ----- */
+    .modal-content {
+        border-radius: 0;
+        border: none;
+        color: #FFFFFF;
+        font-family: Ubuntu, sans-serif;
+        font-size: 0.875em;
+        background: #333;
+        background: -webkit-gradient( linear, left top, left bottom, from( rgba( 0, 0, 0, .6 ) ), to( rgba( 0, 0, 0, .8 ) ) );
+        background: -webkit-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -moz-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -ms-radial-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -o-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background-position: top right;
+        background-repeat: repeat-y;
+        opecity: 0.3;
+    }
+
+    .modal-header {
+        font-size: 14px;
+        font-family: arial;
+        margin: 5px 5px 5px 5px;
+        font-weight: bold !important;
+        color: #FFFFFF;
+        background: #333;
+        background: -webkit-gradient( linear, left top, left bottom, from( rgba( 0, 0, 0, .6 ) ), to( rgba( 0, 0, 0, .8 ) ) );
+        background: -webkit-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -moz-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -ms-radial-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: -o-linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background: linear-gradient( top, rgba( 0, 0, 0, .6 ), rgba( 0, 0, 0, .8 ) );
+        background-position: top right;
+        background-repeat: repeat-y;
+        opecity: 0.3;
+    }
+
+    .close {
+        color: #FFFFFF;
+    }
+
+
+
+    /* COMMON PRICING STYLES */
+    .panel.price,
+    .panel.price > .panel-heading {
+        border-radius: 0px;
+        -moz-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+    }
+
+    .panel.price:hover {
+        box-shadow: 0px 0px 30px rgba(0,0,0, .2);
+    }
+
+    .panel.price:hover > .panel-heading {
+        box-shadow: 0px 0px 30px rgba(0,0,0, .2) inset;
+    }
+
+
+    .panel.price > .panel-heading {
+        box-shadow: 0px 5px 0px rgba(50,50,50, .2) inset;
+        text-shadow: 0px 3px 0px rgba(50,50,50, .6);
+    }
+
+    .price .list-group-item {
+        border-bottom-: 1px solid rgba(250,250,250, .5);
+    }
+
+    .panel.price .list-group-item:last-child {
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .panel.price .list-group-item:first-child {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .price .panel-footer {
+        color: #fff;
+        border-bottom: 0px;
+        background-color: rgba(0,0,0, .1);
+        box-shadow: 0px 3px 0px rgba(0,0,0, .3);
+    }
+
+
+    .panel.price .btn {
+        box-shadow: 0 -1px 0px rgba(50,50,50, .2) inset;
+        border: 0px;
+    }
+
+    /* green panel */
+
+
+    .price.panel-green > .panel-heading {
+        color: #fff;
+        background-color: #57AC57;
+        border-color: #71DF71;
+        border-bottom: 1px solid #71DF71;
+    }
+
+
+    .price.panel-green > .panel-body {
+        color: #fff;
+        background-color: #65C965;
+    }
+
+
+    .price.panel-green > .panel-body .lead {
+        text-shadow: 0px 3px 0px rgba(50,50,50, .3);
+    }
+
+    .price.panel-green .list-group-item {
+        color: #333;
+        background-color: rgba(50,50,50, .01);
+        font-weight: 600;
+        text-shadow: 0px 1px 0px rgba(250,250,250, .75);
+    }
+
+    /* blue panel */
+
+
+    .price.panel-blue > .panel-heading {
+        color: #fff;
+        background-color: #608BB4;
+        border-color: #78AEE1;
+        border-bottom: 1px solid #78AEE1;
+    }
+
+
+    .price.panel-blue > .panel-body {
+        color: #fff;
+        background-color: #73A3D4;
+    }
+
+
+    .price.panel-blue > .panel-body .lead {
+        text-shadow: 0px 3px 0px rgba(50,50,50, .3);
+    }
+
+    .price.panel-blue .list-group-item {
+        color: #333;
+        background-color: rgba(50,50,50, .01);
+        font-weight: 600;
+        text-shadow: 0px 1px 0px rgba(250,250,250, .75);
+    }
+
+    /* red price */
+
+
+    .price.panel-red > .panel-heading {
+        color: #fff;
+        background-color: #D04E50;
+        border-color: #FF6062;
+        border-bottom: 1px solid #FF6062;
+    }
+
+
+    .price.panel-red > .panel-body {
+        color: #fff;
+        background-color: #EF5A5C;
+    }
+
+
+
+
+    .price.panel-red > .panel-body .lead {
+        text-shadow: 0px 3px 0px rgba(50,50,50, .3);
+    }
+
+    .price.panel-red .list-group-item {
+        color: #333;
+        background-color: rgba(50,50,50, .01);
+        font-weight: 600;
+        text-shadow: 0px 1px 0px rgba(250,250,250, .75);
+    }
+
+    /* grey price */
+
+
+    .price.panel-grey > .panel-heading {
+        color: #fff;
+        background-color: #6D6D6D;
+        border-color: #B7B7B7;
+        border-bottom: 1px solid #B7B7B7;
+    }
+
+
+    .price.panel-grey > .panel-body {
+        color: #fff;
+        background-color: #808080;
+    }
+
+
+
+    .price.panel-grey > .panel-body .lead {
+        text-shadow: 0px 3px 0px rgba(50,50,50, .3);
+    }
+
+    .price.panel-grey .list-group-item {
+        color: #333;
+        background-color: rgba(50,50,50, .01);
+        font-weight: 600;
+        text-shadow: 0px 1px 0px rgba(250,250,250, .75);
+    }
+
+    /* white price */
+
+
+    .price.panel-white > .panel-heading {
+        color: #333;
+        background-color: #f9f9f9;
+        border-color: #ccc;
+        border-bottom: 1px solid #ccc;
+        text-shadow: 0px 2px 0px rgba(250,250,250, .7);
+    }
+
+    .panel.panel-white.price:hover > .panel-heading {
+        box-shadow: 0px 0px 30px rgba(0,0,0, .05) inset;
+    }
+
+    .price.panel-white > .panel-body {
+        color: #fff;
+        background-color: #dfdfdf;
+    }
+
+    .price.panel-white > .panel-body .lead {
+        text-shadow: 0px 2px 0px rgba(250,250,250, .8);
+        color: #666;
+    }
+
+    .price:hover.panel-white > .panel-body .lead {
+        text-shadow: 0px 2px 0px rgba(250,250,250, .9);
+        color: #333;
+    }
+
+    .price.panel-white .list-group-item {
+        color: #333;
+        background-color: rgba(50,50,50, .01);
+        font-weight: 600;
+        text-shadow: 0px 1px 0px rgba(250,250,250, .75);
+    }
+</style>
+
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+
+            <!-- PRICE ITEM -->
+            <div class="panel price panel-red">
+                <div class="panel-heading  text-center">
+                    <h3 id="suburbName1">@Model.SuburbListDataCompare.FirstOrDefault().suburb</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <img src="/Image/infographic/Glen-Huntly-Road2.jpg" class="img-responsive img-rounded">
+                </div>
+                <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Distance to CBD (Km): @Math.Round(@Model.SuburbListDataCompare.FirstOrDefault().distance_to_city.Value, 1)</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Residential Level: @Model.SuburbListDataCompare.FirstOrDefault().residential_rate</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Commercial Level: @Model.SuburbListDataCompare.FirstOrDefault().commercial_rate</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Nearest Hospital: @Model.SuburbListDataCompare.FirstOrDefault().nearest_public_hospital</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Time to the Nearest Hospital (min): @Math.Round(@Model.SuburbListDataCompare.FirstOrDefault().time_to_hospital.Value, 1)</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Number of Aged Care Center: @Model.SuburbListDataCompare.FirstOrDefault().aged_care</li>
+
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Population: @Model.SuburbListDataCompare.FirstOrDefault().population_density_string</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Major Nationality: @Model.SuburbListDataCompare.FirstOrDefault().top_country_of_birth_1</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Major Language Spoken: @Model.SuburbListDataCompare.FirstOrDefault().top_language_spoken_1</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Crimal Rate: @Model.SuburbListDataCompare.FirstOrDefault().crime_rate</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> House Price (3 bedrooms): $@Model.SuburbListDataCompare.FirstOrDefault().buy_house_3br_string</li>
+                </ul>
+                <div class="panel-footer">
+                    @*<a class="btn btn-lg btn-block btn-danger" href="#">infographics</a>*@
+                    @*@Html.ActionLink("Details", "Details", "Suburb", new { id = @Model.SuburbListDataCompare.FirstOrDefault().suburb_id }, null)*@
+                </div>
+            </div>
+            <!-- /PRICE ITEM -->
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+
+            <!-- PRICE ITEM -->
+            <div class="panel price panel-red">
+                <div class="panel-heading  text-center">
+                    <h3 id="suburbName2">@Model.SuburbListDataCompare.LastOrDefault().suburb</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <img src="/Image/infographic/Glen-Huntly-Road.jpg" class="img-responsive img-rounded">
+                </div>
+                <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Distance to CBD (Km): @Math.Round(@Model.SuburbListDataCompare.LastOrDefault().distance_to_city.Value, 1)</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Residential Level: @Model.SuburbListDataCompare.LastOrDefault().residential_rate</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Commercial Level: @Model.SuburbListDataCompare.LastOrDefault().commercial_rate</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Nearest Hospital: @Model.SuburbListDataCompare.LastOrDefault().nearest_public_hospital</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Time to the Nearest Hospital (min): @Math.Round(@Model.SuburbListDataCompare.LastOrDefault().time_to_hospital.Value, 1)</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Number of Aged Care Center: @Model.SuburbListDataCompare.LastOrDefault().aged_care</li>
+
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Population: @Model.SuburbListDataCompare.LastOrDefault().population_density_string</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Major Nationality: @Model.SuburbListDataCompare.LastOrDefault().top_country_of_birth_1</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Major Language Spoken: @Model.SuburbListDataCompare.LastOrDefault().top_language_spoken_1</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> Crimal Rate: @Model.SuburbListDataCompare.LastOrDefault().crime_rate</li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i> House Price (3 bedrooms): $@Model.SuburbListDataCompare.LastOrDefault().buy_house_3br_string</li>
+
+                </ul>
+                <div class="panel-footer">
+                    @*<a class="btn btn-lg btn-block btn-danger" href="#">infographics</a>*@
+                    @*@Html.ActionLink("Details", "Details", "Suburb", new { id = @Model.SuburbListDataCompare.LastOrDefault().suburb_id }, null)*@
+                    
+                </div>
+            </div>
+            <!-- /PRICE ITEM -->
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <!-- PRICE ITEM -->
+            <div class="panel price panel-red">
+                <div class="panel-heading  text-center">
+                    <h3>Map</h3>
+                </div>
+                <div style="height:100%;width:100%;">
+                    <div style="height:680px;width:95%;position:absolute" id="map"></div>
+                </div>
+                @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25188.552948867506!2d145.0385648897241!3d-37.89375820320979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6698e96878b6f%3A0x5045675218cdc40!2sCarnegie+VIC+3163%2C+Australia!5e0!3m2!1sen!2sin!4v1505921790291" width="100%" height="620px" frameborder="0" style="border: 0" allowfullscreen></iframe>*@
+
+                <div class="panel-footer">
+                    <a class="btn btn-lg btn-block btn-danger" href="#">infographics</a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div id="sideBar">
+    <a href="#" id="sideBarTab" data-toggle="modal" data-target="#myModal2"><img src="/Image/infographic/slide-button.gif" alt="sideBar" title="sideBar" /></a>
+    <!-- Modal -->
+    <div class="modal left fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width:750px;">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Compare</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <form action="Compare">
+                        <table id="example" class="table table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                            @if (@ViewBag.SearchResultPage == "SearchByLifeStyle")
+                            {
+                                @:@if (@ViewBag.LifeStyle == "SeaChange")
+                                  {
+                                      <tr>
+                                          <th>&nbsp;&nbsp;&nbsp;</th>
+                                          <th>suburb</th>
+                                          <th>Frequency of Public Transportation (min)</th>
+                                          <th>Number of Golf Court</th>
+                                          <th>Distance to the Fishing Spots (Km)</th>
+                                      </tr>
+                                  }
+                                  else if (@ViewBag.LifeStyle == "TreeChange")
+                                  {
+                                      <tr>
+                                          <th>&nbsp;&nbsp;&nbsp;</th>
+                                          <th>suburb</th>
+                                          <th>Distance to the Nearest Hospital (Km)</th>
+                                          <th>Frequency of Public Transportation (min)</th>
+                                          <th>Number of Nursery Shops</th>
+                                      </tr>
+                                  }
+                                  else if (@ViewBag.LifeStyle == "CityChange")
+                                  {
+                                      <tr>
+                                          <th>&nbsp;&nbsp;&nbsp;</th>
+                                          <th>suburb</th>
+                                          <th>Apartment Price (2 bedrooms)</th>
+                                          <th>Number of Cafe</th>
+                                          <th>Number of Dining</th>
+                                          <th>Number of Bar & Club</th>
+                                      </tr>
+                                  }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th>&nbsp;&nbsp;&nbsp;</th>
+                                    <th>Suburb</th>
+                                    <th>Distance to CBD (Km)</th>
+                                    <th>Commercial Rate</th>
+                                    <th>Health Service</th>
+                                    <th>Accident Rate</th>
+                                    <th>Age Care Center</th>
+                                    <th>Time To Hospital (min)</th>
+                                    <th>criminal Rate</th>
+                                </tr>
+                            }
+
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model.SuburbListData)
+                            {
+                                @:@if (@ViewBag.SearchResultPage == "SearchByLifeStyle")
+                                  {
+                                      @:@if (@ViewBag.LifeStyle == "SeaChange")
+                                        {
+                                            <tr>
+                                                <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id" />&nbsp;</td>
+                                                <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td>
+                                                <td>@item.Public_Transport_Freq</td>
+                                                <td>@item.golf_count</td>
+                                                <td>@Math.Round(item.distance_to_fishspot.Value, 1)</td>
+                                            </tr>
+                                        }
+                                        else if (@ViewBag.LifeStyle == "TreeChange")
+                                        {
+                                            <tr>
+                                                <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id" />&nbsp;</td>
+                                                <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td>
+                                                <td>@Math.Round(item.distance_nearest_public_hospital.Value, 1)</td>
+                                                <td>@item.Public_Transport_Freq</td>
+                                                <td>@item.nursery_shops</td>
+                                            </tr>
+                                        }
+                                        else if (@ViewBag.LifeStyle == "CityChange")
+                                        {
+                                            <tr>
+                                                <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id" />&nbsp;</td>
+                                                <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td>
+                                                <td>$@item.buy_unit_2br_string</td>
+                                                <td>@item.cafes_count</td>
+                                                <td>@item.dining_count</td>
+                                                <td>@item.bar_count</td>
+                                            </tr>
+                                        }
+                                  }
+                                  else
+                                  {
+                                      <tr>
+                                          <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id" />&nbsp;</td>
+                                          <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td>
+                                          <td>@Math.Round(item.distance_to_city.Value, 1)</td>
+                                          <td>@item.commercial_rate</td>
+                                          <td>@item.health_services</td>
+                                          <td>@item.accident_count_rate</td>
+                                          <td>@item.aged_care</td>
+                                          <td>@Math.Round(item.time_to_hospital.Value, 1)</td>
+                                          <td>@item.crime_rate</td>
+                                      </tr>
+                                  }
+
+
+                            }
+                            @*<tr>
+                                            <td><input type="checkbox" name="suburb" value="1">&nbsp;1</td>
+                                            <td>camegi </td>
+                                            <td>Low</td>
+                                            <td>High</td>
+                                            <td>Moderate</td>
+                                            <td>15</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="suburb" value="1"> 2</td>
+                                            <td>camegi </td>
+                                            <td>Low</td>
+                                            <td>High</td>
+                                            <td>Moderate</td>
+                                            <td>15</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="suburb" value="1"> 3</td>
+                                            <td>camegi </td>
+                                            <td>Low</td>
+                                            <td>High</td>
+                                            <td>Moderate</td>
+                                            <td>15</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="suburb" value="1"> 4</td>
+                                            <td>camegi </td>
+                                            <td>Low</td>
+                                            <td>High</td>
+                                            <td>Moderate</td>
+                                            <td>15</td>
+                                        </tr>*@
+
+                            </tbody>
+
+                        </table>
+
+                        <input class="btn btn-primary" type="submit" value="Compare" />
+                    </form>
+
+                </div>
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+</div>
+
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script type="text/javascript">
+
+    (function ($) {
+        //$("#myModal").modal('show');
+        $('#example').DataTable({
+            "order": []
+        });
+    })(jQuery);
+
+</script>
+<script>
+    var places = [];
+    var lat = [];
+    var lng = [];
+    var titleName = [];
+    
+    (function ($) {
+        
+        places.push($('#suburbName1').text());
+        places.push($('#suburbName2').text());
+
+        $.each(places,
+            function (key, val) {
+                addLocation(val);
+            });
+
+    })(jQuery);
+
+    function addLocation(name) {
+        jQuery.getJSON(
+            "https://maps.googleapis.com/maps/api/geocode/json?address=" + name + "&region=au&key=AIzaSyB1F_18NdPhEf8BftCYLByeaXZzmnFDb5A",
+            function (result) {
+                jQuery.each(result.results["0"].geometry.location,
+                    function (key, val) {
+                        console.log(key, val);
+                        //var latValue, lngValue;
+                        if (key == 'lat') {
+                            //latValue = val;
+                            lat.push(val);
+                        } else if (key == 'lng') {
+                            //lngValue = val;
+                            lng.push(val);
+                        }
+                        //initMap(Number(lat), Number(lng));
+                        //titleName.push(name);
+                        
+                    });
+                console.log(result);
+                
+            });
+        titleName.push(name);
+    }
+
+    function initMap() {
+        console.log('initmap');
+        //addLocation();
+        //var suburbLocation = {
+        //    suburbLat: Number(lat),
+        //    suburbLng: Number(lng)
+        //};
+        console.log("suburb location");
+        console.log(places);
+        //var latlng = new google.maps.LatLng(-37.8840, 145.0266);
+        var latlng1 = new google.maps.LatLng(Number(lat[0]), Number(lng[0]));
+        var latlng2 = new google.maps.LatLng(Number(lat[1]), Number(lng[1]));
+        var map = new google.maps.Map(document.getElementById('map'),
+            {
+                zoom: 10,
+                center: latlng1
+            });
+        var marker1, marker2;
+        marker1 = new google.maps.Marker({
+            position: latlng1,
+            map: map,
+            title: titleName[0]
+        });
+        marker2 = new google.maps.Marker({
+            position: latlng2,
+            map: map,
+            title: titleName[1]
+        });
+        
+    }
+    //function initMap() {
+    //    console.log('initmap');
+    //    //25.024572, 67.045431       geocoding AIzaSyB1F_18NdPhEf8BftCYLByeaXZzmnFDb5A
+    //    var uluru = { lat: 39.8628316, lng: -4.027323099999999 };
+    //    var map = new google.maps.Map(document.getElementById('map'), {
+    //        zoom: 10,
+    //        center: uluru
+    //    });
+    //    var marker = new google.maps.Marker({
+    //        position: uluru,
+    //        map: map
+    //    });
+    //}
+</script>
+<script async=async defer=defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzyHUCqA_nmFYRy9Dpf2bUmPUjpJaHmRI&callback=initMap"></script>
+</body>
+</html>
+

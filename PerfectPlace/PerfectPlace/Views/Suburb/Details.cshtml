@@ -1,7 +1,28 @@
-﻿@model PerfectPlace.Models.rating_it2
+﻿@model PerfectPlace.Models.rating_it3
+@*@model PerfectPlace.ViewModels.SuburbAndSuburbList*@
 @{
-    //Layout = null;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+     @:@if (@ViewBag.lay == 0)
+      {
+          Layout = "~/Views/Shared/_Layout.cshtml";
+      }
+      else
+      {
+          Layout = null;
+          @Styles.Render("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800")
+          @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+          @Styles.Render("~/Content/bootstrap.min.css")
+          @Styles.Render("~/Content/core.css")
+          @Styles.Render("~/Content/shortcode/shortcodes.css")
+          @Styles.Render("~/Content/style.css")
+          @Styles.Render("~/Content/responsive.css")
+
+          @Scripts.Render("~/Scripts/vendor/jquery-1.12.4.min.js")
+          @Scripts.Render("~/Scripts/bootstrap.min.js")
+
+          @Styles.Render("~/Content/style-customizer.css")
+          @Scripts.Render("~/Scripts/vendor/modernizr-2.8.3.min.js")
+      }
+    
 }
 
 <script>
@@ -20,6 +41,10 @@
 </script>
 
 @*<iframe scrolling="no" src="@Url.Action("Test1", Model)" onload="javascript: resizeIframe(this);"></iframe>*@
-<iframe id="myIframe" scrolling="no" src="@Url.Action("Test1", Model)" onload="setIframeHeight(this)" frameborder="0"></iframe>
-<a href="javascript:void(0);" onclick="history.go(-1);" class="button search_price lemon mb-21">Back to List</a>
-<div style="margin-bottom: 50px"></div>
+<iframe id="myIframe" scrolling="no" src="@Html.Raw(Url.Action("Test2", Model))" onload="setIframeHeight(this)" frameborder="0"></iframe>
+@if (@ViewBag.lay == 0)
+{
+    <a href="javascript:void(0);" onclick="history.go(-1);" class="button search_price lemon mb-21">Back to List</a>
+    <div style="margin-bottom: 50px"></div>
+}
+

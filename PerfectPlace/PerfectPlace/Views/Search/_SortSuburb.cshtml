@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PerfectPlace.Models.rating_it3>
+@{
+    Layout = null;
+}
+
+<table class="table" style="overflow: auto;margin-bottom: 0px;">
+    <tbody>
+    @foreach (var item in Model.ToList())
+    {
+        <tr>
+            <td style="border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
+                <div style="font-size: 25px;color: #2d80b1;font-weight: bold;">
+                    @Html.ActionLink(item.suburb, "Details", "Suburb", new { id = item.suburb_id }, null)
+                </div>
+                @if (@ViewBag.SearchResultPage == "SearchByLifeStyle")
+                {
+                    @:@if (@ViewBag.LifeStyle == "SeaChange")
+                      {
+                          @*<div>Sea Change</div>*@
+                          <div style="font-size: 16px;">Frequency of Public Transportation: @Html.DisplayFor(modelItem=>item.Public_Transport_Freq) mins</div>
+                          <div style="font-size: 16px;">Number of Golf Court: @Html.DisplayFor(modelItem => item.golf_count) </div>
+                          <div style="font-size: 16px;">Distance to the Fishing Spot: @Math.Round(item.distance_to_fishspot.Value,1) Km</div>
+
+                      }
+                    @:@if (@ViewBag.LifeStyle == "TreeChange")
+                      {
+                          @*<div>Tree Change</div>*@
+                          <div style="font-size: 16px;">Distance to the Nearest Hospital: @Math.Round(item.distance_nearest_public_hospital.Value,1) Km</div>
+                          <div style="font-size: 16px;">Frequency of Public Transportation: @Html.DisplayFor(modelItem => item.Public_Transport_Freq) mins </div>
+                          <div style="font-size: 16px;">Number of Nursery Shops: @Html.DisplayFor(modelItem => item.nursery_shops)</div>
+                      }
+                    @:@if (@ViewBag.LifeStyle == "CityChange")
+                      {
+                          @*<div>City Change</div>*@
+                          <div style="font-size: 16px;">Apartment Price(2 bedrooms): $@Html.DisplayFor(modelItem=>item.buy_unit_2br_string)</div>
+                          <div style="font-size: 16px;">Number of Cafe: @Html.DisplayFor(modelItem=>item.cafes_count) </div>
+                          <div style="font-size: 16px;">Number of Dining: @Html.DisplayFor(modelItem => item.dining_count) </div>
+                          <div style="font-size: 16px;">Number of Bar & Club: @Html.DisplayFor(modelItem => item.bar_count) </div>
+                      }
+                }
+                else
+                {
+                    <div style="font-size: 16px;">Distance to CBD: @Math.Round(item.distance_to_city.Value,1) Km</div>
+                    <div style="font-size: 16px;">Commercial Rate: @Html.DisplayFor(modelItem => item.crime_rate) </div>
+                    <div style="font-size: 16px;">Health Service: @Html.DisplayFor(modelItem => item.health_services) </div>
+                    <div style="font-size: 16px;">Accident Rate: @Html.DisplayFor(modelItem => item.accident_count_rate) </div>
+                    <div style="font-size: 16px;">Aged Care Center: @Html.DisplayFor(modelItem => item.aged_care) </div>
+                    <div style="font-size: 16px;">Time to Hospital: @Math.Round(item.time_to_hospital.Value,1) mins </div>
+                    <div style="font-size: 16px;">Crime Rate: @Html.DisplayFor(modelItem => item.crime_rate) </div>
+                }
+            </td>
+            <td style="vertical-align: bottom;border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
+                @Html.ActionLink("Details", "Details", "Suburb", new { id = item.suburb_id }, null)
+            </td>
+        </tr>
+        <tr><td><hr style="margin-top: 0px;margin-bottom: 5px;border: 0;"></td></tr>
+    }
+</table>

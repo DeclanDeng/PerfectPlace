@@ -1,0 +1,253 @@
+﻿
+@{
+    ViewBag.Title = "Quiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+     .question input {
+         margin-bottom: 10px;
+         height: 13px;
+         display: inline-block;
+         width: 13px;
+     }
+    .question div {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.0/sweetalert2.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.0/sweetalert2.min.js"></script>
+
+<script>
+    //$(document).ready(function () {
+    //    $("#btn").click(function () {
+    //        //alert("hello");
+    //        //swal('Any fool can use a computer');
+    //        swal(
+    //            'The Internet?',
+    //            'That thing is still around?',
+    //            'question'
+    //        );
+    //    });
+    //});
+    function validateForm() {
+        if (checkRadio("Question1") && checkRadio("Question2") && checkRadio("Question3")
+            && checkRadio("Question4") && checkRadio("Question5") && checkRadio("Question6")
+            && checkRadio("Question7") && checkRadio("Question8") && checkRadio("Question9")
+            && checkRadio("Question10")) {
+            return true;
+        } else {
+            switch (false) {
+            case checkRadio("Question1"):
+                //alert("You must answer Question1!");
+                swal(
+                    'Question 1?',
+                    'Please answer Question 1',
+                    'question'
+                );
+                break;
+            case checkRadio("Question2"):
+                //alert("You must answer Question2!");
+                swal(
+                    'Question 2?',
+                    'Please answer Question 2',
+                    'question'
+                );
+                break;
+            case checkRadio("Question3"):
+                //alert("You must answer Question3!");
+                swal(
+                    'Question 3?',
+                    'Please answer Question 3',
+                    'question'
+                );
+                break;
+            case checkRadio("Question4"):
+                //alert("You must answer Question4!");
+                swal(
+                    'Question 4?',
+                    'Please answer Question 4',
+                    'question'
+                );
+                break;
+            case checkRadio("Question5"):
+                //alert("You must answer Question5!");
+                swal(
+                    'Question 5?',
+                    'Please answer Question 5',
+                    'question'
+                );
+                break;
+            case checkRadio("Question6"):
+                //alert("You must answer Question6!");
+                swal(
+                    'Question 6?',
+                    'Please answer Question 6',
+                    'question'
+                );
+                break;
+            case checkRadio("Question7"):
+                //alert("You must answer Question7!");
+                swal(
+                    'Question 7?',
+                    'Please answer Question 7',
+                    'question'
+                );
+                break;
+            case checkRadio("Question8"):
+                //alert("You must answer Question8!");
+                swal(
+                    'Question 8?',
+                    'Please answer Question 8',
+                    'question'
+                );
+                break;
+            case checkRadio("Question9"):
+                //alert("You must answer Question9!");
+                swal(
+                    'Question 9?',
+                    'Please answer Question 9',
+                    'question'
+                );
+                break;
+            case checkRadio("Question10"):
+                //alert("You must answer Question10!");
+                swal(
+                    'Question 10?',
+                    'Please answer Question 10',
+                    'question'
+                );
+                break;
+            default:
+                //alert("You must answer all the questions!");
+                swal(
+                    'Not sure?',
+                    'Please answer all the questions',
+                    'question'
+                );
+                break;
+            }
+            return false;
+        }
+
+
+//        var radios = document.getElementsByName("Question1");
+//        var formValid = false;
+//        var i = 0;
+        
+//        while (!formValid && i < radios.length) {
+//;
+//            if (radios[i].checked) {
+//                formValid = true;
+//            }
+//            i++;
+            
+//        }
+        
+//        if (!formValid) {
+//            alert("You must answer all the question!");
+//        }
+       
+//        return formValid;
+    }
+
+    function checkRadio(name) {
+        var radios = document.getElementsByName(name);
+        var i = 0;
+        while (i < radios.length) {
+            //alert(option);
+            if (radios[i].checked) {
+                return true;
+            }
+            i++;
+        }
+        return false;
+    }
+</script>
+
+<div class="container">
+    <h2>Quiz</h2><br /><br />
+    @using (Html.BeginForm("QuizResult", "Search", FormMethod.Post, new { onsubmit = "return validateForm()" }))
+    {
+        @*<form id="quizForm" action="#" class="col-10">*@
+            @*<div>
+                Gender: <br />
+                Male <input name="Gender" id="Gender" type="radio" value="male" />
+                Female <input name="Gender" id="Gender" type="radio" value="female" />
+            </div>
+            <div>
+                Gender: <br />
+                Good <input name="Mood" id="Mood" type="radio" value="good" />
+                Bad <input name="Mood" id="Mood" type="radio" value="bad" />
+            </div>*@
+            <div class="question">
+                <div>1. What kind of environment make you feel comfortable? </div>
+                <input name="Question1" id="Question1" type="radio" value="a" /> Quite place with birds singing <br />
+                <input name="Question1" id="Question1" type="radio" value="b" /> Crowded place with friends around <br />
+                <input name="Question1" id="Question1" type="radio" value="c" /> Open space where you can see the sunrise <br />
+            </div><br /><br />
+            <div class="question">
+                <div>2. Do you prefer to live in an apartment or house? </div>
+                <input name="Question2" id="Question2" type="radio" value="a" /> Apartment <br />
+                <input name="Question2" id="Question2" type="radio" value="b" /> House <br />
+            </div><br /><br />
+            <div class="question">
+                <div>3. Is infrastructure in you community important to you? </div>
+                <input name="Question3" id="Question3" type="radio" value="a" /> Very much <br />
+                <input name="Question3" id="Question3" type="radio" value="b" /> Yes, sometimes it’s important to me <br />
+                <input name="Question3" id="Question3" type="radio" value="c" /> Not really care about the infrastructure <br />
+            </div><br />
+            <div class="question">
+                <div>4. You prefer cook by yourselves or go out for a meal? </div>
+                <input name="Question4" id="Question4" type="radio" value="a" /> Seldom cook <br />
+                <input name="Question4" id="Question4" type="radio" value="b" /> Half half <br />
+                <input name="Question4" id="Question4" type="radio" value="c" /> Mostly cook at home <br />
+            </div><br />
+            <div class="question">
+                <div>5. Which restaurant you would like to choose to dine in? </div>
+                <input name="Question5" id="Question5" type="radio" value="a" /> Restaurant with a beautiful seaview <br />
+                <input name="Question5" id="Question5" type="radio" value="b" /> Restaurant with green theme <br />
+                <input name="Question5" id="Question5" type="radio" value="c" /> Restaurant with modern decoration <br />
+            </div><br />
+            <div class="question">
+                <div>6. When choosing a place to live in, which of the following criteria means more to you? </div>
+                <input name="Question6" id="Question6" type="radio" value="a" /> Good air quality <br />
+                <input name="Question6" id="Question6" type="radio" value="b" /> Convenience living place <br />
+                <input name="Question6" id="Question6" type="radio" value="c" /> Low housing price <br />
+            </div><br />
+            <div class="question">
+                <div>7. How much you care about your garden? </div>
+                <input name="Question7" id="Question7" type="radio" value="a" /> Very much, put lots of effort taking care of it <br />
+                <input name="Question7" id="Question7" type="radio" value="b" /> Passionate in it, maintain it regularly <br />
+                <input name="Question7" id="Question7" type="radio" value="c" /> I feel maintaining garden is a waste of time <br />
+                <input name="Question7" id="Question7" type="radio" value="d" /> Don’t have one, but would like to in the future <br />
+            </div><br />
+            <div class="question">
+                <div>8. How important is a pet to you? </div>
+                <input name="Question8" id="Question8" type="radio" value="a" /> Very important, must have pets with me <br />
+                <input name="Question8" id="Question8" type="radio" value="b" /> I can keep pets but if I can’t, it’s OK <br />
+                <input name="Question8" id="Question8" type="radio" value="c" /> I don’t want to keep a pet <br />
+            </div><br />
+            <div class="question">
+                <div>9. How often do you visit hospital? </div>
+                <input name="Question9" id="Question9" type="radio" value="a" /> Seldom <br />
+                <input name="Question9" id="Question9" type="radio" value="b" /> Moderate <br />
+                <input name="Question9" id="Question9" type="radio" value="c" /> Very Often <br />
+            </div><br />
+            <div class="question">
+                <div>10. How often do you travel overseas or nationally? </div>
+                <input name="Question10" id="Question10" type="radio" value="a" /> Seldom <br />
+                <input name="Question10" id="Question10" type="radio" value="b" /> Moderate <br />
+                <input name="Question10" id="Question10" type="radio" value="c" /> Very Often <br />
+            </div><br />
+            @*<input type="submit" value="hahaha" onclick="location.href = '@Url.Action("QuizResult", "Search")'" />*@
+            <div class="form-box pl-15 pr-15 large" style="padding-left: 0px;">
+                <button id="getResult" name="search_price" style="margin-top: 1px" type="submit" class="button search_price lemon mt-55 mb-21" ><span><span>Get Result</span></span></button>
+            </div>
+        @*</form>*@
+    }
+</div>

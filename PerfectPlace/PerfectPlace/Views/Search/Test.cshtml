@@ -5,16 +5,45 @@
 }
 
 <h2>This is Test</h2>
-@if (@ViewBag.veryNearDistanceToCity == null && @ViewBag.veryHighMoreshops == null && @ViewBag.veryHighHealthServices == null 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $("#example").click(function() {
+            //alert("hello");
+            alert({
+                title: 'Alert!',
+                content: 'Simple alert!',
+            });
+        });
+    });
+
+    function myFunction() {
+        //$.alert({
+        //    title: 'Alert!',
+        //    content: 'Simple alert!',
+        //});
+        //$.alert({
+        //    title: 'Alert!',
+        //    content: 'Simple alert!',
+        //});
+    }
+</script>
+<button class="example" id="example" onclick="myFunction()">click</button>
+@*@if (@ViewBag.veryNearDistanceToCity == null && @ViewBag.veryHighMoreshops == null && @ViewBag.veryHighHealthServices == null 
     && @ViewBag.lowAccidentRate == null && @ViewBag.veryHighMoreAgedcare == null && @ViewBag.veryLessTimeToHospital == null
     && @ViewBag.lowCrimeRate == null && @ViewBag.topCountryOfBirth == null)
 {
     <h2>Sorry, you do not have selected a reference</h2>
     <br/>
     <h3>Please select at least one</h3>
-    @*<p>@ViewBag.criteriaOne</p>
+    <p>@ViewBag.criteriaOne</p>
         <p>@ViewBag.criteriaTwo</p>
-        <p>@ViewBag.nationality</p>*@
+        <p>@ViewBag.nationality</p>
 }
 
 else
@@ -39,4 +68,4 @@ else
             </tr>
         }
     </table>
-}
+}*@

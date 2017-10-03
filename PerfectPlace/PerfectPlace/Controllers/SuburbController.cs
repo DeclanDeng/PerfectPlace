@@ -169,15 +169,15 @@ namespace PerfectPlace.Controllers
             {
                 ViewBag.SearchResultPage = "SearchByLifeStyle";
                 suburbChange = Session["suburbChange"] == null ? null : Session["suburbChange"].ToString();
-                if (suburbChange != null && suburbChange.Equals("I Want to Live Near by The Sea"))
+                if (suburbChange != null && suburbChange.Equals("I want to live near by the sea"))
                 {
                     ViewBag.LifeStyle = "SeaChange";
                 }
-                else if (suburbChange != null && suburbChange.Equals("I Want to Live Near by The Green"))
+                else if (suburbChange != null && suburbChange.Equals("I want to live near by the green"))
                 {
                     ViewBag.LifeStyle = "TreeChange";
                 }
-                else if (suburbChange != null && suburbChange.Equals("I Want to Live Near by The City"))
+                else if (suburbChange != null && suburbChange.Equals("I want to live near by the city"))
                 {
                     ViewBag.LifeStyle = "CityChange";
                 }
@@ -250,11 +250,14 @@ namespace PerfectPlace.Controllers
                     data.population_density = item.population_density;
 
                     data.distance_to_city = item.distance_to_city;
+                    data.commercial_percent = item.commercial_percent;
                     data.commercial_rate = item.commercial_rate;
                     data.health_services = item.health_services;
+                    data.accident_count = item.accident_count;
                     data.accident_count_rate = item.accident_count_rate;
                     data.aged_care = item.aged_care;
                     data.time_to_hospital = item.time_to_hospital;
+                    data.offence_count = item.offence_count;
                     data.crime_rate = item.crime_rate;
 
                     listData.Add(data);
@@ -340,11 +343,14 @@ namespace PerfectPlace.Controllers
                 data.population_density = item.population_density;
 
                 data.distance_to_city = item.distance_to_city;
+                data.commercial_percent = item.commercial_percent;
                 data.commercial_rate = item.commercial_rate;
                 data.health_services = item.health_services;
+                data.accident_count = item.accident_count;
                 data.accident_count_rate = item.accident_count_rate;
                 data.aged_care = item.aged_care;
                 data.time_to_hospital = item.time_to_hospital;
+                data.offence_count = item.offence_count;
                 data.crime_rate = item.crime_rate;
 
                 listData.Add(data);
@@ -376,7 +382,7 @@ namespace PerfectPlace.Controllers
             var suburbs = from s in db1.rating_it3 where s.suburb.Contains(inputSuburb) select s;
             if (suburbs.Count() == 0)
             {
-                //suburbs = from s in db1.rating_it3 where s.post_code.ToString().Equals(inputSuburb) select s;
+                suburbs = from s in db1.rating_it3 where s.postcode.ToString().Equals(inputSuburb) select s;
             }
             if (suburbs.Count() == 0)
             {
@@ -396,7 +402,7 @@ namespace PerfectPlace.Controllers
             Session["suburbChange"] = suburbChange;
             SuburbDataEntities db1 = new SuburbDataEntities();
 
-            if (suburbChange.Equals("I Want to Live Near by The Sea"))
+            if (suburbChange.Equals("I want to live near by the sea"))
             {
                 var res1 = db1.SearchBySuburbChange("sea change");
 
@@ -419,7 +425,7 @@ namespace PerfectPlace.Controllers
 
                 return listData;
             }
-            else if (suburbChange.Equals("I Want to Live Near by The Green"))
+            else if (suburbChange.Equals("I want to live near by the green"))
             {
                 var res2 = db1.SearchBySuburbChange("tree change");
                 foreach (var item in res2)
@@ -440,7 +446,7 @@ namespace PerfectPlace.Controllers
                 }
                 return listData;
             }
-            else if (suburbChange.Equals("I Want to Live Near by The City"))
+            else if (suburbChange.Equals("I want to live near by the city"))
             {
                 var res3 = db1.SearchBySuburbChange("city change");
                 foreach (var item in res3)
@@ -501,13 +507,13 @@ namespace PerfectPlace.Controllers
             {
                 ViewBag.SearchResultPage = "SearchByLifeStyle";
                 suburbChange = Session["suburbChange"] == null ? null : Session["suburbChange"].ToString();
-                if (suburbChange.Equals("I Want to Live Near by The Sea"))
+                if (suburbChange.Equals("I want to live near by the sea"))
                 {
                     ViewBag.LifeStyle = "SeaChange";
-                }else if (suburbChange.Equals("I Want to Live Near by The Green"))
+                }else if (suburbChange.Equals("I want to live near by the green"))
                 {
                     ViewBag.LifeStyle = "TreeChange";
-                }else if (suburbChange.Equals("I Want to Live Near by The City"))
+                }else if (suburbChange.Equals("I want to live near by the city"))
                 {
                     ViewBag.LifeStyle = "CityChange";
                 }

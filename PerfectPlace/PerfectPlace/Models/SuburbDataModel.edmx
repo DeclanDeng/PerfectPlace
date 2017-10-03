@@ -10,7 +10,8 @@
             <PropertyRef Name="suburb_id" />
           </Key>
           <Property Name="suburb_id" Type="int" Nullable="false" />
-          <Property Name="suburb" Type="varchar" MaxLength="100" />
+          <Property Name="suburb" Type="varchar" MaxLength="50" />
+          <Property Name="postcode" Type="int" />
           <Property Name="distance_to_city_rate" Type="varchar" MaxLength="50" />
           <Property Name="distance_to_city" Type="float" />
           <Property Name="travel_time_to_city" Type="varchar" MaxLength="50" />
@@ -22,8 +23,9 @@
           <Property Name="industrial_percent" Type="float" />
           <Property Name="other_percent" Type="float" />
           <Property Name="health_services" Type="varchar" MaxLength="50" />
+          <Property Name="health_service_count" Type="float" />
           <Property Name="time_to_hospital_rate" Type="varchar" MaxLength="50" />
-          <Property Name="nearest_public_hospital" Type="varchar" MaxLength="50" />
+          <Property Name="nearest_public_hospital" Type="varchar" MaxLength="100" />
           <Property Name="time_to_hospital" Type="float" />
           <Property Name="distance_nearest_public_hospital" Type="float" />
           <Property Name="disability_care_rate" Type="varchar" MaxLength="50" />
@@ -53,8 +55,8 @@
           <Property Name="accident_count_rate" Type="varchar" MaxLength="50" />
           <Property Name="fatal_accident_percent" Type="float" />
           <Property Name="serious_accident_percent" Type="float" />
-          <Property Name="other_accident_percent" Type="float" />
-          <Property Name="offence_count" Type="float" />
+          <Property Name="light_accident_percent" Type="float" />
+          <Property Name="offence_count" Type="int" />
           <Property Name="crime_rate" Type="varchar" MaxLength="50" />
           <Property Name="crime_offence_count" Type="float" />
           <Property Name="crime_offence_percent" Type="float" />
@@ -65,20 +67,19 @@
           <Property Name="theft_offence_count" Type="float" />
           <Property Name="theft_offence_percent" Type="float" />
           <Property Name="theft_rate" Type="varchar" MaxLength="50" />
-          <Property Name="expensive_ranking" Type="int" />
+          <Property Name="expensive_ranking" Type="float" />
           <Property Name="buy_house_3br_string" Type="varchar" MaxLength="50" />
           <Property Name="buy_unit_2br_string" Type="varchar" MaxLength="50" />
           <Property Name="avg_house_price_3br" Type="varchar" MaxLength="50" />
           <Property Name="avg_unit_price_2br" Type="varchar" MaxLength="50" />
           <Property Name="Public_Transport_Freq" Type="int" />
-          <Property Name="nursery_shops" Type="int" />
-          <Property Name="cafes_count" Type="int" />
-          <Property Name="dining_count" Type="int" />
-          <Property Name="bar_count" Type="int" />
-          <Property Name="golf_count" Type="int" />
+          <Property Name="nursery_shops" Type="float" />
+          <Property Name="cafes_count" Type="float" />
+          <Property Name="dining_count" Type="float" />
+          <Property Name="bar_count" Type="float" />
+          <Property Name="golf_count" Type="float" />
           <Property Name="nearest_fishspot" Type="varchar" MaxLength="50" />
           <Property Name="distance_to_fishspot" Type="float" />
-          <Property Name="post_code" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <Function Name="sp_changes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="lifestyle" Type="nvarchar" Mode="In" />
@@ -235,7 +236,8 @@
             <PropertyRef Name="suburb_id" />
           </Key>
           <Property Name="suburb_id" Type="Int32" Nullable="false" />
-          <Property Name="suburb" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="suburb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="postcode" Type="Int32" />
           <Property Name="distance_to_city_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="distance_to_city" Type="Double" />
           <Property Name="travel_time_to_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -247,8 +249,9 @@
           <Property Name="industrial_percent" Type="Double" />
           <Property Name="other_percent" Type="Double" />
           <Property Name="health_services" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="health_service_count" Type="Double" />
           <Property Name="time_to_hospital_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="nearest_public_hospital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nearest_public_hospital" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="time_to_hospital" Type="Double" />
           <Property Name="distance_nearest_public_hospital" Type="Double" />
           <Property Name="disability_care_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -278,8 +281,8 @@
           <Property Name="accident_count_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="fatal_accident_percent" Type="Double" />
           <Property Name="serious_accident_percent" Type="Double" />
-          <Property Name="other_accident_percent" Type="Double" />
-          <Property Name="offence_count" Type="Double" />
+          <Property Name="light_accident_percent" Type="Double" />
+          <Property Name="offence_count" Type="Int32" />
           <Property Name="crime_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="crime_offence_count" Type="Double" />
           <Property Name="crime_offence_percent" Type="Double" />
@@ -290,20 +293,19 @@
           <Property Name="theft_offence_count" Type="Double" />
           <Property Name="theft_offence_percent" Type="Double" />
           <Property Name="theft_rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="expensive_ranking" Type="Int32" />
+          <Property Name="expensive_ranking" Type="Double" />
           <Property Name="buy_house_3br_string" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="buy_unit_2br_string" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="avg_house_price_3br" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="avg_unit_price_2br" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Public_Transport_Freq" Type="Int32" />
-          <Property Name="nursery_shops" Type="Int32" />
-          <Property Name="cafes_count" Type="Int32" />
-          <Property Name="dining_count" Type="Int32" />
-          <Property Name="bar_count" Type="Int32" />
-          <Property Name="golf_count" Type="Int32" />
+          <Property Name="nursery_shops" Type="Double" />
+          <Property Name="cafes_count" Type="Double" />
+          <Property Name="dining_count" Type="Double" />
+          <Property Name="bar_count" Type="Double" />
+          <Property Name="golf_count" Type="Double" />
           <Property Name="nearest_fishspot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="distance_to_fishspot" Type="Double" />
-          <Property Name="post_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -318,7 +320,6 @@
           <EntitySetMapping Name="rating_it3">
             <EntityTypeMapping TypeName="SuburbDataModel.rating_it3">
               <MappingFragment StoreEntitySet="rating_it3">
-                <ScalarProperty Name="post_code" ColumnName="post_code" />
                 <ScalarProperty Name="distance_to_fishspot" ColumnName="distance_to_fishspot" />
                 <ScalarProperty Name="nearest_fishspot" ColumnName="nearest_fishspot" />
                 <ScalarProperty Name="golf_count" ColumnName="golf_count" />
@@ -343,7 +344,7 @@
                 <ScalarProperty Name="crime_offence_count" ColumnName="crime_offence_count" />
                 <ScalarProperty Name="crime_rate" ColumnName="crime_rate" />
                 <ScalarProperty Name="offence_count" ColumnName="offence_count" />
-                <ScalarProperty Name="other_accident_percent" ColumnName="other_accident_percent" />
+                <ScalarProperty Name="light_accident_percent" ColumnName="light_accident_percent" />
                 <ScalarProperty Name="serious_accident_percent" ColumnName="serious_accident_percent" />
                 <ScalarProperty Name="fatal_accident_percent" ColumnName="fatal_accident_percent" />
                 <ScalarProperty Name="accident_count_rate" ColumnName="accident_count_rate" />
@@ -375,6 +376,7 @@
                 <ScalarProperty Name="time_to_hospital" ColumnName="time_to_hospital" />
                 <ScalarProperty Name="nearest_public_hospital" ColumnName="nearest_public_hospital" />
                 <ScalarProperty Name="time_to_hospital_rate" ColumnName="time_to_hospital_rate" />
+                <ScalarProperty Name="health_service_count" ColumnName="health_service_count" />
                 <ScalarProperty Name="health_services" ColumnName="health_services" />
                 <ScalarProperty Name="other_percent" ColumnName="other_percent" />
                 <ScalarProperty Name="industrial_percent" ColumnName="industrial_percent" />
@@ -386,6 +388,7 @@
                 <ScalarProperty Name="travel_time_to_city" ColumnName="travel_time_to_city" />
                 <ScalarProperty Name="distance_to_city" ColumnName="distance_to_city" />
                 <ScalarProperty Name="distance_to_city_rate" ColumnName="distance_to_city_rate" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
                 <ScalarProperty Name="suburb" ColumnName="suburb" />
                 <ScalarProperty Name="suburb_id" ColumnName="suburb_id" />
               </MappingFragment>

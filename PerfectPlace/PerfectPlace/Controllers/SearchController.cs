@@ -329,17 +329,17 @@ namespace PerfectPlace.Controllers
 
             ViewBag.SearchResultPage = "SearchByLifeStyle";
 
-            if (suburbChange.Equals("I Want to Live Near by The Sea"))
+            if (suburbChange.Equals("I want to live near by the sea"))
             {
                 ViewBag.LifeStyle = "SeaChange";
                 return View(db.SearchBySuburbChange("sea change"));
             }
-            else if (suburbChange.Equals("I Want to Live Near by The Green"))
+            else if (suburbChange.Equals("I want to live near by the green"))
             {
                 ViewBag.LifeStyle = "TreeChange";
                 return View(db.SearchBySuburbChange("tree change"));
             }
-            else if (suburbChange.Equals("I Want to Live Near by The City"))
+            else if (suburbChange.Equals("I want to live near by the city"))
             {
                 ViewBag.LifeStyle = "CityChange";
                 return View(db.SearchBySuburbChange("city change"));
@@ -370,7 +370,7 @@ namespace PerfectPlace.Controllers
             var suburbs = from s in db.rating_it3 where s.suburb.Contains(inputSuburb) select s;
             if (suburbs.Count() == 0)
             {
-                suburbs = from s in db.rating_it3 where s.post_code.ToString().Equals(inputSuburb) select s;
+                suburbs = from s in db.rating_it3 where s.postcode.ToString().Equals(inputSuburb) select s;
             }
             if (suburbs.Count() == 0)
             {
@@ -397,7 +397,7 @@ namespace PerfectPlace.Controllers
             }
             else
             {
-                return null;
+                return View();
             }
             
         }
@@ -431,17 +431,17 @@ namespace PerfectPlace.Controllers
                     case "distanceToCBD":
                         return PartialView(modelList.OrderBy(s => s.distance_to_city));
                     case "commercialRate":
-                        return PartialView(modelList.OrderBy(s => s.commercial_rate));
+                        return PartialView(modelList.OrderByDescending(s => s.commercial_percent));
                     case "healthService":
                         return PartialView(modelList.OrderBy(s => s.health_services));
                     case "accidentRate":
-                        return PartialView(modelList.OrderBy(s => s.accident_count_rate));
+                        return PartialView(modelList.OrderBy(s => s.accident_count));
                     case "ageCareCenter":
                         return PartialView(modelList.OrderByDescending(s => s.aged_care));
                     case "timeToHospital":
                         return PartialView(modelList.OrderBy(s => s.time_to_hospital));
                     case "crimeRate":
-                        return PartialView(modelList.OrderBy(s => s.crime_rate));
+                        return PartialView(modelList.OrderBy(s => s.offence_count));
                     default:
                         return PartialView(modelList);
                 }
@@ -749,6 +749,7 @@ namespace PerfectPlace.Controllers
             {
                 ViewBag.suggestChange = "City Change";
             }
+            ViewBag.SearchResultPage = "SearchByLifeStyle";
             return View();
         }
     }

@@ -95,10 +95,10 @@
                                                     <a href="feature.html">Suburb</a>
                                                     @Html.ActionLink("Employee", "Index", "Employees")
                                                 </li>*@
-                                        <li class="@(ViewBag.Current == "Suburb"?"active":"")">
-                                            @*<a href="feature.html">Suburb</a>*@
+                                        @*<li class="@(ViewBag.Current == "Suburb"?"active":"")">
+                                            <a href="feature.html">Suburb</a>
                                             @Html.ActionLink("Suburb", "ShowAllSuburbs", "Search")
-                                        </li>
+                                        </li>*@
                                         <li class="@(ViewBag.Current == "About"?"active":"")">
                                             @*<a href="properties.html">About</a>*@
                                             @Html.ActionLink("About", "About", "Home")
@@ -203,7 +203,8 @@
                         <div class="single-footer-widget">
                             <h3 class="text-white text-uppercase mb-17">QUICK LINK</h3>
                             <ul class="footer-list">
-                                <li><a href="http://www.monash.edu/">Monash University</a></li>
+                                @*<li><a href="http://www.monash.edu/">Monash University</a></li>*@
+                                <li><a href="http://www.linkedin.com/in/bharathkumardk">Bharath Kumardk</a></li>
                                 @*<li><a href="#">Agent</a></li>
                                         <li><a href="#">Properties</a></li>
                                         <li><a href="#">Features</a></li>
@@ -215,7 +216,23 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <div class="single-footer-widget pull_right">
                             <h3 class="text-white text-uppercase mb-21">CONTACT US</h3>
-                            <div class="footer-contact-info mb-24">
+                            <div style="margin-bottom: 20px">
+                                <span>Sylvia</span><br/><br />
+                                <a href="mailto:sylvialishunhua@gmail.com">sylvialishunhua@gmail.com</a>
+                            </div>
+                            <div style="margin-bottom: 20px">
+                                <span>Jasper</span><br /><br />
+                                <a href="mailto:xxxshi724@gmail.com">xxxshi724@gmail.com</a>
+                            </div>
+                            <div style="margin-bottom: 20px">
+                                <span>Bharath</span><br /><br />
+                                <a href="mailto:bharath31kumar@gmail.com">bharath31kumar@gmail.com</a>
+                            </div>
+                            <div style="margin-bottom: 20px">
+                                <span>Declan</span><br /><br />
+                                <a href="mailto:declan.deng@outlook.com">declan.deng@outlook.com</a>
+                            </div>
+                            @*<div class="footer-contact-info mb-24">
                                 <img src="/Image/icons/f-map.png" alt="">
                                 <span class="pl-40 block">
                                     Monash University<br>
@@ -235,7 +252,7 @@
                                     Email : <a href="mailto:innovation@monash.edu">innovation@monash.edu</a><br>
                                     Web : <a href="http://www.monash.edu">www.monash.edu</a>
                                 </span>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>

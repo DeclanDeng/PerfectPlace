@@ -16,6 +16,7 @@ namespace PerfectPlace.Models
     {
         public int suburb_id { get; set; }
         public string suburb { get; set; }
+        public Nullable<int> postcode { get; set; }
         public string distance_to_city_rate { get; set; }
         public Nullable<double> distance_to_city { get; set; }
         public string travel_time_to_city { get; set; }
@@ -27,6 +28,7 @@ namespace PerfectPlace.Models
         public Nullable<double> industrial_percent { get; set; }
         public Nullable<double> other_percent { get; set; }
         public string health_services { get; set; }
+        public Nullable<double> health_service_count { get; set; }
         public string time_to_hospital_rate { get; set; }
         public string nearest_public_hospital { get; set; }
         public Nullable<double> time_to_hospital { get; set; }
@@ -58,8 +60,8 @@ namespace PerfectPlace.Models
         public string accident_count_rate { get; set; }
         public Nullable<double> fatal_accident_percent { get; set; }
         public Nullable<double> serious_accident_percent { get; set; }
-        public Nullable<double> other_accident_percent { get; set; }
-        public Nullable<double> offence_count { get; set; }
+        public Nullable<double> light_accident_percent { get; set; }
+        public Nullable<int> offence_count { get; set; }
         public string crime_rate { get; set; }
         public Nullable<double> crime_offence_count { get; set; }
         public Nullable<double> crime_offence_percent { get; set; }
@@ -70,19 +72,18 @@ namespace PerfectPlace.Models
         public Nullable<double> theft_offence_count { get; set; }
         public Nullable<double> theft_offence_percent { get; set; }
         public string theft_rate { get; set; }
-        public Nullable<int> expensive_ranking { get; set; }
+        public Nullable<double> expensive_ranking { get; set; }
         public string buy_house_3br_string { get; set; }
         public string buy_unit_2br_string { get; set; }
         public string avg_house_price_3br { get; set; }
         public string avg_unit_price_2br { get; set; }
         public Nullable<int> Public_Transport_Freq { get; set; }
-        public Nullable<int> nursery_shops { get; set; }
-        public Nullable<int> cafes_count { get; set; }
-        public Nullable<int> dining_count { get; set; }
-        public Nullable<int> bar_count { get; set; }
-        public Nullable<int> golf_count { get; set; }
+        public Nullable<double> nursery_shops { get; set; }
+        public Nullable<double> cafes_count { get; set; }
+        public Nullable<double> dining_count { get; set; }
+        public Nullable<double> bar_count { get; set; }
+        public Nullable<double> golf_count { get; set; }
         public string nearest_fishspot { get; set; }
         public Nullable<double> distance_to_fishspot { get; set; }
-        public string post_code { get; set; }
     }
 }

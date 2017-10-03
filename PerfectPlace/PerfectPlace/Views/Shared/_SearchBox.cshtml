@@ -2,6 +2,10 @@
       rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.0/sweetalert2.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.0/sweetalert2.min.js"></script>
+
+
 <div class="banner-content">
 <div class="display-table pull_left">
 <div class="display-table-cell">
@@ -16,8 +20,8 @@
     }
     else
     {
-        selectedTab = @ViewBag.SearchResultPage == "SearchByPreference" ? "active" : "";
-        selectedBox = @ViewBag.SearchResultPage == "SearchByPreference" ? "tab-pane fade in active banner-form" : "tab-pane fade banner-form";
+            selectedTab = @ViewBag.SearchResultPage == "SearchByPreference" ? "active" : "";
+            selectedBox = @ViewBag.SearchResultPage == "SearchByPreference" ? "tab-pane fade in active banner-form" : "tab-pane fade banner-form";
     }
 
 }
@@ -40,7 +44,6 @@
                 <form action="#" class="col-10">
                     <div class="form-box mb-40 pl-15 pr-15">
                         <div class="select" style="border: none; font-size: 16px;">
-                            @Html.AntiForgeryToken()
                             <div style="margin-bottom: 3px;">
                                 @if (@ViewBag.veryNearDistanceToCity == null)
                                 {
@@ -221,9 +224,9 @@
             @using (Html.BeginForm("Index", "Search", FormMethod.Post))
             {
                 <form action="#" class="col-10">
-                    <input type="submit" name="suburbChange" id="seaChangeBtn" value="I Want to Live Near by The Sea" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("Index", "Search")'" />
-                    <input type="submit" name="suburbChange" id="treeChangeBtn" value="I Want to Live Near by The Green" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("Index", "Search")'" />
-                    <input type="submit" name="suburbChange" id="cityChangeBtn" value="I Want to Live Near by The City" class="button search_price lemon mb-21" style="width: 100%" onclick="location.href = '@Url.Action("Index", "Search")'" />
+                    <input type="submit" name="suburbChange" id="seaChangeBtn" value="I want to live near by the sea" class="button search_price lemon mb-21" style="width: 100%; font-weight: bold" onclick="location.href = '@Url.Action("Index", "Search")'" />
+                    <input type="submit" name="suburbChange" id="treeChangeBtn" value="I want to live near by the green" class="button search_price lemon mb-21" style="width: 100%; font-weight: bold" onclick="location.href = '@Url.Action("Index", "Search")'"/>
+                    <input type="submit" name="suburbChange" id="cityChangeBtn" value="I want to live near by the city" class="button search_price lemon mb-21" style="width: 100%; font-weight: bold" onclick="location.href = '@Url.Action("Index", "Search")'"/>
 
                 </form>
             }
@@ -249,8 +252,8 @@
                     </div>
 
                     <div class="form-box pl-15 pr-15 large" style="padding-left: 0px">
-                        @*<button id="suburbSearchBtn" name="search_by_suburb" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("SearchBySuburb", "Search")'"><span><span>SEARCH SUBURB</span></span></button>*@
-                        <input type="submit" name="searchBySuburbBtn" value="SEARCH SUBURB" class="button search_price lemon mb-21" style="font-weight: bold; font-size: 16px" onclick="location.href = '@Url.Action("Index", "Search")'" />
+                        @*<button id="suburbSearchBtn" name="search_by_suburb" type="submit" class="button search_price lemon mt-55 mb-21" onclick="location.href = '@Url.Action("SearchBySuburb", "Search")'"><span><span>SEARCH SUBURB</span></span></button> onclick="location.href = '@Url.Action("Index", "Search")'"*@
+                        <input id="inputSuburbBtn" type="submit" name="searchBySuburbBtn" value="SEARCH SUBURB" class="button search_price lemon mb-21" style="font-weight: bold; font-size: 16px" />
                     </div>
                 </form>
             }
@@ -263,7 +266,15 @@
 </div>
 </div>
 </div>
-
+<script>
+    $('#inputSuburbBtn').click(function(e) {
+        if (!$('#inputSuburb').val()) {
+            //e.preventDefault();
+            swal('Please input the keyword!');
+            return false;
+        }
+    });
+</script>
 <script>
     $(function () {
         KeywordPredict();
@@ -281,7 +292,7 @@
                     });
                 $.each(data,
                     function (k, v) {
-                        availableTags.push(v.post_code);
+                        availableTags.push(v.postcode);
                     });
 
                 $("#inputSuburb").autocomplete({

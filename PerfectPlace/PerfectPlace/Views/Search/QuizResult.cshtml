@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
+@*<style>
     .caret {
         display: inline-block;
         width: 0;
@@ -55,8 +55,36 @@
     input.button.search_price.lemon.mb-21:hover {
         color: gray;
     }
-</style>
+</style>*@
+<style>
+    .nav-tabs > li > a {
+        background-color: #fff;
+    }
 
+    .banner-form .button:hover {
+        background: #fff;
+        color: #808080;
+    }
+
+    input.button.search_price.lemon.mb-21 {
+        color: white;
+    }
+
+    input.button.search_price.lemon.mb-21:hover {
+        color: gray;
+    }
+
+    #quiz {
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: underline;
+        color: white;
+    }
+
+    #quiz:hover {
+        color: cornflowerblue;
+    }
+</style>
 <div class="container" style="    margin: 0px;    padding: 0px;    width: 100%;">
     <h2 style=" padding-top: 10px; padding-left: 10px; padding-bottom: 10px; background-color: darkgrey; color: white;">Quiz Result</h2>
     <br /><br /><br />
@@ -68,8 +96,9 @@
                 <table class="table" style="">
                     <tbody>
                     <tr>
-                        <td style="   border-top: none;   ">
-                            <div class="banner-content">
+                        <td style="border-top: none;">
+                            @Html.Partial("_SearchBox")
+                            @*<div class="banner-content">
                                 <div class="display-table pull_left">
                                     <div class="display-table-cell">
                                         <ul class="nav nav-tabs">
@@ -202,7 +231,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                         </td>
                     </tr>
                     </tbody>

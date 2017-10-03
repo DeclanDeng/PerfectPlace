@@ -26,13 +26,16 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.0/sweetalert2.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.0/sweetalert2.min.js"></script>
 
-
-<script type="text/javascript">
+@*<script type="text/javascript">
     $(document).ready(function () {
         $('#example').DataTable();
     });
-</script>
+
+</script>*@
 
 <style>
         /****************************************/
@@ -43,6 +46,15 @@
 
     a:active {
         outline: none;
+    }
+
+    th, td {
+        text-align: center;
+        border: 1px solid white;
+        cellpadding: 5px;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 5px;
     }
 
     #sideBar {
@@ -395,6 +407,14 @@
         font-weight: 600;
         text-shadow: 0px 1px 0px rgba(250,250,250, .75);
     }
+
+    ul.list-group.list-group-flush.text-center {
+        text-align: left;
+    }
+
+    .swal2-modal.swal2-show {
+        margin-top: 300px;
+    }
 </style>
 
 
@@ -428,8 +448,8 @@
                     <li class="list-group-item"><i class="icon-ok text-danger"></i> House Price (3 bedrooms): $@Model.SuburbListDataCompare.FirstOrDefault().buy_house_3br_string</li>
                 </ul>
                 <div class="panel-footer">
-                    @*<a class="btn btn-lg btn-block btn-danger" href="#">infographics</a>*@
-                    @*@Html.ActionLink("Details", "Details", "Suburb", new { id = @Model.SuburbListDataCompare.FirstOrDefault().suburb_id }, null)*@
+                    <a class="btn btn-lg btn-block btn-danger" href="@Url.Action("Details", "Suburb", new { id = @Model.SuburbListDataCompare.FirstOrDefault().suburb_id, lay = 1 }, null)">Infographics</a>
+                    @*@Html.ActionLink("Details", "Details", "Suburb", new { id = @Model.SuburbListDataCompare.FirstOrDefault().suburb_id, lay = 1 }, null)*@
                 </div>
             </div>
             <!-- /PRICE ITEM -->
@@ -461,9 +481,8 @@
 
                 </ul>
                 <div class="panel-footer">
-                    @*<a class="btn btn-lg btn-block btn-danger" href="#">infographics</a>*@
-                    @*@Html.ActionLink("Details", "Details", "Suburb", new { id = @Model.SuburbListDataCompare.LastOrDefault().suburb_id }, null)*@
-                    
+                    <a class="btn btn-lg btn-block btn-danger" href="@Url.Action("Details", "Suburb", new { id = @Model.SuburbListDataCompare.LastOrDefault().suburb_id, lay = 1 }, null)">Infographics</a>
+                    @*@Html.ActionLink("Details", "Details", "Suburb", new { id = @Model.SuburbListDataCompare.LastOrDefault().suburb_id, lay = 1 }, null)*@
                 </div>
             </div>
             <!-- /PRICE ITEM -->
@@ -475,13 +494,13 @@
                     <h3>Map</h3>
                 </div>
                 <div style="height:100%;width:100%;">
-                    <div style="height:680px;width:95%;position:absolute" id="map"></div>
+                    <div style="height:720px;width:95%;position:absolute" id="map"></div>
                 </div>
                 @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25188.552948867506!2d145.0385648897241!3d-37.89375820320979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6698e96878b6f%3A0x5045675218cdc40!2sCarnegie+VIC+3163%2C+Australia!5e0!3m2!1sen!2sin!4v1505921790291" width="100%" height="620px" frameborder="0" style="border: 0" allowfullscreen></iframe>*@
 
-                <div class="panel-footer">
+                @*<div class="panel-footer">
                     <a class="btn btn-lg btn-block btn-danger" href="#">infographics</a>
-                </div>
+                </div>*@
             </div>
 
         </div>
@@ -496,7 +515,7 @@
     <!-- Modal -->
     <div class="modal left fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
-            <div class="modal-content" style="width:750px;">
+            <div class="modal-content" style="width:780px;">
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -514,7 +533,7 @@
                                   {
                                       <tr>
                                           <th>&nbsp;&nbsp;&nbsp;</th>
-                                          <th>suburb</th>
+                                          <th>Suburb</th>
                                           <th>Frequency of Public Transportation (min)</th>
                                           <th>Number of Golf Court</th>
                                           <th>Distance to the Fishing Spots (Km)</th>
@@ -534,7 +553,7 @@
                                   {
                                       <tr>
                                           <th>&nbsp;&nbsp;&nbsp;</th>
-                                          <th>suburb</th>
+                                          <th>Suburb</th>
                                           <th>Apartment Price (2 bedrooms)</th>
                                           <th>Number of Cafe</th>
                                           <th>Number of Dining</th>
@@ -649,7 +668,7 @@
 
                         </table>
 
-                        <input class="btn btn-primary" type="submit" value="Compare" />
+                        <input id ="compareBtn" class="btn btn-primary" type="submit" value="Compare" />
                     </form>
 
                 </div>
@@ -660,7 +679,6 @@
 
 </div>
 
-
 @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script type="text/javascript">
@@ -670,97 +688,196 @@
         $('#example').DataTable({
             "order": []
         });
+
+        window.parent.document.getElementById('myIframe').height = '1000px';
+        
     })(jQuery);
 
 </script>
 <script>
-    var places = [];
-    var lat = [];
-    var lng = [];
-    var titleName = [];
-    
+    jQuery('.compareCheckBox').click(function () {
+        //alert("click");
+        var bol = jQuery(".compareCheckBox:checked").length >= 2;
+        jQuery(".compareCheckBox").not(":checked").attr("disabled", bol);
+    });
+    jQuery('#compareBtn').click(function () {
+        //alert('check');
+        if (jQuery(".compareCheckBox:checked").length < 2 || jQuery(".compareCheckBox:checked").length > 2) {
+            swal('Please select two suburbs!');
+            return false;
+        }
+
+    });
+    //$(document).on("click", ".compareCheckBox", function (e) {
+    //    alert("test");
+    //    swal('Please select two suburbs!');
+    //    return false;
+    //});
+
+    //function test() {
+    //    //alert("test");
+    //    if (jQuery(".comparePageCheckBox:checked").length < 2 || jQuery(".comparePageCheckBox:checked").length > 2) {
+    //        swal('Please select two suburbs!');
+    //        return false;
+    //    }
+    //}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzyHUCqA_nmFYRy9Dpf2bUmPUjpJaHmRI"></script>
+<script type="text/javascript">
+
+    var latlng_cmp = [];
+    var bound_cmp = [];
+    var completeName = [];
+
+
     (function ($) {
-        
+
+        var places = [];
         places.push($('#suburbName1').text());
         places.push($('#suburbName2').text());
 
-        $.each(places,
-            function (key, val) {
-                addLocation(val);
-            });
+        $.each(places, function (key, val) {
+            var res = GetLatLng(val);
+            latlng_cmp.push(res);
+        });
 
     })(jQuery);
+    //https://maps.googleapis.com/maps/api/geocode/json?address=Burnley&%E2%80%8Cregion=es&key=AIzaSyB1F_18NdPhEf8BftCYLByeaXZzmnFDb5A&components=country:AU
+    https://maps.googleapis.com/maps/api/geocode/json?address=" + val + "&region=es&key=AIzaSyB1F_18NdPhEf8BftCYLByeaXZzmnFDb5A
+        function GetLatLng(val) {
 
-    function addLocation(name) {
-        jQuery.getJSON(
-            "https://maps.googleapis.com/maps/api/geocode/json?address=" + name + "&region=au&key=AIzaSyB1F_18NdPhEf8BftCYLByeaXZzmnFDb5A",
-            function (result) {
-                jQuery.each(result.results["0"].geometry.location,
-                    function (key, val) {
-                        console.log(key, val);
-                        //var latValue, lngValue;
-                        if (key == 'lat') {
-                            //latValue = val;
-                            lat.push(val);
-                        } else if (key == 'lng') {
-                            //lngValue = val;
-                            lng.push(val);
-                        }
-                        //initMap(Number(lat), Number(lng));
-                        //titleName.push(name);
-                        
+            var latlng = [];
+
+            jQuery.ajax({
+                url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + val + ",VIC" + "&%E2%80%8Cregion=es&key=AIzaSyB1F_18NdPhEf8BftCYLByeaXZzmnFDb5A&components=country:AU",
+                dataType: 'json',
+                async: false,
+                data: null,
+                success: function (result) {
+                    var lat = '';
+                    var lng = '';
+                    jQuery.each(result.results["0"].geometry.location, function (key, val) {
+
+                        if (key == 'lat')
+                        { lat = val; }
+                        else if (key == 'lng')
+                        { lng = val; }
+
                     });
-                console.log(result);
-                
+                    latlng.push({ "lat": "" + lat + "", "lng": "" + lng + "" });
+
+
+                    jQuery.each(result.results["0"].geometry.bounds.northeast, function (key, val) {
+
+                        if (key == 'lat')
+                        { lat = val; }
+                        else if (key == 'lng')
+                        { lng = val; }
+
+                    });
+                    bound_cmp.push({ "lat": "" + lat + "", "lng": "" + lng + "" });
+                    jQuery.each(result.results["0"].geometry.bounds.southwest, function (key, val) {
+
+                        if (key == 'lat')
+                        { lat = val; }
+                        else if (key == 'lng')
+                        { lng = val; }
+
+                    });
+                    bound_cmp.push({ "lat": "" + lat + "", "lng": "" + lng + "" });
+
+                    completeName.push(result.results["0"].formatted_address);
+
+                }
             });
-        titleName.push(name);
+
+            return latlng;
+        }
+
+
+    function GetValueUsingKey(arr, keyy) {
+        var res = 0;
+        jQuery.each(arr[0], function (key, val) {
+
+
+            if (keyy == key)
+                res = val;
+
+        });
+
+        return res;
+    }
+    function GetValueUsingKey2(arr, keyy) {
+        var res = 0;
+        jQuery.each(arr, function (key, val) {
+
+
+            if (keyy == key)
+                res = val;
+
+        });
+
+        return res;
     }
 
-    function initMap() {
-        console.log('initmap');
-        //addLocation();
-        //var suburbLocation = {
-        //    suburbLat: Number(lat),
-        //    suburbLng: Number(lng)
-        //};
-        console.log("suburb location");
-        console.log(places);
-        //var latlng = new google.maps.LatLng(-37.8840, 145.0266);
-        var latlng1 = new google.maps.LatLng(Number(lat[0]), Number(lng[0]));
-        var latlng2 = new google.maps.LatLng(Number(lat[1]), Number(lng[1]));
-        var map = new google.maps.Map(document.getElementById('map'),
-            {
-                zoom: 10,
-                center: latlng1
-            });
-        var marker1, marker2;
-        marker1 = new google.maps.Marker({
-            position: latlng1,
-            map: map,
-            title: titleName[0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var lat1 = GetValueUsingKey(latlng_cmp[0], 'lat');
+    var long1 = GetValueUsingKey(latlng_cmp[0], 'lng');
+    var lat2 = GetValueUsingKey(latlng_cmp[1], 'lat');
+    var long2 = GetValueUsingKey(latlng_cmp[1], 'lng');
+
+
+    var locations = [
+        ["" + completeName[0] + "", lat1, long1],
+        ["" + completeName[1] + "", lat2, long2]
+    ];
+
+    //var locations = [
+    //  ['Bondi Beach', -33.890542, 151.274856, 4],
+    //  ['Coogee Beach', -33.923036, 151.259052, 5],
+    //  ['Cronulla Beach', -34.028249, 151.157507, 3],
+    //  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+    //  ['Maroubra Beach', -33.950198, 151.259302, 1]
+    //];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: new google.maps.LatLng(lat1, long1),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
         });
-        marker2 = new google.maps.Marker({
-            position: latlng2,
-            map: map,
-            title: titleName[1]
-        });
-        
+
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
     }
-    //function initMap() {
-    //    console.log('initmap');
-    //    //25.024572, 67.045431       geocoding AIzaSyB1F_18NdPhEf8BftCYLByeaXZzmnFDb5A
-    //    var uluru = { lat: 39.8628316, lng: -4.027323099999999 };
-    //    var map = new google.maps.Map(document.getElementById('map'), {
-    //        zoom: 10,
-    //        center: uluru
-    //    });
-    //    var marker = new google.maps.Marker({
-    //        position: uluru,
-    //        map: map
-    //    });
-    //}
 </script>
-<script async=async defer=defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzyHUCqA_nmFYRy9Dpf2bUmPUjpJaHmRI&callback=initMap"></script>
+
 </body>
 </html>
 

@@ -38,13 +38,15 @@
     window.onload = function () {
         setIframeHeight(document.getElementById('myIframe'));
     };
+    
 </script>
 
 @*<iframe scrolling="no" src="@Url.Action("Test1", Model)" onload="javascript: resizeIframe(this);"></iframe>*@
 <iframe id="myIframe" scrolling="no" src="@Html.Raw(Url.Action("Test2", Model))" onload="setIframeHeight(this)" frameborder="0"></iframe>
 @if (@ViewBag.lay == 0)
 {
-    <a href="javascript:void(0);" onclick="history.go(-1);" class="button search_price lemon mb-21">Back to List</a>
+    @*<a href="javascript:void(0);" onclick="window.history.go(-1); return false;" class="button search_price lemon mb-21">Back to List</a>*@
+    
     <div style="margin-bottom: 50px"></div>
 }
 

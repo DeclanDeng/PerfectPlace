@@ -26,14 +26,20 @@
 <script type="text/javascript" src="/Scripts/infographic/side-bar.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>*@
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.0/sweetalert2.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.0/sweetalert2.min.js"></script>
 <script type="text/javascript">
     //$(document).ready(function () {
     //    $("#myModal").modal('show');
@@ -161,6 +167,7 @@
     }
 
     th, td {
+        text-align: center;
         border: 1px solid white;
         cellpadding: 5px;
         color: #ffffff;
@@ -227,7 +234,7 @@
     .round {
         border-radius: 50%;
     }
-    .col-sm-7 {
+    /*.col-sm-7 {
         width: -webkit-fill-available;
     }
     div#example_length {
@@ -236,6 +243,19 @@
     div#example_filter {
         float: right;
         width: max-content;
+    }*/
+    .swal2-modal.swal2-show {
+        margin-top: 300px;
+    }
+
+    #returnBtn::after {
+        content: none;
+    }
+    #returnBtn {
+        height: 65px;
+        width: 250px;
+        font-size: large;
+        text-align: center;
     }
 </style>
 
@@ -526,7 +546,7 @@
                                     <td>@Html.DisplayFor(model => model.SuburbData.travel_time_to_city)</td>
                                     <td>@Math.Round(@Model.SuburbData.distance_to_city.Value, 1)</td>
                                 </tr>
-                            </table>" rel="tooltip" style="white-space:nowrap; color:#ffffff;"><span>Time to CBD<br/></span> <h4>@Html.DisplayFor(model => model.SuburbData.travel_time_to_city)</h4>
+                            </table>" rel="tooltip" style="white-space:nowrap; color:#ffffff;"><span>Time to CBD<br/></span> <h4>@Html.DisplayFor(model => model.SuburbData.travel_time_to_city)mins</h4>
                         </a>
                     </div>
                     <div class="wave left"></div>
@@ -542,7 +562,7 @@
                                 <tr>
                                     <td>@Math.Round(@Model.SuburbData.fatal_accident_percent.Value, 1)</td>
                                     <td>@Math.Round(@Model.SuburbData.serious_accident_percent.Value, 1)</td>
-                                    <td>@Math.Round(@Model.SuburbData.other_accident_percent.Value, 1)</td>
+                                    <td>@Math.Round(@Model.SuburbData.other_percent.Value, 1)</td>
                                 </tr>
                             </table>" rel="tooltip" style="white-space: nowrap; color:#ffffff;"><span>Road Accident Rate<h4> @Html.DisplayFor(model => model.SuburbData.accident_count_rate)</h4></span>
                         </a>
@@ -580,7 +600,7 @@
                                     <td>@Math.Round(@Model.SuburbData.rural_percent.Value, 1)</td>
                                     <td>@Math.Round(@Model.SuburbData.other_percent.Value, 1)</td>
                                 </tr>
-                            </table>" rel="tooltip" style="white-space: nowrap;"><span>Residential</span><span class="numder">@Html.DisplayFor(model => model.SuburbData.residential_rate)</span>
+                            </table>" rel="tooltip" style="white-space: nowrap;"><span>Residential<br/>Level</span><span class="numder">@Html.DisplayFor(model => model.SuburbData.residential_rate)</span>
                         </a>
 
                         <a href="#" id="ln_3" class="right" title="
@@ -597,7 +617,7 @@
                                     <td>$@Html.DisplayFor(model => model.SuburbData.buy_unit_2br_string)</td>
                                     <td>$@Html.DisplayFor(model => model.SuburbData.avg_unit_price_2br)</td>
                                 </tr>
-                            </table>" rel="tooltip" style="white-space: nowrap;"><span>House price<br/>(3 bedrooms)</span><span class="numder">$@Html.DisplayFor(model => model.SuburbData.avg_house_price_3br)</span>
+                            </table>" rel="tooltip" style="white-space: nowrap;"><span>House price<br/>(3 bedrooms)</span><span class="numder">$@Html.DisplayFor(model => model.SuburbData.buy_house_3br_string)</span>
                         </a>
                         <a href="#" id="ln_5" class="right" title="
                             <table>
@@ -637,7 +657,7 @@
             <div class="main white">
 
                 <div id="about" class="eco">
-                    <a href="#" class="item" class="right" title="
+                    @*<a href="#" class="item" class="right" title="
                         <table>
                             <tr>
                                 <td>Service Name</td>
@@ -649,36 +669,35 @@
                                 <td>-</td>
                                 <td>-</td>
                             </tr>
-                        </table>" rel="tooltip" style="white-space: nowrap;"><img src="/Image/infographic/eco/8.png" alt=""><span style="font-size: 18px">Aged care center<br/> <b>4</b></span>
+                        </table>" rel="tooltip" style="white-space: nowrap;"><img src="/Image/infographic/eco/8.png" alt=""><span style="font-size: 18px">Aged care center<br/> <b>@Html.DisplayFor(model => model.SuburbData.aged_care)</b></span>
+                    </a>*@
+                    <a href="#" class="item" class="right" title="" rel="tooltip" style="white-space: nowrap;">
+                        <img src="/Image/infographic/eco/8.png" alt=""><span style="font-size: 18px">Aged care center<br/> <b>@Html.DisplayFor(model => model.SuburbData.aged_care)</b></span>
                     </a>
                     <a href="#" style="margin-left: 80px; margin-right: 80px" class="item" class="right" title="
                        <table>
                         <tr>
-                           <td>1st Nationality</td>
                            <td>2nd Nationality</td>
                            <td>3rd Nationality</td>
                            <td>4th Nationality</td>
                            <td>5th Nationality</td>
                            </tr>
                         <tr>
-                           <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_1)</td>
                            <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_2)</td>
                            <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_3)</td>
                            <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_4)</td>
                            <td>@Html.DisplayFor(model => model.SuburbData.top_country_of_birth_5)</td>
                            </tr>
-                        </table>" rel="tooltip" style="white-space: nowrap;"><img src="/Image/infographic/eco/9.png" alt=""><span>Major Nationalities<br/><b> @Html.DisplayFor(model => model.SuburbData.top_country_of_birth_1)</b></span></a>
+                        </table>" rel="tooltip" style="white-space: nowrap;"><img src="/Image/infographic/eco/9.png" alt=""><span>Major Nationality<br/><b> @Html.DisplayFor(model => model.SuburbData.top_country_of_birth_1)</b></span></a>
                     <a href="#" class="item" class="right" title="
                        <table>
                         <tr>
-                           <td>1st Language Spoken</td>
                            <td>2nd Language Spoken</td>
                            <td>3rd Language Spoken</td>
                            <td>4th Language Spoken</td>
                            <td>5th Language Spoken</td>
                            </tr>
                         <tr>
-                           <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_1)</td>
                            <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_2)</td>
                            <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_3)</td>
                            <td>@Html.DisplayFor(model => model.SuburbData.top_language_spoken_4)</td>
@@ -769,7 +788,7 @@
     
     </div>
 
-
+<a id="returnBtn" href="javascript:history.back()" class="button search_price lemon mb-21">Back to List</a>
 
 </body>
 
@@ -779,7 +798,7 @@
     <!-- Modal -->
     <div class="modal left fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
-            <div class="modal-content" style="width:650px;">
+            <div class="modal-content" style="width:800px;">
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -797,7 +816,7 @@
                                   {
                                       <tr>
                                           <th>&nbsp;&nbsp;&nbsp;</th>
-                                          <th>suburb</th>
+                                          <th>Suburb</th>
                                           <th>Frequency of Public Transportation (min)</th>
                                           <th>Number of Golf Court</th>
                                           <th>Distance to the Fishing Spots (Km)</th>
@@ -807,7 +826,7 @@
                                   {
                                       <tr>
                                           <th>&nbsp;&nbsp;&nbsp;</th>
-                                          <th>suburb</th>
+                                          <th>Suburb</th>
                                           <th>Distance to the Nearest Hospital (Km)</th>
                                           <th>Frequency of Public Transportation (min)</th>
                                           <th>Number of Nursery Shops</th>
@@ -817,7 +836,7 @@
                                   {
                                       <tr>
                                           <th>&nbsp;&nbsp;&nbsp;</th>
-                                          <th>suburb</th>
+                                          <th>Suburb</th>
                                           <th>Apartment Price (2 bedrooms)</th>
                                           <th>Number of Cafe</th>
                                           <th>Number of Dining</th>
@@ -851,17 +870,17 @@
                                            @*<tr><td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;@item.suburb_id</td>*@ 
                                            <tr><td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;</td> 
                                                <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td> 
-                                     <td>@item.Public_Transport_Freq</td> 
+                                               <td>@item.Public_Transport_Freq</td> 
                                                <td>@item.golf_count</td> 
-                                     <td>@Math.Round(item.distance_to_fishspot.Value, 1)</td> </tr>
+                                               <td>@Math.Round(item.distance_to_fishspot.Value, 1)</td> </tr>
                                        }
                                        else if (@ViewBag.LifeStyle == "TreeChange")
                                        {
                                            <tr> <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;</td> 
                                                <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td> 
-                                     <td>@Math.Round(item.distance_nearest_public_hospital.Value, 1)</td> 
+                                               <td>@Math.Round(item.distance_nearest_public_hospital.Value, 1)</td> 
                                                <td>@item.Public_Transport_Freq</td> 
-                                     <td>@item.nursery_shops</td> </tr>
+                                               <td>@item.nursery_shops</td> </tr>
                                        }
                                        else if (@ViewBag.LifeStyle == "CityChange")
                                        {
@@ -877,7 +896,7 @@
                                  {
                                      <tr>
                                          <td><input class="compareCheckBox" type="checkbox" name="suburbb" value="@item.suburb_id">&nbsp;</td>
-                                         <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null) </td>
+                                         <td>@Html.ActionLink(@item.suburb, "Details", "Suburb", new { id = item.suburb_id, lay = 1 }, null)</td>
                                          <td>@Math.Round(item.distance_to_city.Value, 1)</td>
                                          <td>@item.commercial_rate</td>
                                          <td>@item.health_services</td>
@@ -926,7 +945,7 @@
 
                         </table>
 
-                        <input class="btn btn-primary" type="submit" value="Compare">
+                        <input id="compareBtn" class="btn btn-primary" type="submit" value="Compare">
                     </form>
 
                 </div>
@@ -965,6 +984,13 @@
     $('.compareCheckBox').click(function() {
         var bol = $(".compareCheckBox:checked").length >= 2;
         $(".compareCheckBox").not(":checked").attr("disabled", bol);
+    });
+    $('#compareBtn').click(function() {
+        if ($(".compareCheckBox:checked").length < 2 || $(".compareCheckBox:checked").length > 2) {
+            swal('Please select two suburbs!');
+            return false;
+        }
+        
     });
 </script>
 <script type="text/javascript" src="/Scripts/infographic/jquery.cookie.js"></script>

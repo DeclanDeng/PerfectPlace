@@ -20,7 +20,7 @@ namespace PerfectPlace.Controllers
 
         public JsonResult KeywordPredict()
         {
-            var rating = context.rating_it3.Select(s => new {s.suburb, s.post_code});
+            var rating = context.rating_it3.Select(s => new {s.suburb, s.postcode});
             return Json(rating, JsonRequestBehavior.AllowGet);
         }
 

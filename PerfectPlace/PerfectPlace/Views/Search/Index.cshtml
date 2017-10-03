@@ -78,7 +78,7 @@
 </style>*@
 
 <div class="container" style="    margin: 0px;    padding: 0px;    width: 100%;">
-    <h2 style="    padding-top: 10px;    padding-left: 10px;    padding-bottom: 10px;    background-color: darkgrey;    color: white;">Search Result</h2>
+    @*<h2 style="    padding-top: 10px;    padding-left: 10px;    padding-bottom: 10px;    background-color: darkgrey;    color: white;">Search Result</h2>*@
     <br /><br /><br />
     @if (@ViewBag.SearchResultPage == "SearchByPreference" && @ViewBag.veryNearDistanceToCity == null && @ViewBag.veryHighMoreshops == null && @ViewBag.veryHighHealthServices == null
          && @ViewBag.lowAccidentRate == null && @ViewBag.veryHighMoreAgedcare == null && @ViewBag.veryLessTimeToHospital == null
@@ -111,9 +111,17 @@
                     </table>
                 </td>
 
-                <td style="width: 65%;vertical-align: top;min-width: 320px;display: inline-block;text-align:left;margin-right:8px">
-                    <div style="padding-left:9px">
-                        <table style=" padding-left: 5px;   height: 50px;">
+                <td style="width: 65%; vertical-align: top; min-width: 320px; display: inline-block; text-align: left; margin-right: 8px">
+                @if (@ViewBag.noResult != null && @ViewBag.noResult.Equals("true"))
+                {
+                    <h2>Sorry, there is no result according to your input.</h2>
+                    <br/>
+                    <h3>Please input another words.</h3>
+                }
+                else
+                {
+                    <div style="padding-left: 9px">
+                        <table style="padding-left: 5px; height: 50px; width: 100%">
                             <tbody>
                             <tr style="padding-left: 5px;">
                                 <th style="font-size: 25px; border-top: none;">
@@ -126,42 +134,42 @@
                                         @:Suburb
                                     }
                                 </th>
-                                <th style="border-top: none;">
+                                <th style="border-top: none; width: 280px">
                                     @if (@ViewBag.SearchResultPage == "SearchByPreference")
                                     {
                                         <select name="SortParam" onchange="SortSuburb(this.value)">
-                                            <option value="0">--Select--</option>
-                                            <option value="distanceToCBD">Distance to CBD</option>
-                                            @*<option value="commercialRate">Commercial Rate</option>
-                                            <option value="healthService">Health Service</option>
-                                            <option value="accidentRate">Accident Rate</option>*@
-                                            <option value="ageCareCenter">Aged Care Center</option>
-                                            <option value="timeToHospital">Time to Hospital</option>
-                                            @*<option value="crimeRate">Crime Rate</option>*@
+                                            <option value="0">Filter by</option>
+                                            <option value="distanceToCBD">Near CBD</option>
+                                            <option value="commercialRate">More Shops</option>
+                                            <option value="healthService">More Health Services</option>
+                                            <option value="accidentRate">Low Accident Rate</option>
+                                            <option value="ageCareCenter">More Aged Care Centers</option>
+                                            <option value="timeToHospital">Near Hospitals</option>
+                                            <option value="crimeRate">Low Crime Rate</option>
                                         </select>
                                     }
                                     else if (@ViewBag.SearchResultPage == "SearchByLifeStyle")
                                     {
                                         <select name="SortParam" onchange="SortSuburb(this.value)">
-                                            <option value="0">--Select--</option>
+                                            <option value="0">Filter by</option>
                                             @if (@ViewBag.LifeStyle == "SeaChange")
                                             {
-                                                <option value="frequencyBySea">Frequency of Public Transportation</option>
-                                                <option value="golfCourt">Number of Golf Court</option>
-                                                <option value="fishingSpot">Distance to the Fishing Spot</option>
+                                                <option value="frequencyBySea">More Frequent Public Transportation</option>
+                                                <option value="golfCourt">More Golf Courts</option>
+                                                <option value="fishingSpot">Near Fishing Spot</option>
                                             }
                                             else if (@ViewBag.LifeStyle == "TreeChange")
                                             {
-                                                <option value="nearestHospital">Distance to the Nearest Hospital</option>
-                                                <option value="frequencyByTree">Frequency of Public Transportation</option>
-                                                <option value="nurseryShops">Number of Nursery Shops</option>
+                                                <option value="nearestHospital">Near Hospital</option>
+                                                <option value="frequencyByTree">More Frequent Public Transportation</option>
+                                                <option value="nurseryShops">More Nursery Shops</option>
                                             }
                                             else if (@ViewBag.LifeStyle == "CityChange")
                                             {
-                                                <option value="apartmentPrice">Apartment Price(2 bedrooms)</option>
-                                                <option value="cafe">Number of Cafe</option>
-                                                <option value="dining">Number of Dining</option>
-                                                <option value="barClub">Number of Bar & Club</option>
+                                                <option value="apartmentPrice">Cheaper Apartment Price(2 bedrooms)</option>
+                                                <option value="cafe">More Cafe</option>
+                                                <option value="dining">More Dining</option>
+                                                <option value="barClub">More Bars & Clubs</option>
                                             }
                                             else
                                             {
@@ -175,63 +183,68 @@
                             </tbody>
                         </table>
                     </div>
-                    <div id="dvSortSuburb" style="    overflow: auto;    max-height: 570px;">
-                        <table class="table" style="overflow: auto;margin-bottom: 0px;">
+                    <div id="dvSortSuburb" style="overflow: auto; max-height: 570px;">
+                        <table class="table" style="overflow: auto; margin-bottom: 0px;">
                             <tbody>
                             @foreach (var item in Model.ToList())
                             {
                                 <tr>
-                                    <td style="border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
-                                        <div style="font-size: 25px;color: #2d80b1;font-weight: bold;">
+                                    <td style="border-top: none; background-color: #f1f1f1; border-bottom: 1px solid #ddd;">
+                                        <div style="font-size: 25px; color: #2d80b1; font-weight: bold;">
                                             @*@Html.DisplayFor(modelItem => item.suburb)*@
-                                            @Html.ActionLink(item.suburb, "Details", "Suburb", new { id = item.suburb_id }, null)
+                                            @Html.ActionLink(item.suburb, "Details", "Suburb", new {id = item.suburb_id}, null)
                                         </div>
                                         @if (@ViewBag.SearchResultPage == "SearchByLifeStyle")
                                         {
                                             @:@if (@ViewBag.LifeStyle == "SeaChange")
-                                             {
-                                                 @*<div>Sea Change</div>*@
-                                                 <div style="font-size: 16px;">Frequency of Public Transportation: @Html.DisplayFor(modelItem=>item.Public_Transport_Freq) mins</div>
-                                                 <div style="font-size: 16px;">Number of Golf Court: @Html.DisplayFor(modelItem => item.golf_count) </div>
-                                                 <div style="font-size: 16px;">Distance to the Fishing Spot: @Math.Round(item.distance_to_fishspot.Value,1) Km</div>
+                                              {
+                                                  @*<div>Sea Change</div>*@
+                                                  <div style="font-size: 16px;">Frequency of Public Transportation: @Html.DisplayFor(modelItem => item.Public_Transport_Freq) mins</div>
+                                                  <div style="font-size: 16px;">Number of Golf Court: @Html.DisplayFor(modelItem => item.golf_count) </div>
+                                                  <div style="font-size: 16px;">Distance to the Fishing Spot: @Math.Round(item.distance_to_fishspot.Value, 1) Km</div>
 
-                                             }
+                                              }
                                             @:@if (@ViewBag.LifeStyle == "TreeChange")
                                               {
                                                   @*<div>Tree Change</div>*@
-                                                  <div style="font-size: 16px;">Distance to the Nearest Hospital: @Math.Round(item.distance_nearest_public_hospital.Value,1) Km</div>
+                                                  <div style="font-size: 16px;">Distance to the Nearest Hospital: @Math.Round(item.distance_nearest_public_hospital.Value, 1) Km</div>
                                                   <div style="font-size: 16px;">Frequency of Public Transportation: @Html.DisplayFor(modelItem => item.Public_Transport_Freq) mins </div>
                                                   <div style="font-size: 16px;">Number of Nursery Shops: @Html.DisplayFor(modelItem => item.nursery_shops)</div>
                                               }
                                             @:@if (@ViewBag.LifeStyle == "CityChange")
                                               {
                                                   @*<div>City Change</div>*@
-                                                  <div style="font-size: 16px;">Apartment Price (2 bedrooms): $@Html.DisplayFor(modelItem=>item.buy_unit_2br_string)</div>
-                                                  <div style="font-size: 16px;">Number of Cafe: @Html.DisplayFor(modelItem=>item.cafes_count) </div>
+                                                  <div style="font-size: 16px;">Apartment Price (2 bedrooms): $@Html.DisplayFor(modelItem => item.buy_unit_2br_string)</div>
+                                                  <div style="font-size: 16px;">Number of Cafe: @Html.DisplayFor(modelItem => item.cafes_count) </div>
                                                   <div style="font-size: 16px;">Number of Dining: @Html.DisplayFor(modelItem => item.dining_count) </div>
                                                   <div style="font-size: 16px;">Number of Bar & Club: @Html.DisplayFor(modelItem => item.bar_count) </div>
                                               }
                                         }
                                         else
                                         {
-                                            <div style="font-size: 16px;">Distance to CBD: @Math.Round(item.distance_to_city.Value,1) Km</div>
-                                            <div style="font-size: 16px;">Commercial Rate: @Html.DisplayFor(modelItem => item.crime_rate) </div>
-                                            <div style="font-size: 16px;">Health Service: @Html.DisplayFor(modelItem => item.health_services) </div>
-                                            <div style="font-size: 16px;">Accident Rate: @Html.DisplayFor(modelItem => item.accident_count_rate) </div>
-                                            <div style="font-size: 16px;">Aged Care Center: @Html.DisplayFor(modelItem => item.aged_care) </div>
-                                            <div style="font-size: 16px;">Time to Hospital: @Math.Round(item.time_to_hospital.Value,1) mins </div>
-                                            <div style="font-size: 16px;">Crime Rate: @Html.DisplayFor(modelItem => item.crime_rate) </div>
+                                            <div style="float: left">
+                                                <div style="font-size: 16px;">Distance to CBD: @Math.Round(item.distance_to_city.Value, 1) Km </div>
+                                                <div style="font-size: 16px;">Commercial Rate: @Html.DisplayFor(modelItem => item.commercial_rate) </div>
+                                                <div style="font-size: 16px;">Health Service: @Html.DisplayFor(modelItem => item.health_services) </div>
+                                                <div style="font-size: 16px;">Accident Rate: @Html.DisplayFor(modelItem => item.accident_count_rate) </div>
+                                            </div>
+                                            <div style="float: right">
+                                                <div style="font-size: 16px;">Aged Care Center: @Html.DisplayFor(modelItem => item.aged_care) </div>
+                                                <div style="font-size: 16px;">Time to Hospital: @Math.Round(item.time_to_hospital.Value, 1) mins </div>
+                                                <div style="font-size: 16px;">Crime Rate: @Html.DisplayFor(modelItem => item.crime_rate) </div>
+                                            </div>
                                         }
-                                        
+
                                     </td>
-                                    <td style="vertical-align: bottom;border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
+                                    <td style="vertical-align: bottom; border-top: none; background-color: #f1f1f1; border-bottom: 1px solid #ddd;">
                                         @Html.ActionLink("Details", "Details", "Suburb", new {id = item.suburb_id}, null)
                                     </td>
                                 </tr>
-                                <tr><td><hr style="margin-top: 0px;margin-bottom: 5px;border: 0;"></td></tr>
+                                <tr><td><hr style="margin-top: 0px; margin-bottom: 5px; border: 0;"></td></tr>
                             }
                         </table>
                     </div>
+                }
                 </td>
             </tr>
             </tbody>

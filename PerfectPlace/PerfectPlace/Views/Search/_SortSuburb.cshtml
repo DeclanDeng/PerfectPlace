@@ -40,13 +40,17 @@
                 }
                 else
                 {
-                    <div style="font-size: 16px;">Distance to CBD: @Math.Round(item.distance_to_city.Value,1) Km</div>
-                    <div style="font-size: 16px;">Commercial Rate: @Html.DisplayFor(modelItem => item.crime_rate) </div>
-                    <div style="font-size: 16px;">Health Service: @Html.DisplayFor(modelItem => item.health_services) </div>
-                    <div style="font-size: 16px;">Accident Rate: @Html.DisplayFor(modelItem => item.accident_count_rate) </div>
-                    <div style="font-size: 16px;">Aged Care Center: @Html.DisplayFor(modelItem => item.aged_care) </div>
-                    <div style="font-size: 16px;">Time to Hospital: @Math.Round(item.time_to_hospital.Value,1) mins </div>
-                    <div style="font-size: 16px;">Crime Rate: @Html.DisplayFor(modelItem => item.crime_rate) </div>
+                    <div style="float: left">
+                        <div style="font-size: 16px;">Distance to CBD: @Math.Round(item.distance_to_city.Value, 1) Km </div>
+                        <div style="font-size: 16px;">Commercial Rate: @Html.DisplayFor(modelItem => item.commercial_rate)  </div>
+                        <div style="font-size: 16px;">Health Service: @Html.DisplayFor(modelItem => item.health_services) </div>
+                        <div style="font-size: 16px;">Accident Rate: @Html.DisplayFor(modelItem => item.accident_count_rate) </div>
+                    </div>
+                    <div style="float: right">
+                        <div style="font-size: 16px;">Aged Care Center: @Html.DisplayFor(modelItem => item.aged_care) </div>
+                        <div style="font-size: 16px;">Time to Hospital: @Math.Round(item.time_to_hospital.Value,1) mins </div>
+                        <div style="font-size: 16px;">Crime Rate: @Html.DisplayFor(modelItem => item.crime_rate) </div>
+                    </div>
                 }
             </td>
             <td style="vertical-align: bottom;border-top: none;background-color: #f1f1f1;border-bottom: 1px solid #ddd;">
